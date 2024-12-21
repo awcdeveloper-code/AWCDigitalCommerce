@@ -1,0 +1,373 @@
+﻿<Window x:Class="AWC.DigitalCommerce.TicketsController.wpfBartenderOrdersMonitor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController"
+        Closing="Window_Close"
+        mc:Ignorable="d" Background="DarkBlue" WindowStartupLocation="CenterScreen"
+        Title="AWC Bartender Orders Monitor" Height="700" Width="880" ResizeMode="CanMinimize">
+    <Border BorderBrush="Cyan" BorderThickness="3">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="55"/>
+                <ColumnDefinition Width="55"/>
+                <ColumnDefinition Width="55"/>
+                <ColumnDefinition Width="55"/>
+                <ColumnDefinition Width="55"/>
+                <ColumnDefinition Width="55"/>
+                <ColumnDefinition Width="55"/>
+                <ColumnDefinition Width="55"/>
+                <ColumnDefinition Width="55"/>
+                <ColumnDefinition Width="55"/>
+                <ColumnDefinition Width="55"/>
+                <ColumnDefinition Width="55"/>
+                <ColumnDefinition Width="55"/>
+                <ColumnDefinition Width="55"/>
+                <ColumnDefinition Width="55"/>
+                <ColumnDefinition Width="55"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="38"/>
+                <RowDefinition Height="38"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="60"/>
+            </Grid.RowDefinitions>
+            <!--CUSTOMER NAME-->
+            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                   Foreground="Cyan"
+                   Content="CUENTA:"
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Right"
+                   FontSize="20"
+                   Margin="5 0 0 5"
+                   FontWeight="DemiBold"/>
+            <Label Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="6"
+                   Name="lblLeftOrder"
+                   Foreground="Yellow"
+                   VerticalAlignment="Center"
+                   FontSize="20"
+                   FontWeight="DemiBold"/>
+            <Label Grid.Row="0" Grid.Column="8" Grid.ColumnSpan="2"
+                   Foreground="Cyan"
+                   Content="CUENTA:"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Right"
+                   FontSize="20"
+                   Margin="5 0 0 5"
+                   FontWeight="DemiBold"/>
+            <Label Grid.Row="0" Grid.Column="10" Grid.ColumnSpan="6"
+                   Name="lblRightOrder"
+                   Foreground="Yellow"
+                   VerticalAlignment="Center"
+                   FontSize="20"
+                   FontWeight="DemiBold"/>
+            <!--WAITREST NAME-->
+            <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                   Foreground="Cyan"
+                   Content="ATIENDE:"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Right"
+                   FontSize="20"
+                   Margin="5 0 0 5"
+                   FontWeight="DemiBold"/>
+            <Label Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="6"
+                   Name="lblLeftWaitrest"
+                   Foreground="Yellow"
+                   VerticalAlignment="Center"
+                   FontSize="20"
+                   FontWeight="DemiBold"/>
+            <Label Grid.Row="1" Grid.Column="8" Grid.ColumnSpan="2"
+                   Foreground="Cyan"
+                   Content="ATIENDE:"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Right"
+                   FontSize="20"
+                   Margin="5 0 0 5"
+                   FontWeight="DemiBold"/>
+            <Label Grid.Row="1" Grid.Column="10" Grid.ColumnSpan="6"
+                   Name="lblRightWaitrest"
+                   Foreground="Yellow"
+                   VerticalAlignment="Center"
+                   FontSize="20"
+                   FontWeight="DemiBold"/>
+            <!--LEFT TICKET-->
+            <!--ITEM 1-->
+            <Label Grid.Row="2" Grid.Column="0"
+               Name="lblLeftTicketItemNum1"
+               Foreground="White"
+               FontSize="25"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center"/>
+            <Label Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="7"
+               Name="lblLeftTicketItemDesc1"
+               Foreground="White"
+               FontSize="25"
+               VerticalAlignment="Center"/>
+            <!--ITEM 2-->
+            <Label Grid.Row="3" Grid.Column="0"
+               Name="lblLeftTicketItemNum2"
+               Foreground="White"
+               FontSize="25"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center"/>
+            <Label Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="7"
+               Name="lblLeftTicketItemDesc2"
+               Foreground="White"
+               FontSize="25"
+               VerticalAlignment="Center"/>
+            <!--ITEM 3-->
+            <Label Grid.Row="4" Grid.Column="0"
+               Name="lblLeftTicketItemNum3"
+               Foreground="White"
+               FontSize="25"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center"/>
+            <Label Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="7"
+               Name="lblLeftTicketItemDesc3"
+               Foreground="White"
+               FontSize="25"
+               VerticalAlignment="Center"/>
+            <!--ITEM 4-->
+            <Label Grid.Row="5" Grid.Column="0"
+               Name="lblLeftTicketItemNum4"
+               Foreground="White"
+               FontSize="25"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center"/>
+            <Label Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="7"
+               Name="lblLeftTicketItemDesc4"
+               Foreground="White"
+               FontSize="25"
+               VerticalAlignment="Center"/>
+            <!--ITEM 5-->
+            <Label Grid.Row="6" Grid.Column="0"
+               Name="lblLeftTicketItemNum5"
+               Foreground="White"
+               FontSize="25"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center"/>
+            <Label Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="7"
+               Name="lblLeftTicketItemDesc5"
+               Foreground="White"
+               FontSize="25"
+               VerticalAlignment="Center"/>
+            <!--ITEM 6-->
+            <Label Grid.Row="7" Grid.Column="0"
+               Name="lblLeftTicketItemNum6"
+               Foreground="White"
+               FontSize="25"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center"/>
+            <Label Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="7"
+               Name="lblLeftTicketItemDesc6"
+               Foreground="White"
+               FontSize="25"
+               VerticalAlignment="Center"/>
+            <!--ITEM 7-->
+            <Label Grid.Row="8" Grid.Column="0"
+               Name="lblLeftTicketItemNum7"
+               Foreground="White"
+               FontSize="25"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center"/>
+            <Label Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="7"
+               Name="lblLeftTicketItemDesc7"
+               Foreground="White"
+               FontSize="25"
+               VerticalAlignment="Center"/>
+            <!--ITEM 8-->
+            <Label Grid.Row="9" Grid.Column="0"
+               Name="lblLeftTicketItemNum8"
+               Foreground="White"
+               FontSize="25"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center"/>
+            <Label Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="7"
+               Name="lblLeftTicketItemDesc8"
+               Foreground="White"
+               FontSize="25"
+               VerticalAlignment="Center"/>
+            <!--ITEM 9-->
+            <Label Grid.Row="10" Grid.Column="0"
+               Name="lblLeftTicketItemNum9"
+               Foreground="White"
+               FontSize="25"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center"/>
+            <Label Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="7"
+               Name="lblLeftTicketItemDesc9"
+               Foreground="White"
+               FontSize="25"
+               VerticalAlignment="Center"/>
+            <!--ITEM 10-->
+            <Label Grid.Row="11" Grid.Column="0"
+               Name="lblLeftTicketItemNum10"
+               Foreground="White"
+               FontSize="25"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center"/>
+            <Label Grid.Row="11" Grid.Column="1" Grid.ColumnSpan="7"
+               Name="lblLeftTicketItemDesc10"
+               Foreground="White"
+               FontSize="25"
+               VerticalAlignment="Center"/>
+            <!--RIGHT TICKET-->
+            <!--ITEM 1-->
+            <Label Grid.Row="2" Grid.Column="8"
+               Name="lblRightTicketItemNum1"
+               Foreground="White"
+               FontSize="25"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center"/>
+            <Label Grid.Row="2" Grid.Column="9" Grid.ColumnSpan="7"
+               Name="lblRightTicketItemDesc1"
+               Foreground="White"
+               FontSize="25"
+               VerticalAlignment="Center"/>
+            <!--ITEM 2-->
+            <Label Grid.Row="3" Grid.Column="8"
+               Name="lblRightTicketItemNum2"
+               Foreground="White"
+               FontSize="25"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center"/>
+            <Label Grid.Row="3" Grid.Column="9" Grid.ColumnSpan="7"
+               Name="lblRightTicketItemDesc2"
+               Foreground="White"
+               FontSize="25"
+               VerticalAlignment="Center"/>
+            <!--ITEM 3-->
+            <Label Grid.Row="4" Grid.Column="8"
+               Name="lblRightTicketItemNum3"
+               Foreground="White"
+               FontSize="25"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center"/>
+            <Label Grid.Row="4" Grid.Column="9" Grid.ColumnSpan="7"
+               Name="lblRightTicketItemDesc3"
+               Foreground="White"
+               FontSize="25"
+               VerticalAlignment="Center"/>
+            <!--ITEM 4-->
+            <Label Grid.Row="5" Grid.Column="8"
+               Name="lblRightTicketItemNum4"
+               Foreground="White"
+               FontSize="25"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center"/>
+            <Label Grid.Row="5" Grid.Column="9" Grid.ColumnSpan="7"
+               Name="lblRightTicketItemDesc4"
+               Foreground="White"
+               FontSize="25"
+               VerticalAlignment="Center"/>
+            <!--ITEM 5-->
+            <Label Grid.Row="6" Grid.Column="8"
+               Name="lblRightTicketItemNum5"
+               Foreground="White"
+               FontSize="25"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center"/>
+            <Label Grid.Row="6" Grid.Column="9" Grid.ColumnSpan="7"
+               Name="lblRightTicketItemDesc5"
+               Foreground="White"
+               FontSize="25"
+               VerticalAlignment="Center"/>
+            <!--ITEM 6-->
+            <Label Grid.Row="7" Grid.Column="8"
+               Name="lblRightTicketItemNum6"
+               Foreground="White"
+               FontSize="25"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center"/>
+            <Label Grid.Row="7" Grid.Column="9" Grid.ColumnSpan="7"
+               Name="lblRightTicketItemDesc6"
+               Foreground="White"
+               FontSize="25"
+               VerticalAlignment="Center"/>
+            <!--ITEM 7-->
+            <Label Grid.Row="8" Grid.Column="8"
+               Name="lblRightTicketItemNum7"
+               Foreground="White"
+               FontSize="25"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center"/>
+            <Label Grid.Row="8" Grid.Column="9" Grid.ColumnSpan="7"
+               Name="lblRightTicketItemDesc7"
+               Foreground="White"
+               FontSize="25"
+               VerticalAlignment="Center"/>
+            <!--ITEM 8-->
+            <Label Grid.Row="9" Grid.Column="8"
+               Name="lblRightTicketItemNum8"
+               Foreground="White"
+               FontSize="25"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center"/>
+            <Label Grid.Row="9" Grid.Column="9" Grid.ColumnSpan="7"
+               Name="lblRightTicketItemDesc8"
+               Foreground="White"
+               FontSize="25"
+               VerticalAlignment="Center"/>
+            <!--ITEM 9-->
+            <Label Grid.Row="10" Grid.Column="8"
+               Name="lblRightTicketItemNum9"
+               Foreground="White"
+               FontSize="25"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center"/>
+            <Label Grid.Row="10" Grid.Column="9" Grid.ColumnSpan="7"
+               Name="lblRightTicketItemDesc9"
+               Foreground="White"
+               FontSize="25"
+               VerticalAlignment="Center"/>
+            <!--ITEM 10-->
+            <Label Grid.Row="11" Grid.Column="8"
+               Name="lblRightTicketItemNum10"
+               Foreground="White"
+               FontSize="25"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center"/>
+            <Label Grid.Row="11" Grid.Column="9" Grid.ColumnSpan="7"
+               Name="lblRightTicketItemDesc10"
+               Foreground="White"
+               FontSize="25"
+               VerticalAlignment="Center"/>
+            <Button Grid.Row="12" Grid.Column="12" Grid.ColumnSpan="3"
+                Name="Next"
+                Click="btn_Next"
+                FontSize="20"
+                Margin="5"
+                Cursor="Hand"
+                FontWeight="DemiBold">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Images/next.png"
+                           Width="30" Height="30" Margin="5"/>
+                    <TextBlock Text="PRÓXIMO" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <Button Grid.Row="12" Grid.Column="1" Grid.ColumnSpan="3"
+                Name="Close"
+                Click="btn_Close"
+                FontSize="20"
+                Margin="5"
+                Cursor="Hand"
+                FontWeight="DemiBold">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Images/delete_sign.png"
+                           Width="30" Height="30" Margin="5"/>
+                    <TextBlock Text="CERRAR" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+        </Grid>
+    </Border>
+</Window>

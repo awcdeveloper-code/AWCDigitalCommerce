@@ -1,0 +1,164 @@
+﻿<Window x:Class="AWC.DigitalCommerce.TicketsController.wpfIVAQuery"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController"
+        mc:Ignorable="d" Background="DarkBlue" ResizeMode="NoResize"
+        WindowStyle="None" WindowStartupLocation="CenterScreen"
+        Title="wpfIVAQuery" Height="450" Width="1000">
+    <Window.Resources>
+        <Style x:Key="CenterGridHeaderStyle" TargetType="DataGridColumnHeader">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+    </Window.Resources>
+    <Border BorderBrush="Cyan" BorderThickness="3">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="10"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="10"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="1" Grid.Column="1"
+               Foreground="Cyan"
+               Content="FECHA INICIAL:"
+               VerticalAlignment="Center"
+               FontSize="18"
+               FontWeight="DemiBold"/>
+            <DatePicker Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2"
+                    Name="StartDate"
+                    Foreground="DarkBlue"
+                    SelectedDateFormat="Short"
+                    VerticalAlignment="Center"
+                    Margin="5"
+                    FontSize="20"
+                    FontWeight="DemiBold"
+                    SelectedDateChanged="StartDate_SelectedDateChanged"/>
+            <Label Grid.Row="2" Grid.Column="1"
+               Foreground="Cyan"
+               Content="FECHA FINAL:"
+               VerticalAlignment="Center"
+               FontSize="18"
+               FontWeight="DemiBold"/>
+            <DatePicker Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2"
+                    Name="FinishDate"
+                    Foreground="DarkBlue"
+                    SelectedDateFormat="Short"
+                    VerticalAlignment="Center"
+                    Margin="5"
+                    FontSize="20"
+                    FontWeight="DemiBold"
+                    SelectedDateChanged="FinishDate_SelectedDateChanged"/>
+            <Label Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="6"
+                   Foreground="Cyan"
+                   Content="ESTADO CUENTAS ATV"
+                   VerticalAlignment="Center"
+                   FontSize="25"
+                   FontWeight="DemiBold"/>
+            <DataGrid Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="9"
+                  Name="IVATicketsList"
+                  Height="280" Width="900"
+                  Margin="5"
+                  RowHeight="25"
+                  FontSize="18"
+                  FontWeight="DemiBold"
+                  IsReadOnly="True"
+                  HorizontalAlignment="Left"
+                  HorizontalScrollBarVisibility="Disabled"
+                  VerticalAlignment="Top"
+                  VerticalScrollBarVisibility="Visible" 
+                  GridLinesVisibility="All"
+                  HeadersVisibility="All"
+                  Background="LightGray"
+                  RowBackground="LightCyan"
+                  AlternatingRowBackground="Cyan"
+                  BorderBrush="DarkBlue" BorderThickness="2"
+                  AreRowDetailsFrozen="True"
+                  CanUserReorderColumns="False"
+                  CanUserResizeColumns="False"
+                  CanUserSortColumns = "False"
+                  SelectionChanged="IVATicketsList_SelectionChanged">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="CUENTA"
+                                        Width="80"
+                                        Binding="{Binding Path=ID}"
+                                        HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="HorizontalAlignment" Value="Center" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="IVA ID"
+                                        Width="80"
+                                        Binding="{Binding Path=internal_id}"
+                                        HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="HorizontalAlignment" Value="Center" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="CONSEC"
+                                        Width="110"
+                                        Binding="{Binding Path=consecutivo}"
+                                        HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="HorizontalAlignment" Value="Center" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="CLAVE"
+                                        Width="490"
+                                        Binding="{Binding Path=clave}"
+                                        HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="HorizontalAlignment" Value="Center" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="ESTADO"
+                                        Width="110"
+                                        Binding="{Binding Path=estado}"
+                                        HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="HorizontalAlignment" Value="Center" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button Grid.Row="4" Grid.Column="1"
+                Click="btn_Close"
+                FontSize="15"
+                Margin="5"
+                Cursor="Hand"
+                FontWeight="DemiBold">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Images/delete_sign.png"
+                           Width="25" Height="25" Margin="5"/>
+                    <TextBlock Text="CERRAR" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+        </Grid>
+    </Border>
+</Window>

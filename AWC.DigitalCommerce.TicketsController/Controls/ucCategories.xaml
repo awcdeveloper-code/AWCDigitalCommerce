@@ -1,0 +1,162 @@
+﻿<UserControl x:Class="AWC.DigitalCommerce.TicketsController.Controls.ucCategories"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController.Controls"
+             mc:Ignorable="d" Background="DarkBlue"
+             d:DesignHeight="560" d:DesignWidth="1200">
+    <UserControl.Resources>
+        <Style x:Key="CenterGridHeaderStyle"
+               TargetType="DataGridColumnHeader">
+            <Setter Property="HorizontalContentAlignment"
+                    Value="Center"/>
+        </Style>
+        <DataTemplate x:Key="cBox_ItemDescription_DataTemplate">
+            <StackPanel Margin="1">
+                <TextBlock FontWeight="DemiBold"
+                           Foreground="DarkBlue"
+                           Text="{Binding ItemDescription}" />
+            </StackPanel>
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="1" Grid.Column="1"
+               Foreground="Cyan"
+               HorizontalAlignment="Right"
+               VerticalAlignment="Center"
+               Content="CATEGORIA:"
+               FontSize="20"
+               FontWeight="DemiBold"/>
+        <TextBox Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2"
+                 Name="txt_Description"
+                 Background="Cyan"
+                 VerticalAlignment="Center"
+                 FontSize="20"
+                 FontWeight="DemiBold"
+                 KeyUp="txt_Description_KeyUp"/>
+        <Label Grid.Row="2" Grid.Column="1"
+               Foreground="Cyan"
+               HorizontalAlignment="Right"
+               VerticalAlignment="Center"
+               Content="PARIENTE:"
+               FontSize="20"
+               FontWeight="DemiBold"/>
+        <ComboBox Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2"
+                  Name="cbox_Parent"
+                  VerticalAlignment="Center"
+                  FontSize="20"
+                  FontWeight="DemiBold"/>
+        <StackPanel Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2"
+                    Orientation="Horizontal">
+            <Image Name="Cancel_Item"
+                   Source="/Images/20.ico"
+                   Width="45"
+                   Height="45"
+                   Margin="10"
+                   ToolTip="Haga click aqui para cancelar."
+                   Cursor="Hand"
+                   Visibility="Visible"
+                   MouseDown="btnCancel_Item"/>
+            <Image Name="Add_Item"
+                   Source="/Images/13.ico"
+                   Width="45"
+                   Height="45"
+                   Margin="10"
+                   ToolTip="Haga click aqui para agregar."
+                   Cursor="Hand"
+                   Visibility="Hidden"
+                   MouseDown="btnAdd_Item"/>
+            <Image Name="Del_Item"
+                   Source="/Images/33.ico"
+                   Width="45"
+                   Height="45"
+                   Margin="10"
+                   ToolTip="Haga click aqui para borrar."
+                   Cursor="Hand"
+                   Visibility="Hidden"
+                   MouseDown="btnDel_Item"/>
+            <Image Name="Mod_Item"
+                   Source="/Images/38.ico"
+                   Width="45"
+                   Height="45"
+                   Margin="10"
+                   ToolTip="Haga click aqui para actualizar."
+                   Cursor="Hand"
+                   Visibility="Hidden"
+                   MouseDown="btnMod_Item"/>
+        </StackPanel>
+        <DataGrid Grid.Row="1" Grid.Column="4"
+                  Grid.RowSpan="10" Grid.ColumnSpan="5"
+                  Name="Categories"
+                  Height="470" Width="670"
+                  RowHeight="30"
+                  Margin="10,0 0,0"
+                  IsReadOnly="True"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  VerticalScrollBarVisibility="Visible" 
+                  HorizontalScrollBarVisibility="Visible"
+                  GridLinesVisibility="All"
+                  HeadersVisibility="All"
+                  Background="LightGray"
+                  RowBackground="LightCyan"
+                  AlternatingRowBackground="Cyan"
+                  AreRowDetailsFrozen="True"
+                  CanUserReorderColumns="False"
+                  CanUserResizeColumns="False"
+                  CanUserSortColumns = "False"
+                  SelectionChanged="Categories_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID"
+                                    Width="70"
+                                    Binding="{Binding Path=CategoryID}"
+                                    HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="HorizontalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="DESCRIPCIÓN"
+                                    Width="300"
+                                    Binding="{Binding Path=Description}"
+                                    HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="PARIENTE"
+                                    Width="300"
+                                    Binding="{Binding Path=ParentID}"
+                                    HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

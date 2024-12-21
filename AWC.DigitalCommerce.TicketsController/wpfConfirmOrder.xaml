@@ -1,0 +1,140 @@
+﻿<Window x:Class="AWC.DigitalCommerce.TicketsController.wpfConfirmOrder"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController"
+        mc:Ignorable="d" Background="DarkBlue" ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen" WindowStyle="None"
+        Height="600" Width="755">
+    <Window.Resources>
+        <Style x:Key="CenterGridHeaderStyle" TargetType="DataGridColumnHeader">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontWeight" Value="DemiBold"/>
+        </Style>
+    </Window.Resources>
+    <Border BorderBrush="Cyan" BorderThickness="3">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="10"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="10"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="1" Grid.Column="2"
+               Foreground="Cyan"
+               Content="CONTENIDO DE LA ORDEN"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center"
+               FontSize="30"
+               FontWeight="DemiBold"/>
+            <DataGrid Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3"
+                  Name="TicketDetail"
+                  Height="405" Width="725"
+                  Margin="5"
+                  RowHeight="40"
+                  FontSize="25"
+                  IsReadOnly="True"
+                  HorizontalAlignment="Left"
+                  HorizontalScrollBarVisibility="Disabled"
+                  VerticalAlignment="Top"
+                  VerticalScrollBarVisibility="Visible" 
+                  GridLinesVisibility="All"
+                  HeadersVisibility="All"
+                  Background="LightGray"
+                  RowBackground="White"
+                  AlternatingRowBackground="Cyan"
+                  BorderBrush="Gray" BorderThickness="2"
+                  AreRowDetailsFrozen="True"
+                  CanUserReorderColumns="False"
+                  CanUserResizeColumns="False"
+                  CanUserSortColumns = "False" SelectionChanged="TicketDetail_SelectionChanged">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="DESCRIPCIÓN"
+                                    Width="415"
+                                    FontWeight="DemiBold"
+                                    Binding="{Binding Path=ItemDesc}"
+                                    HeaderStyle="{StaticResource CenterGridHeaderStyle}"/>
+                    <DataGridTextColumn Header="CANT"
+                                    Width="80"
+                                    FontWeight="DemiBold"
+                                    Binding="{Binding Path=Qty}"
+                                    HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="HorizontalAlignment" Value="Center" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="PRECIO"
+                                    Width="100"
+                                    FontWeight="DemiBold"
+                                    Binding="{Binding Path=UnitPrice, StringFormat=N0}"
+                                    HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="HorizontalAlignment" Value="Right" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="TOTAL"
+                                    Width="100"
+                                    FontWeight="DemiBold"
+                                    Binding="{Binding Path=TotalPrice, StringFormat=N0}"
+                                    HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="HorizontalAlignment" Value="Right" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button Grid.Row="5" Grid.Column="1"
+                    Click="btn_Cancel"
+                    FontSize="16"
+                    Margin="5"
+                    Cursor="Hand"
+                    FontWeight="DemiBold">
+                <StackPanel Orientation="Vertical">
+                    <Image Source="/Images/33.ico" Width="30" Height="30" Margin="5 5 5 0"/>
+                    <TextBlock Text="CANCELAR" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <Image Grid.Row="5" Grid.Column="2"
+                   Name="Delete"
+                   Source="/Images/Delete_sign.png"
+                   Width="45" Height="45"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Visibility="Hidden"
+                   Margin="3"
+                   ToolTip="Clic para eliminar el item."
+                   Cursor="Hand"
+                   MouseDown="btn_Delete"/>
+            <Button Grid.Row="5" Grid.Column="3"
+                    Name="ConfirmOrder"
+                    Click="btn_Confirm"
+                    FontSize="16"
+                    Margin="5"
+                    Cursor="Hand"
+                    FontWeight="DemiBold">
+                <StackPanel Orientation="Vertical">
+                    <Image Source="/Images/38.ico" Width="30" Height="30" Margin="5 5 5 0"/>
+                    <TextBlock Text="CONFIRMAR" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+        </Grid>
+    </Border>
+</Window>

@@ -1,0 +1,445 @@
+﻿<UserControl x:Class="AWC.DigitalCommerce.TicketsController.Controls.ucQueries"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController"
+             mc:Ignorable="d"  Background="DarkBlue"
+             d:DesignHeight="720" d:DesignWidth="920">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+        <!--TICKETS-->
+        <GroupBox Grid.Row="1" Grid.Column="1"
+                  Name="Tickets"
+                  Background="Transparent"
+                  Foreground="Cyan"
+                  Margin="3"
+                  Header="CUENTAS" >
+            <StackPanel Orientation="Vertical">
+                <Button Click="btn_TicketDetail"
+                        Name="TicketDetail"
+                        Foreground="Black"
+                        FontSize="20"
+                        Height="60"
+                        Width="240"
+                        Margin="3"
+                        Cursor="Hand"
+                        FontWeight="DemiBold">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Images/invoice.png"
+                               Width="30" Height="30"
+                               Margin="5"/>
+                        <TextBlock Text="INDIVIDUAL"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button Click="btn_TicketsAborted"
+                        Name="TicketsAborted"
+                        Foreground="Black"
+                        FontSize="20"
+                        Height="60"
+                        Width="240"
+                        Margin="3"
+                        Cursor="Hand"
+                        FontWeight="DemiBold">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Images/14.ico"
+                               Width="30" Height="30"
+                               Margin="5"/>
+                        <TextBlock Text="ANULADAS"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button Click="btn_TicketsInherited"
+                        Name="TicketsInherited"
+                        Foreground="Black"
+                        FontSize="20"
+                        Height="60"
+                        Width="240"
+                        Margin="3"
+                        Cursor="Hand"
+                        FontWeight="DemiBold">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Images/append-clip.png"
+                               Width="30" Height="30"
+                               Margin="5"/>
+                        <TextBlock Text="HEREDADAS"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button Click="btn_TicketsReassigned"
+                        Name="TicketsReassigned"
+                        Foreground="Black"
+                        FontSize="20"
+                        Height="60"
+                        Width="240"
+                        Margin="3"
+                        Cursor="Hand"
+                        FontWeight="DemiBold">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Images/shiftchange.png"
+                               Width="30" Height="30"
+                               Margin="5"/>
+                        <TextBlock Text="REASIGNADAS"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button Click="btn_TicketsModified"
+                        Name="TicketsModified"
+                        Foreground="Black"
+                        FontSize="20"
+                        Height="60"
+                        Width="240"
+                        Margin="3"
+                        Cursor="Hand"
+                        FontWeight="DemiBold">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Images/38.ico"
+                               Width="30" Height="30"
+                               Margin="5"/>
+                        <TextBlock Text="MODIFICADAS"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button Click="btn_TicketsLost"
+                        Name="TicketsLost"
+                        Foreground="Black"
+                        FontSize="20"
+                        Height="60"
+                        Width="240"
+                        Margin="3"
+                        Cursor="Hand"
+                        FontWeight="DemiBold">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Images/NoPayment.png"
+                               Width="30" Height="30"
+                               Margin="5"/>
+                        <TextBlock Text="INCOBRABLES"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button Click="btn_TicketsSummary"
+                        Name="TicketsSummary"
+                        Foreground="Black"
+                        FontSize="20"
+                        Height="60"
+                        Width="240"
+                        Margin="3"
+                        Cursor="Hand"
+                        FontWeight="DemiBold">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Images/cashdrawer.png"
+                               Width="30" Height="30"
+                               Margin="5"/>
+                        <TextBlock Text="TIPO DE PAGO"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button Click="btn_ItemsDeleted"
+                        Name="ItemsDeleted"
+                        Foreground="Black"
+                        FontSize="20"
+                        Height="60"
+                        Width="240"
+                        Margin="3"
+                        Cursor="Hand"
+                        FontWeight="DemiBold">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Images/delete_sign.png"
+                               Width="30" Height="30"
+                               Margin="5"/>
+                        <TextBlock Text="ELIMINADOS"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button Click="btn_QryATV"
+                        Name="QryATV"
+                        Foreground="Black"
+                        FontSize="20"
+                        Height="60"
+                        Width="240"
+                        Margin="3"
+                        Cursor="Hand"
+                        FontWeight="DemiBold">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Images/IRS.png"
+                               Width="30" Height="30"
+                               Margin="5"/>
+                        <TextBlock Text="CUENTAS ATV"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </GroupBox>
+        <!--CUSTOMERS-->
+        <GroupBox Grid.Row="1" Grid.Column="2"
+                  Name="Customers"
+                  Foreground="Cyan"
+                  Background="Transparent"
+                  Margin="3"
+                  Header="CLIENTES" >
+            <StackPanel Orientation="Vertical">
+                <Button Click="btn_CustomersVIP"
+                        Name="Catalog"
+                        Foreground="Black"
+                        FontSize="20"
+                        Height="60"
+                        Width="240"
+                        Margin="3"
+                        Cursor="Hand"
+                        FontWeight="DemiBold">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Images/people.ico"
+                               Width="30" Height="30"
+                               Margin="5"/>
+                        <TextBlock Text="CATALOGO"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button Click="btn_TicketsByVIP"
+                        Name="TicketsByCustomer"
+                        Foreground="Black"
+                        FontSize="20"
+                        Height="60"
+                        Width="240"
+                        Margin="3"
+                        Cursor="Hand"
+                        FontWeight="DemiBold">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Images/loyalty.png"
+                               Width="30" Height="30"
+                               Margin="5"/>
+                        <TextBlock Text="HISTORIAL"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button Click="btn_Payments"
+                        Name="Payments"
+                        Foreground="Black"
+                        FontSize="20"
+                        Height="60"
+                        Width="240"
+                        Margin="3"
+                        Cursor="Hand"
+                        FontWeight="DemiBold">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Images/Money.ico"
+                               Width="30" Height="30"
+                               Margin="5"/>
+                        <TextBlock Text="ABONOS"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button Click="btn_Delinquency"
+                        Name="Delinquency"
+                        Foreground="Black"
+                        FontSize="20"
+                        Height="60"
+                        Width="240"
+                        Margin="3"
+                        Cursor="Hand"
+                        FontWeight="DemiBold">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Images/a2p.png"
+                               Width="30" Height="30"
+                               Margin="5"/>
+                        <TextBlock Text="MOROSIDAD"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </GroupBox>
+        <!--STATISTICS-->
+        <GroupBox Grid.Row="1" Grid.Column="3"
+                  Name="Miscellaneous"
+                  Foreground="Cyan"
+                  Background="Transparent"
+                  Margin="3"
+                  Header="MISCELÁNEOS" >
+            <StackPanel Orientation="Vertical">
+                <Button Click="btn_ItemsPriceList"
+                        Name="PriceList"
+                        Foreground="Black"
+                        FontSize="20"
+                        Height="60"
+                        Width="240"
+                        Margin="3"
+                        Cursor="Hand"
+                        FontWeight="DemiBold">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Images/PriceList.png"
+                               Width="30" Height="30"
+                               Margin="5"/>
+                        <TextBlock Text="LISTA DE PRECIOS"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button Click="btn_ItemTypeSummary"
+                        Name="Consumptions"
+                        Foreground="Black"
+                        FontSize="20"
+                        Height="60"
+                        Width="240"
+                        Margin="3"
+                        Cursor="Hand"
+                        FontWeight="DemiBold">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Images/restaurant.png"
+                               Width="30" Height="30"
+                               Margin="5"/>
+                        <TextBlock Text="CONSUMOS"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button Click="btn_Graphics"
+                        Name="Graphics"
+                        Foreground="Black"
+                        FontSize="20"
+                        Height="60"
+                        Width="240"
+                        Margin="3"
+                        Cursor="Hand"
+                        FontWeight="DemiBold">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Images/charts.png"
+                               Width="30" Height="30"
+                               Margin="5"/>
+                        <TextBlock Text="GRÁFICOS"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button Click="btn_CocktailRecipes"
+                        Name="CocktailRecipes"
+                        Foreground="Black"
+                        FontSize="20"
+                        Height="60"
+                        Width="240"
+                        Margin="3"
+                        Cursor="Hand"
+                        FontWeight="DemiBold">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Images/cocktails.png"
+                               Width="30" Height="30"
+                               Margin="5"/>
+                        <TextBlock Text="COCTELES"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button Click="btn_Inventory"
+                        Name="Inventory"
+                        Foreground="Black"
+                        IsEnabled="True"
+                        FontSize="20"
+                        Height="60"
+                        Width="240"
+                        Margin="3"
+                        Cursor="Hand"
+                        FontWeight="DemiBold">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Images/sqlserver.png"
+                               Width="30" Height="30"
+                               Margin="5"/>
+                        <TextBlock Text="SQL TOOLKIT"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button Click="btn_ActivityLog"
+                        Name="ActivityLog"
+                        Foreground="Black"
+                        FontSize="20"
+                        Height="60"
+                        Width="240"
+                        Margin="3"
+                        Cursor="Hand"
+                        FontWeight="DemiBold">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Images/Warning.ico"
+                               Width="30" Height="30"
+                               Margin="5"/>
+                        <TextBlock Text="BITACORAS"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button Click="btn_ReportsByMail"
+                        Name="ReportsByMail"
+                        Foreground="Black"
+                        FontSize="20"
+                        Height="60"
+                        Width="240"
+                        Margin="3"
+                        Cursor="Hand"
+                        FontWeight="DemiBold">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Images/email.png"
+                               Width="30" Height="30"
+                               Margin="5"/>
+                        <TextBlock Text="ENVIAR CORREO"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button Click="btn_IncomeCash"
+                        Name="IncomeCash"
+                        Foreground="Black"
+                        FontSize="20"
+                        Height="60"
+                        Width="240"
+                        Margin="3"
+                        Cursor="Hand"
+                        FontWeight="DemiBold">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Images/Money.ico"
+                               Width="30" Height="30"
+                               Margin="5"/>
+                        <TextBlock Text="INGRESO EFECTIVO"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button Click="btn_ApplyServiceFee"
+                        Name="ApplyServiceFee"
+                        Foreground="Black"
+                        FontSize="20"
+                        Height="60"
+                        Width="240"
+                        Margin="3"
+                        Cursor="Hand"
+                        FontWeight="DemiBold">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Images/waitress.png"
+                               Width="30" Height="30"
+                               Margin="5"/>
+                        <TextBlock Text="10% SERVICIO"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button Click="btn_Analitics"
+                        Name="Analitics"
+                        Foreground="Black"
+                        FontSize="20"
+                        Height="60"
+                        Width="240"
+                        Margin="3"
+                        Cursor="Hand"
+                        FontWeight="DemiBold">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Images/StatisticsRT.png"
+                               Width="30" Height="30"
+                               Margin="5"/>
+                        <TextBlock Text="ANALÍTICA TR"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </GroupBox>
+    </Grid>
+</UserControl>

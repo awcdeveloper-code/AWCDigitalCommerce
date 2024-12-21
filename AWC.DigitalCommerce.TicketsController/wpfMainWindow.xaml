@@ -1,0 +1,244 @@
+﻿<Window x:Class="AWC.DigitalCommerce.TicketsController.wpfMainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController"
+        mc:Ignorable="d"
+        Title="AWC Tickets Controller" Height="768" Width="1050"
+        Background="Transparent" ResizeMode="NoResize"
+        ShowInTaskbar="True"
+        WindowState="Maximized" WindowStyle="None">
+    <Border
+        Background="DarkBlue"
+        CornerRadius="10">
+        <Grid Name="MainWindowGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="10"/>
+            </Grid.RowDefinitions>
+            <!-- Display Today's Date -->
+            <Label Grid.Row="1" Grid.Column="1"
+                   Foreground="Cyan"
+                   HorizontalAlignment="Center"
+                   Name="TodayDate"
+                   FontFamily="Bahnschrift SemiLight Condensed"
+                   FontSize="30"
+                   FontWeight="DemiBold"/>
+            <!-- Application Title -->
+            <TextBlock Grid.Row="1" Grid.Column="2"
+                       Foreground="Cyan"
+                       Name="WindowTitle"
+                       Text="Control de Cuentas"
+                       HorizontalAlignment="Center"
+                       FontFamily="Bahnschrift SemiLight Condensed"
+                       FontSize="40"/>
+            <!-- Left Panel -->
+            <StackPanel Grid.Row="2" Grid.Column="1">
+                <GroupBox Name="DailyTransactions"
+                          Foreground="Cyan"
+                          Header="TRANSACCIONES DIARIAS"
+                          Margin="0,0,5,5"
+                          FontWeight="DemiBold">
+                    <StackPanel>
+                        <!-- New Ticket -->
+                        <Button Name="QuickOrder"
+                                Click="btn_QuickOrder"
+                                Background="Cyan"
+                                Foreground="DarkBlue"
+                                Height="45"
+                                FontSize="20"
+                                Margin="5"
+                                Cursor="Hand"
+                                FontWeight="DemiBold"
+                                Content="VENTA RAPIDA"/>
+                        <Button Name="NewTicket"
+                                Click="btn_NewTicket"
+                                Background="Cyan"
+                                Foreground="DarkBlue"
+                                Height="45"
+                                FontSize="20"
+                                Margin="5"
+                                Cursor="Hand"
+                                FontWeight="DemiBold"
+                                Content="CUENTA NUEVA"/>
+                        <Button Name="UpdateTicket"
+                                Click="btn_UpdateTicket"
+                                Background="Cyan"
+                                Foreground="DarkBlue"
+                                Height="45"
+                                FontSize="20"
+                                Margin="5"
+                                Cursor="Hand"
+                                FontWeight="DemiBold"
+                                Content="ACTUALIZAR CUENTA"/>
+                        <Button Name="CloseTicket"
+                                Click="btn_CloseTicket"
+                                Background="Cyan"
+                                Foreground="DarkBlue"
+                                Height="45"
+                                FontSize="20"
+                                Margin="5"
+                                Cursor="Hand"
+                                FontWeight="DemiBold"
+                                Content="CERRAR CUENTA"/>
+                        <!-- Old Tickets -->
+                        <Button Name ="OldTickets"
+                                Click="btn_OldTickets"
+                                Background="Cyan"
+                                Foreground="DarkBlue"
+                                Height="45"
+                                FontSize="20"
+                                Margin="5"
+                                Cursor="Hand"
+                                FontWeight="DemiBold"
+                                Content="CUENTAS ABIERTAS"/>
+                        <!-- Today Sales -->
+                        <Button Name="TodaySalesReport"
+                                Click="btn_TodaySalesReport"
+                                Background="Cyan"
+                                Foreground="DarkBlue"
+                                Height="45"
+                                FontSize="20"
+                                Margin="5"
+                                Cursor="Hand"
+                                FontWeight="DemiBold"
+                                Content="VENTA DIARIA"/>
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Name="Miscellaneous"
+                          Foreground="Cyan"
+                          Header="MISCELÁNEOS"
+                          Margin="0,5,5,5"
+                          FontWeight="DemiBold">
+                    <StackPanel>
+                        <!--QUERIES-->
+                        <Button Name="Queries"
+                                Click="btn_Queries"
+                                Background="Cyan"
+                                Foreground="DarkBlue"
+                                Height="45"
+                                FontSize="20"
+                                Margin="5"
+                                Cursor="Hand"
+                                FontWeight="DemiBold"
+                                Content="CONSULTAS"/>
+                        <!--SWITCH PIN-->
+                        <Button Name ="SwitchPIN"
+                                Click="btn_SwitchPIN"
+                                Background="Cyan"
+                                Foreground="DarkBlue"
+                                Height="45"
+                                FontSize="20"
+                                Margin="5"
+                                Cursor="Hand"
+                                FontWeight="DemiBold"
+                                Content="CAMBIAR PIN">
+                        </Button>
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Name="Administration"
+                          Foreground="Cyan"
+                          Header="ADMINISTRACIÓN"
+                          Margin="0,5,5,5"
+                          FontWeight="DemiBold">
+                    <StackPanel>
+                        <!-- System Maintenance -->
+                        <Button Name ="SystemMaintenance"
+                                Click="btn_SystemMaintenance"
+                                Background="Cyan"
+                                Foreground="DarkBlue"
+                                Height="45"
+                                FontSize="20"
+                                Margin="5"
+                                Cursor="Hand"
+                                FontWeight="DemiBold"
+                                Content="MANTENIMIENTO">
+                        </Button>
+                        <!-- Inventory Management -->
+                        <Button Name ="InventoryManagement"
+                                Click="btn_InventoryManagement"
+                                Background="Cyan"
+                                Foreground="DarkBlue"
+                                Height="45"
+                                FontSize="20"
+                                Margin="5"
+                                Cursor="Hand"
+                                FontWeight="DemiBold"
+                                Content="ADMIN INVENTARIO">
+                        </Button>
+                    </StackPanel>
+                </GroupBox>
+            </StackPanel>
+            <!-- Exit Button -->
+            <Button Grid.Row="3" Grid.Column="1"
+                    Name="Exit"
+                    Click="btn_Exit"
+                    Foreground="DarkBlue"
+                    FontSize="20"
+                    Margin="0,0,5,0"
+                    Cursor="Hand"
+                    FontWeight="DemiBold"
+                    Content="SALIR"/>
+            <Label Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2"
+                   Foreground="Cyan"
+                   Name="CopyRights"
+                   Content="© 2022 AIDAware Consultancies. All rights reserved."
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontSize="15"
+                   FontWeight="DemiBold"/>
+            <!-- Work Area -->
+            <DockPanel Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2">
+                <GroupBox Name="WorkArea"
+                          Foreground="Cyan"
+                          Header="AREA DE TRABAJO"
+                          Margin="10,0,0,0"
+                          FontWeight="DemiBold">
+                    <StackPanel>
+                        <TabControl Name="tabCtrlWorkArea"
+                                    Visibility="Hidden"
+                                    Margin="5"
+                                    Background="Transparent"/>
+                        <Image Name="Splash"
+                               Source="/Images/TicketsControllerSplash.png"
+                               Height="600" Width="700">
+                            <Image.Effect>
+                                <DropShadowEffect Direction="325"
+                                                  Color="LightGray"
+                                                  ShadowDepth="10"
+                                                  BlurRadius="5" />
+                            </Image.Effect>
+                        </Image>
+                    </StackPanel>
+                </GroupBox>
+            </DockPanel>
+            <TextBlock Grid.Row="2" Grid.Column="4"
+                       FontSize="20"
+                       FontWeight="DemiBold"
+                       Foreground="Cyan"
+                       VerticalAlignment="Center">
+                <TextBlock.LayoutTransform>
+                    <RotateTransform Angle="90"/>
+                </TextBlock.LayoutTransform>
+                Tickets Controller
+            </TextBlock>
+            <Image Grid.Row="3" Grid.Column="3"
+                   Name="Notification"
+                   Source="/Images/Warning.ico"
+                   Visibility="Hidden"
+                   Width="20"
+                   Height="20"/>
+        </Grid>
+    </Border>
+</Window>

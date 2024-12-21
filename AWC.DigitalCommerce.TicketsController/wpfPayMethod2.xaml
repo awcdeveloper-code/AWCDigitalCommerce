@@ -1,0 +1,256 @@
+﻿<Window x:Class="AWC.DigitalCommerce.TicketsController.wpfPayMethod2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController"
+        mc:Ignorable="d" Background="DarkBlue" WindowStartupLocation="CenterScreen"
+        Height="650" Width="495" WindowStyle="None" ResizeMode="NoResize"
+        ContentRendered="wpfPayMethod2_ContentRendered" >
+    <Border BorderBrush="Fuchsia" BorderThickness="5">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="125"/>
+                <ColumnDefinition Width="130"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="130"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="60"/>
+            </Grid.RowDefinitions>
+            <!--LABELS IMAGES-->
+            <Image Source="Images/PriceList.png" 
+                   Grid.Row="2" Grid.Column="1"
+                   Height="40"/>
+            <Image Source="Images/split.png" 
+                   Grid.Row="3" Grid.Column="1"
+                   Height="40"/>
+            <Image Source="Images/cash_icon.png" 
+                   Grid.Row="5" Grid.Column="1"
+                   Height="40"/>
+            <Image Source="Images/creditcard_icon.png" 
+                   Grid.Row="6" Grid.Column="1"
+                   Height="40"/>
+            <Image Source="Images/sinpe_icon.png" 
+                   Grid.Row="7" Grid.Column="1"
+                   Height="40"/>
+            <Image Source="Images/wiretransfer.png" 
+                   Grid.Row="8" Grid.Column="1"
+                   Height="40"/>
+            <Image Source="Images/cashdrawer.png" 
+                   Grid.Row="9" Grid.Column="1"
+                   Height="40"/>
+            <!--LABELS-->
+            <Label Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="4"
+                   Name="lblTicketNumber"
+                   Foreground="White"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment ="Center"
+                   Content="000000"
+                   FontSize="50"
+                   FontWeight="Bold"/>
+            <Label Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2"
+                   Foreground="Cyan"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment ="Right"
+                   Content="TOTAL A PAGAR:"
+                   FontSize="30"
+                   FontWeight="Bold"/>
+            <Label Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2"
+                   Foreground="Cyan"
+                   Name="lblParts"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment ="Right"
+                   Content="PARTES IGUALES:"
+                   FontSize="30"
+                   FontWeight="Bold"/>
+            <Label Grid.Row="4" Grid.Column="5"
+                   Name="lblEachPartAmount"
+                   Foreground="Cyan"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment ="Center"
+                   FontSize="20"
+                   FontWeight="Bold"/>
+            <Label Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2"
+                   Foreground="Cyan"
+                   Name="lblCash"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment ="Right"
+                   Content="EFECTIVO:"
+                   FontSize="30"
+                   FontWeight="DemiBold"/>
+            <Label Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2"
+                   Foreground="Cyan"
+                   Name="lblCreditCard"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment ="Right"
+                   Content="TARJ CRÉDITO:"
+                   FontSize="30"
+                   FontWeight="DemiBold"/>
+            <Label Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2"
+                   Foreground="Cyan"
+                   Name="lblTransfer"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment ="Right"
+                   Content="SINPE:"
+                   FontSize="30"
+                   FontWeight="DemiBold"/>
+            <Label Grid.Row="8" Grid.Column="2" Grid.ColumnSpan="2"
+                   Foreground="Cyan"
+                   Name="lblVoucher"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment ="Right"
+                   Content="VOUCHER:"
+                   FontSize="30"
+                   FontWeight="DemiBold"/>
+            <Label Grid.Row="9" Grid.Column="2" Grid.ColumnSpan="2"
+                   Foreground="Yellow"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment ="Right"
+                   Content="VUELTO:"
+                   FontSize="30"
+                   FontWeight="Bold"/>
+            <!--TEXBOXES-->
+            <TextBox Grid.Row="2" Grid.Column="5"
+                     Name="txtBox_Total"
+                     Text="0"
+                     IsEnabled="False"
+                     Background="Transparent"
+                     Foreground="White"
+                     Margin="5"
+                     FontSize="30"
+                     HorizontalContentAlignment="Right"
+                     FontWeight="Bold"/>
+            <TextBox Grid.Row="3" Grid.Column="5"
+                     Name="txtBox_EqualParts"
+                     PreviewTextInput="NumberValidationTextBox"
+                     Background="Cyan"
+                     Margin="5"
+                     FontSize="30"
+                     HorizontalContentAlignment="Center"
+                     Text="1"
+                     FontWeight="DemiBold"
+                     GotFocus="txtBox_EqualParts_GotFocus"/>
+            <TextBox Grid.Row="5" Grid.Column="5"
+                     Name="txtBox_PayCash"
+                     Text="0"
+                     PreviewTextInput="NumberValidationTextBox"
+                     Background="Cyan"
+                     Margin="5"
+                     FontSize="30"
+                     HorizontalContentAlignment="Right"
+                     FontWeight="DemiBold" GotFocus="txtBox_PayCash_GotFocus"/>
+            <TextBox Grid.Row="6" Grid.Column="5"
+                     Name="txtBox_PayCreditCard"
+                     Text="0"
+                     PreviewTextInput="NumberValidationTextBox"
+                     Background="Cyan"
+                     Margin="5"
+                     FontSize="30"
+                     HorizontalContentAlignment="Right"
+                     FontWeight="DemiBold" GotFocus="txtBox_PayCreditCard_GotFocus"/>
+            <TextBox Grid.Row="7" Grid.Column="5"
+                     Name="txtBox_PayTransfer"
+                     Text="0"
+                     PreviewTextInput="NumberValidationTextBox"
+                     Background="Cyan"
+                     Margin="5"
+                     FontSize="30"
+                     HorizontalContentAlignment="Right"
+                     FontWeight="DemiBold" GotFocus="txtBox_PayTransfer_GotFocus"/>
+            <TextBox Grid.Row="8" Grid.Column="5"
+                     Name="txtBox_Voucher"
+                     Text="0"
+                     PreviewTextInput="NumberValidationTextBox"
+                     Background="Cyan"
+                     Margin="5"
+                     FontSize="30"
+                     HorizontalContentAlignment="Right"
+                     FontWeight="DemiBold" GotFocus="txtBox_Voucher_GotFocus"/>
+            <TextBox Grid.Row="9" Grid.Column="5"
+                     Name="txtBox_CashBack"
+                     Foreground="White"
+                     IsEnabled="False"
+                     Background="Transparent"
+                     Margin="5"
+                     FontSize="30"
+                     HorizontalContentAlignment="Right"
+                     FontWeight="Bold"/>
+            <!--FE-->
+            <StackPanel Name="IVAStackPanel"
+                        Orientation="Horizontal" Grid.Row="11"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="5"
+                        Visibility="Hidden">
+                <Image Source="/Images/LogoMH.png"
+                       Margin="5"/>
+                <StackPanel Orientation="Vertical">
+                    <RadioButton Name="SendtoIRSforElectronicTicket"
+                                 Content="TIQUETE ELECTRÓNICO"
+                                 Foreground="Cyan"
+                                 IsChecked="True"
+                                 IsEnabled="False"
+                                 FontSize="16"
+                                 Margin="3"
+                                 FontWeight="DemiBold"
+                                 Checked="chkBox_ElectronicTicket"
+                                 GroupName="ATV">
+                    </RadioButton>
+                    <RadioButton Name="SendtoIRSforElectronicInvoice"
+                                 Content="FACTURA ELECTRÓNICA"
+                                 Foreground="Cyan"
+                                 IsChecked="False"
+                                 IsEnabled="False"
+                                 FontSize="16"
+                                 Margin="3"
+                                 FontWeight="DemiBold"
+                                 Checked="chkBox_SendtoIRS"
+                                 GroupName="ATV">
+                    </RadioButton>
+                </StackPanel>
+            </StackPanel>
+            <!--BUTTON-->
+            <Button Grid.Row="13" Grid.Column="3"
+                Click="btn_Cancel"
+                Foreground="DarkBlue"
+                FontSize="15"
+                Margin="5"
+                Cursor="Hand"
+                FontWeight="DemiBold">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Images/delete_sign.png" Width="30" Height="30" Margin="5"/>
+                    <TextBlock Text="CERRAR" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <Button Grid.Row="13" Grid.Column="5"
+                    Name="PayMethodOK"
+                    Click="btn_PayMethodOK"
+                    Foreground="DarkBlue"
+                    FontSize="15"
+                    Margin="5"
+                    Cursor="Hand"
+                    FontWeight="DemiBold">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Images/38.ICO" Width="30" Height="30" Margin="5"/>
+                        <TextBlock Name="PayMethod" Text="VALIDAR" VerticalAlignment="Center"/>
+                    </StackPanel>
+            </Button>
+        </Grid>
+    </Border>
+</Window>

@@ -1,0 +1,232 @@
+﻿<Window x:Class="AWC.DigitalCommerce.TicketsController.wpfInventoryWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController"
+        mc:Ignorable="d" Height="768" Width="1280" Background="DarkBlue" ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <Border
+        Background="DarkBlue"
+        CornerRadius="10">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="230"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="10"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="10"/>
+            </Grid.RowDefinitions>
+            <!-- Display Today's Date -->
+            <Label Grid.Row="1" Grid.Column="1"
+                   Foreground="Cyan"
+                   HorizontalAlignment="Center"
+                   Name="TodayDate"
+                   FontFamily="Bahnschrift SemiLight Condensed"
+                   FontSize="30"
+                   FontWeight="DemiBold"/>
+            <!-- Application Title -->
+            <TextBlock Grid.Row="1" Grid.Column="2"
+                       Foreground="Cyan"
+                       Name="WindowTitle"
+                       Text="MANTENIMIENTO DEL INVENTARIO"
+                       HorizontalAlignment="Center"
+                       FontFamily="Bahnschrift SemiLight Condensed"
+                       FontSize="40"/>
+            <!-- Left Panel -->
+            <StackPanel Grid.Row="2" Grid.Column="1">
+                <GroupBox Name="DailyTransactions"
+                          Header="TRANSACCIONES REGULARES"
+                          Margin="2"
+                          Foreground="Cyan"
+                          FontWeight="DemiBold">
+                    <StackPanel>
+                        <!--PROVIDERS-->
+                        <Button Name="Providers"
+                                Click="btn_Providers"
+                                Foreground="DarkBlue"
+                                Height="60"
+                                FontSize="20"
+                                Margin="5"
+                                Cursor="Hand"
+                                FontWeight="DemiBold">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Images/providers.png"
+                                       Width="30"
+                                       Height="30"
+                                       Margin="5"/>
+                                <TextBlock Text="PROVEEDORES"
+                                           VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+                        <!--INVOICES-->
+                        <Button Name="Invoices"
+                                Click="btn_Invoices"
+                                Foreground="DarkBlue"
+                                Height="60"
+                                FontSize="20"
+                                Margin="5"
+                                Cursor="Hand"
+                                FontWeight="DemiBold">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Images/invoice.png"
+                                       Width="30"
+                                       Height="30"
+                                       Margin="5"/>
+                                <TextBlock Text="FACTURAS"
+                                           VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+                        <!--CREDIT/DEBIT NOTES-->
+                        <Button Name ="CreditDebitNotes"
+                                Click="btn_CreditDebitNotes"
+                                Foreground="DarkBlue"
+                                Height="60"
+                                FontSize="20"
+                                Margin="5"
+                                Cursor="Hand"
+                                FontWeight="DemiBold">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Images/AdmTmpl_4.ico"
+                                       Width="30"
+                                       Height="30"
+                                       Margin="5"/>
+                                <TextBlock Text="NOTAS"
+                                           VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+                        <!--PRODUCT LOST-->
+                        <Button Name ="ProductsLost"
+                                Click="btn_ProductsLost"
+                                Foreground="DarkBlue"
+                                Height="60"
+                                FontSize="20"
+                                Margin="5"
+                                Cursor="Hand"
+                                FontWeight="DemiBold">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Images/damage.png"
+                                       Width="30"
+                                       Height="30"
+                                       Margin="5"/>
+                                <TextBlock Text="DAÑADOS"
+                                           VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+                        <!--INVENTORY STATUS-->
+                        <Button Name="InventoryStatus"
+                                Click="btn_InventoryStatus"
+                                Foreground="DarkBlue"
+                                Height="60"
+                                FontSize="20"
+                                Margin="5"
+                                Cursor="Hand"
+                                FontWeight="DemiBold">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Images/PriceList.png"
+                                       Width="30"
+                                       Height="30"
+                                       Margin="5"/>
+                                <TextBlock Text="INVENTARIO"
+                                           VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+                        <!--REPORTS-->
+                        <Button Name ="Reports"
+                                Click="btn_Reports"
+                                Foreground="DarkBlue"
+                                Height="60"
+                                FontSize="20"
+                                Margin="5"
+                                Cursor="Hand"
+                                FontWeight="DemiBold">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Images/printer_icon.png"
+                                       Width="30"
+                                       Height="30"
+                                       Margin="5"/>
+                                <TextBlock Text="REPORTES"
+                                           VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+                        <!--PRODUCTS REQUEST-->
+                        <Button Name ="Requests"
+                                Click="btn_Requests"
+                                Foreground="DarkBlue"
+                                Height="60"
+                                FontSize="20"
+                                Margin="5"
+                                Cursor="Hand"
+                                FontWeight="DemiBold">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Images/email.png"
+                                       Width="30"
+                                       Height="30"
+                                       Margin="5"/>
+                                <TextBlock Text="PEDIDOS"
+                                           VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+                        <!--EXIT-->
+                        <Button Grid.Row="3" Grid.Column="1"
+                            Name="Exit"
+                            Click="btn_Exit"
+                            Foreground="DarkBlue"
+                                Height="60"
+                                FontSize="20"
+                                Margin="5"
+                            Cursor="Hand"
+                            FontWeight="DemiBold">
+                                    <StackPanel Orientation="Horizontal">
+                                <Image Source="/Images/delete_sign.png"
+                                       Width="30" Height="30"
+                                   Margin="5"/>
+                                        <TextBlock Text="CERRAR" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </Button>
+                            </StackPanel>
+                </GroupBox>
+            </StackPanel>
+            <Label Grid.Row="3" Grid.Column="2"
+               Name="Trademark"
+               Foreground="Cyan"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               FontSize="20"
+               FontFamily="Bahnschrift SemiLight Condensed"
+               FontWeight="DemiBold"
+               Content="© 2021-2024 AIDAware Guillermo E. Grillo - Derechos Reservados."/>
+            <!--WORK AREA-->
+            <DockPanel Grid.Row="2" Grid.Column="2">
+                <GroupBox Name="WorkArea"
+                          Header="AREA DE TRABAJO"
+                          Margin="2"
+                          Foreground="Cyan"
+                          FontWeight="DemiBold">
+                    <StackPanel>
+                        <TabControl Name="tabCtrlWorkArea"
+                                    Visibility="Hidden"
+                                    Margin="5"
+                                    Background="Transparent"/>
+                        <Image Name="Splash"
+                               Source="/Images/InventoriesMgmt.png"
+                               Height="500" Width="900">
+                            <Image.Effect>
+                                <DropShadowEffect Direction="325"
+                                                  Color="LightGray"
+                                                  ShadowDepth="10"
+                                                  BlurRadius="5" />
+                            </Image.Effect>
+                        </Image>
+                    </StackPanel>
+                </GroupBox>
+            </DockPanel>
+        </Grid>
+    </Border>
+</Window>

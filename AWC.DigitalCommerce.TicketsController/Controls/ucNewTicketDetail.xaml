@@ -1,0 +1,165 @@
+﻿<UserControl x:Class="AWC.DigitalCommerce.TicketsController.Controls.ucNewTicketDetail"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController"
+             mc:Ignorable="d" 
+             d:DesignHeight="550" d:DesignWidth="900" Background="DarkBlue">
+    <UserControl.Resources>
+        <Style x:Key="CenterGridHeaderStyle" TargetType="DataGridColumnHeader">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="470"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="140"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="140"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+        <!--HEADER-->
+        <Label Grid.Row="1" Grid.Column="1"
+               Name="TicketNumber"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Stretch"
+               Foreground="Cyan"
+               FontSize="30"
+               FontWeight="Bold"/>
+        <Label Grid.Row="1" Grid.Column="2"
+               Name="CustomerID"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Stretch"
+               Foreground="Cyan"
+               FontSize="30"
+               FontWeight="Bold"/>
+        <!--DATAGRID-->
+        <GroupBox Grid.Row="2" Grid.Column="1"
+                  Grid.ColumnSpan="3"
+                  Grid.RowSpan="4"
+                  Foreground="Cyan"
+                  Name="GroupBoxDataGrid"
+                  Header="DETALLE DE LA CUENTA">
+            <DataGrid Name="TicketDetail"
+                      Height="370" Width="755"
+                      RowHeight="40"
+                      FontSize="25"
+                      IsReadOnly="True"
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Top"
+                      VerticalScrollBarVisibility="Visible"
+                      HorizontalScrollBarVisibility="Hidden"
+                      GridLinesVisibility="All"
+                      HeadersVisibility="All"
+                      Background="LightCyan"
+                      RowBackground="White"
+                      AlternatingRowBackground="Cyan"
+                      BorderBrush="Gray" BorderThickness="2"
+                      AreRowDetailsFrozen="True"
+                      FrozenColumnCount="2"
+                      CanUserReorderColumns="False"
+                      CanUserResizeColumns="False"
+                      CanUserSortColumns = "False"
+                      SelectionChanged="TicketDetail_SelectionChanged">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID"
+                                        Width="70"
+                                        Binding="{Binding Path=ItemID}"
+                                        HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="HorizontalAlignment" Value="Center" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="DESCRIPCIÓN"
+                                        Width="350"
+                                        Binding="{Binding Path=ItemDesc}"
+                                        HeaderStyle="{StaticResource CenterGridHeaderStyle}"/>
+                    <DataGridTextColumn Header="CANT"
+                                        Width="85"
+                                        Binding="{Binding Path=Qty}"
+                                        HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="HorizontalAlignment" Value="Center" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="PRECIO"
+                                        Width="110"
+                                        Binding="{Binding Path=UnitPrice, StringFormat=N0}"
+                                        HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="HorizontalAlignment" Value="Right" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="TOTAL"
+                                        Width="110"
+                                        Binding="{Binding Path=TotalPrice, StringFormat=N0}"
+                                        HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="HorizontalAlignment" Value="Right" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </GroupBox>
+        <!--ADD & SUBSTRACT BUTTONS-->
+        <Image Grid.Row="3" Grid.Column="5"
+               Name="Increase"
+               Source="/Images/Plus_sign.png"
+               Margin="5"
+               Visibility="Hidden"
+               ToolTip="Haga click aquí para aumentar en una unidad."
+               Cursor="Hand"
+               MouseDown="btn_Increase"/>
+        <Image Grid.Row="4" Grid.Column="5"
+               Name="Decrease"
+               Source="/Images/Minus_sign.png"
+               Margin="5"
+               Visibility="Hidden"
+               ToolTip="Haga click aquí para reducir una unidad."
+               Cursor="Hand"
+               MouseDown="btn_Decrease"/>
+        <Button Grid.Row="7" Grid.Column="1"
+                Name="Cancel"
+                Click="btn_Cancel"
+                Foreground="DarkBlue"
+                IsEnabled="False"
+                FontSize="20"
+                Margin="5"
+                Cursor="Hand"
+                FontWeight="DemiBold"
+                Content="CANCELAR"/>
+        <Button Grid.Row="7" Grid.Column="3"
+                Name="UpdateTicket"
+                Click="btn_UpdateTicket"
+                Foreground="DarkBlue"
+                IsEnabled="False"
+                FontSize="20"
+                Margin="5"
+                Cursor="Hand"
+                FontWeight="DemiBold"
+                Content="ACTUALIZAR"/>
+    </Grid>
+</UserControl>

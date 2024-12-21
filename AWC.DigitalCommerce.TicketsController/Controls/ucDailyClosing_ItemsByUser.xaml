@@ -1,0 +1,102 @@
+﻿<UserControl x:Class="AWC.DigitalCommerce.TicketsController.Controls.ucDailyClosing_ItemsByUser"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController.Controls"
+             mc:Ignorable="d" Background="DarkBlue"
+             d:DesignHeight="450" d:DesignWidth="720">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="1" Grid.Column="1"
+               Foreground="Cyan"
+               Content="FECHA INICIAL:"
+               VerticalAlignment="Center"
+               FontSize="18"
+               FontWeight="DemiBold"/>
+        <DatePicker Grid.Row="1" Grid.Column="2"
+                    Name="StartDate"
+                    Foreground="DarkBlue"
+                    SelectedDateFormat="Short"
+                    VerticalAlignment="Center"
+                    Margin="5"
+                    FontSize="20"
+                    FontWeight="DemiBold"
+                    SelectedDateChanged="StartDate_SelectedDateChanged"/>
+        <Label Grid.Row="1" Grid.Column="3"
+               Foreground="Cyan"
+               Content="FECHA FINAL:"
+               VerticalAlignment="Center"
+               FontSize="18"
+               FontWeight="DemiBold"/>
+        <DatePicker Grid.Row="1" Grid.Column="4"
+                    Name="FinishDate"
+                    Foreground="DarkBlue"
+                    SelectedDateFormat="Short"
+                    VerticalAlignment="Center"
+                    Margin="5"
+                    FontSize="20"
+                    FontWeight="DemiBold"
+                    SelectedDateChanged="FinishDate_SelectedDateChanged"/>
+        <RadioButton Grid.Row="2" Grid.Column="1"
+                     Name="rbtnByDate"
+                     Foreground="Cyan"
+                     GroupName="GroupingMethod"
+                     VerticalAlignment="Center"
+                     FontSize="18"
+                     FontWeight="DemiBold"
+                     Content="  POR FECHA"
+                     IsChecked="True"/>
+        <RadioButton Grid.Row="2" Grid.Column="2"
+                     Name="rbtnByUser"
+                     Foreground="Cyan"
+                     GroupName="GroupingMethod"
+                     VerticalAlignment="Center"
+                     FontSize="18"
+                     FontWeight="DemiBold"
+                     Content="  POR USUARIO"
+                     IsChecked="False" />
+        <DataGrid Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="4"
+                      Name="dgvSQLQueryTab"
+                      RowHeight="30"
+                      FontSize="20"
+                      Margin="5"
+                      IsReadOnly="True"
+                      GridLinesVisibility="All"
+                      HeadersVisibility="All"
+                      Background="white"
+                      RowBackground="Cyan"
+                      AlternatingRowBackground="LightCyan"
+                      AutoGenerateColumns="True"
+                      BorderBrush="DarkBlue"
+                      SelectionMode="Single" />
+        <Button Grid.Row="4" Grid.Column="1"
+                    Click="btn_Send"
+                    Foreground="DarkBlue"
+                    FontSize="20"
+                    Margin="5"
+                    Cursor="Hand"
+                    FontWeight="DemiBold">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/Images/email.png"
+                       Width="30" Height="30" Margin="3"/>
+                <TextBlock Text="ENVIAR" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Button>
+    </Grid>
+</UserControl>

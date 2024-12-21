@@ -1,0 +1,245 @@
+﻿<UserControl x:Class="AWC.DigitalCommerce.TicketsController.Controls.ucNotes"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController"
+             mc:Ignorable="d" Background="DarkBlue"
+             d:DesignHeight="550" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style x:Key="CenterGridHeaderStyle"
+               TargetType="DataGridColumnHeader">
+            <Setter Property="HorizontalContentAlignment"
+                    Value="Center"/>
+        </Style>
+        <DataTemplate x:Key="cBox_ItemDescription_DataTemplate">
+            <StackPanel Margin="1">
+                <TextBlock FontWeight="DemiBold"
+                           Foreground="DarkBlue"
+                           Text="{Binding ItemDescription}" />
+            </StackPanel>
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="75"/>
+            <ColumnDefinition Width="75"/>
+            <ColumnDefinition Width="75"/>
+            <ColumnDefinition Width="140"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="335"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Label Grid.Row="1" Grid.Column="1"
+               Foreground="Cyan"
+               Margin="3"
+               VerticalAlignment="Center"
+               HorizontalContentAlignment="Right"
+               Content="FECHA:"
+               FontSize="20"
+               FontWeight="DemiBold"/>
+        <DatePicker Grid.Row="1" Grid.Column="2"
+                    Name="NoteDate"
+                    SelectedDateFormat="Short"
+                    VerticalAlignment="Center"
+                    Margin="3"
+                    FontSize="20"
+                    FontWeight="DemiBold"
+                    SelectedDateChanged="NoteDate_SelectedDateChanged"/>
+        <Label Grid.Row="1" Grid.Column="3"
+               Foreground="Cyan"
+               Margin="3"
+               VerticalAlignment="Center"
+               HorizontalContentAlignment="Right"
+               Content="TIPO:"
+               FontSize="20"
+               FontWeight="DemiBold"/>
+        <StackPanel Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="3"
+                    Orientation="Horizontal">
+            <RadioButton Name="DebitNote"
+                         Foreground="Cyan"
+                         FontSize="20"
+                         FontWeight="DemiBold"
+                         Content="DÉBITO"
+                         IsChecked="true"
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Center"/>
+            <RadioButton Name="CreditNote"
+                         Foreground="Cyan"
+                         FontSize="20"
+                         Margin="20,0,0,0"
+                         FontWeight="DemiBold"
+                         Content="CRÉDITO"
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Center"/>
+        </StackPanel>
+        <Label Grid.Row="2" Grid.Column="1"
+               Foreground="Cyan"
+               Margin="3"
+               VerticalAlignment="Center"
+               HorizontalContentAlignment="Right"
+               Content="DESCRIPCIÓN:"
+               FontSize="20"
+               FontWeight="DemiBold"/>
+        <TextBox Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="3"
+                 Name="txtNoteDescription"
+                 Margin="3"
+                 Background="Cyan"
+                 VerticalAlignment="Center"
+                 FontSize="20"
+                 FontWeight="DemiBold" />
+        <Label Grid.Row="3" Grid.Column="1"
+               Foreground="Cyan"
+               Margin="3"
+               VerticalAlignment="Center"
+               HorizontalContentAlignment="Right"
+               Content="PRODUCTO:"
+               FontSize="20"
+               FontWeight="DemiBold"/>
+        <ComboBox Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2"
+                  Name="cbox_ItemsList"
+                  VerticalAlignment="Center"
+                  Margin="3"
+                  FontSize="20"
+                  FontWeight="DemiBold"
+                  ItemsSource="{Binding Tables[0]}"
+                  ItemTemplate="{StaticResource cBox_ItemDescription_DataTemplate}" />
+        <Label Grid.Row="3" Grid.Column="4"
+               Foreground="Cyan"
+               Margin="5"
+               VerticalAlignment="Center"
+               HorizontalContentAlignment="Right"
+               Content="CANT:"
+               FontSize="20"
+               FontWeight="DemiBold"/>
+        <TextBox Grid.Row="3" Grid.Column="5"
+                 Name="txtItemQty"
+                 Margin="5"
+                 Background="Cyan"
+                 VerticalAlignment="Center"
+                 HorizontalContentAlignment="Center"
+                 FontSize="20"
+                 FontWeight="DemiBold" TextChanged="txtItemQty_TextChanged" />
+        <Button Grid.Row="3" Grid.Column="6"
+                Name="btnAddItem"
+                Click="btn_AddItem"
+                Margin="3"
+                FontSize="15"
+                FontWeight="DemiBold"
+                Cursor="Hand"
+                IsEnabled="False">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/Images/Plus_sign.png" Width="20" Height="20" Margin="3"/>
+                <TextBlock Text="AGREGAR" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Button>
+        <DataGrid Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="6"
+                  Name="dgItemsList"
+                  Height="330"
+                  Width="760"
+                  RowHeight="35"
+                  FontSize="25"
+                  HorizontalAlignment="Left"
+                  HorizontalScrollBarVisibility="Hidden"
+                  VerticalAlignment="Top"
+                  VerticalContentAlignment="Center"
+                  VerticalScrollBarVisibility="Visible"
+                  GridLinesVisibility="All"
+                  HeadersVisibility="All"
+                  Background="LightGray"
+                  RowBackground="LightCyan"
+                  AlternatingRowBackground="Cyan"
+                  BorderBrush="DarkBlue" BorderThickness="2"
+                  AreRowDetailsFrozen="True"
+                  IsReadOnly="True"
+                  CanUserReorderColumns="False"
+                  CanUserResizeColumns="False"
+                  CanUserSortColumns = "False"
+                  AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID"
+                                    Width="55"
+                                    Binding="{Binding ID}"
+                                    HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="HorizontalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="DESCRIPCIÓN DEL PRODUCTO"
+                                    Width="400"
+                                    Binding="{Binding ItemDescription}"
+                                    HeaderStyle="{StaticResource CenterGridHeaderStyle}"/>
+                <DataGridTextColumn Header="CANT"
+                                    Width="75"
+                                    Binding="{Binding ItemQty}"
+                                    HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="HorizontalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="PRECIO"
+                                    Width="100"
+                                    Binding="{Binding ItemPrice, StringFormat=N0}"
+                                    HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="HorizontalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="TOTAL"
+                                    Width="100"
+                                    Binding="{Binding ItemTotal, StringFormat=N0}"
+                                    HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="HorizontalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Grid.Row="6" Grid.Column="1"
+                Name="btnDeleteItem"
+                Click="btn_DeleteItem"
+                Margin="3"
+                FontSize="20"
+                FontWeight="DemiBold"
+                Cursor="Hand"
+                IsEnabled="False">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/Images/delete_sign.png" Width="20" Height="20" Margin="3"/>
+                <TextBlock Text="BORRAR" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Button>
+        <Button Grid.Row="6" Grid.Column="2"
+                Name="btnSaveNote"
+                Click="btn_SaveNote"
+                Margin="3"
+                FontSize="20"
+                FontWeight="DemiBold"
+                Cursor="Hand"
+                IsEnabled="False">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/Images/38.ico" Width="20" Height="20" Margin="3"/>
+                <TextBlock Text="SALVAR" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Button>
+    </Grid>
+</UserControl>

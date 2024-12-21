@@ -1,0 +1,142 @@
+﻿<Window x:Class="AWC.DigitalCommerce.TicketsController.wpfMessageBox"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        MinHeight="270" MaxHeight="400"
+        MinWidth="1000" MaxWidth="1000" 
+        Background="White" SizeToContent="WidthAndHeight" 
+        WindowStartupLocation="CenterScreen"  
+        ShowInTaskbar="False" ResizeMode="NoResize" 
+        WindowStyle="None" Topmost="True">
+    <Window.Resources>
+        <Style TargetType="Button" x:Key="MessageBoxButtonStyle">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="TextBlock.TextAlignment" Value="Center" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="Border"
+                                CornerRadius="0"
+                                BorderBrush="Black"
+                                BorderThickness="1,1,1,1" 
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter x:Name="contentPresenter" 
+                                ContentTemplate="{TemplateBinding ContentTemplate}" 
+                                Content="{TemplateBinding Content}" 
+                                HorizontalAlignment="{TemplateBinding HorizontalAlignment}" 
+                                Margin="{TemplateBinding Padding}" 
+                                VerticalAlignment="{TemplateBinding VerticalAlignment}" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Border BorderBrush="Fuchsia" BorderThickness="5">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="10"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Rectangle Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2">
+                <Rectangle.Fill>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1" Opacity="0.8">
+                        <GradientStop Color="White" Offset="0.0"/>
+                        <GradientStop Color="White" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+                <Rectangle.Fill>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1" Opacity="0.9">
+                        <GradientStop Color="DarkBlue" Offset="0.0"/>
+                        <GradientStop Color="Cyan" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Grid Grid.Row="0" Grid.ColumnSpan="2" MinHeight="40">
+                <TextBlock Margin="10,2,10,2"
+                           Name="MessageTitle"
+                           FontWeight="DemiBold"
+                           TextTrimming="CharacterEllipsis" 
+                           LineHeight="22"
+                           FontSize="30" 
+                           VerticalAlignment="Center"
+                           Foreground="White"/>
+            </Grid>
+            <Image Grid.Row="1" Grid.Column="0"
+                   Name="img"
+                   Margin="5"
+                   Width="80" Height="80"
+                   Stretch="Fill" />
+            <TextBlock Margin="10,5,10,5" VerticalAlignment="Center" 
+                       TextWrapping="Wrap" Name="txtMsg"
+                       Grid.Row="1" Grid.Column="1"
+                       Foreground="DarkBlue"
+                       FontSize="25"
+                       FontWeight="DemiBold"
+                       LineHeight="20" />
+            <Grid Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="0">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button Name="btnOk"
+                            Content=" CONTINUAR " Cursor="Hand"
+                            Margin="5"
+                            MinWidth="70" Height="55"  
+                            Click="Button_Click" 
+                            FontSize="20" 
+                            FontWeight="DemiBold"
+                            Style="{StaticResource MessageBoxButtonStyle}"
+                            Background="DarkBlue"
+                            Foreground="White"
+                            VerticalAlignment="Center" 
+                            HorizontalAlignment="Stretch"  
+                            VerticalContentAlignment="Center" 
+                            HorizontalContentAlignment="Center"/>
+                    <Button Name="btnYes"
+                            Content="SI" Margin="5"
+                            MinWidth="70" Height="55" 
+                            Click="Button_Click"
+                            FontSize="20" Cursor="Hand"
+                            FontWeight="DemiBold"
+                            Style="{StaticResource MessageBoxButtonStyle}"    
+                            Background="DarkBlue"
+                            Foreground="White"
+                            VerticalAlignment="Center" 
+                            HorizontalAlignment="Stretch"  
+                            VerticalContentAlignment="Center" 
+                            HorizontalContentAlignment="Center"/>
+                    <Button Name="btnNo" Content="NO" Margin="5"
+                            MinWidth="70" Height="55" 
+                            Click="Button_Click"
+                            FontSize="20" Cursor="Hand"
+                            FontWeight="DemiBold"
+                            Style="{StaticResource MessageBoxButtonStyle}"   
+                            Foreground="White" 
+                            Background="Firebrick" VerticalAlignment="Center" 
+                            HorizontalAlignment="Stretch"  
+                            VerticalContentAlignment="Center" 
+                            HorizontalContentAlignment="Center"/>
+                    <Button Name="btnCancel" Margin="5"
+                            Content=" CANCELAR " MinWidth="70" 
+                            Height="55" Click="Button_Click"
+                            Style="{StaticResource MessageBoxButtonStyle}" 
+                            Foreground="White" 
+                            Background="Firebrick"
+                            FontSize="20" Cursor="Hand"
+                            Padding="5,0,5,0"
+                            FontWeight="DemiBold"
+                            VerticalAlignment="Center" 
+                            HorizontalAlignment="Stretch" 
+                            VerticalContentAlignment="Center" 
+                            HorizontalContentAlignment="Center"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>
+ 

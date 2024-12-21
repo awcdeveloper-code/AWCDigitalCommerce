@@ -1,0 +1,414 @@
+﻿<UserControl x:Class="AWC.DigitalCommerce.TicketsController.Controls.ucDailyClosing_RestoBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController"
+             mc:Ignorable="d" Background="DarkBlue"
+             d:DesignHeight="645" d:DesignWidth="1310">
+    <UserControl.Resources>
+        <Style x:Key="CenterGridHeaderStyle" TargetType="DataGridColumnHeader">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="ScrollBar">
+            <Setter Property="Width" Value="40"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="230"/>
+            <ColumnDefinition Width="190"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="160"/>
+            <ColumnDefinition Width="160"/>
+            <ColumnDefinition Width="160"/>
+            <ColumnDefinition Width="160"/>
+            <ColumnDefinition Width="160"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+        <!--LABELS IMAGES-->
+        <Image Source="Images/calendar.png" 
+               Grid.Row="1" Grid.Column="1"
+               Height="35"/>
+        <Image Source="Images/people.ico" 
+               Grid.Row="2" Grid.Column="1"
+               Height="35"/>
+        <Image Source="Images/cash_icon.png" 
+               Grid.Row="3" Grid.Column="1"
+               Height="35"/>
+        <Image Source="Images/cash_icon.png" 
+               Grid.Row="4" Grid.Column="1"
+               Height="35"/>
+        <Image Source="Images/a2p.png" 
+               Grid.Row="5" Grid.Column="1"
+               Height="35"/>
+        <Image Source="Images/cash_icon.png" 
+               Grid.Row="6" Grid.Column="1"
+               Height="35"/>
+        <Image Source="Images/creditcard_icon.png" 
+               Grid.Row="7" Grid.Column="1"
+               Height="35"/>
+        <Image Source="Images/sinpe_icon.png" 
+               Grid.Row="8" Grid.Column="1"
+               Height="35"/>
+        <Image Source="Images/wiretransfer.png" 
+               Grid.Row="9" Grid.Column="1"
+               Height="35"/>
+        <Image Source="Images/waitress.png" 
+               Grid.Row="12" Grid.Column="1"
+               Height="35"/>
+        <Image Source="Images/money_icon.png" 
+               Grid.Row="13" Grid.Column="1"
+               Height="35"/>
+        <Image Source="Images/sales.png" 
+               Grid.Row="10" Grid.Column="1"
+               Height="35"/>
+        <Image Source="Images/sales.png" 
+               Grid.Row="11" Grid.Column="1"
+               Height="35"/>
+        <Image Source="Images/expenses.png" 
+               Grid.Row="14" Grid.Column="1"
+               Height="35"/>
+        <!--LABELS-->
+        <Label Grid.Row="1" Grid.Column="2"
+               Content="FECHA :"
+               Foreground="Cyan"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Right"
+               FontSize="20"
+               FontWeight="DemiBold"/>
+        <DatePicker Grid.Row="1" Grid.Column="3"
+                    Grid.ColumnSpan="2"
+                    Name="SelectedDay"
+                    SelectedDateFormat="Short"
+                    VerticalAlignment="Center"
+                    Margin="5"
+                    FontSize="20"
+                    FontWeight="DemiBold"
+                    SelectedDateChanged="SelectedDay_SelectedDateChanged"/>
+        <Label Grid.Row="2" Grid.Column="2"
+               Content="TURNO :"
+               Foreground="Cyan"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Right"
+               FontSize="20"
+               FontWeight="DemiBold"/>
+        <TextBox Grid.Row="2" Grid.Column="3"
+                 Name="txtShift"
+                 Width="50"
+                 FontSize="20"
+                 Margin="5"
+                 Background="Cyan"
+                 HorizontalAlignment="Left"
+                 HorizontalContentAlignment="Center"
+                 VerticalAlignment="Center"
+                 FontWeight="DemiBold"
+                 TextChanged="txtShift_TextChanged"/>
+        <Label Grid.Row="3" Grid.Column="2"
+               Content="CAJA INICIAL (CI) :"
+               Foreground="Cyan"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Right"
+               FontSize="20"
+               FontWeight="DemiBold"/>
+        <Label Grid.Row="4" Grid.Column="2"
+               Content="INGRESOS CAJA (IC) :"
+               Foreground="Cyan"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Right"
+               FontSize="20"
+               FontWeight="DemiBold"/>
+        <Label Grid.Row="4" Grid.Column="3"
+               Name="lbl_IncomeCash"
+               Foreground="Cyan"
+               Content="0"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Right"
+               FontSize="25"
+               FontWeight="DemiBold"/>
+        <Label Grid.Row="3" Grid.Column="3"
+               Name="lbl_InitialCash"
+               Foreground="Cyan"
+               Content="0"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Right"
+               FontSize="25"
+               FontWeight="DemiBold"/>
+        <Label Grid.Row="5" Grid.Column="2"
+               Content="CUENTAS ABIERTAS :"
+               Foreground="Cyan"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Right"
+               FontSize="20"
+               FontWeight="DemiBold"/>
+        <Label Grid.Row="5" Grid.Column="3"
+               Name="lbl_OutstandingAmount"
+               Foreground="Cyan"
+               Content="0"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Right"
+               FontSize="25"
+               FontWeight="DemiBold"/>
+        <Label Grid.Row="6" Grid.Column="2"
+               Content="CI + IC + EFECTIVO - G :"
+               Foreground="Cyan"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Right"
+               FontSize="20"
+               FontWeight="DemiBold"/>
+        <Label Grid.Row="6" Grid.Column="3"
+               Name="lbl_Cash"
+               Foreground="Cyan"
+               Content="0"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Right"
+               FontSize="25"
+               FontWeight="DemiBold"/>
+        <Label Grid.Row="7" Grid.Column="2"
+               Content="TARJETA CRÉDITO :"
+               Foreground="Cyan"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Right"
+               FontSize="20"
+               FontWeight="DemiBold"/>
+        <Label Grid.Row="7" Grid.Column="3"
+               Name="lbl_CreditCard"
+               Foreground="Cyan"
+               Content="0"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Right"
+               FontSize="25"
+               FontWeight="DemiBold"/>
+        <Label Grid.Row="8" Grid.Column="2"
+               Content="SINPE :"
+               Foreground="Cyan"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Right"
+               FontSize="20"
+               FontWeight="DemiBold"/>
+        <Label Grid.Row="8" Grid.Column="3"
+               Name="lbl_Transfer"
+               Foreground="Cyan"
+               Content="0"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Right"
+               FontSize="25"
+               FontWeight="DemiBold"/>
+        <Label Grid.Row="9" Grid.Column="2"
+               Content="VOUCHERS :"
+               Foreground="Cyan"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Right"
+               FontSize="20"
+               FontWeight="DemiBold"/>
+        <Label Grid.Row="9" Grid.Column="3"
+               Name="lbl_Voucher"
+               Foreground="Cyan"
+               Content="0"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Right"
+               FontSize="25"
+               FontWeight="DemiBold"/>
+        <Label Grid.Row="10" Grid.Column="2"
+               Content="VENTA BRUTA :"
+               Foreground="Cyan"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Right"
+               FontSize="20"
+               FontWeight="DemiBold"/>
+        <Label Grid.Row="10" Grid.Column="3"
+               Name="lbl_TotalSale"
+               Foreground="Cyan"
+               Content="0"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Right"
+               FontSize="25"
+               FontWeight="DemiBold"/>
+        <Label Grid.Row="11" Grid.Column="2"
+               Content="VENTA NETA :"
+               Foreground="Cyan"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Right"
+               FontSize="20"
+               FontWeight="DemiBold"/>
+        <Label Grid.Row="11" Grid.Column="3"
+               Name="lbl_NetSale"
+               Foreground="Cyan"
+               Content="0"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Right"
+               FontSize="25"
+               FontWeight="DemiBold"/>
+        <Label Grid.Row="12" Grid.Column="2"
+               Content="10% SERVICIO :"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Right"
+               Foreground="White"
+               FontSize="20"
+               FontWeight="DemiBold"/>
+        <Label Grid.Row="12" Grid.Column="3"
+               Name="lbl_ServiceFee"
+               Content="0"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Right"
+               Foreground="White"
+               FontSize="25"
+               FontWeight="DemiBold"/>
+        <Label Grid.Row="13" Grid.Column="2"
+               Content="PAGOS CXC :"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Right"
+               Foreground="White"
+               FontSize="20"
+               FontWeight="DemiBold"/>
+        <Label Grid.Row="13" Grid.Column="3"
+               Name="lbl_OldTicketsPay"
+               Content="0"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Right"
+               Foreground="White"
+               FontSize="25"
+               FontWeight="DemiBold"/>
+        <Label Grid.Row="14" Grid.Column="2"
+               Content="GASTOS (G):"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Right"
+               Foreground="White"
+               FontSize="20"
+               FontWeight="DemiBold"/>
+        <Label Grid.Row="14" Grid.Column="3"
+               Name="lbl_Expenses"
+               Content="0"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Right"
+               Foreground="White"
+               FontSize="25"
+               FontWeight="DemiBold"/>
+        <GroupBox Grid.Row="1" Grid.Column="5"
+                  Grid.ColumnSpan="6" Grid.RowSpan="14"
+                  Name="GroupBoxDataGrid"
+                  Foreground="Cyan"
+                  Header="CUENTAS CERRADAS">
+            <DataGrid Name="TodayTickets"
+                      Height="515" Width="780"
+                      Margin="10"
+                      RowHeight="30"
+                      FontSize="20"
+                      FontWeight="DemiBold"
+                      IsReadOnly="True"
+                      HorizontalAlignment="Left"
+                      HorizontalScrollBarVisibility="Disabled"
+                      VerticalAlignment="Top"
+                      VerticalScrollBarVisibility="Visible" 
+                      GridLinesVisibility="All"
+                      HeadersVisibility="All"
+                      Background="LightGray"
+                      RowBackground="LightCyan"
+                      AlternatingRowBackground="Cyan"
+                      BorderBrush="Gray" BorderThickness="2"
+                      AreRowDetailsFrozen="True"
+                      CanUserReorderColumns="False"
+                      CanUserResizeColumns="False"
+                      CanUserSortColumns = "False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="CUENTA"
+                                        Width="105"
+                                        Binding="{Binding Path=ID}"
+                                        HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="HorizontalAlignment" Value="Center" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="CLIENTE"
+                                        Width="365"
+                                        Binding="{Binding Path=CustomerID}"
+                                        HeaderStyle="{StaticResource CenterGridHeaderStyle}"/>
+                    <DataGridTextColumn Header="ESTADO"
+                                        Width="90"
+                                        Binding="{Binding Path=StatusAlpha}"
+                                        HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="HorizontalAlignment" Value="Center" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="PAGO"
+                                        Width="75"
+                                        Binding="{Binding Path=PayMethodAlpha}"
+                                        HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="HorizontalAlignment" Value="Center" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="TOTAL"
+                                        Width="95"
+                                        Binding="{Binding Path=TotalPrice, StringFormat=N0}"
+                                        HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="HorizontalAlignment" Value="Right" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </GroupBox>
+        <Button Grid.Row="15" Grid.Column="2" Grid.ColumnSpan="2"
+                Name="DailyClosePrint"
+                Click="btn_DailyClosePrint"
+                FontSize="20"
+                Margin="5"
+                Cursor="Hand"
+                FontWeight="DemiBold">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/Images/shiftchange.png" Width="25" Height="25"/>
+                <TextBlock Text="APLICAR CIERRE DE TURNO"
+                           VerticalAlignment="Center"/>
+            </StackPanel>
+        </Button>
+        <CheckBox Grid.Row="15" Grid.Column="5" Grid.ColumnSpan="2"
+                  Name="SendReportByEmail"
+                  Foreground="Cyan"
+                  VerticalAlignment="Center"
+                  IsChecked="True"
+                  Margin="5"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="ENVIAR POR CORREO ELECTRÓNICO"/>
+        <CheckBox Grid.Row="15" Grid.Column="7" Grid.ColumnSpan="2"
+                  Name="PrintSummaryWithDetail"
+                  Foreground="Cyan"
+                  VerticalAlignment="Center"
+                  IsChecked="False"
+                  Margin="5"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="IMPRIMIR RESUMEN DE FACTURAS" Checked="PrintSummaryWithDetail_Checked"/>
+    </Grid>
+</UserControl>

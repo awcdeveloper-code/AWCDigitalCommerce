@@ -1,0 +1,73 @@
+﻿<Window x:Class="AWC.DigitalCommerce.TicketsController.wpfFrequentItems"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController"
+        mc:Ignorable="d" Height="740" Width="350" WindowStartupLocation="CenterScreen"
+        WindowStyle="None" ResizeMode="NoResize" Background="Cyan">
+    <Window.Resources>
+        <DataTemplate x:Key="Items_DataTemplate">
+            <StackPanel Margin="1">
+                <TextBlock FontWeight="DemiBold"
+                           Foreground="DarkBlue"
+                           Text="{Binding ItemDescription}" />
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
+    <Border BorderBrush="DarkBlue" BorderThickness="3">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="10"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="10"/>
+            </Grid.RowDefinitions>
+            <!--LABEL COLUMN-->
+            <Label Grid.Row="1" Grid.Column="1"
+                   Foreground="DarkBlue"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   Content="LOS MÁS SOLICITADOS:"
+                   FontSize="25"
+                   FontWeight="DemiBold"/>
+            <ListBox Grid.Row="2" Grid.Column="1"
+                     Name="lBox_FreqItems"
+                     Margin="5"
+                     FontSize="40"
+                     FontWeight="DemiBold"
+                     SelectionMode="Single"
+                     SelectionChanged="lBox_FreqItems_SelectionChanged">
+                <ListBox.Resources>
+                    <Style TargetType="ScrollBar">
+                        <Style.Triggers>
+                            <Trigger Property="Orientation" Value="Vertical">
+                                <Setter Property="Width" Value="40"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ListBox.Resources>
+            </ListBox>
+            <!--CANCEL ORDER-->
+            <Button Grid.Row="4" Grid.Column="1"
+                    Click="btn_Cancel"
+                    FontSize="25"
+                    Margin="5"
+                    Cursor="Hand"
+                    FontWeight="DemiBold">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Images/delete_sign.png"
+                           Width="30" Height="30" Margin="5"/>
+                    <TextBlock Text="CANCELAR" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+        </Grid>
+    </Border>
+</Window>

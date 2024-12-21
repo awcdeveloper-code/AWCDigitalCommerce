@@ -1,0 +1,96 @@
+﻿<Window x:Class="AWC.DigitalCommerce.TicketsController.wpfCashOnDrawer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController"
+        mc:Ignorable="d" Height="270" Width="530" Background="DarkBlue"
+        WindowStyle="None" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Border BorderBrush="Fuchsia" BorderThickness="5">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="340"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="10"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="20"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="1" Grid.Column="1"
+                   Foreground="White"
+                   Name="lblCashRegisterOpening"
+                   Margin="5"
+                   FontSize="30"
+                   FontWeight="DemiBold"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Center"
+                   Content="EFECTIVO EN CAJA:"/>
+            <TextBox Grid.Row="1" Grid.Column="2"
+                     Name="txtCash"
+                     Margin="5"
+                     FontSize="40"
+                     Width="150"
+                     IsEnabled="False"
+                     FontWeight="DemiBold"
+                     HorizontalAlignment="Center"
+                     HorizontalContentAlignment="Center"
+                     VerticalAlignment="Center"/>
+            <Label Grid.Row="2" Grid.Column="1"
+                   Foreground="White"
+                   Margin="5"
+                   FontSize="30"
+                   FontWeight="DemiBold"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Center"
+                   Content="EFECTIVO A RETIRAR:"/>
+            <TextBox Grid.Row="2" Grid.Column="2"
+                     Name="txtCashWithdrawal"
+                     Background="Cyan"
+                     Margin="5"
+                     FontSize="40"
+                     Width="150"
+                     FontWeight="DemiBold"
+                     HorizontalAlignment="Center"
+                     HorizontalContentAlignment="Center"
+                     VerticalAlignment="Center"/>
+            <Label Grid.Row="3" Grid.Column="1"
+                   Foreground="White"
+                   Margin="5"
+                   FontSize="30"
+                   FontWeight="DemiBold"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Center"
+                   Content="EFECTIVO REMANENTE:"/>
+            <TextBox Grid.Row="3" Grid.Column="2"
+                     Name="txtCashOnDrawer"
+                     Margin="5"
+                     FontSize="40"
+                     Width="150"
+                     IsEnabled="False"
+                     FontWeight="DemiBold"
+                     HorizontalAlignment="Center"
+                     HorizontalContentAlignment="Center"
+                     VerticalAlignment="Center"/>
+            <Button Grid.Row="4" Grid.Column="2"
+                    Click="btn_OK"
+                    GotFocus="btn_OK_GotFocus"
+                    FontSize="25"
+                    FontWeight="DemiBold"
+                    Width="140"
+                    Margin="5"
+                    Cursor="Hand">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Images/38.ico"
+                           Width="25" Height="25" Margin="5"/>
+                    <TextBlock Text="OK" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+        </Grid>
+    </Border>
+</Window>

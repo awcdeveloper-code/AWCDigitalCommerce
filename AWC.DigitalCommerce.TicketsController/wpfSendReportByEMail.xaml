@@ -1,0 +1,118 @@
+﻿<Window x:Class="AWC.DigitalCommerce.TicketsController.wpfSendReportByEMail"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController"
+        mc:Ignorable="d" Height="285" Width="735" Background="DarkBlue"
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <Border BorderBrush="Fuchsia" BorderThickness="5">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="190"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="190"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="10"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4"
+                   Foreground="Cyan"
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Center"
+                   Content="ENVIAR REPORTE VIA CORREO"
+                   FontSize="30"
+                   FontWeight="DemiBold"/>
+            <Label Grid.Row="2" Grid.Column="1"
+                   Foreground="Cyan"
+                   HorizontalAlignment="Right"
+                   Content="REPORTE:"
+                   FontSize="20"
+                   FontWeight="DemiBold"/>
+            <ComboBox Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="3"
+                      Name="cbox_ReportList"
+                      VerticalAlignment="Center"
+                      FontSize="20"
+                      Margin="2"
+                      FontWeight="DemiBold"
+                      SelectionChanged="cbox_ReportList_SelectionChanged"/>
+            <Label Grid.Row="3" Grid.Column="1"
+                   Foreground="Cyan"
+                   HorizontalAlignment="Right"
+                   Content="CORREO(S):"
+                   FontSize="20"
+                   FontWeight="DemiBold"/>
+            <TextBox Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="3"
+                     Name="txtBox_eMail"
+                     Margin="2"
+                     Background="White"
+                     FontSize="20"
+                     FontWeight="DemiBold"/>
+            <Label Grid.Row="4" Grid.Column="1"
+                   Foreground="Cyan"
+                   HorizontalAlignment="Right"
+                   Content="FECHA INICIAL:"
+                   FontSize="20"
+                   FontWeight="DemiBold"/>
+            <DatePicker Grid.Row="4" Grid.Column="2"
+                        Name="StartDay"
+                        SelectedDateFormat="Short"
+                        VerticalAlignment="Center"
+                        FontSize="20"
+                        FontWeight="DemiBold"
+                        SelectedDateChanged="StartDay_SelectedDateChanged"/>
+            <Label Grid.Row="4" Grid.Column="3"
+                   Foreground="Cyan"
+                   HorizontalAlignment="Right"
+                   Content="FECHA FINAL:"
+                   FontSize="20"
+                   FontWeight="DemiBold"/>
+            <DatePicker Grid.Row="4" Grid.Column="4"
+                        Name="EndDay"
+                        SelectedDateFormat="Short"
+                        VerticalAlignment="Center"
+                        FontSize="20"
+                        FontWeight="DemiBold"
+                        SelectedDateChanged="EndDay_SelectedDateChanged"/>
+            <StackPanel Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3"
+                        Orientation="Horizontal">
+                <Button Name="btnCancel"
+                        Click="btn_Cancel"
+                        Width="150"
+                        Margin="3"
+                        Cursor="Hand"
+                        FontSize="20"
+                        FontWeight="DemiBold">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Images/delete_sign.png"
+                               Width="25" Height="25" Margin="5"/>
+                        <TextBlock Text="CERRAR" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button Name="btnSend"
+                        Click="btn_Send"
+                        Width="150"
+                        Margin="3"
+                        Cursor="Hand"
+                        FontSize="20"
+                        FontWeight="DemiBold">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Images/email.png"
+                               Width="30" Height="30" Margin="5"/>
+                        <TextBlock Text="ENVIAR" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>

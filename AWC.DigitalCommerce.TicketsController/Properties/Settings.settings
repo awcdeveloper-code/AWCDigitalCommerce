@@ -1,0 +1,318 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="AWC.DigitalCommerce.TicketsController.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="SerilogRootPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\AWC.DigitalCommerce\Serilog</Value>
+    </Setting>
+    <Setting Name="RequestPIN" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="TicketPrinter" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">SAT15TUS</Value>
+    </Setting>
+    <Setting Name="KitchenPrinter" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">SAT15TUS</Value>
+    </Setting>
+    <Setting Name="VirtualNumericKeyboardActive" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="VirtualAlphaKeyboardActive" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="TranslationDictionary" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\AWC.DigitalCommerce\AWC.DigitalCommerce.TicketsController.json</Value>
+    </Setting>
+    <Setting Name="ReportsRepository" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="AllowTicketSummary" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="CheckItemMinimum" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="MaxNumOpenTicketsPerCustomer" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">3</Value>
+    </Setting>
+    <Setting Name="DebugTrace" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="OldTicketsDate" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ShowCustFreqItemsPopUp" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="CanDeleteItemsFromTicket" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="QRImage" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\AWC.DigitalCommerce\Images\QR_Memos_Pub.png</Value>
+    </Setting>
+    <Setting Name="CashRegisterOpening" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="TicketLength" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="TicketWidth" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">200</Value>
+    </Setting>
+    <Setting Name="BusinessDate" Type="System.String" Scope="User">
+      <Value Profile="(Default)">20220428</Value>
+    </Setting>
+    <Setting Name="WhoOpen" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">12345</Value>
+    </Setting>
+    <Setting Name="PrintClosedTicket" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="PrintOrder" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="SINPELogo" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\AWC.DigitalCommerce\Images\SINPEsml.png</Value>
+    </Setting>
+    <Setting Name="KitchenLeasingService" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="QuickOrderCustID" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1004</Value>
+    </Setting>
+    <Setting Name="ServiceFeeLogo" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\AWC.DigitalCommerce\Images\ServiceFee.PNG</Value>
+    </Setting>
+    <Setting Name="SplitTicketCustID" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1034</Value>
+    </Setting>
+    <Setting Name="DisplayUpdateSalesSummary" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="FoodServiceLogo" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\AWC.DigitalCommerce\Images\FoodService.png</Value>
+    </Setting>
+    <Setting Name="DatabaseBackupLocation" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\AWC.DigitalCommerce\MSSQL\Backup</Value>
+    </Setting>
+    <Setting Name="DatabaseBackupExpiration" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">7</Value>
+    </Setting>
+    <Setting Name="DatabaseBackupDayOfWeek" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="UseNickNames" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="wpfMainWIndowMaximized" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="AllowHigherPaymentWithCreditCardOrTransfer" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="KitchenPrinterCopies" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="USDollarExchangeRate" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="AIDAwareBanner" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">AIDAware Consultancies</Value>
+    </Setting>
+    <Setting Name="eMailDistributionList" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">guillermoegrillo@outlook.com</Value>
+    </Setting>
+    <Setting Name="PrintMaxNumOpenTicketsPerCustomer" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="CreditLimitByDefault" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="AllowNewTicketOverCreditLimit" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="PrintSummaryWithDetail" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="RestoBarAdvActive" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="TicketHeaderWH" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">190,180</Value>
+    </Setting>
+    <Setting Name="WorkStationType" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">MASTER</Value>
+    </Setting>
+    <Setting Name="NumOfCustomerFrequentItems" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="GenerateXMLforTicket" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="DeletedID" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1002</Value>
+    </Setting>
+    <Setting Name="PrintFullDetailInDailyClose" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="DBMasterKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">AWCDIGITALCOMMERCE</Value>
+    </Setting>
+    <Setting Name="ApplyZeroToItemSoldAtInventory" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="OldTicketID" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">2002</Value>
+    </Setting>
+    <Setting Name="StartAlarmsThread" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="TicketsControllerDbConn" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Server=DESKTOP-T68QADR;Database=AWCDigitalCommerce;User Id=sa;Password=sa;</Value>
+    </Setting>
+    <Setting Name="BartenderPrinter" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="UncollectibleAccount" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">180</Value>
+    </Setting>
+    <Setting Name="AllowBlindDailyClosing" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="IsProgressBarIndeterminateActive" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="PrintClosedTicketQuestion" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="PrintKitchenOrderHigherThan" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="BCCRWebService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://gee.bccr.fi.cr/Indicadores/Suscripciones/WS/wsindicadoreseconomicos.asmx</Value>
+    </Setting>
+    <Setting Name="BusinessLogo" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\AWC.DigitalCommerce\Images\LaRancha.png</Value>
+    </Setting>
+    <Setting Name="BusinessName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">LA RANCHA ESCONDIDA</Value>
+    </Setting>
+    <Setting Name="BusinessID" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="BusinessPhoneNumber" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">TELÉFONO 6083-3210</Value>
+    </Setting>
+    <Setting Name="BusinessAddress1" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">URBANIZACIÓN MARON</Value>
+    </Setting>
+    <Setting Name="BusinessAddress2" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">DESAMPARADOS, SAN JOSÉ</Value>
+    </Setting>
+    <Setting Name="WeeklyBackupSent" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="UsePrefixPopup" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="UseCashDrawer" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="BartenderOrderTickInSeconds" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="PrintTicketRemotely" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="Shift" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="ShiftForQuery" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="NwsApiBaseUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://api.weather.gov</Value>
+    </Setting>
+    <Setting Name="UseBartenderOrdersMonitor" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="TopLeftOn" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="PrintTicketFooter" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ApplicationTitle" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Tickets Controller</Value>
+    </Setting>
+    <Setting Name="ATVToken" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">HYM256CRV859PERT78</Value>
+    </Setting>
+    <Setting Name="ATVActivityCode" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">552004</Value>
+    </Setting>
+    <Setting Name="ATVClientCode" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">25</Value>
+    </Setting>
+    <Setting Name="ATVEndpointToSend" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://rcfacturas.com/MASTER/Net/facturas/ </Value>
+    </Setting>
+    <Setting Name="ATVApplyFee" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ATVEndpointToQuery" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://rcfacturas.com/MASTER/Net/info/</Value>
+    </Setting>
+    <Setting Name="ATVElectronicTicket" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="ApplyServiceFee" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="SendAlertIfTicketIsHigherThan" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">100000</Value>
+    </Setting>
+    <Setting Name="NumberOfItemsPerBucket" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">6</Value>
+    </Setting>
+    <Setting Name="DisplayCurrentDateTime" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="PrintSINPETicket" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="PowerUser" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="StoreInternalOrders" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="CocktailRecipesPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\AWC.DigitalCommerce\CocktailRecipes</Value>
+    </Setting>
+    <Setting Name="ChatGPTActive" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="NumberOfMostRequestedItems" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">5</Value>
+    </Setting>
+    <Setting Name="PrintBusinessLogo" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="UltraQuickSale" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="GetDailyQuote" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://zenquotes.io/api/today</Value>
+    </Setting>
+    <Setting Name="CashOnDrawer" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="SendAlert2AdminAboutVIP" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="PrintDailyClosingReport" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

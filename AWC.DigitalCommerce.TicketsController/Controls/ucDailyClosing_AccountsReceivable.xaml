@@ -1,0 +1,195 @@
+﻿<UserControl x:Class="AWC.DigitalCommerce.TicketsController.Controls.ucDailyClosing_AccountsReceivable"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController"
+             mc:Ignorable="d" Background="DarkBlue"
+             d:DesignHeight="550" d:DesignWidth="1045">
+    <UserControl.Resources>
+        <Style x:Key="CenterGridHeaderStyle" TargetType="DataGridColumnHeader">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+        <SolidColorBrush x:Key="UnderControl" Color="lime" />
+        <SolidColorBrush x:Key="Warning" Color="Yellow" />
+        <SolidColorBrush x:Key="AlmostDanger" Color="Orange" />
+        <SolidColorBrush x:Key="Danger" Color="Red" />
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+        <!--LABELS-->
+        <Label Grid.Row="1" Grid.Column="1"
+               Name="Month"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Center"
+               Foreground="Cyan"
+               FontSize="20"
+               FontWeight="DemiBold"
+               Content="REVISAR MES:"/>
+        <Label Grid.Row="1" Grid.Column="3"
+               Name="Title"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Center"
+               Foreground="Cyan"
+               FontSize="20"
+               FontWeight="DemiBold"
+               Content="MOROSIDAD DE CLIENTES FRECUENTES"/>
+        <!--COMBOBOX-->
+        <ComboBox Grid.Row="1" Grid.Column="2"
+                  Name="cbox_Month"
+                  VerticalAlignment="Center"
+                  FontSize="20"
+                  FontWeight="DemiBold"
+                  SelectionChanged="cbox_Month_SelectionChanged" />
+        <!--DATAGRID-->
+        <DataGrid Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3"
+                  Name="dgDelincuency"
+                  Width="1010" Height="410" Padding="5"
+                  FontSize="20" FontWeight="DemiBold"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  VerticalScrollBarVisibility="Visible"
+                  IsReadOnly="True"
+                  Background="LightGray"
+                  RowBackground="LightCyan"
+                  AlternatingRowBackground="Cyan"
+                  CanUserReorderColumns="False"
+                  CanUserResizeColumns="False"
+                  CanUserSortColumns = "False"
+                  AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID"
+                                    Width="75"
+                                    Binding="{Binding ID}"
+                                    HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="HorizontalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="NOMBRE DEL CLIENTE"
+                                    Width="300"
+                                    Binding="{Binding CustomerName}"
+                                    HeaderStyle="{StaticResource CenterGridHeaderStyle}"/>
+                <DataGridTextColumn Header="1 a 8d"
+                                    Width="100"
+                                    Binding="{Binding sum_0_8_days, StringFormat=N0}"
+                                    HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="HorizontalAlignment" Value="Right" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="Background" Value="{StaticResource UnderControl}" />
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="9 a 15d"
+                                    Width="100"
+                                    Binding="{Binding sum_9_15_days, StringFormat=N0}"
+                                    HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="HorizontalAlignment" Value="Right" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="Background" Value="{StaticResource Warning}" />
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="16 a 30d"
+                                    Width="100"
+                                    Binding="{Binding sum_16_30_days, StringFormat=N0}"
+                                    HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="HorizontalAlignment" Value="Right" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="Background" Value="{StaticResource Warning}" />
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="31 a 45d"
+                                    Width="100"
+                                    Binding="{Binding sum_31_45_days, StringFormat=N0}"
+                                    HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="HorizontalAlignment" Value="Right" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="Background" Value="{StaticResource AlmostDanger}" />
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="46 a 60d"
+                                    Width="100"
+                                    Binding="{Binding sum_46_60_days, StringFormat=N0}"
+                                    HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="HorizontalAlignment" Value="Right" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="Background" Value="{StaticResource AlmostDanger}" />
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header=" > 60d"
+                                    Width="100"
+                                    Binding="{Binding sum_61_days, StringFormat=N0}"
+                                    HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="HorizontalAlignment" Value="Right" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="Background" Value="{StaticResource Danger}" />
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Grid.Row="4" Grid.Column="1"
+                Name="Print"
+                Click="btn_Print"
+                FontSize="20"
+                Margin="5"
+                Cursor="Hand"
+                IsEnabled="False"
+                FontWeight="DemiBold">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/Images/printer_icon.png" Width="20" Height="20" Margin="3"/>
+                <TextBlock Text="IMPRIMIR" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Button>
+    </Grid>
+</UserControl>

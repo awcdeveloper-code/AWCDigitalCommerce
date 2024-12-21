@@ -1,0 +1,224 @@
+﻿<UserControl x:Class="AWC.DigitalCommerce.TicketsController.Controls.ucCalculator"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="415"
+             d:DesignWidth="365">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="120"/>
+            <ColumnDefinition Width="3"/>
+            <ColumnDefinition Width="120"/>
+            <ColumnDefinition Width="3"/>
+            <ColumnDefinition Width="120"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="83"/>
+            <RowDefinition Height="3"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="3"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="3"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="3"/>
+            <RowDefinition Height="80"/>
+        </Grid.RowDefinitions>
+        <!--CLEAR-->
+        <Rectangle Grid.Row="0" Grid.Column="0">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="BlanchedAlmond" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Label Grid.Row="0" Grid.Column="0"
+               Foreground="Blue"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               FontSize="50"
+               FontWeight="DemiBold"
+               Content="C"/>
+        <!--EMPTY-->
+        <Rectangle Grid.Row="0" Grid.Column="2">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="BlanchedAlmond" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Label Grid.Row="0" Grid.Column="2"
+               Foreground="Blue"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               FontSize="50"
+               FontWeight="DemiBold"
+               Content="TBD"/>
+        <!--BACK-->
+        <Rectangle Grid.Row="0" Grid.Column="4">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="BlanchedAlmond" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Label Grid.Row="0" Grid.Column="4"
+               Foreground="Black"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               FontSize="50"
+               FontWeight="DemiBold"
+               Content="B"/>
+        <!-- 7 -->
+        <Rectangle Grid.Row="2" Grid.Column="0">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="BlanchedAlmond" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Label Grid.Row="2" Grid.Column="0"
+               Foreground="Black"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               FontSize="50"
+               FontWeight="DemiBold"
+               Content="7"/>
+        <!-- 8 -->
+        <Rectangle Grid.Row="2" Grid.Column="2">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="BlanchedAlmond" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Label Grid.Row="2" Grid.Column="2"
+               Foreground="Black"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               FontSize="50"
+               FontWeight="DemiBold"
+               Content="8"/>
+        <!-- 9 -->
+        <Rectangle Grid.Row="2" Grid.Column="4">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="BlanchedAlmond" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Label Grid.Row="2" Grid.Column="4"
+               Foreground="Black"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               FontSize="50"
+               FontWeight="DemiBold"
+               Content="9"/>
+        <!-- 4 -->
+        <Rectangle Grid.Row="4" Grid.Column="0">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="BlanchedAlmond" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Label Grid.Row="4" Grid.Column="0"
+               Foreground="Black"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               FontSize="50"
+               FontWeight="DemiBold"
+               Content="4"/>
+        <!-- 5 -->
+        <Rectangle Grid.Row="4" Grid.Column="2">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="BlanchedAlmond" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Label Grid.Row="4" Grid.Column="2"
+               Foreground="Black"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               FontSize="50"
+               FontWeight="DemiBold"
+               Content="5"/>
+        <!-- 6 -->
+        <Rectangle Grid.Row="4" Grid.Column="4">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="BlanchedAlmond" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Label Grid.Row="4" Grid.Column="4"
+               Foreground="Black"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               FontSize="50"
+               FontWeight="DemiBold"
+               Content="6"/>
+        <!-- 1 -->
+        <Rectangle Grid.Row="6" Grid.Column="0">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="BlanchedAlmond" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Label Grid.Row="6" Grid.Column="0"
+               Foreground="Black"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               FontSize="50"
+               FontWeight="DemiBold"
+               Content="1"/>
+        <!-- 2 -->
+        <Rectangle Grid.Row="6" Grid.Column="2">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="BlanchedAlmond" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Label Grid.Row="6" Grid.Column="2"
+               Foreground="Black"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               FontSize="50"
+               FontWeight="DemiBold"
+               Content="2"/>
+        <!-- 3 -->
+        <Rectangle Grid.Row="6" Grid.Column="4">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="BlanchedAlmond" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Label Grid.Row="6" Grid.Column="4"
+               Foreground="Black"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               FontSize="50"
+               FontWeight="DemiBold"
+               Content="3"/>
+        <!-- 00 -->
+        <Rectangle Grid.Row="8" Grid.Column="0">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="BlanchedAlmond" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Label Grid.Row="8" Grid.Column="0"
+               Foreground="Black"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               FontSize="50"
+               FontWeight="DemiBold"
+               Content="00"/>
+        <!-- 0 -->
+        <Rectangle Grid.Row="8" Grid.Column="2">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="BlanchedAlmond" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Label Grid.Row="8" Grid.Column="2"
+               Foreground="Black"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               FontSize="50"
+               FontWeight="DemiBold"
+               Content="0"/>
+        <!-- X -->
+        <Rectangle Grid.Row="8" Grid.Column="4">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="BlanchedAlmond" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Label Grid.Row="8" Grid.Column="4"
+               Foreground="red"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               FontSize="50"
+               FontWeight="DemiBold"
+               Content="X"/>
+    </Grid>
+</UserControl>

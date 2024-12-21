@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32126.317
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AWC.DigitalCommerce.TicketsController", "AWC.DigitalCommerce.TicketsController\AWC.DigitalCommerce.TicketsController.csproj", "{170EFC1B-DC93-44FB-AE19-52746B91DC3F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NearCodingExercise", "NearCodingExercise\NearCodingExercise.csproj", "{877E31C4-C15A-4276-AB7E-5ED19EE50AA0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{170EFC1B-DC93-44FB-AE19-52746B91DC3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{170EFC1B-DC93-44FB-AE19-52746B91DC3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{170EFC1B-DC93-44FB-AE19-52746B91DC3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{170EFC1B-DC93-44FB-AE19-52746B91DC3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{877E31C4-C15A-4276-AB7E-5ED19EE50AA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{877E31C4-C15A-4276-AB7E-5ED19EE50AA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{877E31C4-C15A-4276-AB7E-5ED19EE50AA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{877E31C4-C15A-4276-AB7E-5ED19EE50AA0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {86E91A9D-8455-4E1C-A85C-7F6C78BF9B92}
+	EndGlobalSection
+EndGlobal

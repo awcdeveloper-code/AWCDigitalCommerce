@@ -1,0 +1,146 @@
+﻿<Window x:Class="AWC.DigitalCommerce.TicketsController.wpfElectronicInvoice"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController"
+        mc:Ignorable="d" Height="400" Width="800" Background="White"
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None">
+    <Border BorderBrush="Blue" BorderThickness="3">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="150"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="45"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="45"/>
+                <RowDefinition Height="45"/>
+                <RowDefinition Height="45"/>
+                <RowDefinition Height="45"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="10"/>
+            </Grid.RowDefinitions>
+            <Image Grid.Row="1" Grid.Column="3" Source="/Images/LogoMH.png"/>
+            <Label Grid.Row="2" Grid.Column="3"
+                   Name="lblTicketNumber"
+                   Foreground="Red"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment ="Center"
+                   Content="000000"
+                   FontSize="40"
+                   FontWeight="Bold"/>
+            <StackPanel Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="5"
+                        Orientation="Horizontal">
+                <Label Foreground="DarkBlue"
+                       VerticalAlignment="Center"
+                       Content="NOMBRE:"
+                       Margin="5"
+                       FontSize="20"
+                       FontWeight="Bold"/>
+                <TextBox Name="txtBox_CustomerName"
+                         Background="Cyan"
+                         Width="500"
+                         Margin="5"
+                         FontSize="20"
+                         FontWeight="DemiBold"/>
+            </StackPanel>
+            <StackPanel Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="5"
+                        Orientation="Horizontal">
+                <Label Foreground="DarkBlue"
+                       VerticalAlignment="Center"
+                       Content="IDENTIFICACIÓN:"
+                       Margin="5"
+                       FontSize="20"
+                       FontWeight="Bold"/>
+                <ComboBox Name="cbox_IDType"
+                          Background="Cyan"
+                          VerticalAlignment="Center"
+                          FontSize="20"
+                          Width="150"
+                          FontWeight="DemiBold"/>
+                <TextBox Name="txtBox_CustomerID"
+                         Background="Cyan"
+                         Width="200"
+                         Margin="5"
+                         FontSize="20"
+                         FontWeight="DemiBold"/>
+            </StackPanel>
+            <StackPanel Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="5"
+                        Orientation="Horizontal">
+                <Label Foreground="DarkBlue"
+                       VerticalAlignment="Center"
+                       Content="TELÉFONO:"
+                       Margin="5"
+                       FontSize="20"
+                       FontWeight="Bold"/>
+                <TextBox Name="txtBox_CountryCode"
+                         Background="Cyan"
+                         Width="75"
+                         Margin="5"
+                         FontSize="20"
+                         FontWeight="DemiBold"/>
+                <TextBox Name="txtBox_PhoneNumber"
+                         Background="Cyan"
+                         Width="150"
+                         Margin="5"
+                         FontSize="20"
+                         FontWeight="DemiBold"/>
+            </StackPanel>
+            <StackPanel Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="5"
+                        Orientation="Horizontal">
+                <Label Foreground="DarkBlue"
+                       VerticalAlignment="Center"
+                       Content="CORREO ELECTRÓNICO:"
+                       Margin="5"
+                       FontSize="20"
+                       FontWeight="Bold"/>
+                <TextBox Name="txtBox_CustomerEmail"
+                         Background="Cyan"
+                         Width="500"
+                         Margin="5"
+                         FontSize="20"
+                         FontWeight="DemiBold" TextChanged="txtBox_CustomerEmail_TextChanged"/>
+            </StackPanel>
+            <Button Grid.Row="8" Grid.Column="2"
+                    Name="btnCancel"
+                    Click="btn_Cancel"
+                    Foreground="DarkBlue"
+                    FontSize="20"
+                    Margin="5"
+                    Padding="5"
+                    Cursor="Hand"
+                    FontWeight="DemiBold">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Images/delete_sign.png"
+                           Width="30" Height="30" Margin="5"/>
+                    <TextBlock Text="CERRAR" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <Button Grid.Row="8" Grid.Column="4"
+                    Name="btnOK"
+                    Click="btn_OK"
+                    Foreground="DarkBlue"
+                    FontSize="20"
+                    Margin="5"
+                    Padding="5"
+                    Cursor="Hand"
+                    FontWeight="DemiBold"
+                    IsEnabled="False">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Images/email.png"
+                           Width="40" Height="40" Margin="5"/>
+                    <TextBlock Text="ENVIAR" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+        </Grid>
+    </Border>
+</Window>

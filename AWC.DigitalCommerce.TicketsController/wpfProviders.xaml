@@ -1,0 +1,269 @@
+﻿<Window x:Class="AWC.DigitalCommerce.TicketsController.wpfProviders"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController"
+        mc:Ignorable="d" Height="610" Width="765"
+        ResizeMode="NoResize" Background="LightYellow"
+        Title="CATÁLOGO DE PROVEEDORES" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style x:Key="CenterGridHeaderStyle" TargetType="DataGridColumnHeader">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="180"/>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="90"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="0"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="300"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+        <!--LABELS-->
+        <Label Grid.Row="1" Grid.Column="1"
+               VerticalAlignment="Center"
+               HorizontalContentAlignment="Right"
+               Content="NOMBRE PROVEEDOR:"
+               FontSize="15"
+               FontWeight="DemiBold"/>
+        <Label Grid.Row="2" Grid.Column="1"
+               VerticalAlignment="Center"
+               HorizontalContentAlignment="Right"
+               Content="DIRECCIÓN:"
+               FontSize="15"
+               FontWeight="DemiBold"/>
+        <Label Grid.Row="3" Grid.Column="1"
+               VerticalAlignment="Center"
+               HorizontalContentAlignment="Right"
+               Content="CORREO ELECTRÓNICO:"
+               FontSize="15"
+               FontWeight="DemiBold"/>
+        <Label Grid.Row="1" Grid.Column="4"
+               VerticalAlignment="Center"
+               HorizontalContentAlignment="Right"
+               Content="TELÉFONO FIJO:"
+               FontSize="15"
+               FontWeight="DemiBold"/>
+        <Label Grid.Row="2" Grid.Column="4"
+               VerticalAlignment="Center"
+               HorizontalContentAlignment="Right"
+               Content="CELULAR:"
+               FontSize="15"
+               FontWeight="DemiBold"/>
+        <Label Grid.Row="4" Grid.Column="1"
+               VerticalAlignment="Center"
+               HorizontalContentAlignment="Right"
+               Content="FORMA DE PAGO:"
+               FontSize="15"
+               FontWeight="DemiBold"/>
+        <!--TEXTBOXES-->
+        <TextBox Grid.Row="1" Grid.Column="2"
+                 Name="txtProviderName"
+                 Width="300"
+                 Background="LightCyan"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Center"
+                 FontSize="15"
+                 FontWeight="DemiBold"
+                 KeyUp="txtProviderName_KeyUp" />
+        <TextBox Grid.Row="2" Grid.Column="2"
+                 Name="txtBusinessAddress"
+                 Width="300"
+                 Background="LightCyan"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Center"
+                 FontSize="15"
+                 FontWeight="DemiBold" />
+        <TextBox Grid.Row="3" Grid.Column="2"
+                 Name="txtEMailAddress"
+                 Width="300"
+                 Background="LightCyan"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Center"
+                 FontSize="15"
+                 FontWeight="DemiBold" />
+        <ComboBox Grid.Row="4" Grid.Column="2"
+                  Name="cbox_PaymentMethod"
+                  VerticalAlignment="Center"
+                  FontSize="15"
+                  FontWeight="DemiBold" />
+        <TextBox Grid.Row="1" Grid.Column="5"
+                 Name="txtPhoneNumber"
+                 Width="80"
+                 Background="LightCyan"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Center"
+                 FontSize="15"
+                 FontWeight="DemiBold" />
+        <TextBox Grid.Row="2" Grid.Column="5"
+                 Name="txtCellularNumber"
+                 Width="80"
+                 Background="LightCyan"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Center"
+                 FontSize="15"
+                 FontWeight="DemiBold" />
+        <StackPanel Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="2"
+                    Orientation="Vertical">
+            <Label VerticalAlignment="Center"
+                   HorizontalContentAlignment="Left"
+                   FontSize="15"
+                   FontWeight="DemiBold"
+                   Content="COMENTARIOS:"/>
+            <TextBox Name="txtRemarks"
+                     Width="230"
+                     Background="LightCyan"
+                     HorizontalAlignment="Left"
+                     VerticalAlignment="Center"
+                     FontSize="15"
+                     FontWeight="DemiBold" />
+        </StackPanel>
+        <!--BUTTONS-->
+        <StackPanel Grid.Row="7" Grid.Column="2" Orientation="Horizontal">
+            <Button Name="AddProvider"
+                    Click="btn_AddProvider"
+                    Background="DarkBlue"
+                    Foreground="White"
+                    Width="90"
+                    FontSize="15"
+                    Margin="5"
+                    Cursor="Hand"
+                    FontWeight="DemiBold"
+                    Content="CREAR"/>
+            <Button Name="DelProvider"
+                    Click="btn_DelProvider"
+                    Background="DarkBlue"
+                    Foreground="White"
+                    Width="90"
+                    FontSize="15"
+                    Margin="5"
+                    Cursor="Hand"
+                    FontWeight="DemiBold"
+                    Content="BORRAR"/>
+            <Button Name="ModProvider"
+                    Click="btn_ModProvider"
+                    Background="DarkBlue"
+                    Foreground="White"
+                    Width="90"
+                    FontSize="15"
+                    Margin="5"
+                    Cursor="Hand"
+                    FontWeight="DemiBold"
+                    Content="MODIFICAR"/>
+        </StackPanel>
+        <GroupBox Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="5"
+                  Name="GroupBoxDataGrid"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Header="PROVEEDORES ACTUALES">
+            <DataGrid Name="ProvidersCatalog"
+                      Height="250" Width="700"
+                      Margin="5,10,5,10"
+                      RowHeight="25"
+                      IsReadOnly="True"
+                      HorizontalAlignment="Left"
+                      HorizontalScrollBarVisibility="Visible"
+                      VerticalAlignment="Top"
+                      VerticalScrollBarVisibility="Visible" 
+                      GridLinesVisibility="All"
+                      HeadersVisibility="All"
+                      Background="LightGray"
+                      RowBackground="LightYellow"
+                      AlternatingRowBackground="LightCyan"
+                      BorderBrush="Gray" BorderThickness="2"
+                      AreRowDetailsFrozen="True"
+                      CanUserReorderColumns="False"
+                      CanUserResizeColumns="False"
+                      CanUserSortColumns = "False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID"
+                                        Width="50"
+                                        Binding="{Binding Path=ID}"
+                                        HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="HorizontalAlignment" Value="Center" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="NOMBRE DEL PROVEEDOR"
+                                        Width="200"
+                                        Binding="{Binding Path=ProviderName}"
+                                        HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="DIRECCIÓN"
+                                        Width="200"
+                                        Binding="{Binding Path=BusinessAddress}"
+                                        HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="CORREO ELECTRÓNICO"
+                                        Width="200"
+                                        Binding="{Binding Path=eMailAddress}"
+                                        HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="MÉTODO DE PAGO"
+                                        Width="150"
+                                        Binding="{Binding Path=PaymentMethod}"
+                                        HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="TELÉFONO FIJO 1"
+                                        Width="150"
+                                        Binding="{Binding Path=PhoneNumber1}"
+                                        HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="HorizontalAlignment" Value="Center" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="TELÉFONO FIJO 2"
+                                        Width="150"
+                                        Binding="{Binding Path=PhoneNumber2}"
+                                        HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="HorizontalAlignment" Value="Center" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="CELULAR 1"
+                                        Width="100"
+                                        Binding="{Binding Path=CellularNumber1}"
+                                        HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="HorizontalAlignment" Value="Center" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="CELULAR 2"
+                                        Width="100"
+                                        Binding="{Binding Path=CellularNumber2}"
+                                        HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="HorizontalAlignment" Value="Center" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </GroupBox>
+    </Grid>
+</Window>

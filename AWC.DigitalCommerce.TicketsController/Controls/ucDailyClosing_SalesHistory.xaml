@@ -1,0 +1,174 @@
+﻿<UserControl x:Class="AWC.DigitalCommerce.TicketsController.Controls.ucDailyClosing_SalesHistory"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController"
+             xmlns:DV="clr-namespace:System.Windows.Controls.DataVisualization;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+             xmlns:DVC="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+             mc:Ignorable="d" Background="DarkBlue"
+             d:DesignHeight="540" d:DesignWidth="1220">
+    <UserControl.Resources>
+        <Style x:Key="CenterGridHeaderStyle" TargetType="DataGridColumnHeader">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.Resources>
+            <local:clsItemTypeCollection x:Key = "clsItemTypeCollection" />
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="340"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"
+               Content="FECHA INICIAL:"
+               Foreground="Cyan"
+               VerticalAlignment="Center"
+               FontSize="20"
+               FontWeight="DemiBold"/>
+        <DatePicker Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2"
+                    Name="StartDay"
+                    SelectedDateFormat="Short"
+                    VerticalAlignment="Center"
+                    FontSize="20"
+                    FontWeight="DemiBold"
+                    SelectedDateChanged="StartDay_SelectedDateChanged"/>
+        <Label Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"
+               Content="FECHA FINAL:"
+               Foreground="Cyan"
+               VerticalAlignment="Center"
+               FontSize="20"
+               FontWeight="DemiBold"/>
+        <DatePicker Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="2"
+                    Name="EndDay"
+                    SelectedDateFormat="Short"
+                    VerticalAlignment="Center"
+                    FontSize="20"
+                    FontWeight="DemiBold"
+                    SelectedDateChanged="EndDay_SelectedDateChanged"/>
+        <GroupBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="4"
+                  Name="GroupBoxDataGrid"
+                  Foreground="Cyan"
+                  FontSize="20"
+                  FontWeight="DemiBold"
+                  Header="VENTAS AGRUPADAS POR FECHA">
+            <DataGrid Name="SalesByDate"
+                      Height="290" Width="375"
+                      Margin="5"
+                      FontSize="25"
+                      RowHeight="30"
+                      IsReadOnly="True"
+                      VerticalAlignment="Top"
+                      VerticalScrollBarVisibility="Visible" 
+                      HorizontalAlignment="Left"
+                      HorizontalScrollBarVisibility="Disabled"
+                      GridLinesVisibility="All"
+                      HeadersVisibility="All"
+                      Background="LightGray"
+                      RowBackground="White"
+                      AlternatingRowBackground="Cyan"
+                      BorderBrush="Gray" BorderThickness="2"
+                      AreRowDetailsFrozen="True"
+                      CanUserReorderColumns="False"
+                      CanUserResizeColumns="False"
+                      CanUserSortColumns = "False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="FECHA"
+                                        Width="175"
+                                        Binding="{Binding Path=salesDate}"
+                                        HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="HorizontalAlignment" Value="Center" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="TOTAL"
+                                        Width="175"
+                                        Binding="{Binding Path=salesTotal, StringFormat=N0}"
+                                        HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="HorizontalAlignment" Value="Right" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </GroupBox>
+        <GroupBox Grid.Row="3" Grid.Column="5" Grid.ColumnSpan="8"
+                  Name="GroupBoxLinearGraph"
+                  Foreground="Cyan"
+                  FontWeight="DemiBold"
+                  Header="REPRESENTACIÓN LINEAL">
+            <StackPanel Orientation="Vertical">
+                <DVC:Chart Canvas.Top="10" Canvas.Left="10"
+                   Name="mcChartTab3"
+                   VerticalAlignment="Top"
+                   Width="780" Height="315"
+                   Background="DarkBlue">
+                    <DVC:Chart.Series>
+                        <DVC:LineSeries Name="ItemsListSeriesTab3"
+                                        Title="VENTAS"
+                                        IndependentValueBinding = "{Binding Path = salesDate}"
+                                        DependentValueBinding = "{Binding Path = salesTotal}">
+                            <DVC:LineSeries.DataPointStyle>
+                                <Style TargetType="DVC:LineDataPoint">
+                                    <Setter Property="Background" Value="Indigo"/>
+                                </Style>
+                            </DVC:LineSeries.DataPointStyle>
+                        </DVC:LineSeries>
+                    </DVC:Chart.Series>
+                </DVC:Chart>
+            </StackPanel>
+        </GroupBox>
+        <Label Grid.Row="5" Grid.Column="5"
+               Content="TOTAL:"
+               Foreground="Cyan"
+               VerticalAlignment="Center"
+               FontSize="20"
+               FontWeight="DemiBold"/>
+        <Label Grid.Row="6" Grid.Column="6"
+               Name="lblTotalAmount"
+               Foreground="Cyan"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Right"
+               FontSize="20"
+               FontWeight="DemiBold"/>
+        <Button Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2"
+                Name="PrintsSalesHistory"
+                Click="btn_PrintsSalesHistory"
+                FontSize="20"
+                Margin="5"
+                Cursor="Hand"
+                FontWeight="DemiBold">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/Images/printer_icon.png"
+                       Width="30" Height="30" Margin="5"/>
+                <TextBlock Text="IMPRIMIR" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Button>
+    </Grid>
+</UserControl>

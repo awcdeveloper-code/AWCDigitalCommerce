@@ -1,0 +1,319 @@
+﻿<Window x:Class="AWC.DigitalCommerce.TicketsController.wpfMainWindow3"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController"
+        mc:Ignorable="d" Width="1366" Height="850" 
+        MouseDown="MainWindow2_MouseDown"
+        Background="DarkBlue" ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <Grid>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup Name="Type">
+                <VisualState x:Name="Indeterminate">
+                    <Storyboard RepeatBehavior="Forever">
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Animation" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="0.25"/>
+                            <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.25"/>
+                            <EasingDoubleKeyFrame KeyTime="0:0:2" Value="0.25"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <PointAnimationUsingKeyFrames Storyboard.TargetName="Animation" Storyboard.TargetProperty="(UIElement.RenderTransformOrigin)">
+                            <EasingPointKeyFrame KeyTime="0" Value="-0.5,0.5"/>
+                            <EasingPointKeyFrame KeyTime="0:0:1" Value="0.5,0.5"/>
+                            <EasingPointKeyFrame KeyTime="0:0:2" Value="1.5,0.5"/>
+                        </PointAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <Grid.Background>
+            <ImageBrush Stretch="Fill"
+                        ImageSource="/Images/img19_1920x1200.jpg"
+                        AlignmentY="Top" AlignmentX="Center"/>
+            <!--
+            <ImageBrush Stretch="Uniform"
+                        ImageSource="/Images/KS Logo Trans.png"
+                        AlignmentY="Center" AlignmentX="Center"/>
+            -->
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="150"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="85"/>
+            <RowDefinition Height="85"/>
+            <RowDefinition Height="85"/>
+            <RowDefinition Height="85"/>
+            <RowDefinition Height="85"/>
+            <RowDefinition Height="85"/>
+            <RowDefinition Height="85"/>
+            <RowDefinition Height="85"/>
+            <RowDefinition Height="85"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="35"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Vertical">
+            <Button Name="QuickSale"
+                    Click="btn_QuickSale"
+                    IsEnabled="False"
+                    Height="55"
+                    Margin="3"
+                    FontSize="15"
+                    FontWeight="DemiBold">
+                <TextBlock TextWrapping="Wrap" Text="VENTA RÁPIDA"/>
+            </Button>
+            <Label Name="F1"
+                   Foreground="White"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   FontWeight="Bold"
+                   Content="F1"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical">
+            <Button Name="Tickets"
+                    Click="btn_Tickets"
+                    IsEnabled="False"
+                    Height="55"
+                    Margin="3"
+                    FontSize="15"
+                    FontWeight="DemiBold">
+                <TextBlock TextWrapping="Wrap" Text="CUENTAS"/>
+            </Button>
+            <Label Name="F2"
+                   Foreground="White"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   FontWeight="Bold"
+                   Content="F2"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Vertical">
+            <Button Name="OldTickets"
+                    Click="btn_OldTickets"
+                    IsEnabled="False"
+                    Height="55"
+                    Margin="3"
+                    FontSize="15"
+                    FontWeight="DemiBold">
+                    <TextBlock TextWrapping="Wrap" Text="PENDIENTES"/>
+            </Button>
+            <Label Name="F3"
+                   Foreground="White"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   FontWeight="Bold"
+                   Content="F3"/>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Vertical">
+            <Button Name="TodaySales"
+                    Click="btn_TodaySales"
+                    IsEnabled="False"
+                    Height="55"
+                    Margin="3"
+                    FontSize="15"
+                    FontWeight="DemiBold">
+                    <TextBlock TextWrapping="Wrap" Text="VENTAS"/>
+            </Button>
+            <Label Name="F4"
+                   Foreground="White"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   FontWeight="Bold"
+                   Content="F4"/>
+        </StackPanel>
+        <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Vertical">
+            <Button Name="DailyClose"
+                    Click="btn_DailyClose"
+                    IsEnabled="False"
+                    Height="55"
+                    Margin="3"
+                    FontSize="15"
+                    FontWeight="DemiBold">
+                    <TextBlock TextWrapping="Wrap" Text="CIERRE DIARIO"/>
+            </Button>
+            <Label Name="F5"
+                   Foreground="White"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   FontWeight="Bold"
+                   Content="F5"/>
+        </StackPanel>
+        <StackPanel Grid.Row="5" Grid.Column="1" Orientation="Vertical">
+            <Button Name="Queries"
+                    Click="btn_Queries"
+                    IsEnabled="False"
+                    Height="55"
+                    Margin="3"
+                    FontSize="15"
+                    FontWeight="DemiBold">
+                    <TextBlock TextWrapping="Wrap" Text="CONSULTAS"/>
+            </Button>
+            <Label Name="F6"
+                   Foreground="White"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   FontWeight="Bold"
+                   Content="F6"/>
+        </StackPanel>
+        <StackPanel Grid.Row="6" Grid.Column="1" Orientation="Vertical">
+            <Button Name="Inventory"
+                    Click="btn_Inventory"
+                    IsEnabled="False"
+                    Height="55"
+                    Margin="3"
+                    FontSize="15"
+                    FontWeight="DemiBold">
+                    <TextBlock TextWrapping="Wrap" Text="INVENTARIO"/>
+            </Button>
+            <Label Name="F7"
+                   Foreground="White"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   FontWeight="Bold"
+                   Content="F7"/>
+        </StackPanel>
+        <StackPanel Grid.Row="7" Grid.Column="1" Orientation="Vertical">
+            <Button Name="Maintenance"
+                    Click="btn_Maintenance"
+                    IsEnabled="False"
+                    Height="55"
+                    Margin="3"
+                    FontSize="15"
+                    FontWeight="DemiBold">
+                    <TextBlock TextWrapping="Wrap" Text="AJUSTES"/>
+            </Button>
+            <Label Name="F8"
+                   Foreground="White"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   FontWeight="Bold"
+                   Content="F8"/>
+        </StackPanel>
+        <StackPanel Grid.Row="8" Grid.Column="1" Orientation="Vertical">
+            <Button Name="CashDrawer"
+                    Click="btn_CashDrawer"
+                    IsEnabled="False"
+                    Height="55"
+                    Margin="3"
+                    FontSize="15"
+                    FontWeight="DemiBold">
+                    <TextBlock TextWrapping="Wrap" Text="CAJÓN DINERO"/>
+            </Button>
+            <Label Name="F9"
+                   Foreground="White"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   FontWeight="Bold"
+                   Content="F9"/>
+        </StackPanel>
+        <StackPanel Grid.Row="9" Grid.RowSpan="2" Grid.Column="1" Orientation="Vertical">
+            <Button Name="Exit"
+                    IsEnabled="True"
+                    Click="btn_Exit_Click"
+                    Height="55"
+                    Margin="3"
+                    FontSize="15"
+                    FontWeight="DemiBold">
+                    <TextBlock TextWrapping="Wrap" Text="CERRAR SESIÓN"/>
+            </Button>
+            <Label Name="F10"
+                   Foreground="White"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   FontWeight="Bold"
+                   Content="F10"/>
+        </StackPanel>
+        <StackPanel Grid.Row="4" Grid.Column="0"
+                    Orientation="Vertical" VerticalAlignment="Center">
+            <Label Name="BussinessName"
+                   Foreground="Cyan"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontFamily="Bahnschrift SemiLight Condensed"
+                   FontWeight="Bold"
+                   FontSize="100"/>
+            <ProgressBar Name="IsProgressBarIndeterminate"
+                         Width="1180"
+                         Height="5"
+                         BorderBrush="Transparent"
+                         Background="Transparent"
+                         Foreground="Cyan"
+                         Visibility="Hidden"
+                         IsIndeterminate="True"/>
+        </StackPanel>
+        <Label Grid.Row="10" Grid.Column="0"
+               Name="Trademark"
+               Foreground="Cyan"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Center"
+               FontSize="20"
+               FontFamily="Bahnschrift SemiLight Condensed"
+               FontWeight="DemiBold"
+               Content="© 2021-2023 AIDAware Guillermo E. Grillo - Derechos Reservados."/>
+        <Label Grid.Row="10" Grid.Column="0"
+               Name="lblTodayDate"
+               Foreground="Cyan"
+               HorizontalAlignment="Right"
+               VerticalAlignment="Center"
+               FontSize="20"
+               FontFamily="Bahnschrift SemiLight Condensed"
+               FontWeight="DemiBold"
+               Content="FECHA CONTABLE: 00/00/0000"/>
+        <TabControl Grid.Row="0" Grid.Column="0" Grid.RowSpan="10"
+                    Name="tabCtrlWorkArea"
+                    Visibility="Visible"
+                    Margin="5"
+                    BorderBrush="Cyan"
+                    Background="Transparent"/>
+        <StackPanel Grid.Row="5" Grid.Column="5" Grid.ColumnSpan="2"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Left">
+            <Image Name="ActiveUer"
+                   Margin="5"
+                   Source="/Images/activeUser.ico"
+                   Visibility="Collapsed"                  
+                   Width="20" Height="20"
+                   MouseDown="mouseDown_activeUser"/>
+            <Image Name="InternetOK"
+                   Margin="5"
+                   Source="/Images/xpworld.ico"
+                   Visibility="Collapsed"                  
+                   Width="20" Height="20"
+                   MouseDown="mouseDown_xpworld"/>
+            <Image Name="InventoryOK"
+                   Margin="5"
+                   Source="/Images/Information.ico"
+                   Visibility="Collapsed"
+                   Width="20" Height="20"
+                   MouseDown="mouseDown_Information"/>
+            <Image Name="MinimumAvailable"
+                   Margin="5"
+                   Source="/Images/Warning.ico"
+                   Visibility="Collapsed"
+                   Width="20" Height="20"
+                   MouseDown="mouseDown_MinimumAvailable"/>
+            <Image Name="ItemsBelowZero"
+                   Margin="5"
+                   Source="/Images/Error.ico"
+                   Visibility="Collapsed"
+                   Width="20" Height="20"
+                   MouseDown="mouseDown_ItemsBelowZero"/>
+            <Image Name="AlarmsOK"
+                   Margin="5"
+                   Source="/Images/19.png"
+                   Visibility="Collapsed"
+                   Width="20" Height="20"
+                   MouseDown="mouseDown_Alarms"/>
+        </StackPanel>
+        <Image Grid.Row="10" Grid.Column="0"
+               Name="PINRequest"
+               Source="/Images/people.ico"
+               HorizontalAlignment="Right"
+               Visibility="Hidden"
+               Margin="5"
+               ToolTip="Click aqui para cambiar de PIN"
+               Cursor="Hand"
+               MouseDown="btn_PINRequest"/>
+    </Grid>
+</Window>

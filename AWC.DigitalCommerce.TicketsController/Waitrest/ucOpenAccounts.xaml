@@ -1,0 +1,153 @@
+﻿<UserControl x:Class="AWC.DigitalCommerce.TicketsController.Waitrest.ucOpenAccounts"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController.Waitrest"
+             mc:Ignorable="d" Background="Indigo"
+             d:DesignHeight="730" d:DesignWidth="580">
+    <UserControl.Resources>
+        <Style x:Key="CenterGridHeaderStyle" TargetType="DataGridColumnHeader">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+        <DataTemplate x:Key="lBox_Customer_DataTemplate">
+            <StackPanel Margin="1">
+                <TextBlock FontWeight="DemiBold"
+                           FontSize="25"
+                           Foreground="DarkBlue"
+                           Text="{Binding CustomerID}" />
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="Items_DataTemplate">
+            <StackPanel Margin="1">
+                <TextBlock FontWeight="DemiBold"
+                           FontSize="20"
+                           Foreground="DarkBlue"
+                           Text="{Binding ItemDescription}" />
+            </StackPanel>
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="190"/>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="190"/>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="190"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="625"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+        <!--TICKET DATAGRID-->
+        <DataGrid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5"
+                  Name="OpenAccounts"
+                  Height="620" Width="580"
+                  RowHeight="50"
+                  FontSize="30"
+                  FontWeight="DemiBold"
+                  HorizontalAlignment="Left"
+                  HorizontalScrollBarVisibility="Hidden"
+                  VerticalAlignment="Top"
+                  VerticalContentAlignment="Center"
+                  VerticalScrollBarVisibility="Visible"
+                  GridLinesVisibility="All"
+                  HeadersVisibility="None"
+                  Background="Indigo"
+                  RowBackground="LightYellow"
+                  AlternatingRowBackground="Orange"
+                  AreRowDetailsFrozen="True"
+                  IsReadOnly="True"
+                  SelectionMode="Single"
+                  CanUserReorderColumns="False"
+                  CanUserResizeColumns="False"
+                  CanUserSortColumns = "False" Margin="3,0,0,0" SelectionChanged="OpenAccounts_SelectionChanged">
+            <DataGrid.Resources>
+                <Style TargetType="ScrollBar">
+                    <Style.Triggers>
+                        <Trigger Property="Orientation" Value="Vertical">
+                            <Setter Property="Width" Value="40"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <!--CUSTOMER DESCRIPTION-->
+                <DataGridTextColumn Width="428"
+                                    Binding="{Binding Path=CustomerAKA}"
+                                    HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="HorizontalAlignment" Value="Left" />
+                            <Setter Property="VerticalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <!--TOTAL PRICE-->
+                <DataGridTextColumn Width="110"
+                                    Binding="{Binding Path=TotalPrice, StringFormat=N0}"
+                                    HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="HorizontalAlignment" Value="Right" />
+                            <Setter Property="VerticalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <!--DASHBAORD ACTIONS-->
+        <Rectangle Grid.Row="2" Grid.Column="0"
+                   MouseLeftButtonDown ="ClickOn_PrintTicket">
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1" Opacity="0.9">
+                    <GradientStop Color="LightBlue" Offset="0.0"/>
+                    <GradientStop Color="DarkBlue" Offset="1.0"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Label Grid.Row="2" Grid.Column="0"
+               MouseLeftButtonDown ="ClickOn_PrintTicket"
+               Foreground="White"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               FontSize="25"
+               FontWeight="DemiBold"
+               Content="PREFACTURA"/>
+        <Rectangle Grid.Row="2" Grid.Column="2"
+                   MouseLeftButtonDown ="ClickOn_Options">
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1" Opacity="0.9">
+                    <GradientStop Color="LightBlue" Offset="0.0"/>
+                    <GradientStop Color="DarkBlue" Offset="1.0"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Label Grid.Row="2" Grid.Column="2"
+               MouseLeftButtonDown ="ClickOn_Options"
+               Foreground="White"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               FontSize="25"
+               FontWeight="DemiBold"
+               Content="OPCIONES"/>
+        <Rectangle Grid.Row="2" Grid.Column="4"
+                   MouseLeftButtonDown ="ClickOn_PayTicket">
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1" Opacity="0.9">
+                    <GradientStop Color="LightBlue" Offset="0.0"/>
+                    <GradientStop Color="DarkBlue" Offset="1.0"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Label Grid.Row="2" Grid.Column="4"
+               MouseLeftButtonDown ="ClickOn_PayTicket"
+               Foreground="White"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               FontSize="25"
+               FontWeight="DemiBold"
+               Content="PAGAR"/>
+    </Grid>
+</UserControl>

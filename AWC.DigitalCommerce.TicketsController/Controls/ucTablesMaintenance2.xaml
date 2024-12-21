@@ -1,0 +1,1508 @@
+﻿<UserControl x:Class="AWC.DigitalCommerce.TicketsController.Controls.ucTablesMaintenance2"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController"
+             mc:Ignorable="d" Background="DarkBlue"
+             d:DesignHeight="640" d:DesignWidth="1100">
+    <UserControl.Resources>
+        <Style x:Key="CenterGridHeaderStyle" TargetType="DataGridColumnHeader">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="ScrollBar">
+            <Setter Property="Width" Value="40"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+        <TabControl Grid.Row="1" Grid.Column="1"
+                    Name="WorkArea"
+                    Background="Transparent">
+            <!--PRODUCS-->
+            <TabItem Name="tabProducts">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Name="img2"
+                               Height="30" Width="30"
+                               Source="/Images/products.ico" />
+                        <TextBlock Text="PRODUCTOS"
+                                   Margin="5"
+                                   FontSize="15"
+                                   FontWeight="DemiBold"
+                                   VerticalAlignment="Center" />
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="190"/>
+                        <ColumnDefinition Width="250"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="10"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <!--LABELS COLUMN-->
+                    <Label Grid.Row="1" Grid.Column="0"
+                           Foreground="Cyan"
+                           Content="NOMBRE:"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"
+                           FontSize="20"
+                           FontWeight="DemiBold"/>
+                    <Label Grid.Row="2" Grid.Column="0"
+                           Foreground="Cyan"
+                           Content="CLASIFICACIÓN:"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"
+                           FontSize="20"
+                           FontWeight="DemiBold"/>
+                    <Label Grid.Row="3" Grid.Column="0"
+                           Foreground="Cyan"
+                           Content="MEDIDA:"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"
+                           FontSize="20"
+                           FontWeight="DemiBold"/>
+                    <Label Grid.Row="4" Grid.Column="0"
+                           Foreground="Cyan"
+                           Content="UNIDAD:"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"
+                           FontSize="20"
+                           FontWeight="DemiBold"/>
+                    <Label Grid.Row="5" Grid.Column="0"
+                           Foreground="Cyan"
+                           Content="PRECIO:"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"
+                           FontSize="20"
+                           FontWeight="DemiBold"/>
+                    <Label Grid.Row="6" Grid.Column="0"
+                           Foreground="Cyan"
+                           Content="COSTO:"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"
+                           FontSize="20"
+                           FontWeight="DemiBold"/>
+                    <!--CAPTURE COLUMN-->
+                    <TextBox Grid.Row="1" Grid.Column="1"
+                             Name="txtBox_ItemName"
+                             Background="Cyan"
+                             Margin="3"
+                             FontSize="20"
+                             FontWeight="DemiBold"
+                             KeyUp="txtBox_ItemName_KeyUp">
+                        <TextBox.ToolTip>
+                            <ToolTip>
+                                <DockPanel Width="500" Height="35">
+                                    <Image Source="/Images/warning_shield.ico"/>
+                                    <TextBlock FontSize="25"
+                                               Background="White"
+                                               Foreground="Red"
+                                               FontWeight="DemiBold">RECUERDE OPRIMIR LA TECLA 'ENTER'
+                                    </TextBlock>
+                                </DockPanel>
+                            </ToolTip>
+                        </TextBox.ToolTip>
+                    </TextBox>
+                    <ComboBox Grid.Row="2" Grid.Column="1"
+                              Name="cbBox_ItemType"
+                              Margin="3"
+                              FontSize="20"
+                              FontWeight="DemiBold"
+                              SelectionChanged="cbBox_ItemType_SelectionChanged"/>
+                    <ComboBox Grid.Row="3" Grid.Column="1"
+                              Name="cbBox_ItemUnit"
+                              IsEnabled="False"
+                              Margin="3"
+                              FontSize="20"
+                              FontWeight="DemiBold"/>
+                    <TextBox Grid.Row="4" Grid.Column="1"
+                             Name="txtBox_ItemUnitNum"
+                             HorizontalAlignment="Left"
+                             Background="Cyan"
+                             IsEnabled="False"
+                             Margin="3"
+                             Width="100"
+                             FontSize="20"
+                             FontWeight="DemiBold"/>
+                    <TextBox Grid.Row="5" Grid.Column="1"
+                             Name="txtBox_ItemPrice"
+                             HorizontalAlignment="Left"
+                             Background="Cyan"
+                             Margin="3"
+                             Width="100"
+                             FontSize="20"
+                             FontWeight="DemiBold"/>
+                    <TextBox Grid.Row="6" Grid.Column="1"
+                             Name="txtBox_ItemCost"
+                             HorizontalAlignment="Left"
+                             Background="Cyan"
+                             Margin="3"
+                             Width="100"
+                             FontSize="20"
+                             FontWeight="DemiBold"/>
+                    <CheckBox Grid.Row="7" Grid.Column="1"
+                              Name="chkBox_Active"
+                              VerticalAlignment="Center"
+                              Foreground="Cyan"
+                              IsChecked="False"
+                              Margin="5"
+                              FontSize="15"
+                              FontWeight="DemiBold"
+                              Content=" ACTIVO"/>
+                    <CheckBox Grid.Row="8" Grid.Column="1"
+                              Name="chkBox_HideOnMenu"
+                              VerticalAlignment="Center"
+                              Foreground="Cyan"
+                              IsChecked="False"
+                              IsEnabled="False"
+                              Margin="5"
+                              FontSize="15"
+                              FontWeight="DemiBold"
+                              Content=" OCULTAR EN EL MENÚ"/>
+                    <CheckBox Grid.Row="9" Grid.Column="1"
+                              Name="chkBox_SubType"
+                              VerticalAlignment="Center"
+                              Foreground="Cyan"
+                              IsChecked="False"
+                              IsEnabled="False"
+                              Margin="5"
+                              FontSize="15"
+                              FontWeight="DemiBold"
+                              Content="BALDE"/>
+                    <CheckBox Grid.Row="10" Grid.Column="1"
+                              Name="chkBox_Promo"
+                              VerticalAlignment="Center"
+                              Foreground="Cyan"
+                              IsChecked="False"
+                              IsEnabled="False"
+                              Margin="5"
+                              FontSize="15"
+                              FontWeight="DemiBold"
+                              Content="PROMOCIÓN"/>
+                    <!--BUTTONS-->
+                    <StackPanel Grid.Row="11" Grid.Column="1"
+                                Orientation="Horizontal">
+                        <Image Name="Cancel_Item"
+                               Source="/Images/20.ico"
+                               Width="40"
+                               Height="40"
+                               Margin="10"
+                               ToolTip="Haga click aqui para cancelar."
+                               Cursor="Hand"
+                               Visibility="Hidden"
+                               MouseDown="btnCancel_Item"/>
+                        <Image Name="Add_Item"
+                               Source="/Images/13.ico"
+                               Width="40"
+                               Height="40"
+                               Margin="10"
+                               ToolTip="Haga click aqui para agregar."
+                               Cursor="Hand"
+                               Visibility="Hidden"
+                               MouseDown="btnAdd_Item"/>
+                        <Image Name="Del_Item"
+                               Source="/Images/33.ico"
+                               Width="40"
+                               Height="40"
+                               Margin="10"
+                               ToolTip="Haga click aqui para borrar."
+                               Cursor="Hand"
+                               Visibility="Hidden"
+                               MouseDown="btnDel_Item"/>
+                        <Image Name="Mod_Item"
+                               Source="/Images/38.ico"
+                               Width="40"
+                               Height="40"
+                               Margin="10"
+                               ToolTip="Haga click aqui para actualizar."
+                               Cursor="Hand"
+                               Visibility="Hidden"
+                               MouseDown="btnMod_Item"/>
+                    </StackPanel>
+                    <!--DATAGRID-->
+                    <DataGrid Grid.Row="1" Grid.Column="3" Grid.RowSpan="11"
+                              Name="ItemCatalog"
+                              Height="510" Width="785"
+                              Margin="3"
+                              RowHeight="30"
+                              IsReadOnly="True"
+                              HorizontalAlignment="Left"
+                              HorizontalScrollBarVisibility="Disabled"
+                              VerticalAlignment="Top"
+                              VerticalScrollBarVisibility="Visible" 
+                              GridLinesVisibility="All"
+                              HeadersVisibility="All"
+                              Background="LightGray"
+                              RowBackground="LightCyan"
+                              AlternatingRowBackground="Cyan"
+                              BorderBrush="Gray" BorderThickness="2"
+                              AreRowDetailsFrozen="True"
+                              CanUserReorderColumns="False"
+                              CanUserResizeColumns="False"
+                              CanUserSortColumns = "False"
+                              SelectionChanged="ItemCatalog_SelectionChanged">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="DESCRIPCIÓN"
+                                            Width="300"
+                                            Binding="{Binding Path=ItemDescription}"
+                                            HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="CLA"
+                                            Width="55"
+                                            Binding="{Binding Path=ItemType}"
+                                            HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="HorizontalAlignment" Value="Center" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="SUB"
+                                            Width="55"
+                                            Binding="{Binding Path=ItemSubType}"
+                                            HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="HorizontalAlignment" Value="Center" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="ACT"
+                                            Width="55"
+                                            Binding="{Binding Path=IsActive}"
+                                            HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="HorizontalAlignment" Value="Center" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="MED"
+                                            Width="55"
+                                            Binding="{Binding Path=ItemUnitOfMeasurement}"
+                                            HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="HorizontalAlignment" Value="Center" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="UNI"
+                                            Width="55"
+                                            Binding="{Binding Path=ItemUnitSize}"
+                                            HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="HorizontalAlignment" Value="Center" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="PRECIO"
+                                            Width="80"
+                                            Binding="{Binding Path=UnitPrice, StringFormat=N0}"
+                                            HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="HorizontalAlignment" Value="Right" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="COSTO"
+                                            Width="80"
+                                            Binding="{Binding Path=UnitCost, StringFormat=N0}"
+                                            HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="HorizontalAlignment" Value="Right" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <!--DESCRIPTORS-->
+                    <StackPanel Grid.Row="11" Grid.Column="0"
+                                Orientation="Vertical">
+                        <Label Foreground="White"
+                               Content="CLA: 1 BEBIDAS"
+                               VerticalAlignment="Center"
+                               FontSize="20"
+                               FontWeight="DemiBold"/>
+                        <Label Foreground="White"
+                               Content="        2 LICORES"
+                               VerticalAlignment="Center"
+                               FontSize="20"
+                               FontWeight="DemiBold"/>
+                        <Label Foreground="White"
+                               Content="        3 COMIDAS"
+                               VerticalAlignment="Center"
+                               FontSize="20"
+                               FontWeight="DemiBold"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="11" Grid.Column="1"
+                                Orientation="Vertical">
+                        <Label Foreground="White"
+                               Content="MED: 0 UNIDADES"
+                               VerticalAlignment="Center"
+                               FontSize="20"
+                               FontWeight="DemiBold"/>
+                        <Label Foreground="White"
+                               Content="          1 MILILITROS"
+                               VerticalAlignment="Center"
+                               FontSize="20"
+                               FontWeight="DemiBold"/>
+                        <Label Foreground="White"
+                               Content="          2 GRAMOS"
+                               VerticalAlignment="Center"
+                               FontSize="20"
+                               FontWeight="DemiBold"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <!--TABLES AND SEATS-->
+            <TabItem Name="tabTablesAndSeats">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Name="img6"
+                               Height="30" Width="30"
+                               Source="/Images/tables.png" />
+                        <TextBlock Text="MESAS Y BARRAS"
+                                   Margin="5"
+                                   FontSize="15"
+                                   FontWeight="DemiBold"
+                                   VerticalAlignment="Center" />
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="350"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="10"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="10"/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="1" Grid.Column="1"
+                           Foreground="Cyan"
+                           Content="DESCRIPCIÓN:"
+                           VerticalAlignment="Center"
+                           FontSize="20"
+                           FontWeight="DemiBold"
+                           Margin="5"/>
+                    <TextBox Grid.Row="1" Grid.Column="2"
+                             Name="txtBox_tsName"
+                             Background="Cyan"
+                             VerticalAlignment="Center"
+                             Margin="5"
+                             FontSize="20"
+                             FontWeight="DemiBold"
+                             KeyUp="txtBox_tsName_KeyUp"/>
+                    <!--DATAGRID-->
+                    <DataGrid Grid.Row="2" Grid.Column="1"
+                              Grid.ColumnSpan="2" Grid.RowSpan="2"
+                              Name="tsCustCatalog"
+                              Height="450" Width="490"
+                              Margin="5"
+                              RowHeight="30"
+                              IsReadOnly="True"
+                              HorizontalAlignment="Left"
+                              HorizontalScrollBarVisibility="Disabled"
+                              VerticalAlignment="Top"
+                              VerticalScrollBarVisibility="Visible" 
+                              GridLinesVisibility="All"
+                              HeadersVisibility="All"
+                              Background="LightGray"
+                              RowBackground="LightCyan"
+                              AlternatingRowBackground="Cyan"
+                              BorderBrush="Gray" BorderThickness="2"
+                              AreRowDetailsFrozen="True"
+                              CanUserReorderColumns="False"
+                              CanUserResizeColumns="False"
+                              CanUserSortColumns = "False"
+                              SelectionChanged="tsCustCatalog_SelectionChanged">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="DESCRIPCIÓN"
+                                            Width="440"
+                                            Binding="{Binding Path=CustomerID}"
+                                            HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                            </DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <!--BUTTONS-->
+                    <StackPanel Grid.Row="3" Grid.Column="2"
+                                Orientation="Horizontal">
+                        <Image Name="Cancel_tsCust"
+                               Source="/Images/20.ico"
+                               Width="40"
+                               Height="40"
+                               Margin="10"
+                               ToolTip="Haga click aqui para cancelar."
+                               Cursor="Hand"
+                               Visibility="Hidden"
+                               MouseDown="btnCancel_tsCust"/>
+                        <Image Name="Add_tsCust"
+                               Source="/Images/13.ico"
+                               Width="40"
+                               Height="40"
+                               Margin="10"
+                               ToolTip="Haga click aqui para agregar."
+                               Cursor="Hand"
+                               Visibility="Hidden"
+                               MouseDown="btnAdd_tsCust"/>
+                        <Image Name="Del_tsCust"
+                               Source="/Images/33.ico"
+                               Width="40"
+                               Height="40"
+                               Margin="10"
+                               ToolTip="Haga click aqui para borrar."
+                               Cursor="Hand"
+                               Visibility="Hidden"
+                               MouseDown="btnDel_tsCust"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <!--FREQUENT CUSTOMER-->
+            <TabItem Name="tabFrequentCustomers">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Name="img1"
+                               Height="30" Width="30"
+                               Source="/Images/people.ico" />
+                        <TextBlock Text="CLIENTES FRECUENTES"
+                                   Margin="5"
+                                   FontSize="15"
+                                   FontWeight="DemiBold"
+                                   VerticalAlignment="Center" />
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="42"/>
+                        <ColumnDefinition Width="18.333"/>
+                        <ColumnDefinition Width="129.667"/>
+                        <ColumnDefinition Width="250"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="10"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <!--LABELS COLUMN-->
+                    <Label Grid.Row="1" Grid.Column="2"
+                           Foreground="Cyan"
+                           Content="NOMBRE:"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           FontSize="20"
+                           FontWeight="DemiBold" Margin="31,0,0,0"/>
+                    <Label Grid.Row="2" Grid.Column="2"
+                           Foreground="Cyan"
+                           Content="ESTADO:"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           FontSize="20"
+                           FontWeight="DemiBold" Margin="41,0,0,0"/>
+                    <Label Grid.Row="3" Grid.Column="1"
+                           Foreground="Cyan"
+                           Content="10% SERVICIO:"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           FontSize="20"
+                           FontWeight="DemiBold" Grid.ColumnSpan="2" Margin="6,0,0,0"/>
+                    <Label Grid.Row="4" Grid.Column="0"
+                           Foreground="Cyan"
+                           Content="LIBRE DE CARGOS:"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           FontSize="20"
+                           FontWeight="DemiBold" Grid.ColumnSpan="3" Margin="11,0,0,0"/>
+                    <Label Grid.Row="5" Grid.Column="0"
+                           Foreground="Cyan"
+                           Content="LÍMITE DE CRÉDITO:"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           FontSize="20"
+                           FontWeight="DemiBold" Grid.ColumnSpan="3"/>
+                    <Label Grid.Row="6" Grid.Column="1"
+                           Foreground="Cyan"
+                           Content="ÚLTIMO PAGO:"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           FontSize="20"
+                           FontWeight="DemiBold" Grid.ColumnSpan="2" Margin="2,0,0,0"/>
+                    <!--CAPTURE COLUMN-->
+                    <TextBox Grid.Row="1" Grid.Column="3"
+                             Name="txtBox_CustomerName"
+                             Background="Cyan"
+                             Margin="3,3,3,3"
+                             FontSize="20"
+                             FontWeight="DemiBold" KeyUp="txtBox_CustomerName_KeyUp"/>
+                    <CheckBox Grid.Row="2" Grid.Column="3"
+                              Name="chkBox_Status"
+                              VerticalAlignment="Center"
+                              Foreground="Cyan"
+                              IsChecked="False"
+                              Margin="5,0,5,0"
+                              FontSize="15"
+                              FontWeight="DemiBold"
+                              Content=" ACTIVO"/>
+                    <CheckBox Grid.Row="3" Grid.Column="3"
+                              Name="chkBox_ApplyServiceFee"
+                              VerticalAlignment="Center"
+                              Foreground="Cyan"
+                              IsChecked="False"
+                              Margin="5,0,5,0"
+                              FontSize="15"
+                              FontWeight="DemiBold"
+                              Content=" APLICAR"/>
+                    <CheckBox Grid.Row="4" Grid.Column="3"
+                              Name="chkBox_FreeOfCharge"
+                              VerticalAlignment="Center"
+                              Foreground="Cyan"
+                              IsChecked="False"
+                              Margin="5,0,5,0"
+                              FontSize="15"
+                              FontWeight="DemiBold"
+                              Content=" APLICAR"/>
+                    <TextBox Grid.Row="5" Grid.Column="3"
+                             Name="txtBox_CreditLimit"
+                             HorizontalAlignment="Left"
+                             Background="Cyan"
+                             Margin="3,3,0,3"
+                             Width="100"
+                             FontSize="20"
+                             FontWeight="DemiBold"/>
+                    <TextBox Grid.Row="6" Grid.Column="3"
+                             Name="txtBox_LastPayment"
+                             HorizontalAlignment="Left"
+                             Background="Cyan"
+                             Margin="3,3,0,3"
+                             Width="100"
+                             FontSize="20"
+                             IsReadOnly="True"
+                             FontWeight="DemiBold"/>
+                    <!--BUTTONS-->
+                    <StackPanel Grid.Row="8" Grid.Column="3"
+                                Orientation="Horizontal">
+                        <Image Name="Cancel_Cust"
+                               Source="/Images/20.ico"
+                               Width="40"
+                               Height="40"
+                               Margin="10"
+                               ToolTip="Haga click aqui para cancelar."
+                               Cursor="Hand"
+                               Visibility="Hidden"
+                               MouseDown="btnCancel_Cust"/>
+                        <Image Name="Add_Cust"
+                               Source="/Images/13.ico"
+                               Width="40"
+                               Height="40"
+                               Margin="10"
+                               ToolTip="Haga click aqui para agregar."
+                               Cursor="Hand"
+                               Visibility="Hidden"
+                               MouseDown="btnAdd_Cust"/>
+                        <Image Name="Del_Cust"
+                               Source="/Images/33.ico"
+                               Width="40"
+                               Height="40"
+                               Margin="10"
+                               ToolTip="Haga click aqui para borrar."
+                               Cursor="Hand"
+                               Visibility="Hidden"
+                               MouseDown="btnDel_Cust"/>
+                        <Image Name="Mod_Cust"
+                               Source="/Images/38.ico"
+                               Width="40"
+                               Height="40"
+                               Margin="10"
+                               ToolTip="Haga click aqui para actualizar."
+                               Cursor="Hand"
+                               Visibility="Hidden"
+                               MouseDown="btnMod_Cust"/>
+                    </StackPanel>
+                    <!--DATAGRID-->
+                    <DataGrid Grid.Row="1" Grid.Column="5" Grid.RowSpan="9"
+                              Name="CustCatalog"
+                              Height="520" Width="680"
+                              Margin="3,3,0,0"
+                              RowHeight="30"
+                              IsReadOnly="True"
+                              HorizontalAlignment="Left"
+                              HorizontalScrollBarVisibility="Disabled"
+                              VerticalAlignment="Top"
+                              VerticalScrollBarVisibility="Visible" 
+                              GridLinesVisibility="All"
+                              HeadersVisibility="All"
+                              Background="LightGray"
+                              RowBackground="LightCyan"
+                              AlternatingRowBackground="Cyan"
+                              BorderBrush="Gray" BorderThickness="2"
+                              AreRowDetailsFrozen="True"
+                              CanUserReorderColumns="False"
+                              CanUserResizeColumns="False"
+                              CanUserSortColumns = "False"
+                              SelectionChanged="CustCatalog_SelectionChanged" Grid.ColumnSpan="2">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="NOMBRE DEL CLIENTE"
+                                            Width="305"
+                                            Binding="{Binding Path=CustomerID}"
+                                            HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="EST"
+                                            Width="75"
+                                            Binding="{Binding Path=Active}"
+                                            HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="HorizontalAlignment" Value="Center" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="10%"
+                                            Width="75"
+                                            Binding="{Binding Path=ApplyServiceFee}"
+                                            HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="HorizontalAlignment" Value="Center" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="LdC"
+                                            Width="75"
+                                            Binding="{Binding Path=CustomerFOC}"
+                                            HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="HorizontalAlignment" Value="Center" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="LIM CRÉD"
+                                            Width="100"
+                                            Binding="{Binding Path=CreditLimit}"
+                                            HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="HorizontalAlignment" Value="Center" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <!--BUCKETS RELATIONSHIPS-->
+            <TabItem Name="BucketsRelationships">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Name="img5"
+                               Height="30" Width="30"
+                               Source="/Images/Bucket.png" />
+                        <TextBlock Text="BALDES"
+                                   Margin="5"
+                                   FontSize="15"
+                                   FontWeight="DemiBold"
+                                   VerticalAlignment="Center" />
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="250"/>
+                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="10"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <!--LABELS COLUMN-->
+                    <Label Grid.Row="1" Grid.Column="0"
+                           Foreground="Cyan"
+                           Content="SELECCIONE BALDE:"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"
+                           FontSize="20"
+                           FontWeight="DemiBold"/>
+                    <Label Grid.Row="2" Grid.Column="0"
+                           Foreground="Cyan"
+                           Content="SELECCIONE PRODUCTO:"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"
+                           FontSize="20"
+                           FontWeight="DemiBold"/>
+                    <!--CAPTURE COLUMN-->
+                    <ComboBox Grid.Row="1" Grid.Column="1"
+                              Name="cbBox_BucketParentItem"
+                              Margin="3"
+                              FontSize="20"
+                              FontWeight="DemiBold"
+                              SelectionChanged="cbBox_BucketParentItem_SelectionChanged"/>
+                    <ComboBox Grid.Row="2" Grid.Column="1"
+                              Name="cbBox_BucketChildItem"
+                              IsEnabled="False"
+                              Margin="3"
+                              FontSize="20"
+                              FontWeight="DemiBold"
+                              SelectionChanged="cbBox_BucketChildItem_SelectionChanged"/>
+                    <!--BUTTONS-->
+                    <StackPanel Grid.Row="4" Grid.Column="1"
+                                Orientation="Horizontal"
+                                HorizontalAlignment="Center">
+                        <Image Name="Add_BucketItemParent"
+                               Source="/Images/13.ico"
+                               Width="40"
+                               Height="40"
+                               Margin="10"
+                               ToolTip="Haga click aqui para agregar."
+                               Cursor="Hand"
+                               Visibility="Hidden"
+                               MouseDown="btnAdd_BucketParentChild"/>
+                        <Image Name="Del_BucketItemParent"
+                               Source="/Images/33.ico"
+                               Width="40"
+                               Height="40"
+                               Margin="10"
+                               ToolTip="Haga click aqui para borrar."
+                               Cursor="Hand"
+                               Visibility="Hidden"
+                               MouseDown="btnDel_BucketChildParent"/>
+                    </StackPanel>
+                    <!--BUCKETS PARENT DATAGRID-->
+                    <DataGrid Grid.Row="1" Grid.Column="3" Grid.RowSpan="5"
+                              Name="BucketParentCatalog"
+                              Height="220" Width="500"
+                              RowHeight="30"
+                              IsReadOnly="True"
+                              HorizontalAlignment="Left"
+                              HorizontalScrollBarVisibility="Disabled"
+                              VerticalAlignment="Top"
+                              VerticalScrollBarVisibility="Visible" 
+                              GridLinesVisibility="All"
+                              HeadersVisibility="All"
+                              Background="LightGray"
+                              RowBackground="LightCyan"
+                              AlternatingRowBackground="Cyan"
+                              BorderBrush="Gray" BorderThickness="2"
+                              AreRowDetailsFrozen="True"
+                              CanUserReorderColumns="False"
+                              CanUserResizeColumns="False"
+                              CanUserSortColumns = "False"
+                              SelectionChanged="BucketParentCatalog_SelectionChanged">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID"
+                                                Width="75"
+                                                Binding="{Binding Path=ID}"
+                                                HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="HorizontalAlignment" Value="Center" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="DESCRIPCIÓN"
+                                                Width="400"
+                                                Binding="{Binding Path=ItemDescription}"
+                                                HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                            </DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <!--BUCKETS CHILDS DATAGRID-->
+                    <DataGrid Grid.Row="6" Grid.Column="3" Grid.RowSpan="6"
+                              Name="BucketChildCatalog"
+                              Height="250" Width="500"
+                              RowHeight="30"
+                              IsReadOnly="True"
+                              HorizontalAlignment="Left"
+                              HorizontalScrollBarVisibility="Disabled"
+                              VerticalAlignment="Top"
+                              VerticalScrollBarVisibility="Visible" 
+                              GridLinesVisibility="All"
+                              HeadersVisibility="All"
+                              Background="LightGray"
+                              RowBackground="LightCyan"
+                              AlternatingRowBackground="Cyan"
+                              BorderBrush="Gray" BorderThickness="2"
+                              AreRowDetailsFrozen="True"
+                              CanUserReorderColumns="False"
+                              CanUserResizeColumns="False"
+                              CanUserSortColumns = "False"
+                              SelectionChanged="BucketChildCatalog_SelectionChanged">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID"
+                                                Width="75"
+                                                Binding="{Binding Path=ID}"
+                                                HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="HorizontalAlignment" Value="Center" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="DESCRIPCIÓN"
+                                                Width="400"
+                                                Binding="{Binding Path=ItemDescription}"
+                                                HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                            </DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <!--PROMO BEVERAGES RELATIONSHIPS-->
+            <TabItem Name="PromoRelationships">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Name="img7"
+                               Height="30" Width="30"
+                               Source="/Images/promotions.png" />
+                        <TextBlock Text="PROMOS BEBIDAS"
+                                   Margin="5"
+                                   FontSize="15"
+                                   FontWeight="DemiBold"
+                                   VerticalAlignment="Center" />
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="350"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="10"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <!--LABELS COLUMN-->
+                    <Label Grid.Row="1" Grid.Column="0"
+                           Foreground="Cyan"
+                           Content="PROMOCIÓN:"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"
+                           FontSize="20"
+                           FontWeight="DemiBold"/>
+                    <Label Grid.Row="2" Grid.Column="0"
+                           Foreground="Cyan"
+                           Content="PRODUCTO:"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"
+                           FontSize="20"
+                           FontWeight="DemiBold"/>
+                    <Label Grid.Row="3" Grid.Column="0"
+                           Foreground="Cyan"
+                           Content="CANTIDAD:"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"
+                           FontSize="20"
+                           FontWeight="DemiBold"/>
+                    <!--CAPTURE COLUMN-->
+                    <ComboBox Grid.Row="1" Grid.Column="1"
+                              Name="cbBox_PromoParentItem"
+                              Margin="3"
+                              FontSize="20"
+                              FontWeight="DemiBold"
+                              SelectionChanged="cbBox_PromoParentItem_SelectionChanged"/>
+                    <ComboBox Grid.Row="2" Grid.Column="1"
+                              Name="cbBox_PromoChildItem"
+                              IsEnabled="False"
+                              Margin="3"
+                              FontSize="20"
+                              FontWeight="DemiBold"
+                              SelectionChanged="cbBox_PromoChildItem_SelectionChanged"/>
+                    <TextBox Grid.Row="3" Grid.Column="1"
+                             Name="txtBox_PromoChildItemQty"
+                             Background="Cyan"
+                             HorizontalAlignment="Left"
+                             HorizontalContentAlignment="Center"
+                             IsEnabled="False"
+                             Margin="3"
+                             Width="50"
+                             FontSize="20"
+                             FontWeight="DemiBold"
+                             KeyUp="txtBox_PromoChildItemQty_KeyUp"/>
+                    <!--BUTTONS-->
+                    <StackPanel Grid.Row="4" Grid.Column="1"
+                                Orientation="Horizontal"
+                                HorizontalAlignment="Center">
+                        <Image Name="CancelPromo_Item"
+                               Source="/Images/20.ico"
+                               Width="40"
+                               Height="40"
+                               Margin="10"
+                               ToolTip="Haga click aqui para cancelar."
+                               Cursor="Hand"
+                               MouseDown="btnPromoCancel_Item"/>
+                        <Image Name="Add_PromoItemParent"
+                               Source="/Images/13.ico"
+                               Width="40"
+                               Height="40"
+                               Margin="10"
+                               ToolTip="Haga click aqui para agregar."
+                               Cursor="Hand"
+                               Visibility="Hidden"
+                               MouseDown="btnAdd_PromoParentChild"/>
+                        <Image Name="Del_PromoItemParent"
+                               Source="/Images/33.ico"
+                               Width="40"
+                               Height="40"
+                               Margin="10"
+                               ToolTip="Haga click aqui para borrar."
+                               Cursor="Hand"
+                               Visibility="Hidden"
+                               MouseDown="btnDel_PromoChildParent"/>
+                    </StackPanel>
+                    <!--PROMO PARENT DATAGRID-->
+                    <DataGrid Grid.Row="1" Grid.Column="3" Grid.RowSpan="8"
+                              Name="PromoCatalog"
+                              Height="600" Width="725"
+                              RowHeight="30"
+                              IsReadOnly="True"
+                              HorizontalAlignment="Left"
+                              HorizontalScrollBarVisibility="Disabled"
+                              VerticalAlignment="Top"
+                              VerticalScrollBarVisibility="Visible" 
+                              GridLinesVisibility="All"
+                              HeadersVisibility="All"
+                              Background="LightGray"
+                              RowBackground="LightCyan"
+                              AlternatingRowBackground="Cyan"
+                              BorderBrush="Gray" BorderThickness="2"
+                              AreRowDetailsFrozen="True"
+                              CanUserReorderColumns="False"
+                              CanUserResizeColumns="False"
+                              CanUserSortColumns = "False"
+                              SelectionChanged="PromoCatalog_SelectionChanged">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="PROMOCIÓN"
+                                                Width="300"
+                                                Binding="{Binding Path=PromoDescription}"
+                                                HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="PRODUCTO"
+                                                Width="300"
+                                                Binding="{Binding Path=PromoItemDescription}"
+                                                HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="CANT"
+                                                Width="75"
+                                                Binding="{Binding Path=PromoQty}"
+                                                HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="HorizontalAlignment" Value="Center" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <!--PROMO BEVERAGES RELATIONSHIPS-->
+            <TabItem Name="PromoDrinkRelationships">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Name="img8"
+                               Height="30" Width="30"
+                               Source="/Images/cocktails.png" />
+                        <TextBlock Text="PROMOS LICORES"
+                                   Margin="5"
+                                   FontSize="15"
+                                   FontWeight="DemiBold"
+                                   VerticalAlignment="Center" />
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="350"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="10"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <!--LABELS COLUMN-->
+                    <Label Grid.Row="1" Grid.Column="0"
+                           Foreground="Cyan"
+                           Content="PROMOCIÓN:"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"
+                           FontSize="20"
+                           FontWeight="DemiBold"/>
+                    <Label Grid.Row="2" Grid.Column="0"
+                           Foreground="Cyan"
+                           Content="PRODUCTO:"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"
+                           FontSize="20"
+                           FontWeight="DemiBold"/>
+                    <Label Grid.Row="3" Grid.Column="0"
+                           Foreground="Cyan"
+                           Content="CANTIDAD:"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"
+                           FontSize="20"
+                           FontWeight="DemiBold"/>
+                    <!--CAPTURE COLUMN-->
+                    <ComboBox Grid.Row="1" Grid.Column="1"
+                              Name="cbBox_PromoDrinkParentItem"
+                              Margin="3"
+                              FontSize="20"
+                              FontWeight="DemiBold"
+                              SelectionChanged="cbBox_PromoDrinkParentItem_SelectionChanged"/>
+                    <ComboBox Grid.Row="2" Grid.Column="1"
+                              Name="cbBox_PromoDrinkChildItem"
+                              IsEnabled="False"
+                              Margin="3"
+                              FontSize="20"
+                              FontWeight="DemiBold"
+                              SelectionChanged="cbBox_PromoDrinkChildItem_SelectionChanged"/>
+                    <TextBox Grid.Row="3" Grid.Column="1"
+                             Name="txtBox_PromoDrinkChildItemQty"
+                             Background="Cyan"
+                             HorizontalAlignment="Left"
+                             HorizontalContentAlignment="Center"
+                             IsEnabled="False"
+                             Margin="3"
+                             Width="50"
+                             FontSize="20"
+                             FontWeight="DemiBold"
+                             KeyUp="txtBox_PromoDrinkChildItemQty_KeyUp"/>
+                    <!--BUTTONS-->
+                    <StackPanel Grid.Row="4" Grid.Column="1"
+                                Orientation="Horizontal"
+                                HorizontalAlignment="Center">
+                        <Image Name="CancelPromoDrink_Item"
+                               Source="/Images/20.ico"
+                               Width="40"
+                               Height="40"
+                               Margin="10"
+                               ToolTip="Haga click aqui para cancelar."
+                               Cursor="Hand"
+                               MouseDown="btnPromoDrinkCancel_Item"/>
+                        <Image Name="Add_PromoDrinkItemParent"
+                               Source="/Images/13.ico"
+                               Width="40"
+                               Height="40"
+                               Margin="10"
+                               ToolTip="Haga click aqui para agregar."
+                               Cursor="Hand"
+                               Visibility="Hidden"
+                               MouseDown="btnAdd_PromoDrinkParentChild"/>
+                        <Image Name="Del_PromoDrinkItemParent"
+                               Source="/Images/33.ico"
+                               Width="40"
+                               Height="40"
+                               Margin="10"
+                               ToolTip="Haga click aqui para borrar."
+                               Cursor="Hand"
+                               Visibility="Hidden"
+                               MouseDown="btnDel_PromoDrinkChildParent"/>
+                    </StackPanel>
+                    <!--PROMO PARENT DATAGRID-->
+                    <DataGrid Grid.Row="1" Grid.Column="3" Grid.RowSpan="8"
+                              Name="PromoDrinkCatalog"
+                              Height="600" Width="725"
+                              RowHeight="30"
+                              IsReadOnly="True"
+                              HorizontalAlignment="Left"
+                              HorizontalScrollBarVisibility="Disabled"
+                              VerticalAlignment="Top"
+                              VerticalScrollBarVisibility="Visible" 
+                              GridLinesVisibility="All"
+                              HeadersVisibility="All"
+                              Background="LightGray"
+                              RowBackground="LightCyan"
+                              AlternatingRowBackground="Cyan"
+                              BorderBrush="Gray" BorderThickness="2"
+                              AreRowDetailsFrozen="True"
+                              CanUserReorderColumns="False"
+                              CanUserResizeColumns="False"
+                              CanUserSortColumns = "False"
+                              SelectionChanged="PromoDrinkCatalog_SelectionChanged">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="PROMOCIÓN"
+                                                Width="300"
+                                                Binding="{Binding Path=PromoDescription}"
+                                                HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="PRODUCTO"
+                                                Width="300"
+                                                Binding="{Binding Path=PromoItemDescription}"
+                                                HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="CANT"
+                                                Width="75"
+                                                Binding="{Binding Path=PromoQty}"
+                                                HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="HorizontalAlignment" Value="Center" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <!--LIQUORS RELATIONSHIPS-->
+            <TabItem Name="tabLiqoursRelationships">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Name="img3"
+                               Height="30" Width="30"
+                               Source="/Images/liquors.ico" />
+                        <TextBlock Text="RELACIONES LICORES"
+                                   Margin="5"
+                                   FontSize="15"
+                                   FontWeight="DemiBold"
+                                   VerticalAlignment="Center" />
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="215"/>
+                        <ColumnDefinition Width="250"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="497*" />
+                        <ColumnDefinition Width="92*"/>
+                        <ColumnDefinition Width="10"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <!--LABELS COLUMN-->
+                    <Label Grid.Row="1"
+                           Foreground="Cyan"
+                           Content="PRODUCTO VENDIDO:"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontSize="20"
+                           FontWeight="DemiBold"/>
+                    <Label Grid.Row="2" Grid.Column="0"
+                           Foreground="Cyan"
+                           Content="DESCONTAR A:"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           FontSize="20"
+                           FontWeight="DemiBold" Margin="68,0,0,0"/>
+                    <Label Grid.Row="3" Grid.Column="0"
+                           Foreground="Cyan"
+                           Content="CANTIDAD:"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           FontSize="20"
+                           FontWeight="DemiBold" Margin="100,0,0,0"/>
+                    <!--CAPTURE COLUMN-->
+                    <ComboBox Grid.Row="1" Grid.Column="1"
+                              Name="cbBox_ChildItem"
+                              Margin="3,3,3,3"
+                              FontSize="20"
+                              FontWeight="DemiBold"
+                              SelectionChanged="cbBox_ChildItem_SelectionChanged"/>
+                    <ComboBox Grid.Row="2" Grid.Column="1"
+                              Name="cbBox_ParentItem"
+                              Margin="3,3,3,3"
+                              FontSize="20"
+                              FontWeight="DemiBold"
+                              SelectionChanged="cbBox_ParentItem_SelectionChanged"/>
+                    <TextBox Grid.Row="3" Grid.Column="1"
+                             Name="txtBox_ItemParentUnit"
+                             Background="Cyan"
+                             Margin="3,3,3,3"
+                             FontSize="20"
+                             FontWeight="DemiBold"/>
+                    <!--BUTTONS-->
+                    <StackPanel Grid.Row="5" Grid.Column="1"
+                                Orientation="Horizontal"
+                                HorizontalAlignment="Center">
+                        <Image Name="Add_ItemParent"
+                               Source="/Images/13.ico"
+                               Width="40"
+                               Height="40"
+                               Margin="10"
+                               ToolTip="Haga click aqui para agregar."
+                               Cursor="Hand"
+                               Visibility="Hidden"
+                               MouseDown="btnAdd_ItemParent"/>
+                        <Image Name="Del_ItemParent"
+                               Source="/Images/33.ico"
+                               Width="40"
+                               Height="40"
+                               Margin="10"
+                               ToolTip="Haga click aqui para borrar."
+                               Cursor="Hand"
+                               Visibility="Hidden"
+                               MouseDown="btnDel_ItemParent"/>
+                    </StackPanel>
+                    <!--DATAGRID-->
+                    <DataGrid Grid.Row="1" Grid.Column="3" Grid.RowSpan="6"
+                              Name="ItemParentCatalog"
+                              Height="520" Width="723"
+                              Margin="3,3,0,0"
+                              RowHeight="30"
+                              IsReadOnly="True"
+                              HorizontalAlignment="Left"
+                              HorizontalScrollBarVisibility="Disabled"
+                              VerticalAlignment="Top"
+                              VerticalScrollBarVisibility="Visible" 
+                              GridLinesVisibility="All"
+                              HeadersVisibility="All"
+                              Background="LightGray"
+                              RowBackground="LightCyan"
+                              AlternatingRowBackground="Cyan"
+                              BorderBrush="Gray" BorderThickness="2"
+                              AreRowDetailsFrozen="True"
+                              CanUserReorderColumns="False"
+                              CanUserResizeColumns="False"
+                              CanUserSortColumns = "False"
+                              SelectionChanged="ItemParentCatalog_SelectionChanged" Grid.ColumnSpan="3">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="PRODUCTO VENDIDO"
+                                            Width="315"
+                                            Binding="{Binding Path=ItemDescription}"
+                                            HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="DESCONTAR A"
+                                            Width="315"
+                                            Binding="{Binding Path=ItemParentDescription}"
+                                            HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="CANT"
+                                            Width="65"
+                                            Binding="{Binding Path=ItemParentUnit}"
+                                            HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="HorizontalAlignment" Value="Right" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <!--MEALS RELATIONSHIPS-->
+            <TabItem Name="MealsRelationships">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Name="img4"
+                               Height="30" Width="30"
+                               Source="/Images/dinner.png" />
+                        <TextBlock Text="RELACIONES COMIDAS"
+                                   Margin="5"
+                                   FontSize="15"
+                                   FontWeight="DemiBold"
+                                   VerticalAlignment="Center" />
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="215"/>
+                        <ColumnDefinition Width="250"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="10"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <!--LABELS COLUMN-->
+                    <Label Grid.Row="1" Grid.Column="0"
+                           Foreground="Cyan"
+                           Content="PRODUCTO VENDIDO:"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"
+                           FontSize="20"
+                           FontWeight="DemiBold"/>
+                    <Label Grid.Row="2" Grid.Column="0"
+                           Foreground="Cyan"
+                           Content="DESCONTAR A:"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"
+                           FontSize="20"
+                           FontWeight="DemiBold"/>
+                    <Label Grid.Row="3" Grid.Column="0"
+                           Foreground="Cyan"
+                           Content="CANTIDAD:"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"
+                           FontSize="20"
+                           FontWeight="DemiBold"/>
+                    <!--CAPTURE COLUMN-->
+                    <ComboBox Grid.Row="1" Grid.Column="1"
+                              Name="cbBox_MealChildItem"
+                              Margin="3"
+                              FontSize="20"
+                              FontWeight="DemiBold"
+                              SelectionChanged="cbBox_MealChildItem_SelectionChanged"/>
+                    <ComboBox Grid.Row="2" Grid.Column="1"
+                              Name="cbBox_MealParentItem"
+                              Margin="3"
+                              FontSize="20"
+                              FontWeight="DemiBold"
+                              SelectionChanged="cbBox_MealParentItem_SelectionChanged"/>
+                    <TextBox Grid.Row="3" Grid.Column="1"
+                             Name="txtBox_MealItemParentUnit"
+                             Background="Cyan"
+                             Margin="3"
+                             FontSize="20"
+                             FontWeight="DemiBold"/>
+                    <!--BUTTONS-->
+                    <StackPanel Grid.Row="5" Grid.Column="1"
+                                Orientation="Horizontal"
+                                HorizontalAlignment="Center">
+                        <Image Name="Add_MealItemParent"
+                               Source="/Images/13.ico"
+                               Width="40"
+                               Height="40"
+                               Margin="10"
+                               ToolTip="Haga click aqui para agregar."
+                               Cursor="Hand"
+                               Visibility="Hidden"
+                               MouseDown="btnAdd_MealItemParent"/>
+                        <Image Name="Del_MealItemParent"
+                               Source="/Images/33.ico"
+                               Width="40"
+                               Height="40"
+                               Margin="10"
+                               ToolTip="Haga click aqui para borrar."
+                               Cursor="Hand"
+                               Visibility="Hidden"
+                               MouseDown="btnDel_MealItemParent"/>
+                    </StackPanel>
+                    <!--DATAGRID-->
+                    <DataGrid Grid.Row="1" Grid.Column="3" Grid.RowSpan="6"
+                              Name="MealItemParentCatalog"
+                              Height="520" Width="723"
+                              Margin="3"
+                              RowHeight="30"
+                              IsReadOnly="True"
+                              HorizontalAlignment="Left"
+                              HorizontalScrollBarVisibility="Disabled"
+                              VerticalAlignment="Top"
+                              VerticalScrollBarVisibility="Visible" 
+                              GridLinesVisibility="All"
+                              HeadersVisibility="All"
+                              Background="LightGray"
+                              RowBackground="LightCyan"
+                              AlternatingRowBackground="Cyan"
+                              BorderBrush="Gray" BorderThickness="2"
+                              AreRowDetailsFrozen="True"
+                              CanUserReorderColumns="False"
+                              CanUserResizeColumns="False"
+                              CanUserSortColumns = "False"
+                              SelectionChanged="MealItemParentCatalog_SelectionChanged">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="PRODUCTO VENDIDO"
+                                            Width="315"
+                                            Binding="{Binding Path=ItemDescription}"
+                                            HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="DESCONTAR A"
+                                            Width="315"
+                                            Binding="{Binding Path=ItemParentDescription}"
+                                            HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="CANT"
+                                            Width="65"
+                                            Binding="{Binding Path=ItemParentUnit}"
+                                            HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="HorizontalAlignment" Value="Right" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</UserControl>

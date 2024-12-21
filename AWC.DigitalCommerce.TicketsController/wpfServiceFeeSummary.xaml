@@ -1,0 +1,87 @@
+﻿<Window x:Class="AWC.DigitalCommerce.TicketsController.wpfServiceFeeSummary"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController"
+        mc:Ignorable="d" Height="240" Width="630" WindowStyle="None"
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
+        Background="DarkBlue">
+    <Border BorderBrush="Fuchsia" BorderThickness="3">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="10"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="10"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="1" Grid.Column="2"
+                   Foreground="Cyan"
+                   Content="10% DE SERVICIO"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   FontSize="30"
+                   FontWeight="DemiBold"/>
+            <Label Grid.Row="2" Grid.Column="2"
+                   Name="TotalServiceFee"
+                   Foreground="Cyan"
+                   VerticalAlignment="Center"
+                   VerticalContentAlignment="Center"
+                   HorizontalAlignment="Center"
+                   FontSize="70"
+                   Content="0"
+                   FontWeight="DemiBold"/>
+            <Button Grid.Row="4" Grid.Column="1"
+                    Click="btn_Close"
+                    FontSize="15"
+                    Margin="5"
+                    Cursor="Hand"
+                    FontWeight="DemiBold">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Images/delete_sign.png"
+                               Width="25" Height="25" Margin="5"/>
+                        <TextBlock Text="CERRAR" VerticalAlignment="Center"/>
+                    </StackPanel>
+            </Button>
+            <StackPanel Grid.Row="4" Grid.Column="2"
+                    Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label Grid.Row="1" Grid.Column="2"
+                       Foreground="Cyan"
+                       Content="FECHA:"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       FontSize="15"
+                       FontWeight="DemiBold"/>
+                <DatePicker Grid.Row="1" Grid.Column="2"
+                            Name="SelectedDay"
+                            SelectedDateFormat="Short"
+                            VerticalAlignment="Center"
+                            Margin="5"
+                            FontSize="15"
+                            FontWeight="DemiBold"
+                            SelectedDateChanged="SelectedDay_SelectedDateChanged"/>
+            </StackPanel>
+            <Button Grid.Row="4" Grid.Column="3"
+                    Click="btn_Print"
+                    FontSize="15"
+                    Margin="5"
+                    Cursor="Hand"
+                    FontWeight="DemiBold">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Images/printer_icon.png"
+                               Width="25" Height="25" Margin="5"/>
+                        <TextBlock Text="IMPRIMIR" VerticalAlignment="Center"/>
+                    </StackPanel>
+            </Button>
+        </Grid>
+    </Border>
+</Window>

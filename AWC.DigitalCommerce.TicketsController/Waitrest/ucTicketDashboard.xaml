@@ -1,0 +1,262 @@
+﻿<UserControl x:Class="AWC.DigitalCommerce.TicketsController.Waitrest.ucTicketDashboard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController"
+             mc:Ignorable="d" Background="Indigo"
+             d:DesignHeight="625" d:DesignWidth="580">
+    <UserControl.Resources>
+        <Style x:Key="CenterGridHeaderStyle" TargetType="DataGridColumnHeader">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+        <DataTemplate x:Key="lBox_Customer_DataTemplate">
+            <StackPanel Margin="1">
+                <TextBlock FontWeight="DemiBold"
+                           FontSize="25"
+                           Foreground="DarkBlue"
+                           Text="{Binding CustomerID}" />
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="Items_DataTemplate">
+            <StackPanel Margin="1">
+                <TextBlock FontWeight="DemiBold"
+                           FontSize="20"
+                           Foreground="DarkBlue"
+                           Text="{Binding ItemDescription}" />
+            </StackPanel>
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="65"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="65"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <!--TICKET HEADER-->
+        <Rectangle Grid.Row="0" Grid.Column="0"
+                   Grid.ColumnSpan="12" Grid.RowSpan="2">
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1" Opacity="0.9">
+                    <GradientStop Color="Violet" Offset="0.0"/>
+                    <GradientStop Color="Black" Offset="1.0"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="12"
+               Name="lbl_TicketNumber"
+               Foreground="White"
+               VerticalAlignment="Top"
+               FontSize="20"
+               FontWeight="DemiBold"
+               Content="No. Cuenta:"/>
+        <Label Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="2"
+               Foreground="White"
+               VerticalAlignment="Top"
+               FontSize="20"
+               FontWeight="DemiBold"
+               Content="Servicio:"/>
+        <Label Grid.Row="0" Grid.Column="7" Grid.ColumnSpan="2"
+               Name="lbl_ServiceFee"
+               Foreground="White"
+               HorizontalAlignment="Right"
+               VerticalAlignment="Top"
+               FontSize="20"
+               FontWeight="DemiBold"
+               Content="0.00"/>
+        <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="12"
+               Name="lbl_CustomerID"
+               Foreground="White"
+               VerticalAlignment="Top"
+               FontSize="20"
+               FontWeight="DemiBold"
+               Content="Atendiendo a:"/>
+        <Label Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="2"
+               Foreground="White"
+               VerticalAlignment="Top"
+               FontSize="20"
+               FontWeight="DemiBold"
+               Content="Total:"/>
+        <Label Grid.Row="1" Grid.Column="7" Grid.ColumnSpan="2"
+               Name="lbl_TicketTotal"
+               Foreground="White"
+               HorizontalAlignment="Right"
+               VerticalAlignment="Top"
+               FontSize="20"
+               FontWeight="DemiBold"
+               Content="0.00"/>
+        <!--TICKET ACTIONS-->
+        <Rectangle Grid.Row="0" Grid.Column="9"
+                   Grid.ColumnSpan="2" Grid.RowSpan="2">
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1" Opacity="0.9">
+                    <GradientStop Color="WhiteSmoke" Offset="0.0"/>
+                    <GradientStop Color="DarkGray" Offset="1.0"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Label Grid.Row="0" Grid.Column="9"
+               Grid.ColumnSpan="2" Grid.RowSpan="2"
+               Foreground="Black"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               FontSize="15"
+               FontWeight="DemiBold"
+               Content="ACCIONES"/>
+        <!--TICKET DATAGRID-->
+        <DataGrid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="12"
+                  Name="TicketDetail"
+                  Height="505" Width="580"
+                  RowHeight="45"
+                  FontSize="25"
+                  FontWeight="DemiBold"
+                  HorizontalAlignment="Left"
+                  HorizontalScrollBarVisibility="Hidden"
+                  VerticalAlignment="Top"
+                  VerticalContentAlignment="Center"
+                  VerticalScrollBarVisibility="Visible"
+                  GridLinesVisibility="All"
+                  HeadersVisibility="None"
+                  Background="Black"
+                  RowBackground="White"
+                  AlternatingRowBackground="Orange"
+                  BorderBrush="DarkBlue" BorderThickness="2"
+                  AreRowDetailsFrozen="True"
+                  IsReadOnly="True"
+                  CanUserReorderColumns="False"
+                  CanUserResizeColumns="False"
+                  CanUserSortColumns = "False"
+                  SelectionChanged="TicketDetail_SelectionChanged">
+            <DataGrid.Resources>
+                <Style TargetType="ScrollBar">
+                    <Style.Triggers>
+                        <Trigger Property="Orientation" Value="Vertical">
+                            <Setter Property="Width" Value="40"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <!--QTY-->
+                <DataGridTextColumn Width="45"
+                                    Binding="{Binding Path=Qty}"
+                                    HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="VerticalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <!--DESCRIPTION-->
+                <DataGridTextColumn Width="395"
+                                    Binding="{Binding Path=ItemDesc}"
+                                    HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="HorizontalAlignment" Value="Left" />
+                            <Setter Property="VerticalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <!--UNIT PRICE
+                <DataGridTextColumn Width="85"
+                                    Binding="{Binding Path=UnitPrice, StringFormat=N0}"
+                                    HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="HorizontalAlignment" Value="Right" />
+                            <Setter Property="VerticalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                -->
+                <!--TOTAL PRICE-->
+                <DataGridTextColumn Width="95"
+                                    Binding="{Binding Path=TotalPrice, StringFormat=N0}"
+                                    HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="HorizontalAlignment" Value="Right" />
+                            <Setter Property="VerticalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <!--FOOTER BUTTON-->
+        <!--CANCEL-->
+        <Rectangle Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2">
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1" Opacity="0.9">
+                    <GradientStop Color="WhiteSmoke" Offset="0.0"/>
+                    <GradientStop Color="DarkGray" Offset="1.0"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
+               Foreground="Black"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               FontSize="15"
+               FontWeight="DemiBold"
+               Content="CANCELAR"/>
+        <!--ADD-->
+        <Image Grid.Row="3" Grid.Column="3"
+               Name="Increase"
+               Source="/Images/Plus_sign.png"
+               Width="40" Height="40"
+               Visibility="Hidden"
+               ToolTip="Clic para sumar una unidad."
+               Cursor="Hand"
+               MouseDown="btn_Increase"/>
+        <!--DELETE-->
+        <Image Grid.Row="3" Grid.Column="5"
+               Name="Delete"
+               Source="/Images/Delete_sign.png"
+               Width="40" Height="40"
+               Visibility="Hidden"
+               ToolTip="Clic para eliminar el item."
+               Cursor="Hand"
+               MouseDown="btn_Delete"/>
+        <!--SUBSTRACT-->
+        <Image Grid.Row="3" Grid.Column="7"
+               Name="Decrease"
+               Source="/Images/Minus_sign.png"
+               Width="40" Height="40"
+               Visibility="Hidden"
+               ToolTip="Clic para restar una unidad."
+               Cursor="Hand"
+               MouseDown="btn_Decrease"/>
+        <!--SAVE-->
+        <Rectangle Grid.Row="3" Grid.Column="9" Grid.ColumnSpan="2">
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1" Opacity="0.9">
+                    <GradientStop Color="WhiteSmoke" Offset="0.0"/>
+                    <GradientStop Color="DarkGray" Offset="1.0"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Label Grid.Row="3" Grid.Column="9" Grid.ColumnSpan="2"
+               Foreground="Black"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               FontSize="15"
+               FontWeight="DemiBold"
+               Content="GUARDAR"/>
+    </Grid>
+</UserControl>

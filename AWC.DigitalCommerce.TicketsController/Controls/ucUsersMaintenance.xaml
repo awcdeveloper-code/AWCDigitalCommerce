@@ -1,0 +1,523 @@
+﻿<UserControl x:Class="AWC.DigitalCommerce.TicketsController.Controls.ucUsersMaintenance"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController"
+             mc:Ignorable="d" Background="DarkBlue"
+             d:DesignHeight="570" d:DesignWidth="830">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="90"/>
+            <ColumnDefinition Width="25"/>
+            <ColumnDefinition Width="110"/>
+            <ColumnDefinition Width="130"/>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="110"/>
+            <ColumnDefinition Width="130"/>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="6"
+               Foreground="Cyan"
+               Content="MANTENIMIENTO DE COLABORADORES"
+               FontSize="25"
+               FontWeight="DemiBold"/>
+        <Label Grid.Row="2" Grid.Column="1"
+               Foreground="Cyan"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Right"
+               Content="PIN:"
+               FontSize="20"
+               FontWeight="DemiBold"/>
+        <TextBox Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2"
+                 Name="txtBox_PIN"
+                 Background="Cyan"
+                 Margin="5"
+                 FontSize="20"
+                 FontWeight="DemiBold"
+                 KeyUp="txtBox_PIN_KeyUp"/>
+        <Label Grid.Row="2" Grid.Column="4"
+               Foreground="Cyan"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Right"
+               Content="NOMBRE:"
+               FontSize="20"
+               FontWeight="DemiBold"/>
+        <TextBox Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="3"
+                 Name="txtBox_Name"
+                 Background="Cyan"
+                 Margin="5"
+                 IsEnabled="False"
+                 FontSize="20"
+                 FontWeight="DemiBold"/>
+        <Label Grid.Row="3" Grid.Column="1"
+               Foreground="Cyan"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Right"
+               Content="ESTADO:"
+               FontSize="20"
+               FontWeight="DemiBold"/>
+        <ComboBox Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2"
+                  Name="cbox_Status"
+                  IsEnabled="False"
+                  VerticalAlignment="Center"
+                  Margin="5"
+                  FontSize="20"
+                  FontWeight="DemiBold"/>
+        <Label Grid.Row="3" Grid.Column="4"
+               Foreground="Cyan"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Right"
+               Content="PUESTO:"
+               FontSize="20"
+               FontWeight="DemiBold"/>
+        <ComboBox Grid.Row="3" Grid.Column="5" Grid.ColumnSpan="3"
+                  Name="cbox_Job"
+                  IsEnabled="False"
+                  VerticalAlignment="Center"
+                  Margin="5"
+                  FontSize="20"
+                  FontWeight="DemiBold"/>
+        <CheckBox Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="3"
+                  Name="chkBox_QuickSale"
+                  Foreground="Cyan"
+                  Margin="5"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="VENTA RÁPIDA"/>
+        <!--CUENTAS-->
+        <CheckBox Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="3"
+                  Name="chkBox_Tickets"
+                  Foreground="Cyan"
+                  Margin="5"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="CUENTAS"
+                  Checked="chkBox_Tickets_CheckBoxChanged"
+                  Unchecked="chkBox_Tickets_CheckBoxChanged"/>
+        <CheckBox Grid.Row="6" Grid.Column="3"
+                  Name="chkBox_CreateTicket"
+                  Foreground="Cyan"
+                  Margin="5"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="CREAR"/>
+        <CheckBox Grid.Row="6" Grid.Column="4"
+                  Name="chkBox_AssignTicket"
+                  Foreground="Cyan"
+                  Margin="5"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="ASIGNAR"/>
+        <CheckBox Grid.Row="7" Grid.Column="3"
+                  Name="chkBox_PrintTicket"
+                  Foreground="Cyan"
+                  Margin="5"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="IMPRIMIR"/>
+        <CheckBox Grid.Row="7" Grid.Column="4"
+                  Name="chkBox_InheritTicket"
+                  Foreground="Cyan"
+                  Margin="5"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="HEREDAR"/>
+        <CheckBox Grid.Row="8" Grid.Column="3"
+                  Name="chkBox_AbortTicket"
+                  Foreground="Cyan"
+                  Margin="5"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="ANULAR"/>
+        <CheckBox Grid.Row="8" Grid.Column="4"
+                  Name="chkBox_AddOldTicket"
+                  Foreground="Cyan"
+                  Margin="5"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="PENDIENTES"/>
+        <CheckBox Grid.Row="9" Grid.Column="4"
+                  Name="chkBox_AddButton"
+                  Foreground="Cyan"
+                  Margin="5"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="+ SUMAR"/>
+        <CheckBox Grid.Row="9" Grid.Column="3"
+                  Name="chkBox_CancelUpdate"
+                  Foreground="Cyan"
+                  Margin="5"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="CANCELAR"/>
+        <CheckBox Grid.Row="10" Grid.Column="4"
+                  Name="chkBox_DelButton"
+                  Foreground="Cyan"
+                  Margin="5"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="X REMOVER"/>
+        <CheckBox Grid.Row="10" Grid.Column="3"
+                  Name="chkBox_UpdateTicket"
+                  Foreground="Cyan"
+                  Margin="5"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="SALVAR"/>
+        <CheckBox Grid.Row="11" Grid.Column="4"
+                  Name="chkBox_SubButton"
+                  Foreground="Cyan"
+                  Margin="5"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="- RESTAR"/>
+        <CheckBox Grid.Row="11" Grid.Column="3"
+                  Name="chkBox_CreditTicket"
+                  Foreground="Cyan"
+                  Margin="5"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="ABONAR"/>
+        <CheckBox Grid.Row="12" Grid.Column="4"
+                  Name="chkBox_PrnButton"
+                  Foreground="Cyan"
+                  Margin="5"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="# IMPRIMIR"/>
+        <CheckBox Grid.Row="12" Grid.Column="3"
+                  Name="chkBox_PayTicket"
+                  Foreground="Cyan"
+                  Margin="5"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="PAGAR"/>
+        <CheckBox Grid.Row="13" Grid.Column="3"
+                  Name="chkBox_AddProduct"
+                  Foreground="Cyan"
+                  Margin="5"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="AGREGAR"/>
+        <CheckBox Grid.Row="13" Grid.Column="4"
+                  Name="chkBox_Loyalty"
+                  Foreground="Cyan"
+                  Margin="5"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="LEALTAD"/>
+        <CheckBox Grid.Row="14" Grid.Column="2" Grid.ColumnSpan="3"
+                  Name="chkBox_Queries"
+                  Foreground="Cyan"
+                  Margin="5"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="CONSULTAS"/>
+        <CheckBox Grid.Row="14" Grid.Column="4"
+                  Name="chkBox_Inventory"
+                  Foreground="Cyan"
+                  Margin="5"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="INVENTARIO"/>
+        <!--PENDIENTES-->
+        <CheckBox Grid.Row="4" Grid.Column="5" Grid.ColumnSpan="2"
+                  Name="chkBox_Pendant"
+                  Foreground="Cyan"
+                  Margin="5"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="PENDIENTES"
+                  Checked="chkBox_Pendant_CheckBoxChanged"
+                  Unchecked="chkBox_Pendant_CheckBoxChanged"/>
+        <CheckBox Grid.Row="5" Grid.Column="6"
+                  Name="chkBox_PendantPrint"
+                  Foreground="Cyan"
+                  Margin="5"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="IMPRIMIR"/>
+        <CheckBox Grid.Row="5" Grid.Column="7"
+                  Name="chkBox_PendantReassign"
+                  Foreground="Cyan"
+                  Margin="5"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="REASIGNAR"/>
+        <CheckBox Grid.Row="6" Grid.Column="6"
+                  Name="chkBox_PendantAbort"
+                  Foreground="Cyan"
+                  Margin="5"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="ANULAR"/>
+        <CheckBox Grid.Row="7" Grid.Column="6"
+                  Name="chkBox_PendantCredit"
+                  Foreground="Cyan"
+                  Margin="5"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="ABONAR"/>
+        <CheckBox Grid.Row="6" Grid.Column="7"
+                  Name="chkBox_PendantPay"
+                  Foreground="Cyan"
+                  Margin="5"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="PAGAR"/>
+        <!--VENTAS-->
+        <CheckBox Grid.Row="8" Grid.Column="5" Grid.ColumnSpan="2"
+                  Name="chkBox_TodaySale"
+                  Foreground="Cyan"
+                  Margin="5"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="VENTAS"
+                  Checked="chkBox_TodaySale_CheckBoxChanged"
+                  Unchecked="chkBox_TodaySale_CheckBoxChanged"/>
+        <CheckBox Grid.Row="9" Grid.Column="6" Grid.ColumnSpan="3"
+                  Name="chkBox_TodaySaleEmergency"
+                  Foreground="Cyan"
+                  Margin="5"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="URGENCIA"/>
+        <CheckBox Grid.Row="10" Grid.Column="6"
+                  Name="chkBox_TodaySalePrint"
+                  Foreground="Cyan"
+                  Margin="5"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="IMPRIMIR"/>
+        <CheckBox Grid.Row="11" Grid.Column="6"
+                  Name="chkBox_TodaySaleFake"
+                  Foreground="Cyan"
+                  Margin="5"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="MONTO"/>
+        <CheckBox Grid.Row="9" Grid.Column="7"
+                  Name="chkBox_TodaySaleRestVoucher"
+                  Foreground="Cyan"
+                  Margin="5"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="VOUCHER"/>
+        <CheckBox Grid.Row="10" Grid.Column="7"
+                  Name="chkBox_TodaySaleAbort"
+                  Foreground="Cyan"
+                  Margin="5"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="ANULAR"/>
+        <CheckBox Grid.Row="11" Grid.Column="7"
+                  Name="chkBox_TodaySaleEMail"
+                  Foreground="Cyan"
+                  Margin="5"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="CORREO"/>
+        <CheckBox Grid.Row="12" Grid.Column="7"
+                  Name="chkBox_TodaySaleIVA"
+                  Foreground="Cyan"
+                  Margin="5"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="FACTURA IVA"/>
+        <CheckBox Grid.Row="12" Grid.Column="6"
+                  Name="chkBox_ChangeName"
+                  Foreground="Cyan"
+                  Margin="5"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="NOMBRE"/>
+        <CheckBox Grid.Row="13" Grid.Column="6"
+                  Name="chkBox_PayMethod"
+                  Foreground="Cyan"
+                  Margin="5"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="PAGO"/>
+        <CheckBox Grid.Row="14" Grid.Column="5" Grid.ColumnSpan="2"
+                  Name="chkBox_DailyClose"
+                  Foreground="Cyan"
+                  Margin="5"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="CIERRE DIARIO"/>
+        <CheckBox Grid.Row="4" Grid.Column="8" Grid.ColumnSpan="3"
+                  Name="chkBox_Settings"
+                  Foreground="Cyan"
+                  Margin="5"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="AJUSTES AL SISTEMA"
+                  Checked="chkBox_Settings_CheckBoxChanged"
+                  Unchecked="chkBox_Settings_CheckBoxChanged"/>
+        <CheckBox Grid.Row="15" Grid.Column="5" Grid.ColumnSpan="3"
+                  Name="chkBox_Cashdrawer"
+                  Foreground="Cyan"
+                  Margin="5"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="CAJÓN DE DINERO"/>
+        <CheckBox Grid.Row="5" Grid.Column="9"
+                  Name="chkBox_Daily"
+                  Foreground="Cyan"
+                  Margin="5"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="DIARIOS"/>
+        <CheckBox Grid.Row="6" Grid.Column="9"
+                  Name="chkBox_GralExpenses"
+                  Foreground="Cyan"
+                  Margin="5"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="GASTOS"/>
+        <CheckBox Grid.Row="7" Grid.Column="9"
+                  Name="chkBox_IncomeCash"
+                  Foreground="Cyan"
+                  Margin="5"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="INGRESOS"/>
+        <CheckBox Grid.Row="8" Grid.Column="9"
+                  Name="chkBox_DefectiveItems"
+                  Foreground="Cyan"
+                  Margin="5"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="DAÑADOS"/>
+        <CheckBox Grid.Row="9" Grid.Column="9"
+                  Name="chkBox_UsersMgmt"
+                  Foreground="Cyan"
+                  Margin="5"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="USUARIOS"/>
+        <CheckBox Grid.Row="10" Grid.Column="9"
+                  Name="chkBox_Categories"
+                  Foreground="Cyan"
+                  Margin="5"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="CATEGORIAS"/>
+        <CheckBox Grid.Row="11" Grid.Column="9"
+                  Name="chkBox_LoyaltyMgmt"
+                  Foreground="Cyan"
+                  Margin="5"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="LEALTAD"/>
+        <CheckBox Grid.Row="12" Grid.Column="9"
+                  Name="chkBox_TicketsMgmt"
+                  Foreground="Cyan"
+                  Margin="5"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="CUENTAS"/>
+        <CheckBox Grid.Row="13" Grid.Column="9"
+                  Name="chkBox_InternalOrder"
+                  Foreground="Cyan"
+                  Margin="5"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="PEDIDOS"/>
+        <CheckBox Grid.Row="14" Grid.Column="9"
+                  Name="chkBox_Specials"
+                  Foreground="Cyan"
+                  Margin="5"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="INGRESO CAJA"/>
+        <!--FOOTER BUTTONS-->
+        <StackPanel Grid.Row="17" Grid.Column="1" Grid.ColumnSpan="7"
+                    Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Name="btnCancel"
+                    Click="btn_Cancel"
+                    Foreground="DarkBlue"
+                    FontSize="15"
+                    Margin="5"
+                    Width="130"
+                    Cursor="Hand"
+                    FontWeight="DemiBold">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Images/clean.png"
+                               Width="25" Height="25" Margin="5"/>
+                    <TextBlock Text="ANULAR" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <Button Name="btnDelete"
+                    Click="btn_Delete"
+                    Foreground="DarkBlue"
+                    FontSize="15"
+                    Margin="5"
+                    Width="130"
+                    IsEnabled="False"
+                    Cursor="Hand"
+                    FontWeight="DemiBold">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Images/delete_sign.png"
+                               Width="25" Height="25" Margin="5"/>
+                    <TextBlock Text="BORRAR" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <Button Name="btnModify"
+                    Click="btn_Modify"
+                    Foreground="DarkBlue"
+                    FontSize="15"
+                    Margin="5"
+                    Width="130"
+                    IsEnabled="False"
+                    Cursor="Hand"
+                    FontWeight="DemiBold">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Images/38.ico"
+                               Width="25" Height="25" Margin="5"/>
+                    <TextBlock Text="MODIFICAR" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <Button Name="btnSave"
+                    Click="btn_Save"
+                    Foreground="DarkBlue"
+                    FontSize="15"
+                    Margin="5"
+                    Width="130"
+                    IsEnabled="False"
+                    Cursor="Hand"
+                    FontWeight="DemiBold">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Images/Plus_sign.png"
+                               Width="25" Height="25" Margin="5"/>
+                    <TextBlock Text="SALVAR" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+    </Grid>
+</UserControl>

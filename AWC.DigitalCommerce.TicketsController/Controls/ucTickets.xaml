@@ -1,0 +1,563 @@
+﻿<UserControl x:Class="AWC.DigitalCommerce.TicketsController.Controls.ucTickets"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController"
+             mc:Ignorable="d" Background="DarkBlue"
+             d:DesignHeight="705" d:DesignWidth="1280">
+    <UserControl.Resources>
+        <Style x:Key="CenterGridHeaderStyle" TargetType="DataGridColumnHeader">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+        <DataTemplate x:Key="lBox_Customer_DataTemplate">
+            <StackPanel Orientation="Horizontal" Margin="1">
+                <Image Source="{Binding ImagePath}"
+                       Width="25" Height="25"
+                       Margin="0,0,5,0"/>
+                <TextBlock FontWeight="DemiBold"
+                           FontSize="25"
+                           Foreground="DarkBlue"
+                           Text="{Binding CustomerID}" />
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="Items_DataTemplate">
+            <StackPanel Margin="1">
+                <Image Source="{Binding ImagePath}"
+                       Width="25" Height="25"
+                       Margin="0,0,5,0"/>
+                <TextBlock FontWeight="DemiBold"
+                           Foreground="DarkBlue"
+                           Text="{Binding ItemDescription}" />
+            </StackPanel>
+        </DataTemplate>
+    </UserControl.Resources>
+    <Border BorderBrush="Fuchsia" BorderThickness="3">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="115"/>
+                <ColumnDefinition Width="115"/>
+                <ColumnDefinition Width="115"/>
+                <ColumnDefinition Width="115"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="10"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="55"/>
+            </Grid.RowDefinitions>
+            <!--TICKETS SECTION-->
+            <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"
+               Name="lblCustomersList"
+               Foreground="White"
+               VerticalAlignment="Center"
+               Content="CUENTAS ABIERTAS:"
+               FontSize="25"
+               FontWeight="DemiBold"/>
+            <TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3"
+                 Name="txtSearchCustomer"
+                 Background="Cyan"
+                 VerticalAlignment="Center"
+                 FontSize="25"
+                 Margin="5,0,5,0"
+                 BorderBrush="DarkBlue" BorderThickness="2"
+                 FontWeight="DemiBold"
+                 TextChanged="txtSearchCustomer_TextChanged"
+                 GotFocus="txtSearchCustomer_GotFocus" />
+            <ListBox Grid.Row="3" Grid.Column="1"
+                     Grid.ColumnSpan="3"
+                     Grid.RowSpan="13"
+                     Name="lBox_Customers"
+                     Margin="5"
+                     BorderBrush="Cyan" BorderThickness="2"
+                     Background="LightCyan"
+                     ScrollViewer.VerticalScrollBarVisibility="Visible"
+                     ItemTemplate="{StaticResource lBox_Customer_DataTemplate}"
+                     SelectionChanged="lBox_Customer_SelectionChanged"
+                     GotFocus="lBox_Customers_GotFocus"
+                     MouseEnter="lBox_Customers_MouseEnter"
+                     MouseLeave="lBox_Customers_MouseLeave">
+                <ListBox.Resources>
+                    <Style TargetType="ScrollBar">
+                        <Style.Triggers>
+                            <Trigger Property="Orientation" Value="Vertical">
+                                <Setter Property="Width" Value="40"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ListBox.Resources>
+                <ListBox.CommandBindings>
+                    <CommandBinding Command="{x:Static ApplicationCommands.Replace}" CanExecute="CanReplace" Executed="Replace"/>
+                </ListBox.CommandBindings>
+                <ListBox.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Command="{x:Static ApplicationCommands.Replace}"
+                                  Header="RENOMBRAR"
+                                  FontSize="20"
+                                  FontWeight="DemiBold"/>
+                    </ContextMenu>
+                </ListBox.ContextMenu>
+            </ListBox>
+            <!--PRODUCTS SECTION-->
+            <Button Grid.Row="16" Grid.Column="1"
+                Grid.ColumnSpan="3" Grid.RowSpan="2"
+                Name="ProductSelecion"
+                Click="btn_ProductSelecion"
+                IsEnabled="False"
+                FontSize="20"
+                Margin="2"
+                Cursor="Hand"
+                FontWeight="DemiBold">
+                <StackPanel Orientation="Vertical">
+                    <Image Source="/Images/Plus_sign.png" Width="30" Height="30" Margin="5 5 5 0"/>
+                    <TextBlock Text="AGREGAR PRODUCTOS A LA CUENTA" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <!--TICKET DETAIL DATAGRID-->
+            <Label Grid.Row="1" Grid.Column="4"
+               Foreground="White"
+               Content="CUENTA:"
+               VerticalAlignment="Center"
+               FontSize="20"
+               FontWeight="DemiBold"/>
+            <Label Grid.Row="1" Grid.Column="5"
+               Name="lblTicketNumber"
+               Foreground="White"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Left"
+               FontSize="20"
+               FontWeight="DemiBold"/>
+            <Label Grid.Row="1" Grid.Column="6"
+               Name="ServiceFee"
+               Foreground="White"
+               Content="10% SERV:"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Right"
+               FontSize="20"
+               FontWeight="DemiBold"/>
+            <Label Grid.Row="1" Grid.Column="7"
+               Name="lblServiceFee"
+               Foreground="White"
+               Content="0"
+               VerticalAlignment="Center"
+               FontSize="20"
+               FontWeight="DemiBold"/>
+            <Label Grid.Row="1" Grid.Column="8"
+               Name="lblIVA"
+               Foreground="White"
+               Content="13% IVA:"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Right"
+               FontSize="20"
+               FontWeight="DemiBold"/>
+            <Label Grid.Row="1" Grid.Column="9"
+               Name="lblIVAFee"
+               Foreground="White"
+               Content="0"
+               VerticalAlignment="Center"
+               FontSize="20"
+               FontWeight="DemiBold"/>
+            <Label Grid.Row="1" Grid.Column="10"
+               Foreground="White"
+               Content="TOTAL:"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Right"
+               FontSize="25"
+               FontWeight="DemiBold"/>
+            <Label Grid.Row="1" Grid.Column="11"
+               Name="lblTotalPrice"
+               Foreground="White"
+               Content="0"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Right"
+               FontSize="25"
+               FontWeight="DemiBold"/>
+            <DataGrid Grid.Row="2" Grid.Column="4"
+                      Grid.ColumnSpan="9"
+                      Grid.RowSpan="14"
+                      Name="TicketDetail"
+                      Height="515" Width="855"
+                      RowHeight="35"
+                      FontSize="25"
+                      FontWeight="DemiBold"
+                      Margin="2,5,0,0"
+                      HorizontalAlignment="Left"
+                      HorizontalScrollBarVisibility="Hidden"
+                      VerticalAlignment="Top"
+                      VerticalContentAlignment="Center"
+                      VerticalScrollBarVisibility="Visible"
+                      GridLinesVisibility="All"
+                      HeadersVisibility="All"
+                      Background="LightGray"
+                      RowBackground="LightCyan"
+                      AlternatingRowBackground="Cyan"
+                      BorderBrush="DarkBlue" BorderThickness="2"
+                      AreRowDetailsFrozen="True"
+                      IsReadOnly="True"
+                      CanUserReorderColumns="False"
+                      CanUserResizeColumns="False"
+                      CanUserSortColumns = "False"
+                      SelectionChanged="TicketDetail_SelectionChanged"
+                      GotFocus="TicketDetail_GotFocus"
+                      MouseEnter="TicketDetail_MouseEnter"
+                      MouseLeave="TicketDetail_MouseLeave">
+                <DataGrid.Resources>
+                    <Style TargetType="ScrollBar">
+                        <Style.Triggers>
+                            <Trigger Property="Orientation" Value="Vertical">
+                                <Setter Property="Width" Value="40"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.Resources>
+                <DataGrid.CommandBindings>
+                    <CommandBinding Command="{x:Static ApplicationCommands.Paste}" CanExecute="CanPaste" Executed="Paste"/>
+                    <CommandBinding Command="{x:Static ApplicationCommands.Copy}" CanExecute="CanCopy" Executed="Copy"/>
+                    <CommandBinding Command="{x:Static ApplicationCommands.Undo}" CanExecute="CanUndo" Executed="Undo"/>
+                    <CommandBinding Command="{x:Static ApplicationCommands.Cut}" CanExecute="CanCut" Executed="Cut"/>
+                    <CommandBinding Command="{x:Static ApplicationCommands.Print}" CanExecute="CanPrint" Executed="Print"/>
+                </DataGrid.CommandBindings>
+                <DataGrid.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Command="{x:Static ApplicationCommands.Copy}"
+                              Header="MOVER"
+                              FontSize="20"
+                              FontWeight="DemiBold"/>
+                        <MenuItem Command="{x:Static ApplicationCommands.Paste}"
+                              Header="PEGAR"
+                              FontSize="20"
+                              FontWeight="DemiBold"/>
+                        <MenuItem Command="{x:Static ApplicationCommands.Undo}"
+                              Header="CANCELAR"
+                              FontSize="20"
+                              FontWeight="DemiBold"/>
+                        <Separator/>
+                        <MenuItem Command="{x:Static ApplicationCommands.Cut}"
+                              Header="CAMBIAR PRECIO"
+                              FontSize="20"
+                              FontWeight="DemiBold"/>
+                        <Separator/>
+                        <MenuItem Command="{x:Static ApplicationCommands.Print}"
+                              Header="VER DETALLE"
+                              FontSize="20"
+                              FontWeight="DemiBold"/>
+                    </ContextMenu>
+                </DataGrid.ContextMenu>
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="DESCRIPCIÓN"
+                                            Width="450"
+                                            HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="{Binding ImagePath}"
+                                           Width="30" Height="30"
+                                           Margin="0,0,10,0"/>
+                                    <TextBlock Text="{Binding Path=ItemDesc}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Header="CANT"
+                                    Width="85"
+                                    Binding="{Binding Path=Qty}"
+                                    HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="HorizontalAlignment" Value="Center" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="PRECIO"
+                                    Width="130"
+                                    Binding="{Binding Path=UnitPrice, StringFormat=N0}"
+                                    HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="HorizontalAlignment" Value="Right" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="TOTAL"
+                                    Width="140"
+                                    Binding="{Binding Path=TotalPrice, StringFormat=N0}"
+                                    HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="HorizontalAlignment" Value="Right" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <!--BUTTONS SECTION-->
+            <Button Grid.Row="16" Grid.Column="4" Grid.RowSpan="2"
+                Name="CreateTicket"
+                Click="btn_CreateTicket"
+                FontSize="20"
+                Margin="2"
+                Cursor="Hand"
+                FontWeight="DemiBold">
+                <StackPanel Orientation="Vertical">
+                    <Image Source="/Images/parent.ico" Width="30" Height="30" Margin="5 5 5 0"/>
+                    <TextBlock Text="ABRIR" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <Button Grid.Row="16" Grid.Column="5"
+                Name="PrintTicket"
+                Click="btn_PrintTicket"
+                IsEnabled="False"
+                FontSize="15"
+                Cursor="Hand"
+                FontWeight="DemiBold">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Images/printer_icon.png" Width="20" Height="20" Margin="3"/>
+                    <TextBlock Text="IMPRIMIR" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <Button Grid.Row="17" Grid.Column="5"
+                Name="Loyalty"
+                Click="btn_Loyalty"
+                IsEnabled="False"
+                FontSize="15"
+                Margin="2"
+                Cursor="Hand"
+                FontWeight="DemiBold">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Images/loyalty.png" Width="20" Height="20" Margin="3"/>
+                    <TextBlock Text="LEALTAD" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <Button Grid.Row="16" Grid.Column="6"
+                Name="SplitTicket"
+                Click="btn_SplitTicket"
+                FontSize="15"
+                Margin="2"
+                IsEnabled="False"
+                Cursor="Hand"
+                FontWeight="DemiBold">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Images/split.png" Width="20" Height="20" Margin="3"/>
+                    <TextBlock Text="SEPARAR" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <Button Grid.Row="17" Grid.Column="8"
+                Name="AbortTicket"
+                Click="btn_AbortTicket"
+                IsEnabled="False"
+                FontSize="15"
+                Margin="2"
+                Cursor="Hand"
+                FontWeight="DemiBold">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Images/null-symbol.png" Width="20" Height="20" Margin="3"/>
+                    <TextBlock Text="ANULAR" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <Button Grid.Row="16" Grid.Column="8"
+                Name="SmallPayment"
+                Click="btn_SmallPayment"
+                IsEnabled="False"
+                FontSize="15"
+                Margin="2"
+                Cursor="Hand"
+                FontWeight="DemiBold">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Images/cash_icon.png" Width="20" Height="20" Margin="3"/>
+                    <TextBlock Text="OTROS" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <Button Grid.Row="16" Grid.Column="9" Grid.RowSpan="2"
+                Name="CancelUpdate"
+                Click="btn_CancelUpdate"
+                IsEnabled="False"
+                FontSize="20"
+                Margin="2"
+                Cursor="Hand"
+                FontWeight="DemiBold">
+                <StackPanel Orientation="Vertical">
+                    <Image Source="/Images/clean.png"
+                       Width="30" Height="30" Margin="5"/>
+                    <TextBlock Text="BORRAR" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <Button Grid.Row="16" Grid.Column="10" Grid.RowSpan="2"
+                Name="UpdateTicket"
+                Click="btn_UpdateTicket"
+                IsEnabled="False"
+                FontSize="20"
+                Margin="2"
+                Cursor="Hand"
+                FontWeight="DemiBold">
+                <StackPanel Orientation="Vertical">
+                    <Image Source="/Images/GreenCheck1.png" Width="30" Height="30" Margin="5"/>
+                    <TextBlock Text="SALVAR" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <Button Grid.Row="16" Grid.Column="11" Grid.RowSpan="2"
+                Name="PayTicket"
+                Click="btn_PayTicket"
+                IsEnabled="False"
+                FontSize="20"
+                Margin="2"
+                Cursor="Hand"
+                FontWeight="DemiBold">
+                <StackPanel Orientation="Vertical">
+                    <Image Source="/Images/money_icon.png" Width="30" Height="30" Margin="5"/>
+                    <TextBlock Text="PAGAR" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <Button Grid.Row="16" Grid.Column="7"
+                Name="ReasignTicket"
+                Click="btn_ReasignTicket"
+                IsEnabled="False"
+                FontSize="15"
+                Margin="2"
+                Cursor="Hand"
+                FontWeight="DemiBold">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Images/shiftchange.png" Width="20" Height="20" Margin="3"/>
+                    <TextBlock Text="MOVER" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <Button Grid.Row="17" Grid.Column="6"
+                Name="AddOldTicket"
+                Click="btn_AddOldTicket"
+                IsEnabled="False"
+                FontSize="15"
+                Margin="2"
+                Cursor="Hand"
+                FontWeight="DemiBold">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Images/a2p.png" Width="20" Height="20" Margin="3"/>
+                    <TextBlock Text="PENDIENTE" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <Button Grid.Row="17" Grid.Column="7"
+                Name="InheritTicket"
+                Click="btn_InheritTicket"
+                FontSize="15"
+                Margin="2"
+                IsEnabled="False"
+                Cursor="Hand"
+                FontWeight="DemiBold">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Images/append-clip.png" Width="20" Height="20" Margin="3"/>
+                    <TextBlock Text="HEREDAR" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <!--CHECKBOXES-->
+            <CheckBox Grid.Row="18" Grid.Column="4" Grid.ColumnSpan="2"
+                  Name="PrintSummary"
+                  Click="chkBox_PrintSummary_Click"
+                  Foreground="White"
+                  VerticalAlignment="Center"
+                  IsChecked="False"
+                  Margin="5,0,5,0"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="AGRUPAR PRODUCTOS"/>
+            <CheckBox Grid.Row="18" Grid.Column="6" Grid.ColumnSpan="2"
+                  Name="PrintClosedTicket"
+                  Click="chkBox_PrintClosedTicket"
+                  Foreground="White"
+                  VerticalAlignment="Center"
+                  IsChecked="False"
+                  Margin="5,0,5,0"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="IMPRIMIR CANCELADA"/>
+            <CheckBox Grid.Row="18" Grid.Column="8" Grid.ColumnSpan="2"
+                  Name="ApplyServiceFee"
+                  Click="ApplyServiceFee_Click"
+                  Foreground="White"
+                  VerticalAlignment="Center"
+                  IsChecked="False"
+                  IsEnabled="False"
+                  Margin="5,0,5,0"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="APLICAR 10% SERVICIO"/>
+            <CheckBox Grid.Row="18" Grid.Column="10" Grid.ColumnSpan="2"
+                  Name="ApplyIVAFee"
+                  Click="ApplyIVAFee_Click"
+                  Foreground="White"
+                  VerticalAlignment="Center"
+                  IsChecked="False"
+                  Margin="5,0,5,0"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="APLICAR 13% IVA"/>
+            <!--COPY/PASTE, ADD, DELETE, SUBSTRACT, PRINT BUTTONS-->
+            <Image Grid.Row="4" Grid.Column="12" Grid.RowSpan="2"
+               Name="CopyPaste"
+               Source="/Images/copy_paste.png"
+               Width="65" Height="65"
+               Margin="5"
+               Visibility="Hidden"
+               ToolTip="ACCIÓN DE MOVER Y PEGAR EN PROGRESO..."/>
+            <Image Grid.Row="6" Grid.Column="12" Grid.RowSpan="2"
+               Name="Increase"
+               Source="/Images/Plus_sign.png"
+               Width="65" Height="65"
+               Margin="5"
+               Visibility="Hidden"
+               ToolTip="Clic para sumar una unidad."
+               Cursor="Hand"
+               MouseDown="btn_Increase"/>
+            <Image Grid.Row="8" Grid.Column="12" Grid.RowSpan="2"
+               Name="Delete"
+               Source="/Images/Delete_sign.png"
+               Width="65" Height="65"
+               Margin="3"
+               Visibility="Hidden"
+               ToolTip="Clic para eliminar el item."
+               Cursor="Hand"
+               MouseDown="btn_Delete"/>
+            <Image Grid.Row="10" Grid.Column="12" Grid.RowSpan="2"
+               Name="Decrease"
+               Source="/Images/Minus_sign.png"
+               Width="65" Height="65"
+               Margin="3"
+               Visibility="Hidden"
+               ToolTip="Clic para restar una unidad."
+               Cursor="Hand"
+               MouseDown="btn_Decrease"/>
+            <Image Grid.Row="12" Grid.Column="12" Grid.RowSpan="2"
+               Name="PrintMeal"
+               Source="/Images/printer_icon.png"
+               Width="65" Height="65"
+               Margin="5"
+               Visibility="Hidden"
+               ToolTip="Clic para Reimprimir la comanda."
+               Cursor="Hand"
+               MouseDown="btn_PrintMeal"/>
+        </Grid>
+    </Border>
+</UserControl>

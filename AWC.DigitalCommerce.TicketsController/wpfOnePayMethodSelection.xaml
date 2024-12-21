@@ -1,0 +1,77 @@
+﻿<Window x:Class="AWC.DigitalCommerce.TicketsController.wpfOnePayMethodSelection"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController"
+        mc:Ignorable="d" Height="250" Width="300" Background="Cyan" ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <Border BorderBrush="Blue" BorderThickness="2">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="10"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="1" Grid.Column="1"
+               Name="lblPayMethodSelection"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center"
+               Foreground="DarkBlue"
+               FontSize="20"
+               FontWeight="Bold"
+               Content="MÉTODO DE PAGO"/>
+            <RadioButton Grid.Row="3" Grid.Column="1"
+                     Name="rbtnCash"
+                     GroupName="PaymentMethod"
+                     FontSize="20"
+                     FontWeight="Bold"
+                     Content="  EFECTIVO" />
+            <RadioButton Grid.Row="4" Grid.Column="1"
+                     Name="rbtnCreditCard"
+                     GroupName="PaymentMethod"
+                     FontSize="20"
+                     FontWeight="Bold"
+                     Content="  TARJETA DE CREDITO"
+                     IsChecked="True" />
+            <RadioButton Grid.Row="5" Grid.Column="1"
+                     Name="rbtnTransfer"
+                     GroupName="PaymentMethod"
+                     FontSize="20"
+                     FontWeight="Bold"
+                     Content="  TRANS SINPE" />
+            <StackPanel Grid.Row="7" Grid.Column="1"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Orientation="Horizontal">
+                <Button Click="btn_Cancel"
+                    Foreground="DarkBlue"
+                    FontSize="20"
+                    Margin="5"
+                    Padding="5"
+                    Cursor="Hand"
+                    FontWeight="DemiBold"
+                    Content=" CANCELAR "/>
+                <Button Click="btn_OK"
+                    Foreground="DarkBlue"
+                    FontSize="20"
+                    Margin="5"
+                    Padding="5"
+                    Cursor="Hand"
+                    FontWeight="DemiBold"
+                    Content=" ACEPTAR "/>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>
