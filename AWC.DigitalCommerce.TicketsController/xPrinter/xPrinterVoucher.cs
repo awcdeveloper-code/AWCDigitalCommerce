@@ -92,6 +92,10 @@ namespace AWC.DigitalCommerce.TicketsController
                 graphics.DrawString(Helper.FormatGralLine(userProfile.userName), new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
                 Offset += 18;
 
+                workVar = $"VOUCHER {_voucher.ID}";
+                graphics.DrawString(Helper.FormatGralLine(workVar), new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
+                Offset += 18;
+
                 workVar = $"FECHA DE EMISIÓN: {_voucher.CreatedAt.ToString("dd.MM.yyyy")}";
                 graphics.DrawString(Helper.FormatGralLine(workVar), new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
                 Offset += 30;
