@@ -456,6 +456,13 @@
                   FontSize="15"
                   FontWeight="DemiBold"
                   Content="INGRESO CAJA"/>
+        <CheckBox Grid.Row="15" Grid.Column="9"
+                  Name="chkBox_Vouchers"
+                  Foreground="Cyan"
+                  Margin="5"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="VOUCHERS"/>
         <!--FOOTER BUTTONS-->
         <StackPanel Grid.Row="17" Grid.Column="1" Grid.ColumnSpan="7"
                     Orientation="Horizontal" HorizontalAlignment="Center">

@@ -49,22 +49,25 @@ namespace AWC.DigitalCommerce.TicketsController
             try
             {
                 Graphics graphics = e.Graphics;
+                Pen blackPen = new Pen(Color.Black, 4);
 
                 int startX = 0;
                 int startY = 0;
                 int Offset = 0;
 
-                // PRINT LOGO
-                Image img = Image.FromFile(Settings.Default.BusinessLogo);
-
-                int LogoWidth = Convert.ToInt32(Settings.Default.TicketHeaderWH.Split(',')[0].Trim());
-                int LogoHeigh = Convert.ToInt32(Settings.Default.TicketHeaderWH.Split(',')[1].Trim());
-
                 Pen myPen = new Pen(Color.Black);
                 myPen.Width = 2;
 
-                graphics.DrawImage(img, new Rectangle(0, 0, LogoWidth, LogoHeigh), new Rectangle(0, 0, img.Width, img.Height), GraphicsUnit.Pixel);
-                Offset += LogoHeigh;
+                if (Settings.Default.PrintBusinessLogo)
+                {
+                    Image img = Image.FromFile(Settings.Default.BusinessLogo);
+
+                    int LogoWidth = Convert.ToInt32(Settings.Default.TicketHeaderWH.Split(',')[0].Trim());
+                    int LogoHeigh = Convert.ToInt32(Settings.Default.TicketHeaderWH.Split(',')[1].Trim());
+
+                    graphics.DrawImage(img, new Rectangle(0, 0, LogoWidth, LogoHeigh), new Rectangle(0, 0, img.Width, img.Height), GraphicsUnit.Pixel);
+                    Offset += LogoHeigh;
+                }
 
                 // TICKET HEADER
                 if (Settings.Default.BusinessName.Length > 0)

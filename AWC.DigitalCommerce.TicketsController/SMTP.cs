@@ -242,8 +242,6 @@ namespace AWC.DigitalCommerce.TicketsController
                 sb.Append("<table>");
                 sb.Append("<tr><th>No. CTA</th><th>CLIENTE</th><th>ESTADO</th><th>PAGO</th><th>MONTO</th></tr>");
 
-                List<string> custtomersWithOpenTickets = new List<string>();
-
                 foreach (clsTicketsForDataGrid ticket in ticketsList)
                 {
                     sb.Append("<tr><td class=\"amount\">" + ticket.ID + "</td><td>" +
@@ -251,10 +249,6 @@ namespace AWC.DigitalCommerce.TicketsController
                                                             ticket.StatusAlpha + "</td><td class=\"amount\">" +
                                                             ticket.PayMethodAlpha + "</td><td>" +
                                                             ticket.TotalPrice.ToString("N0") + "</td></tr>");
-                    if (ticket.StatusAlpha.Contains("ABIE"))
-                    {
-                        custtomersWithOpenTickets.Add(ticket.CustomerID);
-                    }
                 }
 
                 sb.Append("</table>");
@@ -348,24 +342,27 @@ namespace AWC.DigitalCommerce.TicketsController
                 //
                 // LIST OF CUSTOMERS WHO LEFT THE TICKET OPEN
                 //
-                    if (custtomersWithOpenTickets.Count > 0)
+                List<clsTicketsForDataGrid> ticketsLeftOpen = DB.DataBinding_tbl_Tickets(Settings.Default.BusinessDate, 4);
+
+                if (ticketsLeftOpen.Count > 0)
+                {
+                    sb.Append("<h2>CUENTAS QUE QUEDARON ABIERTAS</h2>");
+                    sb.Append("<table>");
+                    sb.Append("<tr><th>No. CTA</th><th>CLIENTE</th><th>MONTO</th></tr>");
+
+                    foreach (clsTicketsForDataGrid ticket in ticketsLeftOpen)
                     {
-                        sb.Append("<h2>RESUMEN DE CUENTAS SIN PAGAR</h2>");
-                        sb.Append("<table>");
-                        sb.Append("<tr><th>NOMBRE DEL CLIENTE</th></tr>");
-
-                        foreach (string custName in custtomersWithOpenTickets)
-                        {
-                            sb.Append($"<tr><td>{custName}</td></tr>");
-                        }
-
-                        sb.Append("</table>");
-                        sb.Append("<p><br></p>");
+                        sb.Append("<tr><td class=\"amount\">" + ticket.ID + "</td><td>" +
+                                                                ticket.CustomerID + "</td><td>" +
+                                                                ticket.TotalPrice.ToString("N0") + "</td></tr>");
                     }
-                    //
-                    // ACCOUNTS RECEIVABLE SUMMARY
-                    //
-                    List<clsDelincuency> delincuenciesList = DB.GetDelincuencies("202%");
+                    sb.Append("</table>");
+                    sb.Append("<p><br></p>");
+                }
+                //
+                // ACCOUNTS RECEIVABLE SUMMARY
+                //
+                List<clsDelincuency> delincuenciesList = DB.GetDelincuencies("202%");
 
                     if (delincuenciesList.Count > 0)
                     {

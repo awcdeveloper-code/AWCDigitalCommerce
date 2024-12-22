@@ -1,14 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Windows.Forms;
 using System.Drawing.Printing;
 using System.Drawing;
 using AWC.DigitalCommerce.TicketsController.Properties;
-using System.Xml.Linq;
-using System.Windows.Media.Media3D;
-using AWC.DigitalCommerce.TicketsController.Controls;
 
 namespace AWC.DigitalCommerce.TicketsController
 {

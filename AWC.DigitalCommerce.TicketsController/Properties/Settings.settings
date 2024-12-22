@@ -9,10 +9,10 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="TicketPrinter" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">SAT15TUS</Value>
+      <Value Profile="(Default)">Microsoft Print to PDF</Value>
     </Setting>
     <Setting Name="KitchenPrinter" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">SAT15TUS</Value>
+      <Value Profile="(Default)">Microsoft Print to PDF</Value>
     </Setting>
     <Setting Name="VirtualNumericKeyboardActive" Type="System.Boolean" Scope="Application">
       <Value Profile="(Default)">True</Value>
@@ -192,19 +192,19 @@
       <Value Profile="(Default)">https://gee.bccr.fi.cr/Indicadores/Suscripciones/WS/wsindicadoreseconomicos.asmx</Value>
     </Setting>
     <Setting Name="BusinessLogo" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">C:\AWC.DigitalCommerce\Images\LaRancha.png</Value>
+      <Value Profile="(Default)">C:\AWC.DigitalCommerce\Images\YourLogoHere.png</Value>
     </Setting>
     <Setting Name="BusinessName" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">LA RANCHA ESCONDIDA</Value>
+      <Value Profile="(Default)">RESTOBAR MORES</Value>
     </Setting>
     <Setting Name="BusinessID" Type="System.String" Scope="Application">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="BusinessPhoneNumber" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">TELÉFONO 6083-3210</Value>
+      <Value Profile="(Default)">TELÉFONO 8820-1824</Value>
     </Setting>
     <Setting Name="BusinessAddress1" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">URBANIZACIÓN MARON</Value>
+      <Value Profile="(Default)">URB LA UNIÓN, PATARRÁ</Value>
     </Setting>
     <Setting Name="BusinessAddress2" Type="System.String" Scope="Application">
       <Value Profile="(Default)">DESAMPARADOS, SAN JOSÉ</Value>
@@ -313,6 +313,9 @@
     </Setting>
     <Setting Name="PrintDailyClosingReport" Type="System.Boolean" Scope="Application">
       <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="VoucherExpirationRange" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">15</Value>
     </Setting>
   </Settings>
 </SettingsFile>

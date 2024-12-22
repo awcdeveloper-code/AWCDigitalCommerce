@@ -16,6 +16,7 @@ using Newtonsoft.Json.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Speech.Synthesis;
+using AWC.DigitalCommerce.TicketsController.Classes;
 
 namespace AWC.DigitalCommerce.TicketsController
 {
@@ -530,6 +531,9 @@ namespace AWC.DigitalCommerce.TicketsController
                         break;
                     case "ucTodaySales_ChangePayMethod":
                         status = userProfile.userSecurityProfile.Substring(48, 1) == "1" ? true : false;
+                        break;
+                    case "Maintenance_Vouchers":
+                        status = userProfile.userSecurityProfile.Substring(49, 1) == "1" ? true : false;
                         break;
                 }
                 return status;
@@ -1245,6 +1249,20 @@ namespace AWC.DigitalCommerce.TicketsController
             {
                 xPrintInternalOrder xPrintIO = new xPrintInternalOrder(fileName);
                 xPrintIO.print();
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, ex.Message, Logger.Severity.ERROR);
+                ShowMessage("ERROR: " + ex.Message, System.Windows.Forms.MessageBoxIcon.Error);
+            }
+        }
+
+        public static void PrintVoucher(clsVoucher voucher)
+        {
+            try
+            {
+                xPrinterVoucher xPrintVou= new xPrinterVoucher(voucher);
+                xPrintVou.print();
             }
             catch (Exception ex)
             {

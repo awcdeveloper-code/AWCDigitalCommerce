@@ -16,6 +16,7 @@ using System.Windows.Forms;
 using System.Windows.Markup;
 using AWC.DigitalCommerce.TicketsController.Classes;
 using AWC.DigitalCommerce.TicketsController.Properties;
+using iText.StyledXmlParser.Jsoup.Select;
 using MaterialDesignThemes.Wpf;
 using Microsoft.Office.Core;
 using Microsoft.SqlServer.TransactSql.ScriptDom;
@@ -549,19 +550,23 @@ namespace AWC.DigitalCommerce.TicketsController
                 {
                     case 0:
                         // search all open tickets
-                        sqlQry = "SELECT * FROM tbl_Tickets WHERE Status = 1 ORDER BY TicketDate, ID ASC";
+                        sqlQry = "SELECT * FROM tbl_Tickets WHERE Status = 1 ORDER BY ID ASC";
                         break;
                     case 1:
                         // search for old tickets
-                        sqlQry = $"SELECT * FROM tbl_Tickets WHERE TicketDate <> '{dt}' AND Status = 1 ORDER BY TicketDate, ID ASC";
+                        sqlQry = $"SELECT * FROM tbl_Tickets WHERE TicketDate <> '{dt}' AND Status = 1 ORDER BY ID ASC";
                         break;
                     case 2:
                         // search for todays
-                        sqlQry = $"SELECT * FROM tbl_Tickets WHERE TicketDate = '{dt}' AND Status = 0 ORDER BY TicketDate, ID ASC";
+                        sqlQry = $"SELECT * FROM tbl_Tickets WHERE TicketDate = '{dt}' AND Status = 0 ORDER BY ID ASC";
                         break;
                     case 3:
                         // search for todays sales no matter the status
                         sqlQry = $"SELECT * FROM tbl_Tickets WHERE TicketDate = '{dt}' ORDER BY ID ASC";
+                        break;
+                    case 4:
+                        // search for tickets open today
+                        sqlQry = $"SELECT * FROM tbl_Tickets WHERE TicketDate = '{dt}' AND Status = 1 ORDER BY ID ASC";
                         break;
                 }
 
@@ -5358,6 +5363,45 @@ namespace AWC.DigitalCommerce.TicketsController
                 Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, ex, Logger.Severity.ERROR);
                 Helper.ShowMessage("ERROR: " + ex, System.Windows.Forms.MessageBoxIcon.Error);
                 return false;
+            }
+        }
+        public static clsVoucher InsertVoucher(int VoucherAmount)
+        {
+            try
+            {
+                clsVoucher voucher = new clsVoucher();
+
+                DateTime currentDateTime = DateTime.Now;
+                DateTime expirationDateTime = currentDateTime.AddDays(Settings.Default.VoucherExpirationRange);
+                string expDate = expirationDateTime.ToString("yyyyMMdd");
+
+                string sqlQry = $"INSERT INTO tbl_Vouchers (BusinessDate, IssueBy, Amount, ExpireAt) VALUES ('{Settings.Default.BusinessDate}', '{Settings.Default.WhoOpen}', {VoucherAmount}, '{expDate}'); SELECT SCOPE_IDENTITY();";
+
+                using (sqlConn = new SqlConnection(Settings.Default.TicketsControllerDbConn))
+                {
+                    sqlConn.Open();
+                    sqlCmd = new SqlCommand(sqlQry, sqlConn);
+                    var newId = sqlCmd.ExecuteScalar();
+
+                    voucher.ID = Convert.ToInt32(newId);
+                    voucher.BusinessDate = Settings.Default.BusinessDate;
+                    voucher.IssueBy = Settings.Default.WhoOpen.ToString();
+                    voucher.Amount = VoucherAmount;
+                    voucher.CreatedAt = currentDateTime;
+                    voucher.ExpireAt = expirationDateTime;
+                }
+
+                if (Settings.Default.DebugTrace)
+                    Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, sqlQry, Logger.Severity.DEBUG);
+
+                return voucher;
+            }
+            catch (Exception ex)
+            {
+                sqlConn.Close();
+                Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, ex, Logger.Severity.ERROR);
+                Helper.ShowMessage("ERROR: " + ex, System.Windows.Forms.MessageBoxIcon.Error);
+                return null;
             }
         }
         #endregion

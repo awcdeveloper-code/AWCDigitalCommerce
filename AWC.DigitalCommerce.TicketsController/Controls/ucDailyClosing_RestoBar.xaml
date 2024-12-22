@@ -291,7 +291,7 @@
                FontSize="25"
                FontWeight="DemiBold"/>
         <Label Grid.Row="14" Grid.Column="2"
-               Content="GASTOS (G):"
+               Content="GASTOS + VALES (G):"
                VerticalAlignment="Center"
                HorizontalAlignment="Right"
                Foreground="White"

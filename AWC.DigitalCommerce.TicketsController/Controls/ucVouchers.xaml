@@ -1,28 +1,21 @@
-﻿<UserControl x:Class="AWC.DigitalCommerce.TicketsController.Controls.ucIncomeCash"
+﻿<UserControl x:Class="AWC.DigitalCommerce.TicketsController.Controls.ucVouchers"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController.Controls"
-             mc:Ignorable="d" 
-             d:DesignHeight="550" d:DesignWidth="600" Background="DarkBlue">
+             mc:Ignorable="d" Background="DarkBlue"
+             d:DesignHeight="220" d:DesignWidth="590">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="160"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="150"/>
             <ColumnDefinition Width="400"/>
-            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="10"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
             <RowDefinition Height="20"/>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
@@ -34,33 +27,36 @@
                   Name="grpGralExpenses"
                   Foreground="Cyan"
                   Margin="5"
-                  Header="INGRESO DE EFECTIVO A CAJA">
+                  Header="GENERACIÓN DE VOUCHERS">
         </GroupBox>
         <!--LABELS-->
         <Label Grid.Row="2" Grid.Column="1"
                Foreground="Cyan"
                Name="lblDescription"
                VerticalAlignment="Center"
-               Content="DESCRIPCIÓN:"
+               HorizontalAlignment="Right"
+               Content="EMITIDO POR:"
                FontSize="20"
                FontWeight="DemiBold"/>
         <Label Grid.Row="3" Grid.Column="1"
                Foreground="Cyan"
                Name="lblAmount"
                VerticalAlignment="Center"
+               HorizontalAlignment="Right"
                Content="MONTO:"
                FontSize="20"
                FontWeight="DemiBold"/>
         <!--TEXTBOX-->
         <TextBox Grid.Row="2" Grid.Column="2"
-                 Name="txtIncomeDescription"
+                 Name="txtIssuedBy"
                  Background="LightCyan"
                  VerticalAlignment="Center"
+                 IsEnabled="False"
                  FontSize="20"
                  Margin="5"
                  FontWeight="DemiBold"/>
         <TextBox Grid.Row="3" Grid.Column="2"
-                 Name="txtIncomeAmount"
+                 Name="txtVoucherAmount"
                  PreviewTextInput="NumberValidationTextBox"
                  Width="110"
                  Margin="5"
@@ -69,16 +65,13 @@
                  HorizontalAlignment="Left"
                  HorizontalContentAlignment="Right"
                  VerticalAlignment="Center"
-                 FontWeight="DemiBold"
-                 GotFocus="txtIncomeAmount_GotFocus" />
+                 FontWeight="DemiBold" />
         <!--BUTTON-->
         <Button Grid.Row="4" Grid.Column="2"
-                Name="Add"
-                Click="btn_AddIncome"
-                Foreground="DarkBlue"
+                Name="Voucher"
+                Click="btn_AddVoucher"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center"
-                IsEnabled="False"
                 Height="50"
                 Width="110"
                 FontSize="15"
@@ -87,8 +80,8 @@
                 Cursor="Hand"
                 FontWeight="DemiBold">
             <StackPanel Orientation="Horizontal">
-                <Image Source="/Images/Plus_sign.png" Width="20" Height="20" Margin="3"/>
-                <TextBlock Text="AGREGAR" VerticalAlignment="Center"/>
+                <Image Source="/Images/printer_icon.png" Width="30" Height="30" Margin="5"/>
+                <TextBlock Text="EMITIR" VerticalAlignment="Center"/>
             </StackPanel>
         </Button>
     </Grid>

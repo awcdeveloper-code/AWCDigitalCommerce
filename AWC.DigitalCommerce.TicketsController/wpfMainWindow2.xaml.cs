@@ -987,6 +987,14 @@ namespace AWC.DigitalCommerce.TicketsController
                         tabCtrlWorkArea.Items.Add(newTab);
                     }
 
+                    // Vouchers
+                    if (Helper.CheckUserAccessToResource2("Maintenance_Vouchers"))
+                    {
+                        var Vouchers = new ucVouchers();
+                        newTab = new TabItem { Content = Vouchers };
+                        newTab.Header = CreateHeaderForTabItem(newTab, "pack://application:,,,/Images/icons8-tarjeta-de-regalo-94.png", "VOUCHERS");
+                        tabCtrlWorkArea.Items.Add(newTab);
+                    }
                     tabCtrlWorkArea.Items.Refresh();
                     tabCtrlWorkArea.Visibility = Visibility.Visible;
                 }
