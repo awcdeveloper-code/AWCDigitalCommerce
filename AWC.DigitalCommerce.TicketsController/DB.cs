@@ -4419,6 +4419,52 @@ namespace AWC.DigitalCommerce.TicketsController
             }
 
         }
+        public static List<clsVoucher> GetVouchers(string businessDate)
+        {
+            try
+            {
+                List<clsVoucher> VouchersList = new List<clsVoucher>();
+
+                string sqlQry = $"SELECT * FROM tbl_Vouchers WHERE BusinessDate = '{businessDate}' ORDER BY ID ASC";
+
+                using (sqlConn = new SqlConnection(Settings.Default.TicketsControllerDbConn))
+                {
+                    sqlConn.Open();
+                    sqlCmd = new SqlCommand(sqlQry, sqlConn);
+                    SqlDataReader sdr = sqlCmd.ExecuteReader();
+
+                    if (sdr.HasRows)
+                    {
+                        while (sdr.Read())
+                        {
+                            clsVoucher voucher = new clsVoucher();
+
+                            voucher.ID = Convert.ToInt32(sdr["ID"]);
+                            voucher.BusinessDate = sdr["BusinessDate"].ToString();
+                            voucher.IssueBy = sdr["IssueBy"].ToString();
+                            voucher.Amount = Convert.ToInt32(sdr["Amount"]);
+                            voucher.CreatedAt = Convert.ToDateTime(sdr["CreatedAt"]);
+                            voucher.ExpireAt = sdr["ExpireAt"].ToString();
+
+                            VouchersList.Add(voucher);
+                        }
+                    }
+                }
+
+                if (Settings.Default.DebugTrace)
+                    Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, sqlQry, Logger.Severity.DEBUG);
+
+                return VouchersList;
+            }
+            catch (Exception ex)
+            {
+                sqlConn.Close();
+                Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, ex, Logger.Severity.ERROR);
+                Helper.ShowMessage("ERROR: " + ex, System.Windows.Forms.MessageBoxIcon.Error);
+                return null;
+            }
+        }
+
         #endregion
 
         #region INSERT
@@ -5388,7 +5434,7 @@ namespace AWC.DigitalCommerce.TicketsController
                     voucher.IssueBy = Settings.Default.WhoOpen.ToString();
                     voucher.Amount = VoucherAmount;
                     voucher.CreatedAt = currentDateTime;
-                    voucher.ExpireAt = expirationDateTime;
+                    voucher.ExpireAt = expirationDateTime.ToString("yyyyMMdd");
                 }
 
                 if (Settings.Default.DebugTrace)

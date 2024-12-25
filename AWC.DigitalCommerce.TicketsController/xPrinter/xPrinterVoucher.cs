@@ -85,7 +85,8 @@ namespace AWC.DigitalCommerce.TicketsController
                 graphics.DrawString(workVar, new Font("Consolas Bold", 11), new SolidBrush(Color.Black), startX, startY + Offset);
                 Offset += 20;
 
-                graphics.DrawString(new string(' ',12) + _voucher.ExpireAt.ToString("dd.MM.yyyy"), new Font("Consolas Bold", 12), new SolidBrush(Color.Black), startX, startY + Offset);
+                workVar = $"{_voucher.ExpireAt.Substring(6, 2)}.{_voucher.ExpireAt.Substring(4, 2)}.{_voucher.ExpireAt.Substring(0, 4)}";
+                graphics.DrawString(new string(' ',12) + workVar, new Font("Consolas Bold", 12), new SolidBrush(Color.Black), startX, startY + Offset);
                 Offset += 40;
 
                 clsUser userProfile = DB.CheckUserPIN(_voucher.IssueBy);

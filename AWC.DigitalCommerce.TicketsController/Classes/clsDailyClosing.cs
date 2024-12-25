@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AWC.DigitalCommerce.TicketsController.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,5 +33,7 @@ namespace AWC.DigitalCommerce.TicketsController
         public DateTime CreatedAt { get; set; }
         public List<clsExpense> ExpensesList { get; set; }
         public int CashWithdrawal { get; set; }
+        public int Vouchers { get; set; }
+        public List<clsVoucher> VouchersList { get; set; }
     }
 }

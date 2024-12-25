@@ -13,6 +13,6 @@ namespace AWC.DigitalCommerce.TicketsController.Classes
         public string IssueBy { get; set; }
         public int Amount { get; set; }
         public DateTime CreatedAt { get; set; }
-        public DateTime ExpireAt { get; set; }
+        public string ExpireAt { get; set; }
     }
 }

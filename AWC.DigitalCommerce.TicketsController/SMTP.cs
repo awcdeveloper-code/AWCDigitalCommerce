@@ -338,6 +338,24 @@ namespace AWC.DigitalCommerce.TicketsController
                 }
                 #endregion
 
+                #region VOUCHERS
+
+                if (dcRep.VouchersList.Count > 0)
+                {
+                    sb.Append("<h2>VOUCHERS EMITIDOS</h2>");
+                    sb.Append("<table>");
+                    sb.Append("<tr><th>VOUCHER</th><th>QUIÉN LO EMITIÓ</th><th>MONTO</th></tr>");
+
+                    foreach (clsVoucher v in dcRep.VouchersList)
+                    {
+                        clsUser u = DB.CheckUserPIN(v.IssueBy);
+                        sb.Append($"<tr><td>{v.ID}</td><td>{u.userName}</td><td>{v.Amount}</td></tr>");
+                    }
+
+                    sb.Append("</table>");
+                    sb.Append("<p><br></p>");
+                }
+                #endregion
                 #region LIST OF CUSTOMERS WHO LEFT THE TICKET OPEN
                 //
                 // LIST OF CUSTOMERS WHO LEFT THE TICKET OPEN

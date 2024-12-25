@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using System.Drawing.Printing;
 using System.Drawing;
 using AWC.DigitalCommerce.TicketsController.Properties;
+using AWC.DigitalCommerce.TicketsController.Classes;
 
 namespace AWC.DigitalCommerce.TicketsController
 {
@@ -99,6 +100,7 @@ namespace AWC.DigitalCommerce.TicketsController
                 workDay = DB.ConverTicketDate(workDay);
                 graphics.DrawString(new string(' ', 4) + $"CIERRE: {workDay}", new Font("Consolas Bold", 12), new SolidBrush(Color.Black), startX, startY + Offset);
             }
+
             Offset += 25;
 
             graphics.DrawString(new string(' ', 14) + $"TURNO {Settings.Default.ShiftForQuery}", new Font("Consolas Bold", 12), new SolidBrush(Color.Black), startX, startY + Offset);
@@ -243,6 +245,20 @@ namespace AWC.DigitalCommerce.TicketsController
                         workVar = exp.ExpenseDescription + new string(' ', 21 - exp.ExpenseDescription.Length) + workVar2.PadLeft(9);
                     }
 
+                    graphics.DrawString(workVar, new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
+                    Offset += 18;
+                }
+            }
+
+            if (dc.Vouchers > 0)
+            {
+                graphics.DrawString("=====DETALLE DE VOUCHERS======", new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
+                Offset += 18;
+
+                foreach (clsVoucher v in dc.VouchersList)
+                {
+                    clsUser u = DB.CheckUserPIN(v.IssueBy);
+                    workVar = v.ID + " " + u.userName + new string(' ', 18 - u.userName.Length) + v.Amount.ToString("N0").PadLeft(6, ' ');
                     graphics.DrawString(workVar, new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
                     Offset += 18;
                 }
