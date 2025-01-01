@@ -56,5 +56,18 @@ namespace AWC.DigitalCommerce.TicketsControllerAPI.Controllers
 
             return NoContent();
         }
+
+        [HttpPut(Name = "UpdlUserProfile")]
+        public async Task<IActionResult> UpdlUserProfile(int PIN, User user)
+        {
+            var result = await _context.Database.ExecuteSqlRawAsync("EXEC UpdlUserProfile @PIN = {0}", new SqlParameter("@PIN", PIN));
+
+            if (result == 0)
+            {
+                return NotFound();
+            }
+
+            return NoContent();
+        }
     }
 }

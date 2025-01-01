@@ -315,7 +315,7 @@
                FontSize="25"
                FontFamily="Bahnschrift SemiLight Condensed"
                FontWeight="DemiBold"
-               Content="© 2021-2024 AIDAWARE GUILLERMO E. GRILLO III"/>
+               Content="© 2021-2025 AIDAWARE GUILLERMO E. GRILLO III"/>
             <Label Grid.Row="5" Grid.Column="6" Grid.ColumnSpan="4"
                Name="lblOSD"
                Foreground="White"
