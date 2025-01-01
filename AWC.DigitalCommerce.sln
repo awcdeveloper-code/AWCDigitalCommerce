@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AWC.DigitalCommerce.Tickets
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NearCodingExercise", "NearCodingExercise\NearCodingExercise.csproj", "{877E31C4-C15A-4276-AB7E-5ED19EE50AA0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AWC.DigitalCommerce.TicketsControllerAPI", "AWC.DigitalCommerce.TicketsControllerAPI\AWC.DigitalCommerce.TicketsControllerAPI.csproj", "{4FCBA849-203A-4193-AB15-83B71E4EBD2F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{877E31C4-C15A-4276-AB7E-5ED19EE50AA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{877E31C4-C15A-4276-AB7E-5ED19EE50AA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{877E31C4-C15A-4276-AB7E-5ED19EE50AA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FCBA849-203A-4193-AB15-83B71E4EBD2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FCBA849-203A-4193-AB15-83B71E4EBD2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FCBA849-203A-4193-AB15-83B71E4EBD2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FCBA849-203A-4193-AB15-83B71E4EBD2F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
