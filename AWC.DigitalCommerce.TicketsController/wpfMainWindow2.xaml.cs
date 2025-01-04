@@ -249,6 +249,7 @@ namespace AWC.DigitalCommerce.TicketsController
                     wpfMessageBox.Show("Tickets Controller",
                                        "ERROR: Registro 'DBMasterKey' no existe en la base de datos, la aplicación será abortada. Por favor, comuníquese con AIDAware Consultancies inmediatamente.",
                                        System.Windows.MessageBoxButton.OK, wpfMessageBox.MessageBoxImage.Error, lang);
+
                     App.Current.Shutdown();
                     return;
                 }
@@ -265,10 +266,18 @@ namespace AWC.DigitalCommerce.TicketsController
                     dc.ShowDialog();
                     this.Opacity = 1;
 
-                    Mouse.OverrideCursor = Cursors.Wait;
-
                     if (dc.IsDailyClosing)
                     {
+                        if (wpfMessageBox.Show("Tickets Controller",
+                                               "ADVERTENCIA: Todas las cuentas abiertas serán cerradas y clasificadas como cuentas pendientes. Realmente desea continuar?",
+                                               MessageBoxButton.YesNo, wpfMessageBox.MessageBoxImage.Question, null) == MessageBoxResult.No)
+                        {
+                            App.Current.Shutdown();
+                            return;
+                        }
+
+                        Mouse.OverrideCursor = Cursors.Wait;
+
                         Helper.ShowToastNotification("Actualizando fecha contable");
                         Helper.CleanTempFiles(Path.GetTempPath(), Settings.Default.DatabaseBackupExpiration);
 
