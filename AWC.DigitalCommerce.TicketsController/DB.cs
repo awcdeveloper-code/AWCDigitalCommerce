@@ -310,6 +310,7 @@ namespace AWC.DigitalCommerce.TicketsController
                         while (sdr.Read())
                         {
                             clsItem item = new clsItem();
+
                             item.ID = Convert.ToInt32(sdr["ID"]);
                             item.ItemType = Convert.ToInt32(sdr["ItemType"]);
                             item.ItemSubType = Convert.ToInt32(sdr["ItemSubType"]);
@@ -339,6 +340,17 @@ namespace AWC.DigitalCommerce.TicketsController
                                     item.ImagePath = @"C:\AWC.DigitalCommerce\Images\kitchen.ico";
                                     break;
                             }
+
+                            switch (item.IsActive)
+                            {
+                                case false:
+                                    item.ImagePath2 = @"C:\AWC.DigitalCommerce\Images\20.ico";
+                                    break;
+                                case true:
+                                    item.ImagePath2 = @"C:\AWC.DigitalCommerce\Images\GreenCheck1.png";
+                                    break;
+                            }
+
                             lstItems.Add(item);
                         }
                     }

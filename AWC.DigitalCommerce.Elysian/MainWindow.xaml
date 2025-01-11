@@ -5,10 +5,53 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AWC.DigitalCommerce.Elysian"
         mc:Ignorable="d"
+        Height="600" Width="920"
         WindowStyle="None"
         ResizeMode="NoResize"
-        Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Background="Transparent"
+        AllowsTransparency="True">
+    <Border Background="Indigo"
+            CornerRadius="10">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Elysian"
+                       Foreground="White"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left"
+                       FontSize="22"
+                       FontWeight="DemiBold"
+                       Margin="20,0,0,0"/>
+            <StackPanel Grid.Row="1">
+                <RadioButton Content="Venta Rápida"
+                             Foreground="White"
+                             Height="50"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"/>
+                <RadioButton Content="Cuentas"
+                             Foreground="White"
+                             Height="50"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"/>
+                <RadioButton Content="Pendientes"
+                             Foreground="White"
+                             Height="50"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"/>
+            </StackPanel>
+            <TextBox Grid.Column="1"
+                     Width="250"
+                     Height="40"
+                     Background="White"
+                     VerticalAlignment="Center"
+                     HorizontalAlignment="Left"
+                     Style="{StaticResource ModernTextBox}"/>
+        </Grid>
+    </Border>
 </Window>

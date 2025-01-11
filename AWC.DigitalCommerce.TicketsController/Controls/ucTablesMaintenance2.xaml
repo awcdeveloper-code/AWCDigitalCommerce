@@ -272,16 +272,18 @@
                                             Binding="{Binding Path=ItemDescription}"
                                             HeaderStyle="{StaticResource CenterGridHeaderStyle}">
                             </DataGridTextColumn>
-                            <DataGridTextColumn Header="CLA"
-                                            Width="55"
-                                            Binding="{Binding Path=ItemType}"
-                                            HeaderStyle="{StaticResource CenterGridHeaderStyle}">
-                                <DataGridTextColumn.ElementStyle>
-                                    <Style TargetType="{x:Type TextBlock}">
-                                        <Setter Property="HorizontalAlignment" Value="Center" />
-                                    </Style>
-                                </DataGridTextColumn.ElementStyle>
-                            </DataGridTextColumn>
+                            <DataGridTemplateColumn Header="CLA"
+                                                    Width="55"
+                                                    HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Image Source="{Binding ImagePath}"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               Width="25" Height="25"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
                             <DataGridTextColumn Header="SUB"
                                             Width="55"
                                             Binding="{Binding Path=ItemSubType}"
@@ -292,16 +294,18 @@
                                     </Style>
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
-                            <DataGridTextColumn Header="ACT"
-                                            Width="55"
-                                            Binding="{Binding Path=IsActive}"
-                                            HeaderStyle="{StaticResource CenterGridHeaderStyle}">
-                                <DataGridTextColumn.ElementStyle>
-                                    <Style TargetType="{x:Type TextBlock}">
-                                        <Setter Property="HorizontalAlignment" Value="Center" />
-                                    </Style>
-                                </DataGridTextColumn.ElementStyle>
-                            </DataGridTextColumn>
+                            <DataGridTemplateColumn Header="ACT"
+                                                    Width="55"
+                                                    HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Image Source="{Binding ImagePath2}"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               Width="25" Height="25"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
                             <DataGridTextColumn Header="MED"
                                             Width="55"
                                             Binding="{Binding Path=ItemUnitOfMeasurement}"
