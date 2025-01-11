@@ -29,5 +29,7 @@ namespace AWC.DigitalCommerce.TicketsController
         public int ItemStock { get; set; }
         public string ImagePath { get; set; }
         public string ImagePath2 { get; set; }
+        public string ImagePath3 { get; set; }
+        public string ImagePath4 { get; set; }
     }
 }

@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController"
              mc:Ignorable="d" Background="DarkBlue"
-             d:DesignHeight="640" d:DesignWidth="1100">
+             d:DesignHeight="850" d:DesignWidth="1100">
     <UserControl.Resources>
         <Style x:Key="CenterGridHeaderStyle" TargetType="DataGridColumnHeader">
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -62,7 +62,10 @@
                         <RowDefinition Height="30"/>
                         <RowDefinition Height="30"/>
                         <RowDefinition Height="30"/>
-                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="120"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
                     </Grid.RowDefinitions>
                     <!--LABELS COLUMN-->
                     <Label Grid.Row="1" Grid.Column="0"
@@ -205,7 +208,7 @@
                               FontWeight="DemiBold"
                               Content="PROMOCIÓN"/>
                     <!--BUTTONS-->
-                    <StackPanel Grid.Row="11" Grid.Column="1"
+                    <StackPanel Grid.Row="12" Grid.Column="1"
                                 Orientation="Horizontal">
                         <Image Name="Cancel_Item"
                                Source="/Images/20.ico"
@@ -245,11 +248,12 @@
                                MouseDown="btnMod_Item"/>
                     </StackPanel>
                     <!--DATAGRID-->
-                    <DataGrid Grid.Row="1" Grid.Column="3" Grid.RowSpan="11"
+                    <DataGrid Grid.Row="1" Grid.Column="3" Grid.RowSpan="13"
                               Name="ItemCatalog"
-                              Height="510" Width="785"
+                              Height="660" Width="785"
                               Margin="3"
-                              RowHeight="30"
+                              RowHeight="35"
+                              FontSize="20"
                               IsReadOnly="True"
                               HorizontalAlignment="Left"
                               HorizontalScrollBarVisibility="Disabled"
@@ -284,17 +288,7 @@
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
-                            <DataGridTextColumn Header="SUB"
-                                            Width="55"
-                                            Binding="{Binding Path=ItemSubType}"
-                                            HeaderStyle="{StaticResource CenterGridHeaderStyle}">
-                                <DataGridTextColumn.ElementStyle>
-                                    <Style TargetType="{x:Type TextBlock}">
-                                        <Setter Property="HorizontalAlignment" Value="Center" />
-                                    </Style>
-                                </DataGridTextColumn.ElementStyle>
-                            </DataGridTextColumn>
-                            <DataGridTemplateColumn Header="ACT"
+                            <DataGridTemplateColumn Header="SUB"
                                                     Width="55"
                                                     HeaderStyle="{StaticResource CenterGridHeaderStyle}">
                                 <DataGridTemplateColumn.CellTemplate>
@@ -306,16 +300,30 @@
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
-                            <DataGridTextColumn Header="MED"
-                                            Width="55"
-                                            Binding="{Binding Path=ItemUnitOfMeasurement}"
-                                            HeaderStyle="{StaticResource CenterGridHeaderStyle}">
-                                <DataGridTextColumn.ElementStyle>
-                                    <Style TargetType="{x:Type TextBlock}">
-                                        <Setter Property="HorizontalAlignment" Value="Center" />
-                                    </Style>
-                                </DataGridTextColumn.ElementStyle>
-                            </DataGridTextColumn>
+                            <DataGridTemplateColumn Header="ACT"
+                                                    Width="55"
+                                                    HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Image Source="{Binding ImagePath3}"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               Width="25" Height="25"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="MED"
+                                                    Width="55"
+                                                    HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Image Source="{Binding ImagePath4}"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               Width="30" Height="30"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
                             <DataGridTextColumn Header="UNI"
                                             Width="55"
                                             Binding="{Binding Path=ItemUnitSize}"

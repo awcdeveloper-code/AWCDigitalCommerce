@@ -228,14 +228,25 @@ namespace AWC.DigitalCommerce.TicketsController
                             custVIP.LastPayment = ConverTicketDate(sdr["LastPayment"].ToString());
                             custVIP.CustomerFOC = Convert.ToBoolean(sdr["FreeOfCharge"]);
 
-                            switch(custVIP.Type)
+                            if (custVIP.CustomerFOC)
                             {
-                                case 1:
-                                    custVIP.ImagePath = @"C:\AWC.DigitalCommerce\Images\people.ico";
-                                    break;
-                                case 2:
-                                    custVIP.ImagePath = @"C:\AWC.DigitalCommerce\Images\tables.png";
-                                    break;
+                                custVIP.ImagePath = @"C:\AWC.DigitalCommerce\Images\NoPayment.png";
+
+                            }
+                            else
+                            {
+                                switch (custVIP.Type)
+                                {
+                                    case 1:
+                                        custVIP.ImagePath = @"C:\AWC.DigitalCommerce\Images\icons8-tarjeta-de-membresia-94.png";
+                                        break;
+                                    case 2:
+                                        custVIP.ImagePath = @"C:\AWC.DigitalCommerce\Images\tables.png";
+                                        break;
+                                    case 3:
+                                        custVIP.ImagePath = @"C:\AWC.DigitalCommerce\Images\damage.png";
+                                        break;
+                                }
                             }
 
                             lstCustVIP.Add(custVIP);
@@ -326,6 +337,7 @@ namespace AWC.DigitalCommerce.TicketsController
                             item.ItemParent = Convert.ToInt32(sdr["ItemParent"]);
                             item.ItemMinimum = Convert.ToInt32(sdr["ItemMinimum"]);
                             item.ItemStock = Convert.ToInt32(sdr["ItemStock"]);
+                            item.ItemUnitOfMeasurement = Convert.ToInt32(sdr["ItemUnitOfMeasurement"]);
                             item.ItemUnitSize = Convert.ToInt32(sdr["ItemUnitSize"]);
 
                             switch (item.ItemType)
@@ -341,13 +353,36 @@ namespace AWC.DigitalCommerce.TicketsController
                                     break;
                             }
 
+                            switch (item.ItemSubType)
+                            {
+                                case 0:
+                                    item.ImagePath2 = @"C:\AWC.DigitalCommerce\Images\zero.png";
+                                    break;
+                                case 2:
+                                    item.ImagePath2 = @"C:\AWC.DigitalCommerce\Images\beer-bottle.png";
+                                    break;
+                            }
+
                             switch (item.IsActive)
                             {
                                 case false:
-                                    item.ImagePath2 = @"C:\AWC.DigitalCommerce\Images\20.ico";
+                                    item.ImagePath3 = @"C:\AWC.DigitalCommerce\Images\20.ico";
                                     break;
                                 case true:
-                                    item.ImagePath2 = @"C:\AWC.DigitalCommerce\Images\GreenCheck1.png";
+                                    item.ImagePath3 = @"C:\AWC.DigitalCommerce\Images\GreenCheck1.png";
+                                    break;
+                            }
+
+                            switch (item.ItemUnitOfMeasurement)
+                            {
+                                case 0:
+                                    item.ImagePath4 = @"C:\AWC.DigitalCommerce\Images\u-64.png";
+                                    break;
+                                case 1:
+                                    item.ImagePath4 = @"C:\AWC.DigitalCommerce\Images\m-64.png";
+                                    break;
+                                case 2:
+                                    item.ImagePath4 = @"C:\AWC.DigitalCommerce\Images\g-64.png";
                                     break;
                             }
 
