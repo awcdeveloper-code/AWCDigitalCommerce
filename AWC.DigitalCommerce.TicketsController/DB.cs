@@ -2762,7 +2762,11 @@ namespace AWC.DigitalCommerce.TicketsController
                                         detailItem.ImagePath = @"C:\AWC.DigitalCommerce\Images\kitchen.ico";
                                         break;
                                 }
-                                //detailItem.ItemDesc = GetItemDescriptionByItemID(detailItem.ItemID);
+
+                                if (item.ItemType == 1 && item.ItemSubType == 2)
+                                {
+                                    detailItem.ImagePath = @"C:\AWC.DigitalCommerce\Images\beer-bottle.png";
+                                }
                             }
 
                             detailItem.Qty = Convert.ToInt32(sdr["Qty"]);

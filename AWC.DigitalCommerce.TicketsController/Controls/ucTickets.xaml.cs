@@ -2034,6 +2034,7 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
                         item.ImagePath = @"C:\AWC.DigitalCommerce\Images\kitchen.ico";
                         break;
                 }
+
                 TicketDetail.Items.Add(item);
                 totalPrice = TotalizeTicket(TicketDetail);
                 ticket.TotalPrice = totalPrice;
