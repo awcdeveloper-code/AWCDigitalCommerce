@@ -281,20 +281,20 @@ namespace AWC.DigitalCommerce.TicketsController
 
                 if (!ticket.Status && Settings.Default.PrintTicketFooter)
                 {
-                    graphics.DrawString("ESTE NEGOCIO ESTÁ ADSCRITO AL", new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
-                    Offset += 15;
+                    //graphics.DrawString("ESTE NEGOCIO ESTÁ ADSCRITO AL", new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
+                    //Offset += 15;
 
-                    graphics.DrawString("   RÉGIMEN DE TRIBUTACIÓN", new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
-                    Offset += 15;
+                    //graphics.DrawString("   RÉGIMEN DE TRIBUTACIÓN", new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
+                    //Offset += 15;
 
-                    graphics.DrawString("SIMPLIFICADA PARA COMERCIANTES", new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
-                    Offset += 15;
+                    //graphics.DrawString("SIMPLIFICADA PARA COMERCIANTES", new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
+                    //Offset += 15;
 
-                    graphics.DrawString("MINORISTAS Y BARES N° 25514-H", new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
-                    Offset += 25;
+                    //graphics.DrawString("MINORISTAS Y BARES N° 25514-H", new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
+                    //Offset += 25;
 
-                    graphics.DrawString("*NO EMITE FACTURA ELECTRÓNICA*", new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
-                    Offset += 25;
+                    //graphics.DrawString("*NO EMITE FACTURA ELECTRÓNICA*", new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
+                    //Offset += 25;
 
                     graphics.DrawString("AUTORIZADO MEDIANTE RESOLUCIÓN", new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
                     Offset += 15;
