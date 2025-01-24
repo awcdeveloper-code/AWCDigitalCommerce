@@ -101,7 +101,7 @@
                 FontSize="15"
                 FontWeight="DemiBold">
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="/Images/a2p.png"
+                    <Image Source="/Images/a2p2.png"
                        Width="30" Height="30" Margin="3"/>
                     <TextBlock Text="PENDIENTES" VerticalAlignment="Center"/>
                 </StackPanel>
@@ -114,8 +114,8 @@
                 FontSize="15"
                 FontWeight="DemiBold">
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="/Images/Money.ico"
-                       Width="30" Height="30" Margin="3"/>
+                    <Image Source="/Images/todaysales.png"
+                       Width="30" Height="30" Margin="0,0,10,0"/>
                     <TextBlock Text="VENTAS" VerticalAlignment="Center"/>
                 </StackPanel>
             </Button>
@@ -167,7 +167,7 @@
                 FontWeight="DemiBold">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/Images/settings.png"
-                       Width="30" Height="30" Margin="3"/>
+                       Width="35" Height="35" Margin="0,0,5,0"/>
                     <TextBlock Text="AJUSTES" VerticalAlignment="Center"/>
                 </StackPanel>
             </Button>
@@ -179,7 +179,7 @@
                 FontSize="15"
                 FontWeight="DemiBold">
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="/Images/cashdrawer.png"
+                    <Image Source="/Images/cashier.png"
                        Width="30" Height="30" Margin="3"/>
                     <TextBlock Text="ABRIR CAJA" VerticalAlignment="Center"/>
                 </StackPanel>
@@ -192,8 +192,8 @@
                 FontSize="15"
                 FontWeight="DemiBold">
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="/Images/delete_sign.png"
-                       Width="25" Height="25" Margin="5"/>
+                    <Image Source="/Images/logout.png"
+                       Width="30" Height="30" Margin="5"/>
                     <TextBlock Text="CERRAR" VerticalAlignment="Center"/>
                 </StackPanel>
             </Button>

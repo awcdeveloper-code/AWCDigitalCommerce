@@ -10,6 +10,22 @@
         <Style x:Key="CenterGridHeaderStyle" TargetType="DataGridColumnHeader">
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
         </Style>
+        <Style x:Key="MenuItemIconStyle" TargetType="Image">
+            <Setter Property="Opacity" Value="1"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=MenuItem}}" Value="False">
+                    <Setter Property="Opacity" Value="0.5"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="MenuItemTextStyle" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="Black"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=MenuItem}}" Value="False">
+                    <Setter Property="Foreground" Value="Gray"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
         <DataTemplate x:Key="lBox_Customer_DataTemplate">
             <StackPanel Orientation="Horizontal" Margin="1">
                 <Image Source="{Binding ImagePath}"
@@ -118,9 +134,18 @@
                 <ListBox.ContextMenu>
                     <ContextMenu>
                         <MenuItem Command="{x:Static ApplicationCommands.Replace}"
-                                  Header="RENOMBRAR"
-                                  FontSize="20"
-                                  FontWeight="DemiBold"/>
+                                  FontSize="20" FontWeight="DemiBold">
+                            <MenuItem.Icon>
+                                <Image Source="/Images/rename.png" Style="{StaticResource MenuItemIconStyle}" Width="16" Height="16"/>
+                            </MenuItem.Icon>
+                            <MenuItem.HeaderTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="RENOMBRAR" Style="{StaticResource MenuItemTextStyle}" Margin="5,0,0,0"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </MenuItem.HeaderTemplate>
+                        </MenuItem>
                     </ContextMenu>
                 </ListBox.ContextMenu>
             </ListBox>
@@ -246,27 +271,77 @@
                 <DataGrid.ContextMenu>
                     <ContextMenu>
                         <MenuItem Command="{x:Static ApplicationCommands.Copy}"
-                              Header="MOVER"
-                              FontSize="20"
-                              FontWeight="DemiBold"/>
+                                  FontSize="20"
+                                  FontWeight="DemiBold">
+                            <MenuItem.Icon>
+                                <Image Source="/Images/move.png" Style="{StaticResource MenuItemIconStyle}" Width="16" Height="16"/>
+                            </MenuItem.Icon>
+                            <MenuItem.HeaderTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="MOVER" Style="{StaticResource MenuItemTextStyle}" Margin="5,0,0,0"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </MenuItem.HeaderTemplate>
+                        </MenuItem>
                         <MenuItem Command="{x:Static ApplicationCommands.Paste}"
-                              Header="PEGAR"
-                              FontSize="20"
-                              FontWeight="DemiBold"/>
+                                  FontSize="20"
+                                  FontWeight="DemiBold">
+                            <MenuItem.Icon>
+                                <Image Source="/Images/paste.png" Style="{StaticResource MenuItemIconStyle}" Width="16" Height="16"/>
+                            </MenuItem.Icon>
+                            <MenuItem.HeaderTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="PEGAR" Style="{StaticResource MenuItemTextStyle}" Margin="5,0,0,0"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </MenuItem.HeaderTemplate>
+                        </MenuItem>
                         <MenuItem Command="{x:Static ApplicationCommands.Undo}"
-                              Header="CANCELAR"
-                              FontSize="20"
-                              FontWeight="DemiBold"/>
+                                  FontSize="20"
+                                  FontWeight="DemiBold">
+                            <MenuItem.Icon>
+                                <Image Source="/Images/cancel.png" Style="{StaticResource MenuItemIconStyle}" Width="16" Height="16"/>
+                            </MenuItem.Icon>
+                            <MenuItem.HeaderTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="CANCELAR" Style="{StaticResource MenuItemTextStyle}" Margin="5,0,0,0"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </MenuItem.HeaderTemplate>
+                        </MenuItem>
                         <Separator/>
                         <MenuItem Command="{x:Static ApplicationCommands.Cut}"
-                              Header="CAMBIAR PRECIO"
-                              FontSize="20"
-                              FontWeight="DemiBold"/>
+                                  FontSize="20"
+                                  FontWeight="DemiBold">
+                            <MenuItem.Icon>
+                                <Image Source="/Images/changeprice.png" Style="{StaticResource MenuItemIconStyle}" Width="16" Height="16"/>
+                            </MenuItem.Icon>
+                            <MenuItem.HeaderTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="CAMBIAR PRECIO" Style="{StaticResource MenuItemTextStyle}" Margin="5,0,0,0"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </MenuItem.HeaderTemplate>
+                        </MenuItem>
                         <Separator/>
                         <MenuItem Command="{x:Static ApplicationCommands.Print}"
-                              Header="VER DETALLE"
-                              FontSize="20"
-                              FontWeight="DemiBold"/>
+                                  FontSize="20"
+                                  FontWeight="DemiBold">
+                            <MenuItem.Icon>
+                                <Image Source="/Images/seedetails.png" Style="{StaticResource MenuItemIconStyle}" Width="16" Height="16"/>
+                            </MenuItem.Icon>
+                            <MenuItem.HeaderTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="VER DETALLE" Style="{StaticResource MenuItemTextStyle}" Margin="5,0,0,0"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </MenuItem.HeaderTemplate>
+                        </MenuItem>
                     </ContextMenu>
                 </DataGrid.ContextMenu>
                 <DataGrid.Columns>
@@ -517,8 +592,8 @@
             <!--COPY/PASTE, ADD, DELETE, SUBSTRACT, PRINT BUTTONS-->
             <Image Grid.Row="4" Grid.Column="12" Grid.RowSpan="2"
                Name="CopyPaste"
-               Source="/Images/copy_paste.png"
-               Width="65" Height="65"
+               Source="/Images/move.png"
+               Width="48" Height="48"
                Margin="5"
                Visibility="Hidden"
                ToolTip="ACCIÓN DE MOVER Y PEGAR EN PROGRESO..."/>

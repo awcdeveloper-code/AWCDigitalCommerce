@@ -184,7 +184,7 @@
                             Cursor="Hand"
                             FontWeight="DemiBold">
                                     <StackPanel Orientation="Horizontal">
-                                <Image Source="/Images/delete_sign.png"
+                                <Image Source="/Images/logout.png"
                                        Width="30" Height="30"
                                    Margin="5"/>
                                         <TextBlock Text="CERRAR" VerticalAlignment="Center"/>
@@ -201,7 +201,7 @@
                FontSize="20"
                FontFamily="Bahnschrift SemiLight Condensed"
                FontWeight="DemiBold"
-               Content="© 2021-2024 AIDAware Guillermo E. Grillo - Derechos Reservados."/>
+               Content="© 2021-2025 AIDAware Guillermo E. Grillo - Derechos Reservados."/>
             <!--WORK AREA-->
             <DockPanel Grid.Row="2" Grid.Column="2">
                 <GroupBox Name="WorkArea"

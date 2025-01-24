@@ -1555,9 +1555,6 @@
     <Resource Include="Images\money_icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\quickSale.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\waitress.png" />
   </ItemGroup>
   <ItemGroup>
@@ -1643,9 +1640,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\next.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\settings.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\GreenCheck.png" />
@@ -1736,6 +1730,51 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\icons8-tarjeta-de-membresia-94.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\rename.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\move.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\paste.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\changeprice.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\seedetails.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\cashier.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\todaysales.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\a2p2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\quickSale.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Images\a2p2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\star.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Images\star.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.5.1.1-ci675\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.5.1.1-ci675\build\MaterialDesignThemes.targets')" />
