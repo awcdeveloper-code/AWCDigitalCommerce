@@ -400,8 +400,8 @@
                 Cursor="Hand"
                 FontWeight="DemiBold">
                 <StackPanel Orientation="Vertical">
-                    <Image Source="/Images/parent.ico" Width="30" Height="30" Margin="5 5 5 0"/>
-                    <TextBlock Text="ABRIR" VerticalAlignment="Center"/>
+                    <Image Source="/Images/star.png" Width="30" Height="30" Margin="5 5 5 0"/>
+                    <TextBlock Text="NUEVA" VerticalAlignment="Center"/>
                 </StackPanel>
             </Button>
             <Button Grid.Row="16" Grid.Column="5"
@@ -530,7 +530,7 @@
                 Cursor="Hand"
                 FontWeight="DemiBold">
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="/Images/a2p.png" Width="20" Height="20" Margin="3"/>
+                    <Image Source="/Images/a2p2.png" Width="20" Height="20" Margin="3"/>
                     <TextBlock Text="PENDIENTE" VerticalAlignment="Center"/>
                 </StackPanel>
             </Button>

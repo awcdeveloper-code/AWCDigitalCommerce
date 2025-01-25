@@ -353,10 +353,10 @@ namespace AWC.DigitalCommerce.TicketsController
                                     break;
                             }
 
-                            if (item.ItemType == 1 && item.ItemSubType == 2)
-                            {
-                                item.ImagePath = @"C:\AWC.DigitalCommerce\Images\beer-bottle.png";
-                            }
+                            //if (item.ItemType == 1 && item.ItemSubType == 2)
+                            //{
+                            //    item.ImagePath = @"C:\AWC.DigitalCommerce\Images\beer-bottle.png";
+                            //}
 
                             switch (item.ItemSubType)
                             {

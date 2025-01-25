@@ -751,7 +751,7 @@
                     <StackPanel Orientation="Horizontal">
                         <Image Name="img5"
                                Height="30" Width="30"
-                               Source="/Images/Bucket.png" />
+                               Source="/Images/beer-bottle.png" />
                         <TextBlock Text="BALDES"
                                    Margin="5"
                                    FontSize="15"

@@ -25,13 +25,13 @@
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="10"/>
-                <ColumnDefinition Width="180"/>
-                <ColumnDefinition Width="180"/>
-                <ColumnDefinition Width="180"/>
+                <ColumnDefinition Width="160"/>
+                <ColumnDefinition Width="160"/>
+                <ColumnDefinition Width="160"/>
                 <ColumnDefinition Width="10"/>
-                <ColumnDefinition Width="180"/>
-                <ColumnDefinition Width="180"/>
-                <ColumnDefinition Width="180"/>
+                <ColumnDefinition Width="160"/>
+                <ColumnDefinition Width="160"/>
+                <ColumnDefinition Width="160"/>
                 <ColumnDefinition Width="180"/>
                 <ColumnDefinition Width="90"/>
                 <ColumnDefinition Width="10"/>
@@ -150,14 +150,13 @@
             <Button Grid.Row="2" Grid.Column="1"
                 Name="PrintTicket"
                 Click="btn_PrintTicket"
-                Foreground="DarkBlue"
-                FontSize="20"
+                FontSize="15"
                 Margin="5"
                 IsEnabled="False"
                 Cursor="Hand"
                 FontWeight="DemiBold">
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="/Images/printer_icon.png" Width="30" Height="30" Margin="5 5 5 0"/>
+                    <Image Source="/Images/printer_icon.png" Width="30" Height="30" Margin="5"/>
                     <TextBlock Text="IMPRIMIR" VerticalAlignment="Center"/>
                 </StackPanel>
             </Button>
@@ -165,14 +164,13 @@
             <Button Grid.Row="2" Grid.Column="2"
                 Name="AbortTicket"
                 Click="btn_AbortTicket"
-                Foreground="DarkBlue"
-                FontSize="20"
+                FontSize="15"
                 Margin="5"
                 IsEnabled="False"
                 Cursor="Hand"
                 FontWeight="DemiBold">
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="/Images/delete_sign.png" Width="30" Height="30" Margin="5 5 5 0"/>
+                    <Image Source="/Images/delete_sign.png" Width="30" Height="30" Margin="5"/>
                     <TextBlock Text="ANULAR" VerticalAlignment="Center"/>
                 </StackPanel>
             </Button>
@@ -180,14 +178,13 @@
             <Button Grid.Row="2" Grid.Column="3"
                 Name="ReviewTicket"
                 Click="btn_ReviewTicket"
-                Foreground="DarkBlue"
-                FontSize="20"
+                FontSize="15"
                 Margin="5"
                 IsEnabled="False"
                 Cursor="Hand"
                 FontWeight="DemiBold">
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="/Images/invoice.png" Width="30" Height="30" Margin="5 5 5 0"/>
+                    <Image Source="/Images/invoice.png" Width="30" Height="30" Margin="5"/>
                     <TextBlock Text="REVISAR" VerticalAlignment="Center"/>
                 </StackPanel>
             </Button>
@@ -195,14 +192,13 @@
             <Button Grid.Row="2" Grid.Column="5"
                 Name="SmallPaymentTicket"
                 Click="btn_SmallPaymentTicket"
-                Foreground="DarkBlue"
-                FontSize="20"
+                FontSize="15"
                 Margin="5"
                 IsEnabled="False"
                 Cursor="Hand"
                 FontWeight="DemiBold">
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="/Images/Money.ico" Width="30" Height="30" Margin="5 5 5 0"/>
+                    <Image Source="/Images/Money.ico" Width="30" Height="30" Margin="5"/>
                     <TextBlock Text="ABONAR" VerticalAlignment="Center"/>
                 </StackPanel>
             </Button>
@@ -210,14 +206,13 @@
             <Button Grid.Row="2" Grid.Column="6"
                 Name="AssignTicket"
                 Click="btn_AssignTicket"
-                Foreground="DarkBlue"
-                FontSize="20"
+                FontSize="15"
                 Margin="5"
                 IsEnabled="False"
                 Cursor="Hand"
                 FontWeight="DemiBold">
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="/Images/shiftchange.png" Width="30" Height="30" Margin="5 5 5 0"/>
+                    <Image Source="/Images/shiftchange.png" Width="30" Height="30" Margin="5"/>
                     <TextBlock Text="REASIGNAR" VerticalAlignment="Center"/>
                 </StackPanel>
             </Button>
@@ -225,14 +220,13 @@
             <Button Grid.Row="2" Grid.Column="7"
                 Name="PayTicket"
                 Click="btn_PayTicket"
-                Foreground="DarkBlue"
-                FontSize="20"
+                FontSize="15"
                 Margin="5"
                 IsEnabled="False"
                 Cursor="Hand"
                 FontWeight="DemiBold">
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="/Images/money_icon.png" Width="30" Height="30" Margin="5 5 5 0"/>
+                    <Image Source="/Images/money_icon.png" Width="30" Height="30" Margin="5"/>
                     <TextBlock Text="PAGAR" VerticalAlignment="Center"/>
                 </StackPanel>
             </Button>

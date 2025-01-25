@@ -1776,6 +1776,9 @@
   <ItemGroup>
     <Resource Include="Controls\Images\star.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\beer-bottle.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.5.1.1-ci675\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.5.1.1-ci675\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
