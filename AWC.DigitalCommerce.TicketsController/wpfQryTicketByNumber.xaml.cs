@@ -22,7 +22,7 @@ namespace AWC.DigitalCommerce.TicketsController
     public partial class wpfQryTicketByNumber : Window
     {
         private List<clsItemDetailForDatagrid> itemdg = new List<clsItemDetailForDatagrid>();
-        public wpfQryTicketByNumber()
+        public wpfQryTicketByNumber(int tckNum)
         {
             if (Settings.Default.TopLeftOn)
             {
@@ -31,6 +31,11 @@ namespace AWC.DigitalCommerce.TicketsController
             }
 
             InitializeComponent();
+
+            if (tckNum > 0)
+            {
+                txtSearchTicket.Text = tckNum.ToString();
+            }
             txtSearchTicket.Focus();
         }
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
@@ -38,7 +43,6 @@ namespace AWC.DigitalCommerce.TicketsController
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
         }
-
         private void txtSearchTicket_GotFocus(object sender, RoutedEventArgs e)
         {
             CleanAll();
@@ -50,7 +54,6 @@ namespace AWC.DigitalCommerce.TicketsController
                 txtSearchTicket.Text = numKey.numKeyed;
             }
         }
-
         private void txtSearchTicket_KeyUp(object sender, KeyEventArgs e)
         {
             try
@@ -153,7 +156,6 @@ namespace AWC.DigitalCommerce.TicketsController
                 Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, ex, Logger.Severity.ERROR);
             }
         }
-
         private void CleanAll()
         {
             CustomerID.Content = string.Empty;
@@ -161,7 +163,6 @@ namespace AWC.DigitalCommerce.TicketsController
             DateAndPayMethod.Content = string.Empty;
             TicketDetail.Items.Clear();
         }
-
         private void PrintTicket_Click(object sender, RoutedEventArgs e)
         {
             clsTicket tck = DB.GetTicket(Convert.ToInt32(txtSearchTicket.Text));
@@ -170,6 +171,10 @@ namespace AWC.DigitalCommerce.TicketsController
 
             Helper.PrintTicket(tmp);
 
+            this.Close();
+        }
+        private void Close_Click(object sender, RoutedEventArgs e)
+        {
             this.Close();
         }
     }

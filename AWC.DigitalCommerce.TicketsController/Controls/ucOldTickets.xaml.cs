@@ -55,7 +55,6 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
 
                 Mouse.OverrideCursor = Cursors.Wait;
 
-                //List<string> customerList = DB.GetCustomerListFromtDailyClosing();
                 List<clsCustomerVIP> customerList = DB.GetCustomerListFromtDailyClosing2();
                 lBox_CustomerID.ItemsSource = customerList;
 
@@ -377,6 +376,16 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
             // update comboBox and dataGrid
             LoadOldTicketsDataGrid(includeAllTickets);
         }
+        private void btn_ReviewTicket(object sender, RoutedEventArgs e)
+        {
+            foreach (clsTicketsForDataGrid row in OldOpenTickets.SelectedItems)
+            {
+                wpfQryTicketByNumber ticketByNumber = new wpfQryTicketByNumber(row.ID);
+                this.Opacity = 0.5;
+                ticketByNumber.ShowDialog();
+                this.Opacity = 1;
+            }
+        }
         private void lBox_CustomerID_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (!CleanTicketClicked)
@@ -407,6 +416,7 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
 
             PrintTicket.IsEnabled = true;
             AbortTicket.IsEnabled = true;
+            ReviewTicket.IsEnabled = true;
             SmallPaymentTicket.IsEnabled = true;
             AssignTicket.IsEnabled = true;
             PayTicket.IsEnabled = true;
@@ -442,6 +452,7 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
         {
             PrintTicket.IsEnabled = false;
             AbortTicket.IsEnabled = false;
+            ReviewTicket.IsEnabled = false;
             SmallPaymentTicket.IsEnabled = false;
             AssignTicket.IsEnabled = false;
             PayTicket.IsEnabled = false;
@@ -452,6 +463,7 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
             {
                 PrintTicket.IsEnabled = Helper.CheckUserAccessToResource2("ucOldTickets_PrintTicket");
                 AbortTicket.IsEnabled = Helper.CheckUserAccessToResource2("ucOldTickets_AbortTicket");
+                ReviewTicket.IsEnabled = Helper.CheckUserAccessToResource2("ucOldTickets_ReviewTicket");
                 SmallPaymentTicket.IsEnabled = Helper.CheckUserAccessToResource2("ucOldTickets_SmallPaymentTicket");
                 PayTicket.IsEnabled = Helper.CheckUserAccessToResource2("ucOldTickets_PayTicket");
                 AssignTicket.IsEnabled = Helper.CheckUserAccessToResource2("ucOldTickets_ReassignTicket");

@@ -535,6 +535,9 @@ namespace AWC.DigitalCommerce.TicketsController
                     case "Maintenance_Vouchers":
                         status = userProfile.userSecurityProfile.Substring(49, 1) == "1" ? true : false;
                         break;
+                    case "ucOldTickets_ReviewTicket":
+                        status = userProfile.userSecurityProfile.Substring(50, 1) == "1" ? true : false;
+                        break;
                 }
                 return status;
             }

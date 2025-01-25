@@ -3413,10 +3413,13 @@ namespace AWC.DigitalCommerce.TicketsController
                             switch (Convert.ToInt32(sdr["Type"]))
                             {
                                 case 1:
-                                    customerVIP.ImagePath = @"C:\AWC.DigitalCommerce\Images\people.ico";
+                                    customerVIP.ImagePath = @"C:\AWC.DigitalCommerce\Images\icons8-tarjeta-de-membresia-94.png";
                                     break;
                                 case 2:
                                     customerVIP.ImagePath = @"C:\AWC.DigitalCommerce\Images\tables.png";
+                                    break;
+                                case 3:
+                                    customerVIP.ImagePath = @"C:\AWC.DigitalCommerce\Images\damage.png";
                                     break;
                             }
                             vipList.Add(customerVIP);

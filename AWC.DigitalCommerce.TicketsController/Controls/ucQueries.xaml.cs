@@ -50,7 +50,7 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
         private void btn_TicketDetail(object sender, RoutedEventArgs e)
         {
             mw.Opacity = 0.5;
-            wpfQryTicketByNumber wpfTicketbyNum = new wpfQryTicketByNumber();
+            wpfQryTicketByNumber wpfTicketbyNum = new wpfQryTicketByNumber(0);
             wpfTicketbyNum.ShowDialog();
             mw.Opacity = 1;
         }

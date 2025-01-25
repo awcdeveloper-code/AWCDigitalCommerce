@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController"
              mc:Ignorable="d" 
-             d:DesignHeight="700" d:DesignWidth="1120" Background="DarkBlue">
+             d:DesignHeight="700" d:DesignWidth="1300" Background="DarkBlue">
     <UserControl.Resources>
         <Style x:Key="CenterGridHeaderStyle" TargetType="DataGridColumnHeader">
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -27,6 +27,7 @@
                 <ColumnDefinition Width="10"/>
                 <ColumnDefinition Width="180"/>
                 <ColumnDefinition Width="180"/>
+                <ColumnDefinition Width="180"/>
                 <ColumnDefinition Width="10"/>
                 <ColumnDefinition Width="180"/>
                 <ColumnDefinition Width="180"/>
@@ -43,7 +44,7 @@
                 <RowDefinition Height="10"/>
             </Grid.RowDefinitions>
             <!--DEFAULT CUSTOMERS-->
-            <GroupBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"
+            <GroupBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"
                   Foreground="Cyan"
                   Name="grpDefaultCustomers"
                   Header="CLIENTES MOROSOS">
@@ -71,7 +72,7 @@
                 </StackPanel>
             </GroupBox>
             <!--TICKETS OPENS-->
-            <GroupBox Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="4"
+            <GroupBox Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="4"
                   Foreground="Cyan"
                   Name="grpOpenTickets"
                   Header="CUENTAS PENDIENTES DE PAGO">
@@ -175,8 +176,23 @@
                     <TextBlock Text="ANULAR" VerticalAlignment="Center"/>
                 </StackPanel>
             </Button>
+            <!--REVIEW BUTTON-->
+            <Button Grid.Row="2" Grid.Column="3"
+                Name="ReviewTicket"
+                Click="btn_ReviewTicket"
+                Foreground="DarkBlue"
+                FontSize="20"
+                Margin="5"
+                IsEnabled="False"
+                Cursor="Hand"
+                FontWeight="DemiBold">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Images/invoice.png" Width="30" Height="30" Margin="5 5 5 0"/>
+                    <TextBlock Text="REVISAR" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
             <!--PAYMENT BUTTON-->
-            <Button Grid.Row="2" Grid.Column="4"
+            <Button Grid.Row="2" Grid.Column="5"
                 Name="SmallPaymentTicket"
                 Click="btn_SmallPaymentTicket"
                 Foreground="DarkBlue"
@@ -191,7 +207,7 @@
                 </StackPanel>
             </Button>
             <!--REASSIGN BUTTON-->
-            <Button Grid.Row="2" Grid.Column="5"
+            <Button Grid.Row="2" Grid.Column="6"
                 Name="AssignTicket"
                 Click="btn_AssignTicket"
                 Foreground="DarkBlue"
@@ -206,7 +222,7 @@
                 </StackPanel>
             </Button>
             <!--PAY BUTTON-->
-            <Button Grid.Row="2" Grid.Column="6"
+            <Button Grid.Row="2" Grid.Column="7"
                 Name="PayTicket"
                 Click="btn_PayTicket"
                 Foreground="DarkBlue"
@@ -221,7 +237,7 @@
                 </StackPanel>
             </Button>
             <!--TOTAL LABEL-->
-            <Label Grid.Row="2" Grid.Column="7" Grid.ColumnSpan="2"
+            <Label Grid.Row="2" Grid.Column="8" Grid.ColumnSpan="2"
                Name="TotalOldTickets"
                Foreground="Cyan"
                HorizontalAlignment="Left"
@@ -230,7 +246,7 @@
                Margin="5"
                FontWeight="DemiBold"/>
             <!--PRINT CLOSED TICKET-->
-            <CheckBox Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="2"
+            <CheckBox Grid.Row="3" Grid.Column="5" Grid.ColumnSpan="2"
                   Name="PrintClosedTicket"
                   Click="chkBox_PrintClosedTicket"
                   Foreground="Cyan"
@@ -240,7 +256,7 @@
                   FontWeight="DemiBold"
                   Content="IMPRIMIR CUENTA CANCELADA"/>
             <!--APPLY SERVICE FEE-->
-            <CheckBox Grid.Row="3" Grid.Column="6" Grid.ColumnSpan="2"
+            <CheckBox Grid.Row="3" Grid.Column="7" Grid.ColumnSpan="2"
                   Name="ApplyServiceFee"
                   Click="chkBox_ApplyServiceFee"
                   Foreground="Cyan"
