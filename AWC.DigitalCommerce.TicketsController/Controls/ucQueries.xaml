@@ -251,7 +251,7 @@
                         Cursor="Hand"
                         FontWeight="DemiBold">
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="/Images/a2p.png"
+                        <Image Source="/Images/a2p2.png"
                                Width="30" Height="30"
                                Margin="5"/>
                         <TextBlock Text="MOROSIDAD"
