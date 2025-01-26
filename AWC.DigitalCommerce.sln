@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AWC.DigitalCommerce.Tickets
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AWC.DigitalCommerce.POSitive", "AWC.DigitalCommerce.POSitive\AWC.DigitalCommerce.POSitive.csproj", "{14F45025-C23A-4A7A-A0B2-0B2B712EEA1A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AWC.DigitalCommerce.MicroServices", "AWC.DigitalCommerce.MicroServices\AWC.DigitalCommerce.MicroServices.csproj", "{3FAABB91-B8D4-42D7-BF4B-9C5CACA5BB60}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{14F45025-C23A-4A7A-A0B2-0B2B712EEA1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14F45025-C23A-4A7A-A0B2-0B2B712EEA1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{14F45025-C23A-4A7A-A0B2-0B2B712EEA1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FAABB91-B8D4-42D7-BF4B-9C5CACA5BB60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FAABB91-B8D4-42D7-BF4B-9C5CACA5BB60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FAABB91-B8D4-42D7-BF4B-9C5CACA5BB60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FAABB91-B8D4-42D7-BF4B-9C5CACA5BB60}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
