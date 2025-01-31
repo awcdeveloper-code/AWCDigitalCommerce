@@ -10,5 +10,6 @@ namespace AWC.DigitalCommerce.MicroServices.Models
         public string? UserName { get; set; }
         public string? UserPassword { get; set; }
         public int UserStatus { get; set; }
+        public string? UserSecurityProfile { get; set; }
     }
 }
