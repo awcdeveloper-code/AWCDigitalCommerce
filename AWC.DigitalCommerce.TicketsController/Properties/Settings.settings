@@ -9,10 +9,10 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="TicketPrinter" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">Microsoft Print to PDF</Value>
+      <Value Profile="(Default)">POS-58-Series</Value>
     </Setting>
     <Setting Name="KitchenPrinter" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">Microsoft Print to PDF</Value>
+      <Value Profile="(Default)">LR1100 Printer</Value>
     </Setting>
     <Setting Name="VirtualNumericKeyboardActive" Type="System.Boolean" Scope="Application">
       <Value Profile="(Default)">True</Value>
@@ -84,7 +84,7 @@
       <Value Profile="(Default)">C:\AWC.DigitalCommerce\Images\ServiceFee.PNG</Value>
     </Setting>
     <Setting Name="SplitTicketCustID" Type="System.Int32" Scope="Application">
-      <Value Profile="(Default)">1034</Value>
+      <Value Profile="(Default)">1004</Value>
     </Setting>
     <Setting Name="DisplayUpdateSalesSummary" Type="System.Boolean" Scope="Application">
       <Value Profile="(Default)">False</Value>
@@ -120,7 +120,7 @@
       <Value Profile="(Default)">AIDAware Consultancies</Value>
     </Setting>
     <Setting Name="eMailDistributionList" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">guillermoegrillo@outlook.com</Value>
+      <Value Profile="(Default)">kefema.0612@gmail.com, noritals2611@gmail.com, hsmconsultores2009@gmail.com</Value>
     </Setting>
     <Setting Name="PrintMaxNumOpenTicketsPerCustomer" Type="System.Boolean" Scope="Application">
       <Value Profile="(Default)">False</Value>
@@ -138,7 +138,7 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="TicketHeaderWH" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">190,180</Value>
+      <Value Profile="(Default)">190,190</Value>
     </Setting>
     <Setting Name="WorkStationType" Type="System.String" Scope="Application">
       <Value Profile="(Default)">MASTER</Value>
@@ -168,7 +168,7 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="TicketsControllerDbConn" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">Server=DESKTOP-T68QADR;Database=AWCDigitalCommerce;User Id=sa;Password=sa;</Value>
+      <Value Profile="(Default)">Server=DESKTOP-7EGE6RJ;Database=AWCDigitalCommerce;User Id=sa;Password=sa;</Value>
     </Setting>
     <Setting Name="BartenderPrinter" Type="System.String" Scope="Application">
       <Value Profile="(Default)" />
@@ -192,19 +192,19 @@
       <Value Profile="(Default)">https://gee.bccr.fi.cr/Indicadores/Suscripciones/WS/wsindicadoreseconomicos.asmx</Value>
     </Setting>
     <Setting Name="BusinessLogo" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">C:\AWC.DigitalCommerce\Images\YourLogoHere.png</Value>
+      <Value Profile="(Default)">C:\AWC.DigitalCommerce\Images\kompas_BarRest.png</Value>
     </Setting>
     <Setting Name="BusinessName" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">RESTOBAR MORES</Value>
+      <Value Profile="(Default)">KOMPAS SPORT BAR</Value>
     </Setting>
     <Setting Name="BusinessID" Type="System.String" Scope="Application">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="BusinessPhoneNumber" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">TELÉFONO 8820-1824</Value>
+      <Value Profile="(Default)">TELÉFONO 6019-3252</Value>
     </Setting>
     <Setting Name="BusinessAddress1" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">URB LA UNIÓN, PATARRÁ</Value>
+      <Value Profile="(Default)">100MTS SUR MUSMANI CENTRO</Value>
     </Setting>
     <Setting Name="BusinessAddress2" Type="System.String" Scope="Application">
       <Value Profile="(Default)">DESAMPARADOS, SAN JOSÉ</Value>
@@ -219,10 +219,10 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="BartenderOrderTickInSeconds" Type="System.Int32" Scope="Application">
-      <Value Profile="(Default)">1</Value>
+      <Value Profile="(Default)">3</Value>
     </Setting>
     <Setting Name="PrintTicketRemotely" Type="System.Boolean" Scope="Application">
-      <Value Profile="(Default)">True</Value>
+      <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="Shift" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">1</Value>
@@ -267,7 +267,7 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="ApplyServiceFee" Type="System.Boolean" Scope="Application">
-      <Value Profile="(Default)">True</Value>
+      <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="SendAlertIfTicketIsHigherThan" Type="System.Int32" Scope="Application">
       <Value Profile="(Default)">100000</Value>

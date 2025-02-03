@@ -43,7 +43,7 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Microsoft Print to PDF")]
+        [global::System.Configuration.DefaultSettingValueAttribute("POS-58-Series")]
         public string TicketPrinter {
             get {
                 return ((string)(this["TicketPrinter"]));
@@ -52,7 +52,7 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Microsoft Print to PDF")]
+        [global::System.Configuration.DefaultSettingValueAttribute("LR1100 Printer")]
         public string KitchenPrinter {
             get {
                 return ((string)(this["KitchenPrinter"]));
@@ -286,7 +286,7 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1034")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1004")]
         public int SplitTicketCustID {
             get {
                 return ((int)(this["SplitTicketCustID"]));
@@ -397,7 +397,7 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("guillermoegrillo@outlook.com")]
+        [global::System.Configuration.DefaultSettingValueAttribute("kefema.0612@gmail.com, noritals2611@gmail.com, hsmconsultores2009@gmail.com")]
         public string eMailDistributionList {
             get {
                 return ((string)(this["eMailDistributionList"]));
@@ -454,7 +454,7 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("190,180")]
+        [global::System.Configuration.DefaultSettingValueAttribute("190,190")]
         public string TicketHeaderWH {
             get {
                 return ((string)(this["TicketHeaderWH"]));
@@ -544,7 +544,7 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Server=DESKTOP-T68QADR;Database=AWCDigitalCommerce;User Id=sa;Password=sa;")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Server=DESKTOP-7EGE6RJ;Database=AWCDigitalCommerce;User Id=sa;Password=sa;")]
         public string TicketsControllerDbConn {
             get {
                 return ((string)(this["TicketsControllerDbConn"]));
@@ -617,7 +617,7 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\AWC.DigitalCommerce\\Images\\YourLogoHere.png")]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\AWC.DigitalCommerce\\Images\\kompas_BarRest.png")]
         public string BusinessLogo {
             get {
                 return ((string)(this["BusinessLogo"]));
@@ -626,7 +626,7 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("RESTOBAR MORES")]
+        [global::System.Configuration.DefaultSettingValueAttribute("KOMPAS SPORT BAR")]
         public string BusinessName {
             get {
                 return ((string)(this["BusinessName"]));
@@ -644,7 +644,7 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("TELÉFONO 8820-1824")]
+        [global::System.Configuration.DefaultSettingValueAttribute("TELÉFONO 6019-3252")]
         public string BusinessPhoneNumber {
             get {
                 return ((string)(this["BusinessPhoneNumber"]));
@@ -653,7 +653,7 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("URB LA UNIÓN, PATARRÁ")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100MTS SUR MUSMANI CENTRO")]
         public string BusinessAddress1 {
             get {
                 return ((string)(this["BusinessAddress1"]));
@@ -701,7 +701,7 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("3")]
         public int BartenderOrderTickInSeconds {
             get {
                 return ((int)(this["BartenderOrderTickInSeconds"]));
@@ -710,7 +710,7 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool PrintTicketRemotely {
             get {
                 return ((bool)(this["PrintTicketRemotely"]));
@@ -851,7 +851,7 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool ApplyServiceFee {
             get {
                 return ((bool)(this["ApplyServiceFee"]));
