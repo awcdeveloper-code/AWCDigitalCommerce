@@ -750,40 +750,37 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
 
                 if (!userProf.userPowerAdmin)
                 {
-                    wpfMessageBox.Show("Tickets Controller", "ERROR: EL PIN INGRESADO NO TIENE PERMISO PARA BORRAR PRODUCTOS", MessageBoxButton.OK, wpfMessageBox.MessageBoxImage.Error, lang);
+                    wpfMessageBox.Show("Tickets Controller", "PIN INGRESADO NO TIENE PERMISO PARA BORRAR PRODUCTOS", MessageBoxButton.OK, wpfMessageBox.MessageBoxImage.Error, lang);
                     return;
                 }
 
-                if (wpfMessageBox.Show("Ticket Controller", "ATENCIÓN: DESEA REMOVER ESTE PRODUCTO (SI/NO)", MessageBoxButton.YesNo, wpfMessageBox.MessageBoxImage.Question, lang) == MessageBoxResult.Yes)
+                if (isMealItem)
                 {
-                    if (isMealItem)
+                    try
                     {
-                        try
-                        {
-                            var itemToRemove = newMealsOrder.Single(r => r.ItemID == item.ItemID);
-                            newMealsOrder.Remove(itemToRemove);
-                        }
-                        catch { }
+                        var itemToRemove = newMealsOrder.Single(r => r.ItemID == item.ItemID);
+                        newMealsOrder.Remove(itemToRemove);
                     }
-
-                    DB.InsertItemDeleted(ticket.ID, item.ItemDesc, item.Qty, userProf.userPIN);
-
-                    Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, $"ITEM {item.ItemID} DELETED.", Logger.Severity.INFORMATION);
-
-                    TicketDetail.Items.Remove(item);
-
-                    ticket.TotalPrice = TotalizeTicket(TicketDetail);
-
-                    lblTotalPrice.Content = ticket.TotalPrice;
-
-                    TicketDetail.Items.Refresh();
-
-                    lBox_Customers.IsEnabled = false;
-
-                    mw.transInProgress = true;
-
-                    InitializeButtonsState(2);
+                    catch { }
                 }
+
+                DB.InsertItemDeleted(ticket.ID, item.ItemDesc, item.Qty, userProf.userPIN);
+
+                Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, $"ITEM {item.ItemID} DELETED.", Logger.Severity.INFORMATION);
+
+                TicketDetail.Items.Remove(item);
+
+                ticket.TotalPrice = TotalizeTicket(TicketDetail);
+
+                lblTotalPrice.Content = ticket.TotalPrice;
+
+                TicketDetail.Items.Refresh();
+
+                lBox_Customers.IsEnabled = false;
+
+                mw.transInProgress = true;
+
+                InitializeButtonsState(2);
 
             }
             catch (Exception ex)

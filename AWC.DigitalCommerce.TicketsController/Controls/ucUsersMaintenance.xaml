@@ -379,13 +379,20 @@
                   Content="AJUSTES AL SISTEMA"
                   Checked="chkBox_Settings_CheckBoxChanged"
                   Unchecked="chkBox_Settings_CheckBoxChanged"/>
-        <CheckBox Grid.Row="15" Grid.Column="5" Grid.ColumnSpan="3"
+        <CheckBox Grid.Row="15" Grid.Column="2" Grid.ColumnSpan="3"
                   Name="chkBox_Cashdrawer"
                   Foreground="Cyan"
                   Margin="5"
                   FontSize="15"
                   FontWeight="DemiBold"
                   Content="CAJÓN DE DINERO"/>
+        <CheckBox Grid.Row="15" Grid.Column="5" Grid.ColumnSpan="3"
+                  Name="chkBox_PowerAdmin"
+                  Foreground="Cyan"
+                  Margin="5"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="POWER ADMIN"/>
         <CheckBox Grid.Row="5" Grid.Column="9"
                   Name="chkBox_Daily"
                   Foreground="Cyan"

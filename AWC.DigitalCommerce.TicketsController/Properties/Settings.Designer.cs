@@ -544,7 +544,7 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Server=DESKTOP-7EGE6RJ;Database=AWCDigitalCommerce;User Id=sa;Password=sa;")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Server=DESKTOP-T68QADR;Database=AWCDigitalCommerce;User Id=sa;Password=sa;")]
         public string TicketsControllerDbConn {
             get {
                 return ((string)(this["TicketsControllerDbConn"]));
@@ -662,7 +662,7 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("DESAMPARADOS, SAN JOSÉ")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string BusinessAddress2 {
             get {
                 return ((string)(this["BusinessAddress2"]));

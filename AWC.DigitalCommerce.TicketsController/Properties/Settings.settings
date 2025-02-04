@@ -168,7 +168,7 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="TicketsControllerDbConn" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">Server=DESKTOP-7EGE6RJ;Database=AWCDigitalCommerce;User Id=sa;Password=sa;</Value>
+      <Value Profile="(Default)">Server=DESKTOP-T68QADR;Database=AWCDigitalCommerce;User Id=sa;Password=sa;</Value>
     </Setting>
     <Setting Name="BartenderPrinter" Type="System.String" Scope="Application">
       <Value Profile="(Default)" />
@@ -207,7 +207,7 @@
       <Value Profile="(Default)">100MTS SUR MUSMANI CENTRO</Value>
     </Setting>
     <Setting Name="BusinessAddress2" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">DESAMPARADOS, SAN JOSÉ</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="WeeklyBackupSent" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>

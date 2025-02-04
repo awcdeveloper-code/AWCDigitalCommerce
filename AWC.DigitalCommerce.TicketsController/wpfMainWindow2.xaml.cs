@@ -859,7 +859,7 @@ namespace AWC.DigitalCommerce.TicketsController
                 if (isActive && tokenID != 6) return;
 
                 // Implementtion of Blind DailyClose
-                if (Settings.Default.AllowBlindDailyClosing == true && !userProf.userAccessLevel.ToUpper().Contains("ADMIN"))
+                if (Settings.Default.AllowBlindDailyClosing && !userProf.userAccessLevel.ToUpper().StartsWith("ADMIN"))
                 {
                     this.Opacity = 0.5;
                     wpfBlindDailyClosing blindDC = new wpfBlindDailyClosing();

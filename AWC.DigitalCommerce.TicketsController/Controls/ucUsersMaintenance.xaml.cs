@@ -77,6 +77,8 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
             chkBoxList.Add(chkBox_InternalOrder);
             chkBoxList.Add(chkBox_Specials);
             chkBoxList.Add(chkBox_PayMethod);
+            chkBoxList.Add(chkBox_Vouchers);
+            chkBoxList.Add(chkBox_PowerAdmin);
 
             EnableDisableCheckboxes(false);
 
@@ -159,6 +161,8 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
                         chkBox_InternalOrder.IsChecked = userProf.userSecurityProfile.Substring(45, 1) == "0" ? false : true;
                         chkBox_Specials.IsChecked = userProf.userSecurityProfile.Substring(47, 1) == "0" ? false : true;
                         chkBox_PayMethod.IsChecked = userProf.userSecurityProfile.Substring(48, 1) == "0" ? false : true;
+                        chkBox_Vouchers.IsChecked = userProf.userSecurityProfile.Substring(49, 1) == "0" ? false : true;
+                        chkBox_PowerAdmin.IsChecked = userProf.userSecurityProfile.Substring(50, 1) == "0" ? false : true;
 
                         txtBox_PIN.IsEnabled = false;
                         btnDelete.IsEnabled = true;
@@ -258,6 +262,8 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
             strBld.Append((bool)chkBox_InternalOrder.IsChecked ? 1 : 0);
             strBld.Append((bool)chkBox_Specials.IsChecked ? 1 : 0);
             strBld.Append((bool)chkBox_PayMethod.IsChecked ? 1 : 0);
+            strBld.Append((bool)chkBox_Vouchers.IsChecked ? 1 : 0);
+            strBld.Append((bool)chkBox_PowerAdmin.IsChecked ? 1 : 0);
 
             clsUser updateUserProfile = new clsUser();
 
@@ -268,7 +274,7 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
             updateUserProfile.userAccessLevel = cbox_Job.SelectedItem.ToString();
             updateUserProfile.userPowerAdmin = cbox_Job.SelectedIndex == 3 ? true : false;
 
-            updateUserProfile.userSecurityProfile = strBld.ToString() + new string('0', 50 - strBld.ToString().Length);
+            updateUserProfile.userSecurityProfile = strBld.ToString() + new string('0', 60 - strBld.ToString().Length);
 
             return updateUserProfile;
         }
