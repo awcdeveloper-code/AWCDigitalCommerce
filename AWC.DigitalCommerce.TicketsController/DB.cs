@@ -5509,6 +5509,33 @@ namespace AWC.DigitalCommerce.TicketsController
                 return null;
             }
         }
+
+        public static bool InsertSalaryAdvance(clsSalaryAdvance salAdv)
+        {
+            try
+            {
+                string sqlQry = $"INSERT INTO tbl_SalaryAdvances (BusinessDate, Amount, Requester, Approver) VALUES ('{salAdv.BusinessDate}', {salAdv.Amount}, '{salAdv.Requester}', {salAdv.Approver})";
+
+                using (sqlConn = new SqlConnection(Settings.Default.TicketsControllerDbConn))
+                {
+                    sqlConn.Open();
+                    sqlCmd = new SqlCommand(sqlQry, sqlConn);
+                    var newId = sqlCmd.ExecuteNonQuery();
+                }
+
+                if (Settings.Default.DebugTrace)
+                    Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, sqlQry, Logger.Severity.DEBUG);
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                sqlConn.Close();
+                Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, ex, Logger.Severity.ERROR);
+                Helper.ShowMessage("ERROR: " + ex, System.Windows.Forms.MessageBoxIcon.Error);
+                return false;
+            }
+        }
         #endregion
 
         #region DELETE

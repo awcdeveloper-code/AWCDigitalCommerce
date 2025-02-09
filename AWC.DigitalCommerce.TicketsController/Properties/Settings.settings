@@ -9,10 +9,10 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="TicketPrinter" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">POS-58-Series</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="KitchenPrinter" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">LR1100 Printer</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="VirtualNumericKeyboardActive" Type="System.Boolean" Scope="Application">
       <Value Profile="(Default)">True</Value>

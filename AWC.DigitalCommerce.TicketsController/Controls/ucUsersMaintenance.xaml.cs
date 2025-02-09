@@ -323,6 +323,7 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
                 chkBox_TicketsMgmt.IsChecked = action;
                 chkBox_InternalOrder.IsChecked = action;
                 chkBox_Specials.IsChecked = action;
+                chkBox_Vouchers.IsChecked = action;
             }
         }
 

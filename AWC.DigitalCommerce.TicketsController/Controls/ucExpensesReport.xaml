@@ -4,8 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController"
-             mc:Ignorable="d" 
-             d:DesignHeight="550" d:DesignWidth="600" Background="DarkBlue">
+             mc:Ignorable="d"  Background="DarkBlue"
+             d:DesignHeight="550" d:DesignWidth="1200">
     <UserControl.Resources>
         <DataTemplate x:Key="cBox_Meals_DataTemplate">
             <StackPanel Margin="1">
@@ -18,6 +18,10 @@
     </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="160"/>
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="20"/>
             <ColumnDefinition Width="20"/>
             <ColumnDefinition Width="160"/>
             <ColumnDefinition Width="400"/>
@@ -195,6 +199,80 @@
         <Button Grid.Row="11" Grid.Column="2"
                 Name="AddLunch"
                 Click="btn_AddLunch"
+                Foreground="DarkBlue"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                IsEnabled="False"
+                Height="50"
+                Width="110"
+                FontSize="15"
+                Margin="5"
+                Cursor="Hand"
+                FontWeight="DemiBold">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/Images/Plus_sign.png" Width="20" Height="20" Margin="3"/>
+                <TextBlock Text="AGREGAR" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Button>
+        <!--SALARY ADVANCE-->
+        <GroupBox Grid.Row="0" Grid.Column="4"
+                  Grid.RowSpan="6" Grid.ColumnSpan="4"
+                  Name="grpSalaryAdvance"
+                  Foreground="Cyan"
+                  Margin="5"
+                  Header="ADELANTOS DE SALARIO"/>
+        <!--LABELS-->
+        <Label Grid.Row="1" Grid.Column="5"
+               Foreground="Cyan"
+               VerticalAlignment="Center"
+               Content="FECHA:"
+               FontSize="20"
+               FontWeight="DemiBold"/>
+        <Label Grid.Row="2" Grid.Column="5"
+               Foreground="Cyan"
+               VerticalAlignment="Center"
+               Content="COLABORADOR:"
+               FontSize="20"
+               FontWeight="DemiBold"/>
+        <Label Grid.Row="3" Grid.Column="5"
+               Foreground="Cyan"
+               VerticalAlignment="Center"
+               Content="MONTO:"
+               FontSize="20"
+               FontWeight="DemiBold"/>
+        <!--CALENDAR-->
+        <DatePicker Grid.Row="1" Grid.Column="6"
+                    Name="AdvDatePicker"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Height="30" Width="200"
+                    FontSize="20"
+                    FontWeight="DemiBold"
+                    Margin="5" />
+        <!--TEXTBOX-->
+        <TextBox Grid.Row="2" Grid.Column="6"
+                 Name="txtAdvRequester"
+                 Background="LightCyan"
+                 VerticalAlignment="Center"
+                 FontSize="20"
+                 Margin="5"
+                 FontWeight="DemiBold"/>
+        <TextBox Grid.Row="3" Grid.Column="6"
+                 Name="txtAdvAmount"
+                 PreviewTextInput="NumberValidationTextBox"
+                 Width="110"
+                 Margin="5"
+                 FontSize="20"
+                 Background="LightCyan"
+                 HorizontalAlignment="Left"
+                 HorizontalContentAlignment="Right"
+                 VerticalAlignment="Center"
+                 FontWeight="DemiBold"
+                 GotFocus="txtAdvAmount_GotFocus" />
+        <!--BUTTON-->
+        <Button Grid.Row="4" Grid.Column="6"
+                Name="AddAdv"
+                Click="btn_AddAdv"
                 Foreground="DarkBlue"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center"

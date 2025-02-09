@@ -43,7 +43,7 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("POS-58-Series")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string TicketPrinter {
             get {
                 return ((string)(this["TicketPrinter"]));
@@ -52,7 +52,7 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("LR1100 Printer")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string KitchenPrinter {
             get {
                 return ((string)(this["KitchenPrinter"]));

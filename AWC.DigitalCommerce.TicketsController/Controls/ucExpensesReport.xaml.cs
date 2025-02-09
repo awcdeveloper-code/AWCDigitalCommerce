@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using AWC.DigitalCommerce.TicketsController.Classes;
 using AWC.DigitalCommerce.TicketsController.Properties;
 
 namespace AWC.DigitalCommerce.TicketsController.Controls
@@ -70,6 +71,12 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
                     cbox_Meals.SelectedIndex = -1;
                     txtQty.Text = string.Empty;
                     AddLunch.IsEnabled = false;
+                    break;
+                case "Advance":
+                    AdvDatePicker.SelectedDate = DateTime.Today;
+                    txtAdvRequester.Text = string.Empty;
+                    txtAdvAmount.Text = string.Empty;
+                    AddAdv.IsEnabled = false;
                     break;
             }
         }
@@ -176,5 +183,35 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
             CleanAll("Lunch");
         }
         #endregion EMPOYEES LUNCH
+
+        #region SALARY ADVANCES
+        private void txtAdvAmount_GotFocus(object sender, RoutedEventArgs e)
+        {
+            wpfNumericKeyboard numKey = new wpfNumericKeyboard();
+            numKey.ShowDialog();
+            txtAdvAmount.Text = numKey.numKeyed;
+            AddAdv.IsEnabled = true;
+        }
+
+        private void btn_AddAdv(object sender, RoutedEventArgs e)
+        {
+            if (AdvDatePicker.Text.Length == 0) return;
+            if (txtAdvRequester.Text.Length == 0) return;
+            if (txtAdvAmount.Text.Length == 0) return;
+
+            clsSalaryAdvance salAdvance = new clsSalaryAdvance();
+            salAdvance.BusinessDate = Settings.Default.BusinessDate;
+            salAdvance.Requester = txtAdvRequester.Text;
+            salAdvance.Approver = Settings.Default.WhoOpen;
+            salAdvance.Amount = Convert.ToInt32(txtAdvAmount.Text);
+
+            if (DB.InsertSalaryAdvance(salAdvance))
+            {
+                Helper.ShowToastNotification($"Adelanto de salario ok");
+            }
+
+            CleanAll("Advance");
+        }
+        #endregion
     }
 }
