@@ -183,10 +183,10 @@ namespace AWC.DigitalCommerce.TicketsController
                     sb.Append("<table>");
                     sb.Append("<tr><th>DESCRIPCIÓN</th><th>SISTEMA</th><th>OPERADOR</th><th>DIFERENCIA</th></tr>");
 
-                    sb.Append("<tr><th>EFECTIVO (CI + IC + E - G)</th><th class=\"amount\">" + totCash.ToString("N0") + "</th></tr>");
+                    sb.Append("<tr><td>EFECTIVO (CI + IC + E - G)</td ><td class=\"amount\">" + totCash.ToString("N0") + "</td><td class=\"amount\">" + dcRep.CashByOperator.ToString("N0") + "</td><td class=\"amount\">" + (totCash - dcRep.CashByOperator).ToString("N0") + "</td></tr>");
                     sb.Append("<tr><td>TARJETA DE CRÉDITO</td ><td class=\"amount\">" + dcRep.CreditCard.ToString("N0") + "</td><td class=\"amount\">" + dcRep.CreditCardByOperator.ToString("N0") + "</td><td class=\"amount\">" + (dcRep.CreditCard - dcRep.CreditCardByOperator).ToString("N0") + "</td></tr>");
                     sb.Append("<tr><td>TRANS SINPE</td ><td class=\"amount\">" + dcRep.Transfer.ToString("N0") + "</td><td class=\"amount\">" + dcRep.TransferByOperator.ToString("N0") + "</td><td class=\"amount\">" + (dcRep.Transfer - dcRep.TransferByOperator).ToString("N0") + "</td></tr>");
-                    sb.Append("<tr><td>VOUCHERS</td ><td class=\"amount\">" + dcRep.Voucher.ToString("N0") + "</td><td class=\"amount\">" + dcRep.VoucherByOperator.ToString("N0") + "</td><td class=\"amount\">" + (dcRep.Voucher - dcRep.TransferByOperator).ToString("N0") + "</td></tr>");
+                    sb.Append("<tr><td>VOUCHERS</td ><td class=\"amount\">" + dcRep.Voucher.ToString("N0") + "</td><td class=\"amount\">" + dcRep.VoucherByOperator.ToString("N0") + "</td><td class=\"amount\">" + (dcRep.Voucher - dcRep.VoucherByOperator).ToString("N0") + "</td></tr>");
 
                     int totVert1 = totCash + dcRep.CreditCard + dcRep.Transfer + dcRep.Voucher;
                     int totVert2 = dcRep.CashByOperator + dcRep.CreditCardByOperator + dcRep.TransferByOperator + dcRep.VoucherByOperator;

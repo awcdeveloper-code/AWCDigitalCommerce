@@ -109,6 +109,7 @@ namespace AWC.DigitalCommerce.TicketsController
             dcReport.TotalCashInDrawer = (Settings.Default.CashRegisterOpening + dcReport.NetSale) - totExp;
             dcReport.OldTicketsPay = oldTicketsCancelled;
             dcReport.ExpensesList = expensesList;
+            dcReport.VouchersList = DB.GetVouchers(Settings.Default.BusinessDate);
 
             itemsList = DB.DataBinding_tbl_DailyClose(Settings.Default.BusinessDate);
 
