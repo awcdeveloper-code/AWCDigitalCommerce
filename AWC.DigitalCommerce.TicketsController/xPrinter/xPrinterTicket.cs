@@ -161,10 +161,17 @@ namespace AWC.DigitalCommerce.TicketsController
 
                 foreach (clsItemDetailForDatagrid itemDet in lstItems)
                 {
-                    if (itemDet.ItemDesc.Contains("EFECTIVO"))
+                    if (itemDet.ItemDesc == null)
                     {
-                        totalCash += itemDet.TotalPrice;
-                        continue;
+                        itemDet.ItemDesc = "PRODUCTO ELIMINADO";
+                    }
+                    else
+                    {
+                        if (itemDet.ItemDesc.Contains("EFECTIVO"))
+                        {
+                            totalCash += itemDet.TotalPrice;
+                            continue;
+                        }
                     }
 
                     workVar = Helper.FormatItemDetailLine(itemDet);

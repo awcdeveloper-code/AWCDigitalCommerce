@@ -9,10 +9,10 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="TicketPrinter" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">Microsoft Print to PDF</Value>
     </Setting>
     <Setting Name="KitchenPrinter" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">Microsoft Print to PDF</Value>
     </Setting>
     <Setting Name="VirtualNumericKeyboardActive" Type="System.Boolean" Scope="Application">
       <Value Profile="(Default)">True</Value>
@@ -192,7 +192,7 @@
       <Value Profile="(Default)">https://gee.bccr.fi.cr/Indicadores/Suscripciones/WS/wsindicadoreseconomicos.asmx</Value>
     </Setting>
     <Setting Name="BusinessLogo" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">C:\AWC.DigitalCommerce\Images\kompas_BarRest.png</Value>
+      <Value Profile="(Default)">C:\AWC.DigitalCommerce\Images\LaRancha.png</Value>
     </Setting>
     <Setting Name="BusinessName" Type="System.String" Scope="Application">
       <Value Profile="(Default)">KOMPAS SPORT BAR</Value>

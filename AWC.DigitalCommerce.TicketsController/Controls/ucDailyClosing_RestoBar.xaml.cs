@@ -199,7 +199,6 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
             }
             else
             {
-                //CashRegisterOpening = Settings.Default.CashRegisterOpening;
                 CashRegisterOpening = DB.GetCashOnHandAtTheBeginning();
                 lbl_InitialCash.Content = CashRegisterOpening.ToString("N0");
             }
