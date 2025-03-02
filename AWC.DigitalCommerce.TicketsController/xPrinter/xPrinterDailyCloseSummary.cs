@@ -204,7 +204,7 @@ namespace AWC.DigitalCommerce.TicketsController
             Offset += 18;
 
             workVar2 = dc.OldTicketsPay.ToString("N0");
-            workVar = new string(' ', 7) + "PAGOS DE CXC: " + workVar2.PadLeft(9);
+            workVar = " ABONOS + PAGOS CXC: " + workVar2.PadLeft(9);
             graphics.DrawString(workVar, new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
             Offset += 18;
 

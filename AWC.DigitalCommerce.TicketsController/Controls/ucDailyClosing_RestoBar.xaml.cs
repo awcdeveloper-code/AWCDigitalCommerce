@@ -214,7 +214,7 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
             lbl_NetSale.Content = netPrice.ToString("N0");
             lbl_ServiceFee.Content = ticketSummary.ServiceFee.ToString("N0");
             lbl_Expenses.Content = expensesList.Sum(x => x.ExpenseAmount).ToString("N0");
-            lbl_OldTicketsPay.Content = oldTicketsCancelled.ToString("N0");
+            lbl_OldTicketsPay.Content = (oldTicketsCancelled + smlPay.Cash + smlPay.CreditCard + smlPay.Transfer + smlPay.Voucher).ToString("N0");
 
             CashOnDrawer = CashRegisterOpening + incomeCash + ticketSummary.Cash - totExp;
 
@@ -233,7 +233,7 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
             dcReport.ServiceFee = ticketSummary.ServiceFee;
             dcReport.Expenses = expensesList.Sum(x => x.ExpenseAmount);
             dcReport.TotalCashInDrawer = CashRegisterOpening + dcReport.NetSale;
-            dcReport.OldTicketsPay = oldTicketsCancelled;
+            dcReport.OldTicketsPay = oldTicketsCancelled + smlPay.Cash + smlPay.CreditCard + smlPay.Transfer + smlPay.Voucher;
             dcReport.ExpensesList = expensesList;
             dcReport.VouchersList = DB.GetVouchers(Settings.Default.BusinessDate);
 

@@ -91,7 +91,7 @@ namespace AWC.DigitalCommerce.TicketsController
 
             int totExp = (int)expensesList.Sum(x => x.ExpenseAmount);
 
-            dcReport.InitialCash = Settings.Default.CashRegisterOpening;
+            dcReport.InitialCash = DB.GetCashOnHandAtTheBeginning();
             dcReport.BusinessDate = Settings.Default.BusinessDate;
             dcReport.AccountsReceivable = ticketSummary.Payments;
             dcReport.Cash = ticketSummary.Cash;
@@ -115,7 +115,7 @@ namespace AWC.DigitalCommerce.TicketsController
 
             string validationResult = string.Empty;
 
-            if (cash != (ticketSummary.Cash + Settings.Default.CashRegisterOpening) - totExp)
+            if (cash != (ticketSummary.Cash + dcReport.InitialCash) - totExp)
             {
                 validationResult += "ERROR: MONTO DE EFECTIVO INGRESADO NO CUADRA CON EL SISTEMA" + Environment.NewLine;
             }

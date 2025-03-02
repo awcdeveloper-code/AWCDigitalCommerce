@@ -262,7 +262,7 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
 
                 clsSmallPayment smlPay = new clsSmallPayment();
                 smlPay.RandomRef = Helper.RandomString(6);
-                smlPay.CustomerID = DB.GetCustomerID(customerID);
+                smlPay.CustomerID = DB.GetCustomerID(tck2pay.CustomerID);
                 smlPay.TicketID = tck2pay.ID;
                 smlPay.CurTotalPrice = tck2pay.TotalPrice;
                 smlPay.PaymentAmount = paymentAmount;

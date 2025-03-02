@@ -392,7 +392,7 @@
                   Margin="5"
                   FontSize="15"
                   FontWeight="DemiBold"
-                  Content="POWER ADMIN"/>
+                  Content="ELIMINAR ITEMES DE FACTURA"/>
         <CheckBox Grid.Row="5" Grid.Column="9"
                   Name="chkBox_Daily"
                   Foreground="Cyan"

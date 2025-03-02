@@ -303,6 +303,7 @@ namespace AWC.DigitalCommerce.TicketsController
 
                         DB.NormalizeCustomerID();
                         DB.DeleteOpenTickets(0);
+                        DB.NormalizeDailyClosingTable();
 
                         this.Opacity = 0.5;
 

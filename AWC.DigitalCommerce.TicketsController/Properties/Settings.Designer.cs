@@ -397,7 +397,7 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("kefema.0612@gmail.com, noritals2611@gmail.com, hsmconsultores2009@gmail.com")]
+        [global::System.Configuration.DefaultSettingValueAttribute("guillermoegrillo@outlook.com")]
         public string eMailDistributionList {
             get {
                 return ((string)(this["eMailDistributionList"]));

@@ -24,6 +24,7 @@ using Org.BouncyCastle.Asn1.X500;
 using Org.BouncyCastle.Utilities.Collections;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using static iText.StyledXmlParser.Jsoup.Select.Evaluator;
 
 namespace AWC.DigitalCommerce.TicketsController
 {
@@ -3393,8 +3394,8 @@ namespace AWC.DigitalCommerce.TicketsController
 
             try
             {
-                string sqlQry = "SELECT DISTINCT tbl_CustomerID.CustomerID, tbl_CustomerID.Type FROM tbl_CustomerID " +
-                                "INNER JOIN tbl_DailyClosing ON tbl_CustomerID.ID = tbl_DailyClosing.CustomerID " +
+                string sqlQry = "SELECT DISTINCT tbl_CustomerID.CustomerID, tbl_CustomerID.Type FROM tbl_CustomerID INNER JOIN tbl_DailyClosing ON tbl_CustomerID.ID = tbl_DailyClosing.CustomerID " +
+                                "WHERE tbl_CustomerID.ID IN (SELECT DISTINCT a.CustomerID FROM tbl_DailyClosing A INNER JOIN tbl_Tickets b ON a.CustomerID = b.CustomerID WHERE b.Status = 1) " +
                                 "ORDER BY tbl_CustomerID.CustomerID ASC";
 
                 using (sqlConn = new SqlConnection(Settings.Default.TicketsControllerDbConn))
@@ -6025,6 +6026,34 @@ namespace AWC.DigitalCommerce.TicketsController
                 bool result = false;
 
                 string sqlQry = $"DELETE FROM tbl_TicketsProforms WHERE TicketNumber = {ID} AND CustomerAKA = '{customerAKA}'";
+
+                using (sqlConn = new SqlConnection(Settings.Default.TicketsControllerDbConn))
+                {
+                    sqlConn.Open();
+                    SqlCommand sqlCmd = new SqlCommand(sqlQry, sqlConn);
+                    sqlCmd.ExecuteNonQuery();
+                    result = true;
+                }
+
+                if (Settings.Default.DebugTrace)
+                    Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, sqlQry, Logger.Severity.DEBUG);
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                sqlConn.Close();
+                Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, ex, Logger.Severity.ERROR);
+                return false; ;
+            }
+        }
+        public static bool NormalizeDailyClosingTable()
+        {
+            try
+            {
+                bool result = false;
+
+                string sqlQry = "DELETE tbl_DailyClosing WHERE TicketNumber IN (SELECT A.TicketNumber FROM tbl_DailyClosing A INNER JOIN tbl_Tickets B ON A.TicketNumber = B.ID WHERE B.Status = 0)";
 
                 using (sqlConn = new SqlConnection(Settings.Default.TicketsControllerDbConn))
                 {

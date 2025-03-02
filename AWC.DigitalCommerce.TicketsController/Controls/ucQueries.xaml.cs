@@ -267,5 +267,10 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
             theMostRequested.ShowDialog();
             mw.Opacity = 1;
         }
+
+        private void btn_Explorer(object sender, RoutedEventArgs e)
+        {
+            Helper.InDevelopment();
+        }
     }
 }

@@ -180,6 +180,23 @@
                                    VerticalAlignment="Center"/>
                     </StackPanel>
                 </Button>
+                <Button Click="btn_Explorer"
+                        Name="QryExplorer"
+                        Foreground="Black"
+                        FontSize="20"
+                        Height="60"
+                        Width="240"
+                        Margin="3"
+                        Cursor="Hand"
+                        FontWeight="DemiBold">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Images/openFolder.png"
+                               Width="30" Height="30"
+                               Margin="5"/>
+                        <TextBlock Text="EXPLORADOR"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
             </StackPanel>
         </GroupBox>
         <!--CUSTOMERS-->

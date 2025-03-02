@@ -1,24 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
 using System.Net.NetworkInformation;
-using System.Runtime.InteropServices.ComTypes;
-using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
-using System.Windows.Automation.Peers;
+using System.Windows.Forms;
 using System.Windows.Input;
 using AWC.DigitalCommerce.TicketsController.Classes;
-using AWC.DigitalCommerce.TicketsController.Controls;
 using AWC.DigitalCommerce.TicketsController.Properties;
-using iText.Kernel.Pdf.Canvas.Parser;
-using Microsoft.Win32;
-using static System.Windows.Forms.AxHost;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
 
 namespace AWC.DigitalCommerce.TicketsController
 {
@@ -98,7 +90,7 @@ namespace AWC.DigitalCommerce.TicketsController
         {
             try
             {
-                Mouse.OverrideCursor = Cursors.Wait;
+                Mouse.OverrideCursor = System.Windows.Input.Cursors.Wait;
 
                 #region HEADER
 
@@ -140,7 +132,7 @@ namespace AWC.DigitalCommerce.TicketsController
                 sb.Append("<tr><th>TOTAL EN CAJA (CI + IC + E + C + S + V - G)</th><th class=\"amount\">" + cashBoxTot.ToString("N0") + "</th></tr>");
 
                 sb.Append("<tr><td>10% SERVICIO</td ><td class=\"amount\">" + dcRep.ServiceFee.ToString("N0") + "</td></tr>");
-                sb.Append("<tr><td>PAGOS DE CXC</td ><td class=\"amount\">" + dcRep.OldTicketsPay.ToString("N0") + "</td></tr>");
+                sb.Append("<tr><td>ABONOS + PAGOS DE CXC</td ><td class=\"amount\">" + dcRep.OldTicketsPay.ToString("N0") + "</td></tr>");
                 sb.Append("</table>");
                 sb.Append("<p><br></p>");
                 #endregion
@@ -202,19 +194,21 @@ namespace AWC.DigitalCommerce.TicketsController
                 //
                 // EXPENSES
                 //
-                sb.Append("<h2>GASTOS REALIZADOS</h2>");
-                sb.Append("<table>");
-                sb.Append("<tr><th>DESCRIPCIÓN DEL PRODUCTO</th><th>MONTO</th></tr>");
-
-                foreach (clsExpense expense in dcRep.ExpensesList )
+                if (dcRep.ExpensesList.Count > 0)
                 {
-                    sb.Append("<tr><td>" + expense.ExpenseDescription + "</td><td class=\"amount\">" + expense.ExpenseAmount.ToString("N0") + "</td></tr>");
+                    sb.Append("<h2>GASTOS REALIZADOS</h2>");
+                    sb.Append("<table>");
+                    sb.Append("<tr><th>DESCRIPCIÓN DEL PRODUCTO</th><th>MONTO</th></tr>");
+
+                    foreach (clsExpense expense in dcRep.ExpensesList)
+                    {
+                        sb.Append("<tr><td>" + expense.ExpenseDescription + "</td><td class=\"amount\">" + expense.ExpenseAmount.ToString("N0") + "</td></tr>");
+                    }
+
+                    sb.Append("<tr><th>TOTAL:</th><th class=\"amount\">" + dcRep.Expenses.ToString("N0") + "</th></tr>");
+                    sb.Append("</table>");
+                    sb.Append("<p><br></p>");
                 }
-
-                sb.Append("<tr><th>TOTAL:</th><th class=\"amount\">" + dcRep.Expenses.ToString("N0") + "</th></tr>");
-                sb.Append("</table>");
-                sb.Append("<p><br></p>");
-
                 //
                 // PRODUCTS SOLD
                 //
@@ -254,6 +248,32 @@ namespace AWC.DigitalCommerce.TicketsController
                 sb.Append("</table>");
                 sb.Append("<p><br></p>");
                 #endregion
+
+                //
+                // SMALL PAYMENTS
+                //
+                List<clsSmallPayment> smlPayList = DB.GetSmallPayments(Settings.Default.BusinessDate);
+
+                if (smlPayList.Count > 0)
+                {
+                    sb.Append("<h2>ABONOS A CUENTAS PENDIENTES</h2>");
+                    sb.Append("<table>");
+                    sb.Append("<tr><th>No. REF</th><th>No. CTA</th><th>CLIENTE</th><th>EFECTIVO</th><th>TARJ CRED</th><th>TRANSFER</th><th>SALDO</th></tr>");
+
+                    foreach (clsSmallPayment smlPay in smlPayList)
+                    {
+                        sb.Append("<tr><td class=\"amount\">" + smlPay.RandomRef + "</td><td>" +
+                                                                smlPay.TicketID + "</td><td>" +
+                                                                DB.GetCustomerIDByID(smlPay.CustomerID) + "</td><td class=\"amount\">" +
+                                                                smlPay.Cash.ToString("N0") + "</td><td class=\"amount\">" +
+                                                                smlPay.CreditCard.ToString("N0") + "</td><td class=\"amount\">" +
+                                                                smlPay.Transfer.ToString("N0") + "</td><td class=\"amount\">" +
+                                                                smlPay.NewTotalPrice.ToString("N0") + "</td></tr>");
+                    }
+
+                    sb.Append("</table>");
+                    sb.Append("<p><br></p>");
+                }
 
                 #region PRODUCTS: CHANGE PRICES
                 //
@@ -547,7 +567,7 @@ namespace AWC.DigitalCommerce.TicketsController
         {
             try
             {
-                Mouse.OverrideCursor = Cursors.Wait;
+                Mouse.OverrideCursor = System.Windows.Input.Cursors.Wait;
 
                 string subject = Settings.Default.BusinessName + " - Cierre Resumen del " + DB.ConverTicketDate(date1) + " al " + DB.ConverTicketDate(date2);
 
@@ -593,7 +613,7 @@ namespace AWC.DigitalCommerce.TicketsController
         {
             try
             {
-                Mouse.OverrideCursor = Cursors.Wait;
+                Mouse.OverrideCursor = System.Windows.Input.Cursors.Wait;
 
                 List<clsItemDetailForDatagrid> itemsList = DB.GetItemsByDate(dateProc, dateProc, 4);
 
@@ -659,7 +679,7 @@ namespace AWC.DigitalCommerce.TicketsController
         {
             try
             {
-                Mouse.OverrideCursor = Cursors.Wait;
+                Mouse.OverrideCursor = System.Windows.Input.Cursors.Wait;
 
                 List<clsItemDetailForDatagrid> itemsList = DB.GetItemsByDate(date1, date2, 4);
 
@@ -751,7 +771,7 @@ namespace AWC.DigitalCommerce.TicketsController
         {
             try
             {
-                Mouse.OverrideCursor = Cursors.Wait;
+                Mouse.OverrideCursor = System.Windows.Input.Cursors.Wait;
 
                 List<clsDelincuency> delincuenciesList = DB.GetDelincuencies("202%");
 
@@ -1481,7 +1501,7 @@ namespace AWC.DigitalCommerce.TicketsController
         {
             try
             {
-                Mouse.OverrideCursor = Cursors.Wait;
+                Mouse.OverrideCursor = System.Windows.Input.Cursors.Wait;
 
                 string header = string.Empty;
                 string subject = string.Empty;

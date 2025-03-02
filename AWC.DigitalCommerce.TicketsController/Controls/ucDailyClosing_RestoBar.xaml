@@ -276,7 +276,7 @@
                FontSize="25"
                FontWeight="DemiBold"/>
         <Label Grid.Row="13" Grid.Column="2"
-               Content="PAGOS CXC :"
+               Content="ABONOS + PAGOS CXC :"
                VerticalAlignment="Center"
                HorizontalAlignment="Right"
                Foreground="White"
