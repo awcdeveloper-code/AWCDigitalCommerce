@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController"
-        mc:Ignorable="d" Background="DarkBlue" WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d" Background="White" WindowStartupLocation="CenterScreen"
         Height="650" Width="495" WindowStyle="None" ResizeMode="NoResize"
         ContentRendered="wpfPayMethod2_ContentRendered" >
     <Border BorderBrush="Fuchsia" BorderThickness="5">
@@ -59,21 +59,21 @@
             <!--LABELS-->
             <Label Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="4"
                    Name="lblTicketNumber"
-                   Foreground="White"
+                   Foreground="DarkBlue"
                    VerticalAlignment="Center"
                    HorizontalAlignment ="Center"
                    Content="000000"
                    FontSize="50"
                    FontWeight="Bold"/>
             <Label Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2"
-                   Foreground="Cyan"
+                   Foreground="DarkBlue"
                    VerticalAlignment="Center"
                    HorizontalAlignment ="Right"
                    Content="TOTAL A PAGAR:"
                    FontSize="30"
                    FontWeight="Bold"/>
             <Label Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2"
-                   Foreground="Cyan"
+                   Foreground="DarkBlue"
                    Name="lblParts"
                    VerticalAlignment="Center"
                    HorizontalAlignment ="Right"
@@ -82,13 +82,13 @@
                    FontWeight="Bold"/>
             <Label Grid.Row="4" Grid.Column="5"
                    Name="lblEachPartAmount"
-                   Foreground="Cyan"
+                   Foreground="DarkBlue"
                    VerticalAlignment="Center"
                    HorizontalAlignment ="Center"
                    FontSize="20"
                    FontWeight="Bold"/>
             <Label Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2"
-                   Foreground="Cyan"
+                   Foreground="DarkBlue"
                    Name="lblCash"
                    VerticalAlignment="Center"
                    HorizontalAlignment ="Right"
@@ -96,7 +96,7 @@
                    FontSize="30"
                    FontWeight="DemiBold"/>
             <Label Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2"
-                   Foreground="Cyan"
+                   Foreground="DarkBlue"
                    Name="lblCreditCard"
                    VerticalAlignment="Center"
                    HorizontalAlignment ="Right"
@@ -104,7 +104,7 @@
                    FontSize="30"
                    FontWeight="DemiBold"/>
             <Label Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2"
-                   Foreground="Cyan"
+                   Foreground="DarkBlue"
                    Name="lblTransfer"
                    VerticalAlignment="Center"
                    HorizontalAlignment ="Right"
@@ -112,7 +112,7 @@
                    FontSize="30"
                    FontWeight="DemiBold"/>
             <Label Grid.Row="8" Grid.Column="2" Grid.ColumnSpan="2"
-                   Foreground="Cyan"
+                   Foreground="DarkBlue"
                    Name="lblVoucher"
                    VerticalAlignment="Center"
                    HorizontalAlignment ="Right"
@@ -120,7 +120,7 @@
                    FontSize="30"
                    FontWeight="DemiBold"/>
             <Label Grid.Row="9" Grid.Column="2" Grid.ColumnSpan="2"
-                   Foreground="Yellow"
+                   Foreground="DarkBlue"
                    VerticalAlignment="Center"
                    HorizontalAlignment ="Right"
                    Content="VUELTO:"
@@ -131,8 +131,7 @@
                      Name="txtBox_Total"
                      Text="0"
                      IsEnabled="False"
-                     Background="Transparent"
-                     Foreground="White"
+                     Background="Yellow"
                      Margin="5"
                      FontSize="30"
                      HorizontalContentAlignment="Right"
@@ -185,9 +184,8 @@
                      FontWeight="DemiBold" GotFocus="txtBox_Voucher_GotFocus"/>
             <TextBox Grid.Row="9" Grid.Column="5"
                      Name="txtBox_CashBack"
-                     Foreground="White"
                      IsEnabled="False"
-                     Background="Transparent"
+                     Background="Yellow"
                      Margin="5"
                      FontSize="30"
                      HorizontalContentAlignment="Right"
@@ -197,14 +195,15 @@
                         Orientation="Horizontal" Grid.Row="11"
                         Grid.Column="1"
                         Grid.ColumnSpan="5"
-                        Visibility="Hidden">
+                        Visibility="Visible">
                 <Image Source="/Images/LogoMH.png"
                        Margin="5"/>
-                <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Vertical"
+                            Margin="15 5 0 0">
                     <RadioButton Name="SendtoIRSforElectronicTicket"
                                  Content="TIQUETE ELECTRÓNICO"
-                                 Foreground="Cyan"
-                                 IsChecked="True"
+                                 Foreground="LightGray"
+                                 IsChecked="False"
                                  IsEnabled="False"
                                  FontSize="16"
                                  Margin="3"
@@ -214,7 +213,7 @@
                     </RadioButton>
                     <RadioButton Name="SendtoIRSforElectronicInvoice"
                                  Content="FACTURA ELECTRÓNICA"
-                                 Foreground="Cyan"
+                                 Foreground="LightGray"
                                  IsChecked="False"
                                  IsEnabled="False"
                                  FontSize="16"

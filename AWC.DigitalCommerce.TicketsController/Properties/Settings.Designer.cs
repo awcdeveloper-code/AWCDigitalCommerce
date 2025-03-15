@@ -286,7 +286,7 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1004")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1003")]
         public int SplitTicketCustID {
             get {
                 return ((int)(this["SplitTicketCustID"]));
@@ -617,7 +617,7 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\AWC.DigitalCommerce\\Images\\LaRancha.png")]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\AWC.DigitalCommerce\\Images\\RestobarElRancho.png")]
         public string BusinessLogo {
             get {
                 return ((string)(this["BusinessLogo"]));
@@ -626,7 +626,7 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("KOMPAS SPORT BAR")]
+        [global::System.Configuration.DefaultSettingValueAttribute("RESTOBAR EL RANCHO")]
         public string BusinessName {
             get {
                 return ((string)(this["BusinessName"]));
@@ -644,7 +644,7 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("TELÉFONO 6019-3252")]
+        [global::System.Configuration.DefaultSettingValueAttribute("TELÉFONO 2234-5628")]
         public string BusinessPhoneNumber {
             get {
                 return ((string)(this["BusinessPhoneNumber"]));
@@ -653,7 +653,7 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("100MTS SUR MUSMANI CENTRO")]
+        [global::System.Configuration.DefaultSettingValueAttribute("ZAPOTE")]
         public string BusinessAddress1 {
             get {
                 return ((string)(this["BusinessAddress1"]));
@@ -662,7 +662,7 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("FRENTE AL REGISTRO NACIONAL")]
         public string BusinessAddress2 {
             get {
                 return ((string)(this["BusinessAddress2"]));

@@ -263,7 +263,8 @@
                     </StackPanel>
                 </Button>
                 <StackPanel Grid.Column="7" Grid.Row="3" Grid.ColumnSpan="2"
-                        Orientation="Horizontal" HorizontalAlignment="Center">
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Center">
                     <Image Grid.Row="3" Grid.Column="7"
                        Margin="0 0 20 0"
                        Width="40"
@@ -296,7 +297,7 @@
                        MouseDown="btn_Decrease"/>
                 </StackPanel>
                 <StackPanel Grid.Column="10" Grid.Row="2"
-                        Orientation="Vertical">
+                            Orientation="Vertical">
                     <Button Name="Cash" Foreground="DarkBlue"
                         Width="120" Height="80"
                         Click="btn_Cash"

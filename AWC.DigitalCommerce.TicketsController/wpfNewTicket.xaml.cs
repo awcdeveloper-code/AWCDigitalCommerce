@@ -76,6 +76,7 @@ namespace AWC.DigitalCommerce.TicketsController
             lBox_Meal.ItemsSource = lstMeal;
 
             ApplyServiceFee.IsChecked = Settings.Default.ApplyServiceFee ? true : false;
+            ApplyServiceFee.Visibility = Settings.Default.ApplyServiceFee ? Visibility.Visible : Visibility.Hidden;
             PrintOrder.IsChecked = Settings.Default.PrintOrder ? true : false;
 
             // disable
