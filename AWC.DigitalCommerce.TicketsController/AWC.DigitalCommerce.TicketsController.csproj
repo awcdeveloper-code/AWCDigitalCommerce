@@ -317,6 +317,7 @@
     <Compile Include="Classes\clsNote.cs" />
     <Compile Include="Classes\clsNoteDetail.cs" />
     <Compile Include="Classes\clsOpenCashDrawer.cs" />
+    <Compile Include="Classes\clsOpenDrawerRequest.cs" />
     <Compile Include="Classes\clsPayMethodChange.cs" />
     <Compile Include="Classes\clsPrintTicketRemotely.cs" />
     <Compile Include="Classes\clsProvider.cs" />
@@ -1782,6 +1783,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\openFolder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Background_Blue.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.5.1.1-ci675\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.5.1.1-ci675\build\MaterialDesignThemes.targets')" />

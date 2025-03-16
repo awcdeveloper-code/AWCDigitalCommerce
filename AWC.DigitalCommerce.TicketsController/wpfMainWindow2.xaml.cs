@@ -12,6 +12,7 @@ using AWC.DigitalCommerce.TicketsController.Controls;
 using System.Runtime.InteropServices;
 using System.Reflection;
 using System.Windows.Media.Imaging;
+using AWC.DigitalCommerce.TicketsController.Classes;
 
 namespace AWC.DigitalCommerce.TicketsController
 {
@@ -1019,6 +1020,7 @@ namespace AWC.DigitalCommerce.TicketsController
             xPrinterOpenCashbox xpCash = new xPrinterOpenCashbox();
             xpCash.print();
             Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, $"Open Cash Drawer request by user {Settings.Default.WhoOpen}", Logger.Severity.WARNING);
+            DB.InsertOpenCashDrawerRequest();  
             wpfSplashWindow sw = new wpfSplashWindow(1, lang);
             sw.ShowDialog();
         }

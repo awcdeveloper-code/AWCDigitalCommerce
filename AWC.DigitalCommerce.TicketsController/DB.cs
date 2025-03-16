@@ -4525,6 +4525,49 @@ namespace AWC.DigitalCommerce.TicketsController
             }
         }
 
+        public static List<clsOpenDrawerRequest> GetOpenDrawerRequest(string businessDate)
+        {
+            try
+            {
+                List<clsOpenDrawerRequest> odrList = new List<clsOpenDrawerRequest>();
+
+                string sqlQry = $"SELECT * FROM tbl_OpenCashDrawerRequest WHERE BusinessDate = '{businessDate}' ORDER BY ID ASC";
+
+                using (sqlConn = new SqlConnection(Settings.Default.TicketsControllerDbConn))
+                {
+                    sqlConn.Open();
+                    sqlCmd = new SqlCommand(sqlQry, sqlConn);
+                    SqlDataReader sdr = sqlCmd.ExecuteReader();
+
+                    if (sdr.HasRows)
+                    {
+                        while (sdr.Read())
+                        {
+                            clsOpenDrawerRequest odr = new clsOpenDrawerRequest();
+
+                            odr.ID = Convert.ToInt32(sdr["ID"]);
+                            odr.BusinessDate = sdr["BusinessDate"].ToString();
+                            odr.WhoOpen = Convert.ToInt32(sdr["WhoOpen"]);
+                            odr.CreatedAt = Convert.ToDateTime(sdr["CreatedAt"]);
+
+                            odrList.Add(odr);
+                        }
+                    }
+                }
+
+                if (Settings.Default.DebugTrace)
+                    Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, sqlQry, Logger.Severity.DEBUG);
+
+                return odrList;
+            }
+            catch (Exception ex)
+            {
+                sqlConn.Close();
+                Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, ex, Logger.Severity.ERROR);
+                Helper.ShowMessage("ERROR: " + ex, System.Windows.Forms.MessageBoxIcon.Error);
+                return null;
+            }
+        }
         #endregion
 
         #region INSERT
@@ -5508,6 +5551,32 @@ namespace AWC.DigitalCommerce.TicketsController
                 Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, ex, Logger.Severity.ERROR);
                 Helper.ShowMessage("ERROR: " + ex, System.Windows.Forms.MessageBoxIcon.Error);
                 return null;
+            }
+        }
+        public static bool InsertOpenCashDrawerRequest()
+        {
+            try
+            {
+                string sqlQry = $"INSERT INTO tbl_OpenCashDrawerRequest(BusinessDate, WhoOpen) VALUES ('{Settings.Default.BusinessDate}', {Settings.Default.WhoOpen})";
+
+                using (sqlConn = new SqlConnection(Settings.Default.TicketsControllerDbConn))
+                {
+                    sqlConn.Open();
+                    sqlCmd = new SqlCommand(sqlQry, sqlConn);
+                    sqlCmd.ExecuteNonQuery();
+                }
+
+                if (Settings.Default.DebugTrace)
+                    Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, sqlQry, Logger.Severity.DEBUG);
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                sqlConn.Close();
+                Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, ex, Logger.Severity.ERROR);
+                Helper.ShowMessage("ERROR: " + ex, System.Windows.Forms.MessageBoxIcon.Error);
+                return false;
             }
         }
 

@@ -19,7 +19,7 @@
             </Style.Resources>
         </Style>
     </Window.Resources>
-    <Border BorderBrush="Fuchsia" BorderThickness="3">
+    <Border BorderBrush="Cyan" BorderThickness="3">
         <Grid>
             <VisualStateManager.VisualStateGroups>
                 <VisualStateGroup Name="Type">
@@ -41,7 +41,7 @@
             </VisualStateManager.VisualStateGroups>
             <Grid.Background>
                 <ImageBrush Stretch="Fill"
-                        ImageSource="/Images/Background_Purple.jpg"
+                        ImageSource="/Images/Background_Blue.jpg"
                         AlignmentY="Top" AlignmentX="Center"/>
             </Grid.Background>
             <Grid.ColumnDefinitions>

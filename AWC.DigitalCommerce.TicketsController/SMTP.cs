@@ -93,7 +93,6 @@ namespace AWC.DigitalCommerce.TicketsController
                 Mouse.OverrideCursor = System.Windows.Input.Cursors.Wait;
 
                 #region HEADER
-
                 string subject = Settings.Default.BusinessName + $" - Cierre Diario del {DB.ConverTicketDate(dateProc)} Turno {Settings.Default.ShiftForQuery}";
 
                 StringBuilder sb = new StringBuilder();
@@ -138,9 +137,6 @@ namespace AWC.DigitalCommerce.TicketsController
                 #endregion
 
                 #region CASHWITHDRAW
-                //
-                // ASHWITHDRAW
-                //
                 if (dcRep.CashWithdrawal > 0)
                 {
                     sb.Append($"<h3>EFECTIVO REMANENTE EN CAJA</h3>");
@@ -155,9 +151,6 @@ namespace AWC.DigitalCommerce.TicketsController
                 #endregion
 
                 #region OPERATOR DAILY CLOSE SUMMARY
-                //
-                // OPERATOR DAILY CLOSE SUMMARY
-                //
                 if (Settings.Default.AllowBlindDailyClosing)
                 {
                     string dailyClosingMatch = string.Empty;
@@ -191,9 +184,9 @@ namespace AWC.DigitalCommerce.TicketsController
                     sb.Append("</table>");
                     sb.Append("<p><br></p>");
                 }
-                //
-                // EXPENSES
-                //
+                #endregion
+
+                #region EXPENSES
                 if (dcRep.ExpensesList.Count > 0)
                 {
                     sb.Append("<h2>GASTOS REALIZADOS</h2>");
@@ -209,49 +202,53 @@ namespace AWC.DigitalCommerce.TicketsController
                     sb.Append("</table>");
                     sb.Append("<p><br></p>");
                 }
-                //
-                // PRODUCTS SOLD
-                //
-                sb.Append("<h2>PRODUCTOS VENDIDOS</h2>");
-                sb.Append("<table>");
-                sb.Append("<tr><th>CANT</th><th>DESCRIPCIÓN</th><th>MONTO</th></tr>");
-
-                List<clsItemDetailForDatagrid> itemsList = DB.GetItemsByDate(dateProc, dateProc, 4);
-
-                int total = 0;
-
-                foreach (clsItemDetailForDatagrid sale in itemsList)
-                {
-                    sb.Append("<tr><td class=\"amount\">" + sale.Qty + "</td><td>" + sale.ItemDesc + "</td><td class=\"amount\">" + sale.TotalPrice.ToString("N0") + "</td></tr>");
-                    total += sale.TotalPrice;
-                }
-
-                sb.Append("<tr><th/><th class=\"amount\">TOTAL VENDIDO:</th><th class=\"amount\">" + total.ToString("N0") + "</th></tr>");
-                sb.Append("</table>");
-                sb.Append("<p><br></p>");
-                //
-                // TICKETS LIST
-                //
-                sb.Append("<h2>RESUMEN DE CUENTAS</h2>");
-                sb.Append("<table>");
-                sb.Append("<tr><th>No. CTA</th><th>CLIENTE</th><th>ESTADO</th><th>PAGO</th><th>MONTO</th></tr>");
-
-                foreach (clsTicketsForDataGrid ticket in ticketsList)
-                {
-                    sb.Append("<tr><td class=\"amount\">" + ticket.ID + "</td><td>" +
-                                                            ticket.CustomerID + "</td><td>" +
-                                                            ticket.StatusAlpha + "</td><td class=\"amount\">" +
-                                                            ticket.PayMethodAlpha + "</td><td>" +
-                                                            ticket.TotalPrice.ToString("N0") + "</td></tr>");
-                }
-
-                sb.Append("</table>");
-                sb.Append("<p><br></p>");
                 #endregion
 
-                //
-                // SMALL PAYMENTS
-                //
+                #region PRODUCTS SOLD
+                List<clsItemDetailForDatagrid> itemsList = DB.GetItemsByDate(dateProc, dateProc, 4);
+
+                if (itemsList.Count > 0)
+                {
+                    sb.Append("<h2>PRODUCTOS VENDIDOS</h2>");
+                    sb.Append("<table>");
+                    sb.Append("<tr><th>CANT</th><th>DESCRIPCIÓN</th><th>MONTO</th></tr>");
+
+                    int total = 0;
+
+                    foreach (clsItemDetailForDatagrid sale in itemsList)
+                    {
+                        sb.Append("<tr><td class=\"amount\">" + sale.Qty + "</td><td>" + sale.ItemDesc + "</td><td class=\"amount\">" + sale.TotalPrice.ToString("N0") + "</td></tr>");
+                        total += sale.TotalPrice;
+                    }
+
+                    sb.Append("<tr><th/><th class=\"amount\">TOTAL VENDIDO:</th><th class=\"amount\">" + total.ToString("N0") + "</th></tr>");
+                    sb.Append("</table>");
+                    sb.Append("<p><br></p>");
+                }
+                #endregion
+
+                #region TICKETS LIST
+                if (ticketsList.Count > 0)
+                {
+                    sb.Append("<h2>RESUMEN DE CUENTAS</h2>");
+                    sb.Append("<table>");
+                    sb.Append("<tr><th>No. CTA</th><th>CLIENTE</th><th>ESTADO</th><th>PAGO</th><th>MONTO</th></tr>");
+
+                    foreach (clsTicketsForDataGrid ticket in ticketsList)
+                    {
+                        sb.Append("<tr><td class=\"amount\">" + ticket.ID + "</td><td>" +
+                                                                ticket.CustomerID + "</td><td>" +
+                                                                ticket.StatusAlpha + "</td><td class=\"amount\">" +
+                                                                ticket.PayMethodAlpha + "</td><td>" +
+                                                                ticket.TotalPrice.ToString("N0") + "</td></tr>");
+                    }
+
+                    sb.Append("</table>");
+                    sb.Append("<p><br></p>");
+                }
+                #endregion
+
+                #region SMALL PAYMENTS
                 List<clsSmallPayment> smlPayList = DB.GetSmallPayments(Settings.Default.BusinessDate);
 
                 if (smlPayList.Count > 0)
@@ -274,11 +271,9 @@ namespace AWC.DigitalCommerce.TicketsController
                     sb.Append("</table>");
                     sb.Append("<p><br></p>");
                 }
+                #endregion
 
                 #region PRODUCTS: CHANGE PRICES
-                //
-                // PRODUCTS: CHANGE PRICES
-                //
                 List<clsItemsChangePrice> ItemsChangePrice = new List<clsItemsChangePrice>();
                 ItemsChangePrice = DB.GetItemsChangePrice(Settings.Default.BusinessDate);
 
@@ -293,7 +288,7 @@ namespace AWC.DigitalCommerce.TicketsController
                         clsUser user = DB.CheckUserPIN(itemChangePrice.WhoDidit);
                         clsItem item = DB.GetItem(itemChangePrice.ItemID);
 
-                        sb.Append("</td><td class=\"ItemID\">" + user.userName +
+                        sb.Append("</td><td>" + user.userName +
                                   "</td><td>" + item.ItemDescription +
                                   "</td><td>" + itemChangePrice.PreviousPrice +
                                   "</td><td>" + itemChangePrice.CurrentPrice +
@@ -336,7 +331,6 @@ namespace AWC.DigitalCommerce.TicketsController
                     sb.Append("</table>");
                     sb.Append("<p><br></p>");
                 }
-
                 #endregion
 
                 #region INTERNAL EXPENSES
@@ -359,7 +353,6 @@ namespace AWC.DigitalCommerce.TicketsController
                 #endregion
 
                 #region VOUCHERS
-
                 if (dcRep.VouchersList.Count > 0)
                 {
                     sb.Append("<h2>VOUCHERS EMITIDOS</h2>");
@@ -376,10 +369,30 @@ namespace AWC.DigitalCommerce.TicketsController
                     sb.Append("<p><br></p>");
                 }
                 #endregion
+
+                #region OPEN DRAWER REQUEST
+                List<clsOpenDrawerRequest> openDrawerRequestList = DB.GetOpenDrawerRequest(Settings.Default.BusinessDate);
+
+                if (openDrawerRequestList.Count > 0)
+                {
+                    sb.Append("<h2>APERTURA GAVETA DE DINERO</h2>");
+                    sb.Append("<table>");
+                    sb.Append("<tr><th>COLABORADOR</th><th>FECHA HORA DEL EVENTO</th></tr>");
+
+                    foreach (clsOpenDrawerRequest odr in openDrawerRequestList)
+                    {
+                        clsUser user = DB.CheckUserPIN(odr.WhoOpen.ToString());
+
+                        sb.Append("<tr><td class=\"ItemID\">" + user.userName +
+                                  "</td><td>" + odr.CreatedAt.ToString() + "</td></tr>");
+                    }
+
+                    sb.Append("</table>");
+                    sb.Append("<p><br></p>");
+                }
+                #endregion
+
                 #region LIST OF CUSTOMERS WHO LEFT THE TICKET OPEN
-                //
-                // LIST OF CUSTOMERS WHO LEFT THE TICKET OPEN
-                //
                 List<clsTicketsForDataGrid> ticketsLeftOpen = DB.DataBinding_tbl_Tickets(Settings.Default.BusinessDate, 4);
 
                 if (ticketsLeftOpen.Count > 0)
@@ -397,60 +410,60 @@ namespace AWC.DigitalCommerce.TicketsController
                     sb.Append("</table>");
                     sb.Append("<p><br></p>");
                 }
-                //
-                // ACCOUNTS RECEIVABLE SUMMARY
-                //
+                #endregion
+
+                #region ACCOUNTS RECEIVABLE SUMMARY
                 List<clsDelincuency> delincuenciesList = DB.GetDelincuencies("202%");
 
-                    if (delincuenciesList.Count > 0)
+                if (delincuenciesList.Count > 0)
+                {
+                    sb.Append("<h2>CUENTAS POR COBRAR</h2>");
+                    sb.Append("<table>");
+                    sb.Append("<tr><th>ID</th><th>NOMBRE DEL CLIENTE</th><th>1 a 8d</th><th>9 a 15d</th><th>16 a 30d</th><th>31 a 45d</th><th>46 a 60d</th><th>Más de 60d</th></tr>");
+
+                    int sum_0_8_days = 0;
+                    int sum_9_15_days = 0;
+                    int sum_16_30_days = 0;
+                    int sum_31_45_days = 0;
+                    int sum_46_60_days = 0;
+                    int sum_61_days = 0;
+                    int grandTotal = 0;
+
+                    foreach (clsDelincuency delincuent in delincuenciesList)
                     {
-                        sb.Append("<h2>CUENTAS POR COBRAR</h2>");
-                        sb.Append("<table>");
-                        sb.Append("<tr><th>ID</th><th>NOMBRE DEL CLIENTE</th><th>1 a 8d</th><th>9 a 15d</th><th>16 a 30d</th><th>31 a 45d</th><th>46 a 60d</th><th>Más de 60d</th></tr>");
+                        sb.Append("<tr><td class=\"center\">" + delincuent.ID +
+                                    "</td><td>" + delincuent.CustomerName +
+                                    "</td><td class=\"amount\">" + delincuent.sum_0_8_days.ToString("N0") +
+                                    "</td><td class=\"amount\">" + delincuent.sum_9_15_days.ToString("N0") +
+                                    "</td><td class=\"amount\">" + delincuent.sum_16_30_days.ToString("N0") +
+                                    "</td><td class=\"amount\">" + delincuent.sum_31_45_days.ToString("N0") +
+                                    "</td><td class=\"amount\">" + delincuent.sum_46_60_days.ToString("N0") +
+                                    "</td><td class=\"amount\">" + delincuent.sum_61_days.ToString("N0") +
+                                    "</td></tr>");
 
-                        int sum_0_8_days = 0;
-                        int sum_9_15_days = 0;
-                        int sum_16_30_days = 0;
-                        int sum_31_45_days = 0;
-                        int sum_46_60_days = 0;
-                        int sum_61_days = 0;
-                        int grandTotal = 0;
-
-                        foreach (clsDelincuency delincuent in delincuenciesList)
-                        {
-                            sb.Append("<tr><td class=\"center\">" + delincuent.ID +
-                                      "</td><td>" + delincuent.CustomerName +
-                                      "</td><td class=\"amount\">" + delincuent.sum_0_8_days.ToString("N0") +
-                                      "</td><td class=\"amount\">" + delincuent.sum_9_15_days.ToString("N0") +
-                                      "</td><td class=\"amount\">" + delincuent.sum_16_30_days.ToString("N0") +
-                                      "</td><td class=\"amount\">" + delincuent.sum_31_45_days.ToString("N0") +
-                                      "</td><td class=\"amount\">" + delincuent.sum_46_60_days.ToString("N0") +
-                                      "</td><td class=\"amount\">" + delincuent.sum_61_days.ToString("N0") +
-                                      "</td></tr>");
-
-                            sum_0_8_days += delincuent.sum_0_8_days;
-                            sum_9_15_days += delincuent.sum_9_15_days;
-                            sum_16_30_days += delincuent.sum_16_30_days;
-                            sum_31_45_days += delincuent.sum_31_45_days;
-                            sum_46_60_days += delincuent.sum_46_60_days;
-                            sum_61_days += delincuent.sum_61_days;
-                        }
-
-                        sb.Append("<tr><td></td><th class=\"amount\">SUB-TOTALES:" +
-                                  "</th><th class=\"amount\">" + sum_0_8_days.ToString("N0") +
-                                  "</th><th class=\"amount\">" + sum_9_15_days.ToString("N0") +
-                                  "</th><th class=\"amount\">" + sum_16_30_days.ToString("N0") +
-                                  "</th><th class=\"amount\">" + sum_31_45_days.ToString("N0") +
-                                  "</th><th class=\"amount\">" + sum_46_60_days.ToString("N0") +
-                                  "</th><th class=\"amount\">" + sum_61_days.ToString("N0") +
-                                  "</th></tr>");
-
-                        grandTotal = sum_0_8_days + sum_9_15_days + sum_16_30_days + sum_31_45_days + sum_46_60_days + sum_61_days;
-
-                        sb.Append("</table><h2>TOTAL CUENTAS POR COBRAR: " + grandTotal.ToString("N0") + "</h2>");
-                        sb.Append("<p><br></p>");
+                        sum_0_8_days += delincuent.sum_0_8_days;
+                        sum_9_15_days += delincuent.sum_9_15_days;
+                        sum_16_30_days += delincuent.sum_16_30_days;
+                        sum_31_45_days += delincuent.sum_31_45_days;
+                        sum_46_60_days += delincuent.sum_46_60_days;
+                        sum_61_days += delincuent.sum_61_days;
                     }
-                    #endregion
+
+                    sb.Append("<tr><td></td><th class=\"amount\">SUB-TOTALES:" +
+                                "</th><th class=\"amount\">" + sum_0_8_days.ToString("N0") +
+                                "</th><th class=\"amount\">" + sum_9_15_days.ToString("N0") +
+                                "</th><th class=\"amount\">" + sum_16_30_days.ToString("N0") +
+                                "</th><th class=\"amount\">" + sum_31_45_days.ToString("N0") +
+                                "</th><th class=\"amount\">" + sum_46_60_days.ToString("N0") +
+                                "</th><th class=\"amount\">" + sum_61_days.ToString("N0") +
+                                "</th></tr>");
+
+                    grandTotal = sum_0_8_days + sum_9_15_days + sum_16_30_days + sum_31_45_days + sum_46_60_days + sum_61_days;
+
+                    sb.Append("</table><h2>TOTAL CUENTAS POR COBRAR: " + grandTotal.ToString("N0") + "</h2>");
+                    sb.Append("<p><br></p>");
+                }
+                #endregion
 
                 #region INVENTORY: PRODUCTS BELOW MINIMUM
                 //
