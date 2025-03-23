@@ -6,17 +6,20 @@
         xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController"
         xmlns:lc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"
-        Title="Chart Example" Height="350" Width="525" WindowStartupLocation="CenterScreen">
+        Title="Análisis de Ventas" Height="450" Width="625" WindowStartupLocation="CenterScreen">
     <Grid>
         <lc:CartesianChart Name="MyChart">
             <lc:CartesianChart.Series>
-                <lc:LineSeries Values="{Binding Values}" Title="Sample Data" />
+                <lc:LineSeries Values="{Binding Values}" Title="Análisis de Ventas" />
+                <!--
+                <lc:ColumnSeries Values="{Binding Values}" Title="Análisis de Ventas" />
+                -->
             </lc:CartesianChart.Series>
             <lc:CartesianChart.AxisX>
-                <lc:Axis Title="X Axis" Labels="{Binding Labels}" />
+                <lc:Axis Title="Meses" Labels="{Binding Labels}" />
             </lc:CartesianChart.AxisX>
             <lc:CartesianChart.AxisY>
-                <lc:Axis Title="Y Axis" />
+                <lc:Axis Title="ventas" />
             </lc:CartesianChart.AxisY>
         </lc:CartesianChart>
     </Grid>

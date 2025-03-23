@@ -17,8 +17,8 @@ namespace AWC.DigitalCommerce.TicketsController
             InitializeComponent();
 
             // Sample data
-            Values = new ChartValues<double> { 3, 5, 7, 4, 6 };
-            Labels = new[] { "A", "B", "C", "D", "E" };
+            Values = new ChartValues<double> { 6, 10, 14, 8, 12 };
+            Labels = new[] { "Ene", "Feb", "Mar", "Abr", "May" };
 
             // Set the DataContext to enable data binding
             DataContext = this;
