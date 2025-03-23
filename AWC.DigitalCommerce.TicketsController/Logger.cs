@@ -64,6 +64,7 @@ namespace AWC.DigitalCommerce.TicketsController
                 throw ex;
             }
         }
+
         public static void WriteToLog(string caller, Exception ex, Severity lv)
         {
             try

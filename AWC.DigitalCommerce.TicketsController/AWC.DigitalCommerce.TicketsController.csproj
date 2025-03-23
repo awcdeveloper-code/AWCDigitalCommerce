@@ -62,6 +62,32 @@
     <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
       <HintPath>..\packages\BouncyCastle.Cryptography.2.4.0\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
     </Reference>
+    <Reference Include="DPFPCtlXTypeLibNET, Version=1.4.0.1, Culture=neutral, PublicKeyToken=c0c98f712d5392a7, processorArchitecture=MSIL">
+      <HintPath>..\packages\DigitalPersona.NET.1.4.0\lib\net48\DPFPCtlXTypeLibNET.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="DPFPCtlXWrapperNET, Version=1.4.0.1, Culture=neutral, PublicKeyToken=c0c98f712d5392a7, processorArchitecture=MSIL">
+      <HintPath>..\packages\DigitalPersona.NET.1.4.0\lib\net48\DPFPCtlXWrapperNET.dll</HintPath>
+    </Reference>
+    <Reference Include="DPFPDevNET, Version=1.4.0.1, Culture=neutral, PublicKeyToken=696774c42ee28c57, processorArchitecture=MSIL">
+      <HintPath>..\packages\DigitalPersona.NET.1.4.0\lib\net48\DPFPDevNET.dll</HintPath>
+    </Reference>
+    <Reference Include="DPFPEngNET, Version=1.4.0.1, Culture=neutral, PublicKeyToken=7fe76e7adf19964b, processorArchitecture=MSIL">
+      <HintPath>..\packages\DigitalPersona.NET.1.4.0\lib\net48\DPFPEngNET.dll</HintPath>
+    </Reference>
+    <Reference Include="DPFPGuiNET, Version=1.4.0.1, Culture=neutral, PublicKeyToken=d4f4a0bd9c559145, processorArchitecture=MSIL">
+      <HintPath>..\packages\DigitalPersona.NET.1.4.0\lib\net48\DPFPGuiNET.dll</HintPath>
+    </Reference>
+    <Reference Include="DPFPShrNET, Version=1.4.0.1, Culture=neutral, PublicKeyToken=d902fe275a8d6cf2, processorArchitecture=MSIL">
+      <HintPath>..\packages\DigitalPersona.NET.1.4.0\lib\net48\DPFPShrNET.dll</HintPath>
+    </Reference>
+    <Reference Include="DPFPShrXTypeLibNET, Version=1.4.0.1, Culture=neutral, PublicKeyToken=c0c98f712d5392a7, processorArchitecture=MSIL">
+      <HintPath>..\packages\DigitalPersona.NET.1.4.0\lib\net48\DPFPShrXTypeLibNET.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="DPFPVerNET, Version=1.4.0.1, Culture=neutral, PublicKeyToken=4de0a9c4dcc83984, processorArchitecture=MSIL">
+      <HintPath>..\packages\DigitalPersona.NET.1.4.0\lib\net48\DPFPVerNET.dll</HintPath>
+    </Reference>
     <Reference Include="itext.barcodes, Version=8.0.4.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <HintPath>..\packages\itext.8.0.4\lib\net461\itext.barcodes.dll</HintPath>
     </Reference>
@@ -491,6 +517,9 @@
     <Compile Include="wpfElectronicInvoice.xaml.cs">
       <DependentUpon>wpfElectronicInvoice.xaml</DependentUpon>
     </Compile>
+    <Compile Include="wpfFingerprintScanner.xaml.cs">
+      <DependentUpon>wpfFingerprintScanner.xaml</DependentUpon>
+    </Compile>
     <Compile Include="wpfFrequentItems.xaml.cs">
       <DependentUpon>wpfFrequentItems.xaml</DependentUpon>
     </Compile>
@@ -808,6 +837,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Documentation\One Touch for Windows SDK .NET Developer Guide.pdf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -1000,6 +1030,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="wpfElectronicInvoice.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfFingerprintScanner.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -1427,9 +1461,6 @@
     <Resource Include="Documentation\Images\copy_paste.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Documentation\DB_Requirements.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Documentation\Images\img19_1920x1200.jpg" />
     <Resource Include="Documentation\Images\circled-left.png" />
     <Resource Include="Documentation\Images\circled-right.png" />
@@ -1799,6 +1830,11 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Background_Blue.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Documentation\FixtblDailyClosing.sql" />
+    <Content Include="Documentation\RebuildAllIndexes.sql" />
+    <Content Include="Documentation\TRUNCATE_TABLES.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.5.1.1-ci675\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.5.1.1-ci675\build\MaterialDesignThemes.targets')" />
