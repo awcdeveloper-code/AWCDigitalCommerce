@@ -23,7 +23,7 @@ namespace AWC.DigitalCommerce.TicketsController
     {
         private string lang = string.Empty;
         public int CashRegisterAmount = 0;
-        public int USDollarExhangeRate = 0;
+        public int USDollarExchangeRate = 0;
         public wpfCashRegisterOpen(string _lang)
         {
             if (Settings.Default.TopLeftOn)
@@ -66,18 +66,26 @@ namespace AWC.DigitalCommerce.TicketsController
             {
                 Mouse.OverrideCursor = Cursors.Wait;
 
+                if (int.TryParse(txtCashRegisterAmount.Text, out CashRegisterAmount))
+                {
+                    Settings.Default.CashRegisterOpening = CashRegisterAmount;
+                }
+
+                if (int.TryParse(txtUSDollarExhangeRate.Text, out USDollarExchangeRate))
+                {
+                    Settings.Default.USDollarExchangeRate = USDollarExchangeRate;
+                }
+
+                Settings.Default.Save();
+
+                DB.UpdateCashOnHandAtTheBeginning(CashRegisterAmount);
+
                 if (SMTP.CheckInternetConnection() && Settings.Default.GetDailyQuote.Length > 0)
                 {
                     string dailyQuote = await Helper.GetDailyQuote();
                     Mouse.OverrideCursor = null;
                     wpfMessageBox.Show("Tickets Controller", dailyQuote, MessageBoxButton.OK, wpfMessageBox.MessageBoxImage.Information, null);
                 }
-
-                DB.UpdateCashOnHandAtTheBeginning(Convert.ToInt32(txtCashRegisterAmount.Text));
-                
-                Settings.Default.CashRegisterOpening = Convert.ToInt32(txtCashRegisterAmount.Text);
-                Settings.Default.USDollarExchangeRate = Convert.ToInt32(txtUSDollarExhangeRate.Text);
-                Settings.Default.Save();
 
                 this.Close();
             }

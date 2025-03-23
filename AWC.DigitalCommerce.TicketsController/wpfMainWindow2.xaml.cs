@@ -311,11 +311,6 @@ namespace AWC.DigitalCommerce.TicketsController
                         Mouse.OverrideCursor = null;
                         wpfCashRegisterOpen cro = new wpfCashRegisterOpen(lang);
                         cro.ShowDialog();
-                        Mouse.OverrideCursor = Cursors.Wait;
-
-                        Settings.Default.CashRegisterOpening = cro.CashRegisterAmount;
-                        Settings.Default.USDollarExchangeRate = cro.USDollarExhangeRate;
-                        Settings.Default.Save();
 
                         this.Opacity = 1;
 
