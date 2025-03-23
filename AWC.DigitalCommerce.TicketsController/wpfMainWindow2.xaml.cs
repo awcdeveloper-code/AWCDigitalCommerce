@@ -189,6 +189,10 @@ namespace AWC.DigitalCommerce.TicketsController
                 case Key.F12:
                     this.WindowState = (this.WindowState == WindowState.Normal) ? WindowState.Maximized : WindowState.Normal;
                     break;
+                case Key.Insert:
+                    wpfChartExample chart = new wpfChartExample();
+                    chart.ShowDialog();
+                    break;
             }
         }
         private void localTimer_Tick(object sender, EventArgs eArgs)

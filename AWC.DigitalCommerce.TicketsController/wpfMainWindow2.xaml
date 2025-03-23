@@ -283,7 +283,7 @@
                              Height="5"
                              BorderBrush="Transparent"
                              Background="Transparent"
-                             Foreground="Fuchsia"
+                             Foreground="Cyan"
                              Visibility="Hidden"
                              IsIndeterminate="True"/>
                 <Label Name="BussinessName"
