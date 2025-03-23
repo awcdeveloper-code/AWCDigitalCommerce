@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController"
-        mc:Ignorable="d" Height="270" Width="530" Background="DarkBlue"
+        mc:Ignorable="d" Height="270" Width="530" Background="White"
         WindowStyle="None" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Border BorderBrush="Fuchsia" BorderThickness="5">
         <Grid>
@@ -23,7 +23,7 @@
                 <RowDefinition Height="20"/>
             </Grid.RowDefinitions>
             <Label Grid.Row="1" Grid.Column="1"
-                   Foreground="White"
+                   Foreground="DarkBlue"
                    Name="lblCashRegisterOpening"
                    Margin="5"
                    FontSize="30"
@@ -42,7 +42,7 @@
                      HorizontalContentAlignment="Center"
                      VerticalAlignment="Center"/>
             <Label Grid.Row="2" Grid.Column="1"
-                   Foreground="White"
+                   Foreground="DarkBlue"
                    Margin="5"
                    FontSize="30"
                    FontWeight="DemiBold"
@@ -51,6 +51,7 @@
                    Content="EFECTIVO A RETIRAR:"/>
             <TextBox Grid.Row="2" Grid.Column="2"
                      Name="txtCashWithdrawal"
+                     PreviewTextInput="NumberValidationTextBox"
                      Background="Cyan"
                      Margin="5"
                      FontSize="40"
@@ -60,7 +61,7 @@
                      HorizontalContentAlignment="Center"
                      VerticalAlignment="Center"/>
             <Label Grid.Row="3" Grid.Column="1"
-                   Foreground="White"
+                   Foreground="DarkBlue"
                    Margin="5"
                    FontSize="30"
                    FontWeight="DemiBold"

@@ -1,29 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+
 using AWC.DigitalCommerce.TicketsController.Properties;
 
 namespace AWC.DigitalCommerce.TicketsController
 {
-    /// <summary>
-    /// Interaction logic for wpfCashRegisterOpen.xaml
-    /// </summary>
     public partial class wpfCashRegisterOpen : Window
     {
         private string lang = string.Empty;
         public int CashRegisterAmount = 0;
         public int USDollarExchangeRate = 0;
+
         public wpfCashRegisterOpen(string _lang)
         {
             if (Settings.Default.TopLeftOn)
