@@ -397,7 +397,7 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("gruposanchezyasociados@hotmail.com")]
+        [global::System.Configuration.DefaultSettingValueAttribute("guillermoegrillo@outlook.com")]
         public string eMailDistributionList {
             get {
                 return ((string)(this["eMailDistributionList"]));
@@ -1002,6 +1002,15 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
         public int VoucherExpirationRange {
             get {
                 return ((int)(this["VoucherExpirationRange"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool UseFingerprintScanner {
+            get {
+                return ((bool)(this["UseFingerprintScanner"]));
             }
         }
     }
