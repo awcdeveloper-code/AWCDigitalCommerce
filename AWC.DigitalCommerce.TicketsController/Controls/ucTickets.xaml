@@ -164,13 +164,21 @@
                     <TextBlock Text="AGREGAR PRODUCTOS A LA CUENTA" VerticalAlignment="Center"/>
                 </StackPanel>
             </Button>
+            <Label Grid.Column="1" Grid.Row="18"
+                   Grid.ColumnSpan="3"
+                   Name="lblShiftNumber"
+                   Foreground="White"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   FontSize="20"
+                   FontWeight="DemiBold"/>
             <!--TICKET DETAIL DATAGRID-->
             <Label Grid.Row="1" Grid.Column="4"
-               Foreground="White"
-               Content="CUENTA:"
-               VerticalAlignment="Center"
-               FontSize="20"
-               FontWeight="DemiBold"/>
+                   Foreground="White"
+                   Content="CUENTA:"
+                   VerticalAlignment="Center"
+                   FontSize="20"
+                   FontWeight="DemiBold"/>
             <Label Grid.Row="1" Grid.Column="5"
                Name="lblTicketNumber"
                Foreground="White"

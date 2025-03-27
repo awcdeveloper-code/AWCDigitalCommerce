@@ -97,7 +97,7 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
 
             DB.AssignShiftToDailyClosing(Settings.Default.Shift, workDay);
 
-            SelectedDay.SelectedDate = null;
+            //SelectedDay.SelectedDate = null;
             DailyClosePrint.IsEnabled = false;
             Mouse.OverrideCursor = null;
 
@@ -123,6 +123,8 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
                 dcReport.CashWithdrawal = cashOnDrawer.CashWithdrawal;
                 DB.UpdateCashOnHandAtTheBeginning(CashOnDrawer - cashOnDrawer.CashWithdrawal);
             }
+
+            txtShift.Text = Settings.Default.Shift.ToString();
         }
         private void PrintSummaryWithDetail_Checked(object sender, RoutedEventArgs e)
         {

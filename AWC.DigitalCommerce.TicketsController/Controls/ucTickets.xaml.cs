@@ -91,6 +91,7 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
 
                 InitializeItemsDetailCache();
 
+                lblShiftNumber.Content = $"TURNO ACTIVO: {Settings.Default.Shift}";
                 PrintSummary.IsChecked = Settings.Default.AllowTicketSummary ? true : false;
                 PrintClosedTicket.IsChecked = Settings.Default.PrintClosedTicket ? true : false;
 
