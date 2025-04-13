@@ -308,6 +308,7 @@
     <Compile Include="Classes\clsConfig.cs" />
     <Compile Include="Classes\clsCustFreqItem.cs" />
     <Compile Include="Classes\clsCustomerVIP.cs" />
+    <Compile Include="Classes\clsDailyAccountantReport.cs" />
     <Compile Include="Classes\clsDailyClosing.cs" />
     <Compile Include="Classes\clsDelincuency.cs" />
     <Compile Include="Classes\clsDisposable.cs" />
