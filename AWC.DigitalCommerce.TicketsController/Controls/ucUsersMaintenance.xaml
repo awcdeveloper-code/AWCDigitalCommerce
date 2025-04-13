@@ -290,6 +290,13 @@
                   FontSize="15"
                   FontWeight="DemiBold"
                   Content="PAGAR"/>
+        <CheckBox Grid.Row="7" Grid.Column="7"
+                  Name="chkBox_PendantReview"
+                  Foreground="Cyan"
+                  Margin="5"
+                  FontSize="15"
+                  FontWeight="DemiBold"
+                  Content="REVISAR"/>
         <!--VENTAS-->
         <CheckBox Grid.Row="8" Grid.Column="5" Grid.ColumnSpan="2"
                   Name="chkBox_TodaySale"

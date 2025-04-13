@@ -346,10 +346,12 @@
     <Compile Include="Classes\clsTicketsReassigned.cs" />
     <Compile Include="Classes\clsTimeCard.cs" />
     <Compile Include="Classes\clsUser.cs" />
+    <Compile Include="Classes\clsUserSecurityProfile.cs" />
     <Compile Include="Classes\clsVoucher.cs" />
     <Compile Include="Classes\clswpfForm.cs" />
     <Compile Include="Classes\clsTicketProform.cs" />
     <Compile Include="Classes\clsPromoConfig.cs" />
+    <Compile Include="Classes\clsUserSecurityProfileViewModel.cs" />
     <Compile Include="CocktailsWebService.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Controls\ucCategories.xaml.cs">
@@ -730,6 +732,9 @@
     </Compile>
     <Compile Include="wpfSQLQuery.xaml.cs">
       <DependentUpon>wpfSQLQuery.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfTester.xaml.cs">
+      <DependentUpon>wpfTester.xaml</DependentUpon>
     </Compile>
     <Compile Include="wpfTheFiveMostRequested.xaml.cs">
       <DependentUpon>wpfTheFiveMostRequested.xaml</DependentUpon>
@@ -1303,6 +1308,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="wpfSQLQuery.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfTester.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

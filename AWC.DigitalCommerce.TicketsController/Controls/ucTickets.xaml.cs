@@ -751,7 +751,7 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
 
                 if (!userProf.userPowerAdmin)
                 {
-                    wpfMessageBox.Show("Tickets Controller", "PIN INGRESADO NO TIENE PERMISO PARA BORRAR PRODUCTOS", MessageBoxButton.OK, wpfMessageBox.MessageBoxImage.Error, lang);
+                    wpfMessageBox.Show("Tickets Controller", "PIN INGRESADO NO TIENE PERMISO PARA ELIMINAR PRODUCTOS", MessageBoxButton.OK, wpfMessageBox.MessageBoxImage.Error, lang);
                     return;
                 }
 

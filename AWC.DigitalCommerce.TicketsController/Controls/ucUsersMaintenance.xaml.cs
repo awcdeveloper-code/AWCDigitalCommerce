@@ -19,7 +19,6 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
     public partial class ucUsersMaintenance : UserControl
     {
         private List<CheckBox> chkBoxList = new List<CheckBox>();
-
         private clsUser userProf = new clsUser();
         private bool loading = false;
 
@@ -78,6 +77,7 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
             chkBoxList.Add(chkBox_Specials);
             chkBoxList.Add(chkBox_PayMethod);
             chkBoxList.Add(chkBox_Vouchers);
+            chkBoxList.Add(chkBox_PendantReview);
             chkBoxList.Add(chkBox_PowerAdmin);
 
             EnableDisableCheckboxes(false);
@@ -162,7 +162,8 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
                         chkBox_Specials.IsChecked = userProf.userSecurityProfile.Substring(47, 1) == "0" ? false : true;
                         chkBox_PayMethod.IsChecked = userProf.userSecurityProfile.Substring(48, 1) == "0" ? false : true;
                         chkBox_Vouchers.IsChecked = userProf.userSecurityProfile.Substring(49, 1) == "0" ? false : true;
-                        chkBox_PowerAdmin.IsChecked = userProf.userSecurityProfile.Substring(50, 1) == "0" ? false : true;
+                        chkBox_PendantReview.IsChecked = userProf.userSecurityProfile.Substring(50, 1) == "0" ? false : true;
+                        chkBox_PowerAdmin.IsChecked = userProf.userSecurityProfile.Substring(51, 1) == "0" ? false : true;
 
                         txtBox_PIN.IsEnabled = false;
                         btnDelete.IsEnabled = true;
@@ -263,6 +264,7 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
             strBld.Append((bool)chkBox_Specials.IsChecked ? 1 : 0);
             strBld.Append((bool)chkBox_PayMethod.IsChecked ? 1 : 0);
             strBld.Append((bool)chkBox_Vouchers.IsChecked ? 1 : 0);
+            strBld.Append((bool)chkBox_PendantReview.IsChecked ? 1 : 0);
             strBld.Append((bool)chkBox_PowerAdmin.IsChecked ? 1 : 0);
 
             clsUser updateUserProfile = new clsUser();
@@ -363,6 +365,7 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
                 chkBox_PendantAbort.IsChecked = action;
                 chkBox_PendantCredit.IsChecked = action;
                 chkBox_PendantPay.IsChecked = action;
+                chkBox_PendantReview.IsChecked = action;
             }
         }
 

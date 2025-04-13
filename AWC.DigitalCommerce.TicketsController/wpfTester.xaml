@@ -1,0 +1,40 @@
+﻿<Window x:Class="AWC.DigitalCommerce.TicketsController.wpfTester"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController.Classes"
+        mc:Ignorable="d" Background="DarkBlue" WindowStartupLocation="CenterScreen"
+        Title="Listbox with Checkboxes" Height="250" Width="250">
+    <Window.DataContext>
+        <local:clsUserSecurityProfileViewModel />
+    </Window.DataContext>
+    <Border BorderBrush="Fuchsia" BorderThickness="3">
+        <Grid>
+            <ListBox Name="lBoxTest"
+                 ItemsSource="{Binding Items}"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center"
+                 Height="200" Width="200"
+                 ScrollViewer.VerticalScrollBarVisibility="Visible">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox IsChecked="{Binding IsChecked}"
+                                  Content="{Binding Name}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                <ListBox.Resources>
+                    <Style TargetType="ScrollBar">
+                        <Style.Triggers>
+                            <Trigger Property="Orientation" Value="Vertical">
+                                <Setter Property="Width" Value="40"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ListBox.Resources>
+            </ListBox>
+        </Grid>
+    </Border>
+</Window>
