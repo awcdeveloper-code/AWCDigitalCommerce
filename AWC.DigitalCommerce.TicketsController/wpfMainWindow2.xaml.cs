@@ -759,7 +759,7 @@ namespace AWC.DigitalCommerce.TicketsController
                     EnableDisableLeftControls(OldTickets, F3, false);
                     var UC = new ucOldTickets(lang);
                     newTab = new TabItem { Content = UC };
-                    newTab.Header = CreateHeaderForTabItem(newTab, "pack://application:,,,/Images/a2p2.png", "PENDIENTES");
+                    newTab.Header = CreateHeaderForTabItem(newTab, "pack://application:,,,/Images/conotrafico.png", "POR COBRAR");
 
                     // WorkArea Tab Manager
                     tabCtrlWorkArea.Items.Add(newTab);

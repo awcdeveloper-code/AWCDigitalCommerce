@@ -317,8 +317,11 @@
     <Setting Name="VoucherExpirationRange" Type="System.Int32" Scope="Application">
       <Value Profile="(Default)">15</Value>
     </Setting>
-    <Setting Name="UseFingerprintScanner" Type="System.Boolean" Scope="Application">
+    <Setting Name="DailyAccountantReport" Type="System.Boolean" Scope="Application">
       <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="AccountantEmail" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">guillermoegrillo@outlook.com</Value>
     </Setting>
   </Settings>
 </SettingsFile>

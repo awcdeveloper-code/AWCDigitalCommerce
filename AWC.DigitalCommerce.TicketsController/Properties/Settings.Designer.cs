@@ -1008,9 +1008,18 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool UseFingerprintScanner {
+        public bool DailyAccountantReport {
             get {
-                return ((bool)(this["UseFingerprintScanner"]));
+                return ((bool)(this["DailyAccountantReport"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("guillermoegrillo@outlook.com")]
+        public string AccountantEmail {
+            get {
+                return ((string)(this["AccountantEmail"]));
             }
         }
     }

@@ -9266,5 +9266,81 @@ namespace AWC.DigitalCommerce.TicketsController
             }
         }
         #endregion
+
+        #region DAILYACCOUNTANTREPORT
+        public static bool InsertDailyAccountantReport(clsDailyAccountantReport dar)
+        {
+            try
+            {
+                string sqlQry = "INSERT INTO tbl_DailyAccountantReport (BussinessDate, GrossSales, NetSales, Sales_Cash, Sales_CreditCard, Sales_Transfer, Sales_Voucher, Drawer_Cash, Drawer_CreditCard, Drawer_Transfer, Drawer_Voucher, DebitNotes, CreditNotes) " +
+                                $"VALUES ('{dar.BussinessDate}', {dar.GrossSales}, {dar.NetSales}, {dar.Sales_Cash}, {dar.Sales_CreditCard}, {dar.Sales_Transfer}, {dar.Sales_Voucher}, {dar.Drawer_Cash}, {dar.Drawer_CreditCard}, {dar.Drawer_Transfer}, {dar.Drawer_Voucher}, {dar.DebitNotes}, {dar.CreditNotes})";
+
+                using (sqlConn = new SqlConnection(Settings.Default.TicketsControllerDbConn))
+                {
+                    sqlConn.Open();
+                    sqlCmd = new SqlCommand(sqlQry, sqlConn);
+                    sqlCmd.ExecuteNonQuery();
+                }
+
+                if (Settings.Default.DebugTrace)
+                    Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, sqlQry, Logger.Severity.DEBUG);
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                sqlConn.Close();
+                Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, ex, Logger.Severity.ERROR);
+                return false;
+            }
+        }
+
+        public static clsDailyAccountantReport GetDailyAccountantReport(string bussinessDate)
+        {
+            try
+            {
+                clsDailyAccountantReport dar = new clsDailyAccountantReport();
+
+                string sqlQry = $"SELECT * FROM tbl_DailyAccountantReport WHERE BussinessDate = '{bussinessDate}'";
+
+                using (sqlConn = new SqlConnection(Settings.Default.TicketsControllerDbConn))
+                {
+                    sqlConn.Open();
+                    sqlCmd = new SqlCommand(sqlQry, sqlConn);
+                    SqlDataReader sdr = sqlCmd.ExecuteReader();
+
+                    if (sdr.HasRows)
+                    {
+                        sdr.Read();
+                        dar.ID = Convert.ToInt32(sdr["ID"]);
+                        dar.BussinessDate = sdr["BussinessDate"].ToString();
+                        dar.GrossSales = Convert.ToInt32(sdr["GrossSales"]);
+                        dar.NetSales = Convert.ToInt32(sdr["NetSales"]);
+                        dar.Sales_Cash = Convert.ToInt32(sdr["Sales_Cash"]);
+                        dar.Sales_CreditCard = Convert.ToInt32(sdr["Sales_CreditCard"]);
+                        dar.Sales_Transfer = Convert.ToInt32(sdr["Sales_Transfer"]);
+                        dar.Sales_Voucher = Convert.ToInt32(sdr["Sales_Voucher"]);
+                        dar.Drawer_Cash = Convert.ToInt32(sdr["Drawer_Cash"]);
+                        dar.Drawer_CreditCard = Convert.ToInt32(sdr["Drawer_CreditCard"]);
+                        dar.Drawer_Transfer = Convert.ToInt32(sdr["Drawer_Transfer"]);
+                        dar.Drawer_Voucher = Convert.ToInt32(sdr["Drawer_Voucher"]);
+                        dar.DebitNotes = Convert.ToInt32(sdr["DebitNotes"]);
+                        dar.CreditNotes = Convert.ToInt32(sdr["CreditNotes"]);
+                    }
+                }
+
+                if (Settings.Default.DebugTrace)
+                    Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, sqlQry, Logger.Severity.DEBUG);
+
+                return dar;
+            }
+            catch (Exception ex)
+            {
+                sqlConn.Close();
+                Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, ex, Logger.Severity.ERROR);
+                return null;
+            }
+        }
+        #endregion
     }
 }

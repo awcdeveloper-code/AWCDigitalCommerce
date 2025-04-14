@@ -101,9 +101,9 @@
                     FontSize="15"
                     FontWeight="DemiBold">
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="/Images/a2p2.png"
+                    <Image Source="/Images/conotrafico.png"
                            Width="30" Height="30" Margin="3"/>
-                        <TextBlock Text="PENDIENTES" VerticalAlignment="Center"/>
+                        <TextBlock Text="POR COBRAR" VerticalAlignment="Center"/>
                     </StackPanel>
             </Button>
             <Button Grid.Row="1" Grid.Column="4"
@@ -194,7 +194,7 @@
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/Images/logout.png"
                            Width="30" Height="30" Margin="5"/>
-                        <TextBlock Text="CERRAR" VerticalAlignment="Center"/>
+                        <TextBlock Text="SALIR" VerticalAlignment="Center"/>
                     </StackPanel>
             </Button>
             <!--LABELS-->
