@@ -298,8 +298,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AesEncryption.cs" />
-    <Compile Include="AlphabetTextBox.cs" />
+    <Compile Include="Classes\AesEncryption.cs" />
+    <Compile Include="Classes\AlphabetTextBox.cs" />
     <Compile Include="Classes\clsATV.cs" />
     <Compile Include="Classes\clsBartenderOrder.cs" />
     <Compile Include="Classes\clsBucketsDetail.cs" />
