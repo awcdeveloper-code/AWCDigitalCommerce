@@ -1829,6 +1829,30 @@
     <Resource Include="Images\Background_Blue.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Cocktails\Black Russian.txt" />
+    <Resource Include="Cocktails\Bloody Mary.txt" />
+    <Resource Include="Cocktails\Cosmopolitan .txt" />
+    <Resource Include="Cocktails\Cuba Libre.txt" />
+    <Resource Include="Cocktails\Daiquiri Fresa.txt" />
+    <Resource Include="Cocktails\Dry Martini.txt" />
+    <Resource Include="Cocktails\Gin Tonic.txt" />
+    <Resource Include="Cocktails\Huracán.txt" />
+    <Resource Include="Cocktails\Luisa.txt" />
+    <Resource Include="Cocktails\Mango Piña Mojito.txt" />
+    <Resource Include="Cocktails\Margarita Frozen.txt" />
+    <Resource Include="Cocktails\Marmalade Vodka.txt" />
+    <Resource Include="Cocktails\Melocotón Sureño.txt" />
+    <Resource Include="Cocktails\Mojito.txt" />
+    <Resource Include="Cocktails\Mula Maracuyá.txt" />
+    <Resource Include="Cocktails\Piña Colada.txt" />
+    <Resource Include="Cocktails\Ponche Tropical.txt" />
+    <Resource Include="Cocktails\Rum Punch.txt" />
+    <Resource Include="Cocktails\Sangría.txt" />
+    <Resource Include="Cocktails\Semáforo.txt" />
+    <Resource Include="Cocktails\Sex on the Beach.txt" />
+    <Resource Include="Cocktails\Tequila Sunrise.txt" />
+    <Resource Include="Cocktails\Whisky HighBall.txt" />
+    <Resource Include="Cocktails\Whisky Sour.txt" />
     <Content Include="Documentation\FixtblDailyClosing.sql" />
     <Content Include="Documentation\RebuildAllIndexes.sql" />
     <Content Include="Documentation\TRUNCATE_TABLES.sql" />
