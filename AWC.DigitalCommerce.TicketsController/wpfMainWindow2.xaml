@@ -272,7 +272,7 @@
                         Grid.ColumnSpan="12"
                         Orientation="Vertical" VerticalAlignment="Center">
                 <Label Name="ApplicationTitle"
-                       Foreground="Fuchsia"
+                       Foreground="Cyan"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"
                        FontFamily="Bahnschrift SemiLight Condensed"
@@ -283,11 +283,11 @@
                              Height="5"
                              BorderBrush="Transparent"
                              Background="Transparent"
-                             Foreground="Cyan"
+                             Foreground="Fuchsia"
                              Visibility="Hidden"
                              IsIndeterminate="True"/>
                 <Label Name="BussinessName"
-                       Foreground="Fuchsia"
+                       Foreground="Cyan"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"
                        FontFamily="Bahnschrift SemiLight Condensed"
