@@ -1,29 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.IO;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using AWC.DigitalCommerce.TicketsController.Properties;
 
-namespace AWC.DigitalCommerce.TicketsController
+namespace AWC.DigitalCommerce.TicketsController.Controls
 {
-    /// <summary>
-    /// Interaction logic for wpfCocktailRecipes.xaml
-    /// </summary>
-    public partial class wpfCocktailRecipes : Window
+    public partial class ucCocktails : UserControl
     {
         string cocktailName = string.Empty;
         string[] cocktailRecipes = Directory.GetFiles(Settings.Default.CocktailRecipesPath);
 
-        public wpfCocktailRecipes()
+        public ucCocktails()
         {
             InitializeComponent();
 
@@ -45,11 +31,6 @@ namespace AWC.DigitalCommerce.TicketsController
                     txtCocktailRecipeContent.Text = File.ReadAllText(cocktail);
                 }
             }
-        }
-
-        private void btn_Close(object sender, RoutedEventArgs e)
-        {
-            this.Close();
         }
     }
 }

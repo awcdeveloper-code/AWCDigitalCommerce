@@ -382,8 +382,7 @@ namespace AWC.DigitalCommerce.TicketsController
 
                 Helper.ShowToastNotification("Sesión abierta exitosamente");
 
-                PINRequest.Visibility = Visibility.Visible;
-                Help.Visibility = Visibility.Visible;
+                StackPanelRightBottom.Visibility = Visibility.Visible;
 
                 SetUserAccessToResources2();
 
@@ -571,7 +570,6 @@ namespace AWC.DigitalCommerce.TicketsController
 
             return headerPanel;
         }
-
         #endregion
 
         #region BUTTONS
@@ -652,6 +650,11 @@ namespace AWC.DigitalCommerce.TicketsController
         {
             ucHelp(lang);
         }
+        private void btn_Cocktails(object sender, MouseButtonEventArgs e)
+        {
+            ucCocktails(lang);
+        }
+
         #endregion
 
         #region TRANSACTIONS
@@ -1045,7 +1048,37 @@ namespace AWC.DigitalCommerce.TicketsController
                     isActive = true;
                     var UH = new ucHelp();
                     newTab = new TabItem { Content = UH };
-                    newTab.Header = CreateHeaderForTabItem(newTab, "pack://application:,,,/Images/help.png", "AYUDA");
+                    newTab.Header = CreateHeaderForTabItem(newTab, "pack://application:,,,/Images/help.png", "RECURSOS DE AYUDA");
+
+                    // WorkArea Tab Manager
+                    tabCtrlWorkArea.Items.Add(newTab);
+                    tabCtrlWorkArea.Items.Refresh();
+                    tabCtrlWorkArea.Visibility = Visibility.Visible;
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, ex, Logger.Severity.ERROR);
+            }
+        }
+        private void ucCocktails(string lang)
+        {
+            try
+            {
+                if (IsTransInProgress()) return;
+
+                if (isActive)
+                {
+                    isActive = false;
+                    tabCtrlWorkArea.Items.Clear();
+                    newTab.Background = Brushes.DarkBlue;
+                }
+                else
+                {
+                    isActive = true;
+                    var UC = new ucCocktails();
+                    newTab = new TabItem { Content = UC };
+                    newTab.Header = CreateHeaderForTabItem(newTab, "pack://application:,,,/Images/cocktails.png", "LISTA DE COCTÉLES");
 
                     // WorkArea Tab Manager
                     tabCtrlWorkArea.Items.Add(newTab);
@@ -1098,6 +1131,5 @@ namespace AWC.DigitalCommerce.TicketsController
 
         }
         #endregion
-
     }
 }

@@ -345,23 +345,29 @@
                     Background="Transparent"/>
             <StackPanel Grid.Row="4" Grid.Column="9"
                         Grid.ColumnSpan="2"
+                        Name="StackPanelRightBottom"
                         HorizontalAlignment="Right"
                         VerticalAlignment="Center"
-                        Orientation="Horizontal">
-                <Image Name="PINRequest"
-                       Source="/Images/people.ico"
-                       Visibility="Hidden"
+                        Orientation="Horizontal"
+                        Visibility="Hidden">
+                <Image Name="Cocktails"
+                       Source="/Images/cocktails.png"
                        Margin="10"
-                       ToolTip="Click aqui para cambiar de PIN"
+                       ToolTip="Click qui ara ver lista de cocktails"
                        Cursor="Hand"
-                       MouseDown="btn_PINRequest"/>
+                       MouseDown="btn_Cocktails"/>
                 <Image Name="Help"
                        Source="/Images/help.png"
-                       Visibility="Hidden"
                        Margin="10"
                        ToolTip="Click aqui para ayuda"
                        Cursor="Hand"
                        MouseDown="btn_Help"/>
+                <Image Name="PINRequest"
+                       Source="/Images/people.ico"
+                       Margin="10"
+                       ToolTip="Click aqui para cambiar de PIN"
+                       Cursor="Hand"
+                       MouseDown="btn_PINRequest"/>
             </StackPanel>
             <StackPanel Grid.Row="5" Grid.Column="4"
                         Grid.ColumnSpan="2"

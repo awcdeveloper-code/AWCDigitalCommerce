@@ -358,6 +358,9 @@
     <Compile Include="Controls\ucCategories.xaml.cs">
       <DependentUpon>ucCategories.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ucCocktails.xaml.cs">
+      <DependentUpon>ucCocktails.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ucDailyClosing_Beverages.xaml.cs">
       <DependentUpon>ucDailyClosing_Beverages.xaml</DependentUpon>
     </Compile>
@@ -840,6 +843,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Controls\ucCategories.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ucCocktails.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
