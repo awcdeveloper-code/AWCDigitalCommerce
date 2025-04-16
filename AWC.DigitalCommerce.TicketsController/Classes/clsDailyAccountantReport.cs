@@ -20,7 +20,5 @@ namespace AWC.DigitalCommerce.TicketsController.Classes
         public int Drawer_CreditCard { get; set; } = 0;
         public int Drawer_Transfer { get; set; } = 0;
         public int Drawer_Voucher { get; set; } = 0;
-        public int DebitNotes { get; set; } = 0;
-        public int CreditNotes { get; set; } = 0;
     }
 }

@@ -383,7 +383,8 @@ namespace AWC.DigitalCommerce.TicketsController
                 Helper.ShowToastNotification("Sesión abierta exitosamente");
 
                 PINRequest.Visibility = Visibility.Visible;
-                
+                Help.Visibility = Visibility.Visible;
+
                 SetUserAccessToResources2();
 
                 Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, "Tickets Controller App initialized successfully.", Logger.Severity.INFORMATION);
@@ -646,6 +647,10 @@ namespace AWC.DigitalCommerce.TicketsController
             Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, "Settings.Default.Save() passed", Logger.Severity.DEBUG);
             SetUserAccessToResources2();
             Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, "PIN was changed successfully.", Logger.Severity.INFORMATION);
+        }
+        private void btn_Help(object sender, MouseButtonEventArgs e)
+        {
+            Helper.InDevelopment();
         }
         #endregion
 
@@ -1063,5 +1068,6 @@ namespace AWC.DigitalCommerce.TicketsController
 
         }
         #endregion
+
     }
 }

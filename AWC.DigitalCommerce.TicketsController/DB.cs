@@ -9272,8 +9272,8 @@ namespace AWC.DigitalCommerce.TicketsController
         {
             try
             {
-                string sqlQry = "INSERT INTO tbl_DailyAccountantReport (BussinessDate, GrossSales, NetSales, Sales_Cash, Sales_CreditCard, Sales_Transfer, Sales_Voucher, Drawer_Cash, Drawer_CreditCard, Drawer_Transfer, Drawer_Voucher, DebitNotes, CreditNotes) " +
-                                $"VALUES ('{dar.BussinessDate}', {dar.GrossSales}, {dar.NetSales}, {dar.Sales_Cash}, {dar.Sales_CreditCard}, {dar.Sales_Transfer}, {dar.Sales_Voucher}, {dar.Drawer_Cash}, {dar.Drawer_CreditCard}, {dar.Drawer_Transfer}, {dar.Drawer_Voucher}, {dar.DebitNotes}, {dar.CreditNotes})";
+                string sqlQry = "INSERT INTO tbl_DailyAccountantReport (BussinessDate, GrossSales, NetSales, Sales_Cash, Sales_CreditCard, Sales_Transfer, Sales_Voucher, Drawer_Cash, Drawer_CreditCard, Drawer_Transfer, Drawer_Voucher) " +
+                                $"VALUES ('{dar.BussinessDate}', {dar.GrossSales}, {dar.NetSales}, {dar.Sales_Cash}, {dar.Sales_CreditCard}, {dar.Sales_Transfer}, {dar.Sales_Voucher}, {dar.Drawer_Cash}, {dar.Drawer_CreditCard}, {dar.Drawer_Transfer}, {dar.Drawer_Voucher})";
 
                 using (sqlConn = new SqlConnection(Settings.Default.TicketsControllerDbConn))
                 {
@@ -9324,8 +9324,6 @@ namespace AWC.DigitalCommerce.TicketsController
                         dar.Drawer_CreditCard = Convert.ToInt32(sdr["Drawer_CreditCard"]);
                         dar.Drawer_Transfer = Convert.ToInt32(sdr["Drawer_Transfer"]);
                         dar.Drawer_Voucher = Convert.ToInt32(sdr["Drawer_Voucher"]);
-                        dar.DebitNotes = Convert.ToInt32(sdr["DebitNotes"]);
-                        dar.CreditNotes = Convert.ToInt32(sdr["CreditNotes"]);
                     }
                 }
 

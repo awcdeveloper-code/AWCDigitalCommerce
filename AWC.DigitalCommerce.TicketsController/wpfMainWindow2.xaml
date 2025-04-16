@@ -63,7 +63,7 @@
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="25"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="50"/>
+                <RowDefinition Height="60"/>
                 <RowDefinition Height="35"/>
             </Grid.RowDefinitions>
             <!--BUTTONS-->
@@ -308,7 +308,8 @@
                        FontWeight="Bold"
                        FontSize="30"/>
             </StackPanel>
-            <Label Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="5"
+            <Label Grid.Row="5" Grid.Column="1"
+                   Grid.ColumnSpan="5"
                    Name="Trademark"
                    Foreground="White"
                    HorizontalAlignment="Left"
@@ -317,14 +318,16 @@
                    FontFamily="Bahnschrift SemiLight Condensed"
                    FontWeight="DemiBold"
                    Content="© 2021-2025 AIDAWARE GUILLERMO E. GRILLO III"/>
-            <Label Grid.Row="5" Grid.Column="6" Grid.ColumnSpan="4"
+            <Label Grid.Row="5" Grid.Column="6"
+                   Grid.ColumnSpan="4"
                    Name="lblOSD"
                    Foreground="White"
                    VerticalAlignment="Center"
                    FontSize="25"
                    FontFamily="Bahnschrift SemiLight Condensed"
                    FontWeight="DemiBold"/>
-            <Label Grid.Row="5" Grid.Column="9" Grid.ColumnSpan="2"
+            <Label Grid.Row="5" Grid.Column="9"
+                   Grid.ColumnSpan="2"
                    Name="lblTodayDate"
                    Foreground="White"
                    HorizontalAlignment="Right"
@@ -340,7 +343,28 @@
                     Margin="5"
                     BorderBrush="Cyan"
                     Background="Transparent"/>
-            <StackPanel Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="2"
+            <StackPanel Grid.Row="4" Grid.Column="9"
+                        Grid.ColumnSpan="2"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Orientation="Horizontal">
+                <Image Name="PINRequest"
+                       Source="/Images/people.ico"
+                       Visibility="Hidden"
+                       Margin="10"
+                       ToolTip="Click aqui para cambiar de PIN"
+                       Cursor="Hand"
+                       MouseDown="btn_PINRequest"/>
+                <Image Name="Help"
+                       Source="/Images/help.png"
+                       Visibility="Hidden"
+                       Margin="10"
+                       ToolTip="Click aqui para ayuda"
+                       Cursor="Hand"
+                       MouseDown="btn_Help"/>
+            </StackPanel>
+            <StackPanel Grid.Row="5" Grid.Column="4"
+                        Grid.ColumnSpan="2"
                         Orientation="Horizontal"
                         HorizontalAlignment="Left">
                 <Image Margin="5"
@@ -390,15 +414,6 @@
                        Width="20" Height="20"
                        MouseDown="mouseDown_chatGPT"/>
             </StackPanel>
-            <Image Grid.Row="4" Grid.Column="10"
-               Name="PINRequest"
-               Source="/Images/people.ico"
-               HorizontalAlignment="Right"
-               Visibility="Hidden"
-               Margin="5"
-               ToolTip="Click aqui para cambiar de PIN"
-               Cursor="Hand"
-               MouseDown="btn_PINRequest"/>
         </Grid>
     </Border>
 </Window>

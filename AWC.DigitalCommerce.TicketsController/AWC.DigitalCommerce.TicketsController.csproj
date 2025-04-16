@@ -1818,6 +1818,7 @@
     <Content Include="Documentation\FixtblDailyClosing.sql" />
     <Content Include="Documentation\RebuildAllIndexes.sql" />
     <Content Include="Documentation\TRUNCATE_TABLES.sql" />
+    <Resource Include="Images\help.png" />
     <Resource Include="Images\conotrafico.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
