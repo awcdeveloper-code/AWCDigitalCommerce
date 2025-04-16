@@ -370,6 +370,9 @@
     <Compile Include="Controls\ucDamagedProducts.xaml.cs">
       <DependentUpon>ucDamagedProducts.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ucHelp.xaml.cs">
+      <DependentUpon>ucHelp.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ucIncomeCash.xaml.cs">
       <DependentUpon>ucIncomeCash.xaml</DependentUpon>
     </Compile>
@@ -853,6 +856,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\ucDamagedProducts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ucHelp.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

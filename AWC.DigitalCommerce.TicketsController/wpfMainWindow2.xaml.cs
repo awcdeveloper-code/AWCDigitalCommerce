@@ -577,7 +577,7 @@ namespace AWC.DigitalCommerce.TicketsController
         #region BUTTONS
         private void btn_QuickSale(object sender, RoutedEventArgs e)
         {
-            ucQuickOrder(lang);
+            ucHelp(lang);
         }
         private void btn_Tickets(object sender, RoutedEventArgs e)
         {
@@ -650,7 +650,7 @@ namespace AWC.DigitalCommerce.TicketsController
         }
         private void btn_Help(object sender, MouseButtonEventArgs e)
         {
-            Helper.InDevelopment();
+            ucHelp(lang);
         }
         #endregion
 
@@ -1027,6 +1027,36 @@ namespace AWC.DigitalCommerce.TicketsController
             DB.InsertOpenCashDrawerRequest();  
             wpfSplashWindow sw = new wpfSplashWindow(1, lang);
             sw.ShowDialog();
+        }
+        private void ucHelp(string lang)
+        {
+            try
+            {
+                if (IsTransInProgress()) return;
+
+                if (isActive)
+                {
+                    isActive = false;
+                    tabCtrlWorkArea.Items.Clear();
+                    newTab.Background = Brushes.DarkBlue;
+                }
+                else
+                {
+                    isActive = true;
+                    var UH = new ucHelp();
+                    newTab = new TabItem { Content = UH };
+                    newTab.Header = CreateHeaderForTabItem(newTab, "pack://application:,,,/Images/help.png", "AYUDA");
+
+                    // WorkArea Tab Manager
+                    tabCtrlWorkArea.Items.Add(newTab);
+                    tabCtrlWorkArea.Items.Refresh();
+                    tabCtrlWorkArea.Visibility = Visibility.Visible;
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, ex, Logger.Severity.ERROR);
+            }
         }
         #endregion
 
