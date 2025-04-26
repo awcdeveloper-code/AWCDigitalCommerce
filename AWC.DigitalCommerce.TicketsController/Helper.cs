@@ -670,6 +670,7 @@ namespace AWC.DigitalCommerce.TicketsController
                 id4dg.Transfer = ticket.Transfer;
                 id4dg.PayMethod = ticket.PayMethod;
                 id4dg.Status = ticket.Status;
+                id4dg.CustomerAKA = ticket.CustomerAKA;
 
                 return id4dg;
             }

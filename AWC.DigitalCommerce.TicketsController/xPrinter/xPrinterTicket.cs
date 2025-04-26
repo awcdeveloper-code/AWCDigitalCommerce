@@ -116,10 +116,12 @@ namespace AWC.DigitalCommerce.TicketsController
                 graphics.DrawString(workVar, new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
                 Offset += 25;
 
-                if (ticket.CustomerID.Length > 22)
-                    ticket.CustomerID = ticket.CustomerID.Substring(0, 22);
+                if (ticket.CustomerAKA.Length > 22)
+                {
+                    ticket.CustomerAKA = ticket.CustomerAKA.Substring(0, 22);
+                }
 
-                graphics.DrawString(new string(' ', 23 - ticket.CustomerID.Length) + ticket.CustomerID, new Font("Consolas Bold", 10), new SolidBrush(Color.Black), startX, startY + Offset);
+                graphics.DrawString(new string(' ', 23 - ticket.CustomerAKA.Length) + ticket.CustomerAKA, new Font("Consolas Bold", 10), new SolidBrush(Color.Black), startX, startY + Offset);
                 Offset += 20;
 
                 clsTicket t = DB.GetTicket(ticket.ID);

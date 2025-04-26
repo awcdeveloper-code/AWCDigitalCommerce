@@ -272,7 +272,7 @@
                         Grid.ColumnSpan="12"
                         Orientation="Vertical" VerticalAlignment="Center">
                 <Label Name="ApplicationTitle"
-                       Foreground="Cyan"
+                       Foreground="Lime"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"
                        FontFamily="Bahnschrift SemiLight Condensed"
@@ -287,7 +287,7 @@
                              Visibility="Hidden"
                              IsIndeterminate="True"/>
                 <Label Name="BussinessName"
-                       Foreground="Cyan"
+                       Foreground="Lime"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"
                        FontFamily="Bahnschrift SemiLight Condensed"
@@ -356,18 +356,18 @@
                        ToolTip="Click qui ara ver lista de cocktails"
                        Cursor="Hand"
                        MouseDown="btn_Cocktails"/>
-                <Image Name="Help"
-                       Source="/Images/help.png"
-                       Margin="10"
-                       ToolTip="Click aqui para ayuda"
-                       Cursor="Hand"
-                       MouseDown="btn_Help"/>
                 <Image Name="PINRequest"
                        Source="/Images/people.ico"
                        Margin="10"
                        ToolTip="Click aqui para cambiar de PIN"
                        Cursor="Hand"
                        MouseDown="btn_PINRequest"/>
+                <Image Name="Help"
+                       Source="/Images/help.png"
+                       Margin="10"
+                       ToolTip="Click aqui para ayuda"
+                       Cursor="Hand"
+                       MouseDown="btn_Help"/>
             </StackPanel>
             <StackPanel Grid.Row="5" Grid.Column="4"
                         Grid.ColumnSpan="2"
