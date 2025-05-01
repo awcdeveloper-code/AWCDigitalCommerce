@@ -947,7 +947,7 @@ namespace AWC.DigitalCommerce.TicketsController
                     // Users Maintenance
                     if (Helper.CheckUserAccessToResource2("Maintenance_UsersMgmt"))
                     {
-                        var UsersMaintenance = new ucUsersMaintenance(lang);
+                        var UsersMaintenance = new ucUsersMaintenance2();
                         newTab = new TabItem { Content = UsersMaintenance };
                         newTab.Header = CreateHeaderForTabItem(newTab, "pack://application:,,,/Images/waitress.png", "COLABORADORES");
                         tabCtrlWorkArea.Items.Add(newTab);

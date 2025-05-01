@@ -24,5 +24,10 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
         {
             InitializeComponent();
         }
+
+        private void ucHelp_Loaded(object sender, RoutedEventArgs e)
+        {
+            Helper.InDevelopment();
+        }
     }
 }

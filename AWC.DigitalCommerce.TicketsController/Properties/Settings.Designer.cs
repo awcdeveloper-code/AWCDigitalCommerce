@@ -286,7 +286,7 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1003")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1034")]
         public int SplitTicketCustID {
             get {
                 return ((int)(this["SplitTicketCustID"]));

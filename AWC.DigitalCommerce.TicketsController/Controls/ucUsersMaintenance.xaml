@@ -102,6 +102,7 @@
                   Margin="5"
                   FontSize="20"
                   FontWeight="DemiBold"/>
+        <!--CUENTAS-->
         <CheckBox Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="3"
                   Name="chkBox_QuickSale"
                   Foreground="Cyan"
@@ -109,7 +110,6 @@
                   FontSize="15"
                   FontWeight="DemiBold"
                   Content="VENTA RÁPIDA"/>
-        <!--CUENTAS-->
         <CheckBox Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="3"
                   Name="chkBox_Tickets"
                   Foreground="Cyan"

@@ -325,6 +325,7 @@
     <Compile Include="Classes\clsItemType.cs" />
     <Compile Include="Classes\clsItemTypeCollection.cs" />
     <Compile Include="Classes\clsLanguage.cs" />
+    <Compile Include="Classes\clsListBoxCheckbox.cs" />
     <Compile Include="Classes\clsLoyaltyReward.cs" />
     <Compile Include="Classes\clsLunch.cs" />
     <Compile Include="Classes\clsNote.cs" />
@@ -387,6 +388,9 @@
     </Compile>
     <Compile Include="Controls\ucSpecials.xaml.cs">
       <DependentUpon>ucSpecials.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucUsersMaintenance2.xaml.cs">
+      <DependentUpon>ucUsersMaintenance2.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\ucVouchers.xaml.cs">
       <DependentUpon>ucVouchers.xaml</DependentUpon>
@@ -883,6 +887,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\ucSpecials.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ucUsersMaintenance2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

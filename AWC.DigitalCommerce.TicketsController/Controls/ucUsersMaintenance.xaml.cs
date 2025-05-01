@@ -82,15 +82,15 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
 
             EnableDisableCheckboxes(false);
 
+            cbox_Status.Items.Add("ACTIVO");
+            cbox_Status.Items.Add("INACTIVO");
+
             cbox_Job.Items.Add("ADMINISTRADOR");
             cbox_Job.Items.Add("ATENCIÓN DEL SALON");
             cbox_Job.Items.Add("BARTENDER");
             cbox_Job.Items.Add("POWER ADMIN");
             cbox_Job.Items.Add("SOPORTE TÉCNICO");
             cbox_Job.Items.Add("SUPERVISOR");
-
-            cbox_Status.Items.Add("ACTIVO");
-            cbox_Status.Items.Add("INACTIVO");
         }
 
         private void txtBox_PIN_KeyUp(object sender, KeyEventArgs e)
@@ -309,6 +309,7 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
             CleanAll();
         }
 
+        // Accounts Checkbox Events
         private void chkBox_Settings_CheckBoxChanged(object sender, RoutedEventArgs e)
         {
             bool action = chkBox_Settings.IsChecked == true ? true : false;

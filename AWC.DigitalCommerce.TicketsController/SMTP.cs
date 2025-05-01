@@ -211,7 +211,7 @@ namespace AWC.DigitalCommerce.TicketsController
                 {
                     sb.Append("<h2>PRODUCTOS VENDIDOS</h2>");
                     sb.Append("<table>");
-                    sb.Append("<tr><th>CANT</th><th>DESCRIPCIÓN</th><th>MONTO</th><th>DISPONIBLES</th></tr>");
+                    sb.Append("<tr><th>CANT</th><th>DESCRIPCIÓN</th><th>MONTO</th><th>STOCK</th></tr>");
 
                     int total = 0;
 
