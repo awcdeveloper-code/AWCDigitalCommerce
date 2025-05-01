@@ -830,6 +830,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Database\truncate_tbl_BartenderOrder.bat" />
     <None Include="Documentation\One Touch for Windows SDK .NET Developer Guide.pdf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -1870,6 +1871,12 @@
     <Resource Include="Cocktails\Tequila Sunrise.txt" />
     <Resource Include="Cocktails\Whisky HighBall.txt" />
     <Resource Include="Cocktails\Whisky Sour.txt" />
+    <Content Include="Database\ADD_INTERNAL_RECORDS.sql" />
+    <Content Include="Database\CREATE_EMPTY_SCHEMA_AWCDigitalCommerce.sql" />
+    <Content Include="Database\FixtblDailyClosing.sql" />
+    <Content Include="Database\RebuildAllIndexes.sql" />
+    <Content Include="Database\TABLES_LIST_AWCDigitalCommerce.sql" />
+    <Content Include="Database\TRUNCATE_TABLES.sql" />
     <Content Include="Documentation\FixtblDailyClosing.sql" />
     <Content Include="Documentation\RebuildAllIndexes.sql" />
     <Content Include="Documentation\TRUNCATE_TABLES.sql" />
