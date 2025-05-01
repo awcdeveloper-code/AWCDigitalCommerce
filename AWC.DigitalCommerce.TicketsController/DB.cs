@@ -2910,17 +2910,18 @@ namespace AWC.DigitalCommerce.TicketsController
                     case 1:
                     case 2:
                     case 3:
-                        sqlQry = "SELECT tbl_Items.ItemDescription AS 'ItemDesc', SUM(Qty) AS 'Qty', tbl_TicketsDetail.UnitPrice, SUM(tbl_TicketsDetail.TotalPrice) AS 'TotalPrice', tbl_Items.ItemType AS 'ItemType' FROM tbl_TicketsDetail " +
+                        sqlQry = "SELECT tbl_Items.ItemDescription AS 'ItemDesc', SUM(Qty) AS 'Qty', tbl_TicketsDetail.UnitPrice, SUM(tbl_TicketsDetail.TotalPrice) AS 'TotalPrice', tbl_Items.ItemAvailable AS 'ItemAvail', tbl_Items.ItemType AS 'ItemType' FROM tbl_TicketsDetail " +
                                  "INNER JOIN tbl_Items ON tbl_TicketsDetail.ItemID = tbl_Items.ID " +
-                                 "WHERE tbl_Items.ItemType <> 9 AND tbl_Items.ItemType = " + itemType + " AND (tbl_TicketsDetail.CreatedAt >= '" + startDate + "' AND tbl_TicketsDetail.CreatedAt <= '" + finishDate + "') GROUP BY tbl_Items.ItemDescription, tbl_Items.ItemType, tbl_TicketsDetail.UnitPrice " +
+                                 "WHERE tbl_Items.ItemType <> 9 AND tbl_Items.ItemType = " + itemType + " AND (tbl_TicketsDetail.CreatedAt >= '" + startDate + "' AND tbl_TicketsDetail.CreatedAt <= '" + finishDate + "') " +
+                                 "GROUP BY tbl_Items.ItemDescription, tbl_Items.ItemType, tbl_TicketsDetail.UnitPrice, tbl_Items.ItemAvailable " +
                                  "ORDER BY tbl_Items.ItemDescription";
                         break;
                     case 4:
-                        sqlQry = "SELECT tbl_Items.ItemDescription AS 'ItemDesc', SUM(Qty) AS 'Qty', tbl_TicketsDetail.UnitPrice, SUM(tbl_TicketsDetail.TotalPrice) AS 'TotalPrice', tbl_Items.ItemType AS 'ItemType' FROM tbl_TicketsDetail " +
+                        sqlQry = "SELECT tbl_Items.ItemDescription AS 'ItemDesc', SUM(Qty) AS 'Qty', tbl_TicketsDetail.UnitPrice, SUM(tbl_TicketsDetail.TotalPrice) AS 'TotalPrice', tbl_Items.ItemAvailable AS 'ItemAvail', tbl_Items.ItemType AS 'ItemType' FROM tbl_TicketsDetail " +
                                 $"INNER JOIN tbl_Items ON tbl_TicketsDetail.ItemID = tbl_Items.ID " +
                                 $"INNER JOIN tbl_Tickets ON tbl_Tickets.GUID = tbl_TicketsDetail.GUID " +
                                 $"WHERE tbl_Tickets.Shift = {Settings.Default.ShiftForQuery} AND tbl_Items.ItemType <> 9 AND (tbl_TicketsDetail.CreatedAt >= '{startDate}' AND tbl_TicketsDetail.CreatedAt <= '{finishDate}') " +
-                                "GROUP BY tbl_Items.ItemDescription, tbl_Items.ItemType, tbl_TicketsDetail.UnitPrice ORDER BY tbl_Items.ItemDescription";
+                                "GROUP BY tbl_Items.ItemDescription, tbl_Items.ItemType, tbl_TicketsDetail.UnitPrice, tbl_Items.ItemAvailable ORDER BY tbl_Items.ItemDescription";
                         break;
                 }
 
@@ -2940,6 +2941,7 @@ namespace AWC.DigitalCommerce.TicketsController
                             detailItem.ItemDesc = sdr["ItemDesc"].ToString();
                             detailItem.UnitPrice = Convert.ToInt32(sdr["UnitPrice"]);
                             detailItem.TotalPrice = Convert.ToInt32(sdr["TotalPrice"]);
+                            detailItem.ItemAvailable = Convert.ToInt32(sdr["ItemAvail"]);
                             TicketItems.Add(detailItem);
                         }
                     }

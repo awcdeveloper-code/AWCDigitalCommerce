@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController"
              mc:Ignorable="d" Background="DarkBlue"
-             d:DesignHeight="530" d:DesignWidth="800">
+             d:DesignHeight="530" d:DesignWidth="950">
     <UserControl.Resources>
         <Style x:Key="CenterGridHeaderStyle" TargetType="DataGridColumnHeader">
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -20,6 +20,7 @@
             <ColumnDefinition Width="140"/>
             <ColumnDefinition Width="140"/>
             <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="140"/>
             <ColumnDefinition Width="10"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -77,14 +78,14 @@
                   FontWeight="DemiBold"
                   SelectionChanged="cbox_ItemType_SelectionChanged"/>
         <!--DATAGRID-->
-        <GroupBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="6"
+        <GroupBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="7"
                   Foreground="Cyan"
                   Name="GroupBoxDataGrid"
                   FontSize="20"
                   FontWeight="DemiBold"
                   Header="DETALLE">
             <DataGrid Name="TicketDetail"
-                      Height="290" Width="740"
+                      Height="290" Width="840"
                       Margin="5"
                       RowHeight="30"
                       IsReadOnly="True"
@@ -134,6 +135,16 @@
                         <DataGridTextColumn.ElementStyle>
                             <Style TargetType="{x:Type TextBlock}">
                                 <Setter Property="HorizontalAlignment" Value="Right" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="STOCK"
+                                        Width="100"
+                                        Binding="{Binding Path=ItemAvailable}"
+                                        HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="HorizontalAlignment" Value="Center" />
                             </Style>
                         </DataGridTextColumn.ElementStyle>
                     </DataGridTextColumn>

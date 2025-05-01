@@ -211,13 +211,13 @@ namespace AWC.DigitalCommerce.TicketsController
                 {
                     sb.Append("<h2>PRODUCTOS VENDIDOS</h2>");
                     sb.Append("<table>");
-                    sb.Append("<tr><th>CANT</th><th>DESCRIPCIÓN</th><th>MONTO</th></tr>");
+                    sb.Append("<tr><th>CANT</th><th>DESCRIPCIÓN</th><th>MONTO</th><th>DISPONIBLES</th></tr>");
 
                     int total = 0;
 
                     foreach (clsItemDetailForDatagrid sale in itemsList)
                     {
-                        sb.Append("<tr><td class=\"amount\">" + sale.Qty + "</td><td>" + sale.ItemDesc + "</td><td class=\"amount\">" + sale.TotalPrice.ToString("N0") + "</td></tr>");
+                        sb.Append("<tr><td class=\"amount\">" + sale.Qty + "</td><td>" + sale.ItemDesc + "</td><td class=\"amount\">" + sale.TotalPrice.ToString("N0") + "</td><td class=\"amount\">" + sale.ItemAvailable + "</td></tr>");
                         total += sale.TotalPrice;
                     }
 

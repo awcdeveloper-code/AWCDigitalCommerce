@@ -260,6 +260,7 @@ namespace AWC.DigitalCommerce.TicketsController
                 }
 
                 string bussinessDay = DB.ConverTicketDate(awcDC.LastPayment);
+
                 string today = DB.ConverTicketDate(DateTime.Now.ToString("yyyyMMdd"));
 
                 if (today != bussinessDay)

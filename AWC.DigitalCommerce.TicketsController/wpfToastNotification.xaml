@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController"
         mc:Ignorable="d" Height="130" Width="450" Topmost="True"
         WindowStyle="None" AllowsTransparency="True" Background="Transparent">
-    <Border BorderBrush="Fuchsia" BorderThickness="3" Background="White" CornerRadius="10" Padding="10">
+    <Border BorderBrush="Fuchsia" BorderThickness="3" Background="White" CornerRadius="5" Padding="10">
         <StackPanel Orientation="Vertical">
             <Image Width="50" Height="50"
                    HorizontalAlignment="Stretch"
