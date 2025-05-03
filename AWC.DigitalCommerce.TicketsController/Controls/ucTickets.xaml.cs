@@ -2031,6 +2031,9 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
                     case 3:
                         item.ImagePath = @"C:\AWC.DigitalCommerce\Images\kitchen.ico";
                         break;
+                    case 9:
+                        item.ImagePath = @"C:\AWC.DigitalCommerce\Images\otherTrans.png";
+                        break;
                 }
 
                 TicketDetail.Items.Add(item);

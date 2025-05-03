@@ -7,7 +7,7 @@
         mc:Ignorable="d" Height="768" Width="1280" Background="DarkBlue" ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen" WindowStyle="None">
     <Border
-        Background="DarkBlue"
+        Background="DarkSlateGray"
         CornerRadius="10">
         <Grid>
             <Grid.ColumnDefinitions>

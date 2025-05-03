@@ -181,7 +181,7 @@
                  ItemsSource="{Binding PendantsGroupItems}"
                  BorderBrush="Fuchsia"
                  BorderThickness="2"
-                 >
+                 IsEnabled="False">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -206,7 +206,8 @@
                  Grid.ColumnSpan="4" Grid.RowSpan="11"
                  ItemsSource="{Binding AccountsGroupItems}"
                  BorderBrush="Fuchsia"
-                 BorderThickness="2">
+                 BorderThickness="2"
+                 IsEnabled="False">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -231,7 +232,8 @@
                  Grid.ColumnSpan="4" Grid.RowSpan="9"
                  ItemsSource="{Binding SalesGroupItems}"
                  BorderBrush="Fuchsia"
-                 BorderThickness="2">
+                 BorderThickness="2"
+                 IsEnabled="False">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -256,7 +258,8 @@
                  Grid.ColumnSpan="4" Grid.RowSpan="9"
                  ItemsSource="{Binding SettingsGroupItems}"
                  BorderBrush="Fuchsia"
-                 BorderThickness="2">
+                 BorderThickness="2"
+                 IsEnabled="False">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">

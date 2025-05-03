@@ -1838,6 +1838,7 @@
     <Resource Include="Images\Background_Blue.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\otherTrans.png" />
     <Resource Include="Cocktails\Aperol Spritz.txt" />
     <Resource Include="Cocktails\Bahama Mama.txt" />
     <Resource Include="Cocktails\Black Russian.txt" />

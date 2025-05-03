@@ -35,8 +35,8 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
             cbox_Job.Items.Add("SOPORTE TÉCNICO");
             cbox_Job.Items.Add("SUPERVISOR");
 
-            LoadAccountsGroup();
             LoadPendantsGroup();
+            LoadAccountsGroup();
             LoadSalesGroup();
             LoadSettingsGroup();
         }
@@ -177,6 +177,7 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
         {
             bool action = chkBox_Pendant.IsChecked == true ? true : false;
             EnableDisableCheckboxes(PendantsGroupItems, action);
+            PendantsListBox.IsEnabled = action;
         }
 
         private void LoadPendantsGroup()
@@ -200,6 +201,7 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
         {
             bool action = chkBox_Tickets.IsChecked == true ? true : false;
             EnableDisableCheckboxes(AccountsGroupItems, action);
+            AccountsListBox.IsEnabled = action;
         }
 
         private void LoadAccountsGroup()
@@ -234,6 +236,7 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
         {
             bool action = chkBox_TodaySale.IsChecked == true ? true : false;
             EnableDisableCheckboxes(SalesGroupItems, action);
+            SalesListBox.IsEnabled = action;
         }
 
         private void LoadSalesGroup()
@@ -260,6 +263,7 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
         {
             bool action = chkBox_Settings.IsChecked == true ? true : false;
             EnableDisableCheckboxes(SettingsGroupItems, action);
+            SettingsListBox.IsEnabled = action;
         }
 
         private void LoadSettingsGroup()

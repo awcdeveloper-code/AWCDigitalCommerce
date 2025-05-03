@@ -352,6 +352,9 @@ namespace AWC.DigitalCommerce.TicketsController
                                 case 3:
                                     item.ImagePath = @"C:\AWC.DigitalCommerce\Images\kitchen.ico";
                                     break;
+                                case 9:
+                                    item.ImagePath = @"C:\AWC.DigitalCommerce\Images\otherTrans.png";
+                                    break;
                             }
 
                             //if (item.ItemType == 1 && item.ItemSubType == 2)
@@ -2725,10 +2728,12 @@ namespace AWC.DigitalCommerce.TicketsController
                 List<clsItemDetailForDatagrid> TicketItems = new List<clsItemDetailForDatagrid>();
 
                 if (bSummary)
-                    sqlQry = "SELECT 9999 AS 'ID', ItemType, ItemID, SUM(Qty) AS 'Qty', UnitCost, SUM(TotalCost) AS 'TotalCost', UnitPrice, SUM(TotalPrice) AS 'TotalPrice' FROM tbl_TicketsDetail " +
-                             "WHERE GUID = '" + GUID + "' GROUP BY ItemType, ItemID, UnitCost, UnitPrice";
+                    //sqlQry = "SELECT 9999 AS 'ID', ItemType, ItemID, SUM(Qty) AS 'Qty', UnitCost, SUM(TotalCost) AS 'TotalCost', UnitPrice, SUM(TotalPrice) AS 'TotalPrice' FROM tbl_TicketsDetail " +
+                    //         "WHERE GUID = '" + GUID + "' GROUP BY ItemType, ItemID, UnitCost, UnitPrice";
+                    sqlQry = "SELECT 9999 AS 'ID', ItemType, ItemID, SUM(Qty) AS 'Qty', MAX(UnitCost) AS 'UnitCost', SUM(TotalCost) AS 'TotalCost', MAX(UnitPrice) AS 'UnitPrice', SUM(TotalPrice) AS 'TotalPrice' FROM tbl_TicketsDetail " +
+                             "WHERE GUID = '" + GUID + "' GROUP BY ItemType, ItemID";
                 else
-                    sqlQry = "SELECT ID, ItemType, ItemID, Qty, UnitCost, TotalCost, UnitPrice, TotalPrice FROM tbl_TicketsDetail WHERE GUID = '" + GUID + "' ORDER BY ID ASC";
+                            sqlQry = "SELECT ID, ItemType, ItemID, Qty, UnitCost, TotalCost, UnitPrice, TotalPrice FROM tbl_TicketsDetail WHERE GUID = '" + GUID + "' ORDER BY ID ASC";
 
                 using (sqlConn = new SqlConnection(Settings.Default.TicketsControllerDbConn))
                 {
@@ -2766,6 +2771,9 @@ namespace AWC.DigitalCommerce.TicketsController
                                         break;
                                     case 3:
                                         detailItem.ImagePath = @"C:\AWC.DigitalCommerce\Images\kitchen.ico";
+                                        break;
+                                    case 9:
+                                        detailItem.ImagePath = @"C:\AWC.DigitalCommerce\Images\otherTrans.png";
                                         break;
                                 }
 
