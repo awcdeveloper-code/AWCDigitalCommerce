@@ -4,10 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController"
-        mc:Ignorable="d" Height="768" Width="1280" Background="DarkBlue" ResizeMode="NoResize"
+        mc:Ignorable="d" Height="768" Width="1280" ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen" WindowStyle="None">
     <Border
-        Background="DarkSlateGray"
+        Background="DarkBlue"
         CornerRadius="10">
         <Grid>
             <Grid.ColumnDefinitions>

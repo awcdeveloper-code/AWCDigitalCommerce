@@ -496,5 +496,45 @@ namespace AWC.DigitalCommerce.TicketsController
 
             Settings.Default.Save();
         }
+
+        private void btn_PrintAsIs(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Mouse.OverrideCursor = Cursors.Wait;
+
+                int pai_subTotalPrice = 0;
+
+                foreach (clsTicketDetail item in TicketDetailSource.Items)
+                {
+                    pai_subTotalPrice += item.TotalPrice;
+                }
+
+                int pai_totalServiceFee = 0;
+
+                if (applyServiceFee)
+                {
+                    pai_totalServiceFee = pai_subTotalPrice * 10 / 100;
+                }
+
+                int pai_totalIVAFee = 0;
+
+                if (applyIVAFee)
+                {
+                    pai_totalIVAFee = pai_subTotalPrice * 13 / 100;
+                }
+
+                int pai_totalPrice = pai_subTotalPrice + pai_totalServiceFee + pai_totalIVAFee;
+
+                wpfSplashWindow sw = new wpfSplashWindow(2, "");
+                sw.ShowDialog();
+
+                Mouse.OverrideCursor = null;
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, ex, Logger.Severity.ERROR);
+            }
+        }
     }
 }

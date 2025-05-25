@@ -41,7 +41,7 @@
             </VisualStateManager.VisualStateGroups>
             <Grid.Background>
                 <ImageBrush Stretch="Fill"
-                            ImageSource="/Images/Background_Blue.jpg"
+                            ImageSource="/Images/Background_Multi.jpg"
                             AlignmentY="Top" AlignmentX="Center"/>
             </Grid.Background>
             <Grid.ColumnDefinitions>

@@ -105,8 +105,8 @@ namespace AWC.DigitalCommerce.TicketsController
             graphics.DrawString(Helper.FormatGralLine(workVar), new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
             Offset += 20;
 
-            graphics.DrawString(Helper.FormatGralLine(DateTime.Now.ToString("dd.MM.yyyy hh:mm tt")), new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
-            Offset += 20;
+            graphics.DrawString(DateTime.Now.ToString("dd.MM.yyyy hh:mm tt"), new Font("Consolas", 11), new SolidBrush(Color.Black), startX, startY + Offset);
+            Offset += 50;
 
             // Cut line
             workVar = ".   .    .    .    .    .    .";

@@ -576,7 +576,7 @@ namespace AWC.DigitalCommerce.TicketsController
         #region BUTTONS
         private void btn_QuickSale(object sender, RoutedEventArgs e)
         {
-            ucHelp(lang);
+            ucQuickOrder(lang);
         }
         private void btn_Tickets(object sender, RoutedEventArgs e)
         {

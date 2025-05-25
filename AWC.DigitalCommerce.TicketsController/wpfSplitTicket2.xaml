@@ -260,6 +260,18 @@
                     <TextBlock Text="CANCELAR" VerticalAlignment="Center"/>
                 </StackPanel>
             </Button>
+            <Button Grid.Row="15" Grid.Column="2"
+                    Name="PrintAsIs"
+                    Click="btn_PrintAsIs"
+                    FontSize="20"
+                    Margin="5"
+                    Cursor="Hand"
+                    FontWeight="DemiBold">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Images/printer_icon.png" Width="20" Height="20" Margin="5"/>
+                    <TextBlock Text="IMPRIMIR ESTO" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
             <Image Grid.Row="5" Grid.Column="3"
                    Name="AddOne2Right"
                    Source="/Images/circled-right.png"
