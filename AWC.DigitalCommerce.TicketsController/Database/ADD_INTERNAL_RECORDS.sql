@@ -24,7 +24,9 @@ INSERT [dbo].[tbl_Items] ([ID], [ItemType], [ItemSubType], [ItemDescription], [U
 GO
 INSERT [dbo].[tbl_Items] ([ID], [ItemType], [ItemSubType], [ItemDescription], [UnitPrice], [UnitCost], [ItemAvailable], [ItemSold], [ItemDefective], [ItemParent], [ItemParentUnit], [ItemMinimum], [ItemUnitOfMeasurement], [ItemUnitSize], [ItemStock], [DebitNotes], [CreditNotes]) VALUES (2005, 9, 0, N'PAGO PARCIAL (-)', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0)
 GO
-INSERT [dbo].[tbl_Users] ([userID], [userDTCreation], [userPIN], [userPW], [userName], [userAccessLevel], [userActive], [userSecurityProfile], [userPowerAdmin]) VALUES (100, CAST(N'2024-09-01T07:43:39.457' AS DateTime), N'12345', N'12345', N'MEMO GRILLO', N'POWER ADMIN', 1, N'1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111', 1)
 GO
 SET IDENTITY_INSERT [dbo].[tbl_Items] OFF
 GO
+SET IDENTITY_INSERT [dbo].[tbl_Users] ON
+INSERT [dbo].[tbl_Users] ([userID], [userDTCreation], [userPIN], [userPW], [userName], [userAccessLevel], [userActive], [userSecurityProfile], [userPowerAdmin]) VALUES (100, CAST(N'2024-09-01T07:43:39.457' AS DateTime), N'12345', N'12345', N'MEMO GRILLO', N'POWER ADMIN', 1, N'1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111', 1)
+SET IDENTITY_INSERT [dbo].[tbl_Users] OFF

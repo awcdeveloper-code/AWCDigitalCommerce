@@ -84,7 +84,7 @@
       <Value Profile="(Default)">C:\AWC.DigitalCommerce\Images\ServiceFee.PNG</Value>
     </Setting>
     <Setting Name="SplitTicketCustID" Type="System.Int32" Scope="Application">
-      <Value Profile="(Default)">1034</Value>
+      <Value Profile="(Default)">1003</Value>
     </Setting>
     <Setting Name="DisplayUpdateSalesSummary" Type="System.Boolean" Scope="Application">
       <Value Profile="(Default)">False</Value>
@@ -168,7 +168,7 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="TicketsControllerDbConn" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">Server=DESKTOP-T68QADR;Database=AWCDigitalCommerce;User Id=sa;Password=sa;</Value>
+      <Value Profile="(Default)">Server=DESKTOP-R3LB5K0;Database=AWCDigitalCommerce;User Id=sa;Password=sa;</Value>
     </Setting>
     <Setting Name="BartenderPrinter" Type="System.String" Scope="Application">
       <Value Profile="(Default)" />

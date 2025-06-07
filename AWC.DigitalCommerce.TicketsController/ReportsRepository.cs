@@ -1,15 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
-using System.Windows.Xps.Packaging;
 using Microsoft.Office.Interop.Excel;
 using AWC.DigitalCommerce.TicketsController.Properties;
-using System.Threading;
 using SwiftExcel;
 
 namespace AWC.DigitalCommerce.TicketsController
