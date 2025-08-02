@@ -126,6 +126,7 @@ namespace AWC.DigitalCommerce.TicketsController
             }
 
             Settings.Default.WhoOpen = Convert.ToInt32(wpfPIN.numKeyed);
+            Settings.Default.WhoOpenName = userProf.userName;
             Settings.Default.Save();
 
             //check if dailyClosing must be done
@@ -674,6 +675,7 @@ namespace AWC.DigitalCommerce.TicketsController
             }
 
             Settings.Default.WhoOpen = Convert.ToInt32(wpfPIN.numKeyed);
+            Settings.Default.WhoOpenName = userProf.userName;
             Settings.Default.Save();
 
             wpfMessageBox.Show("Tickets Controller", String.Format(strWelcomeAboard, userProf.userName), MessageBoxButton.OK, wpfMessageBox.MessageBoxImage.Information, lang);

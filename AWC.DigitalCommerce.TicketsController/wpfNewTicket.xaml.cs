@@ -478,6 +478,7 @@ namespace AWC.DigitalCommerce.TicketsController
                     return;
                 }
                 Settings.Default.WhoOpen = Convert.ToInt32(wpfPIN.numKeyed);
+                Settings.Default.WhoOpenName = userProf.userName;
                 Settings.Default.Save();
             }
 

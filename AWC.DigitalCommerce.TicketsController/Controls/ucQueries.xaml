@@ -199,13 +199,13 @@
                 </Button>
             </StackPanel>
         </GroupBox>
-        <!--CUSTOMERS-->
+        <!--MAINTENANCE -->
         <GroupBox Grid.Row="1" Grid.Column="2"
                   Name="Customers"
                   Foreground="Cyan"
                   Background="Transparent"
                   Margin="3"
-                  Header="CLIENTES" >
+                  Header="MANTENIMIENTO" >
             <StackPanel Orientation="Vertical">
                 <Button Click="btn_CustomersVIP"
                         Name="Catalog"
@@ -272,6 +272,23 @@
                                Width="30" Height="30"
                                Margin="5"/>
                         <TextBlock Text="MOROSIDAD"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button Click="btn_DeletedFromSystem"
+                        Name="DeletedFromSystem"
+                        Foreground="Black"
+                        FontSize="20"
+                        Height="60"
+                        Width="240"
+                        Margin="3"
+                        Cursor="Hand"
+                        FontWeight="DemiBold">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Images/delete_sign.png"
+                               Width="30" Height="30"
+                               Margin="5"/>
+                        <TextBlock Text="PRODUCTOS"
                                    VerticalAlignment="Center"/>
                     </StackPanel>
                 </Button>

@@ -124,7 +124,9 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
                         wpfMessageBox.Show("Tickets Controller", strPINdoNotExist, MessageBoxButton.OK, wpfMessageBox.MessageBoxImage.Warning, lang);
                         return;
                     }
+
                     Settings.Default.WhoOpen = Convert.ToInt32(wpfPIN.numKeyed);
+                    Settings.Default.WhoOpenName = userProf.userName;
                     Settings.Default.Save();
                 }
 

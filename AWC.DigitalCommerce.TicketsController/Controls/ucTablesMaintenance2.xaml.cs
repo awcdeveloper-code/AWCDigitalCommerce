@@ -570,6 +570,15 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
             try
             {
                 DB.DeleteItem(itemID);
+
+                clsItemDeletedFromSystem idfs = new clsItemDeletedFromSystem();
+                idfs.TicketDate = Settings.Default.BusinessDate;
+                idfs.ItemID = itemID;
+                idfs.ItemDescription = txtBox_ItemName.Text;
+                idfs.WhoDeleted = Settings.Default.WhoOpen;
+                idfs.WhoDeletedName = Settings.Default.WhoOpenName;
+                DB.InsertItemDeletedFromSystem(idfs);
+
                 Helper.ShowToastNotification($"{txtBox_ItemName.Text.ToUpper()} eliminado");
                 CleanItemGroup();
             }

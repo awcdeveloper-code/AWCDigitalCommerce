@@ -1022,5 +1022,17 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
                 return ((string)(this["AccountantEmail"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string WhoOpenName {
+            get {
+                return ((string)(this["WhoOpenName"]));
+            }
+            set {
+                this["WhoOpenName"] = value;
+            }
+        }
     }
 }

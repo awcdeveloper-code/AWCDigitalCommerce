@@ -112,6 +112,7 @@ namespace AWC.DigitalCommerce.TicketsController
             }
 
             Settings.Default.WhoOpen = Convert.ToInt32(wpfPIN.numKeyed);
+            Settings.Default.WhoOpenName = userProf.userName;
             Settings.Default.BusinessDate = DateTime.Now.ToString("yyyyMMdd");
             Settings.Default.Save();
 

@@ -272,5 +272,13 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
         {
             Helper.InDevelopment();
         }
+
+        private void btn_DeletedFromSystem(object sender, RoutedEventArgs e)
+        {
+            mw.Opacity = 0.5;
+            wpfItemesDeletedFromSystem itemdel = new wpfItemesDeletedFromSystem();
+            itemdel.ShowDialog();
+            mw.Opacity = 1;
+        }
     }
 }

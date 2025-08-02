@@ -320,6 +320,7 @@
     <Compile Include="Classes\clsItem.cs" />
     <Compile Include="Classes\clsItemDefective.cs" />
     <Compile Include="Classes\clsItemDeleted.cs" />
+    <Compile Include="Classes\clsItemDeletedFromSystem.cs" />
     <Compile Include="Classes\clsItemDetailForDatagrid.cs" />
     <Compile Include="Classes\clsItemsOrders.cs" />
     <Compile Include="Classes\clsItemType.cs" />
@@ -629,6 +630,9 @@
     </Compile>
     <Compile Include="wpfItemesDeleted.xaml.cs">
       <DependentUpon>wpfItemesDeleted.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfItemesDeletedFromSystem.xaml.cs">
+      <DependentUpon>wpfItemesDeletedFromSystem.xaml</DependentUpon>
     </Compile>
     <Compile Include="wpfItemsPriceList.xaml.cs">
       <DependentUpon>wpfItemsPriceList.xaml</DependentUpon>
@@ -1180,6 +1184,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="wpfItemesDeleted.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfItemesDeletedFromSystem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

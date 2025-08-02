@@ -420,7 +420,9 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
                         wpfMessageBox.Show("Ticket Controller", strPINdoNotExist, MessageBoxButton.OK, wpfMessageBox.MessageBoxImage.Error, lang);
                         return;
                     }
+
                     Settings.Default.WhoOpen = Convert.ToInt32(wpfPIN.numKeyed);
+                    Settings.Default.WhoOpenName = userProf.userName;
                     Settings.Default.Save();
                 }
 

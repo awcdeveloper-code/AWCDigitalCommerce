@@ -12,7 +12,6 @@ using AWC.DigitalCommerce.TicketsController.Controls;
 using System.Runtime.InteropServices;
 using System.Reflection;
 using System.Windows.Media.Imaging;
-using AWC.DigitalCommerce.TicketsController.Classes;
 
 namespace AWC.DigitalCommerce.TicketsController
 {
@@ -243,6 +242,7 @@ namespace AWC.DigitalCommerce.TicketsController
 
                 DB.InsertTimecard(wpfPIN.numKeyed, true);
                 Settings.Default.WhoOpen = Convert.ToInt32(wpfPIN.numKeyed);
+                Settings.Default.WhoOpenName = userProf.userName;
                 Settings.Default.Save();
 
                 //check if dailyClosing must be done
@@ -641,6 +641,7 @@ namespace AWC.DigitalCommerce.TicketsController
             this.ActiveUer.ToolTip = "Usuario Activo: " + userProf.userName;
 
             Settings.Default.WhoOpen = Convert.ToInt32(wpfPIN.numKeyed);
+            Settings.Default.WhoOpenName = userProf.userName;
             Settings.Default.Save();
 
             Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, "Settings.Default.Save() passed", Logger.Severity.DEBUG);

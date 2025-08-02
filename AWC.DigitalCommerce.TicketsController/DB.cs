@@ -1337,6 +1337,47 @@ namespace AWC.DigitalCommerce.TicketsController
                 return null;
             }
         }
+        public static List<clsItemDeletedFromSystem> ListBinding_tbl_ItemsDeletedFromSystem(string startDate, string endDate)
+        {
+            try
+            {
+                List<clsItemDeletedFromSystem> itemsList = new List<clsItemDeletedFromSystem>();
+
+                string sqlQuery = $"SELECT * FROM tbl_ItemsDeletedFromSystem WHERE TicketDate >= '{startDate}' AND TicketDate <= '{endDate}' ORDER BY DeletedAt ASC";
+
+                using (sqlConn = new SqlConnection(Settings.Default.TicketsControllerDbConn))
+                {
+                    sqlConn.Open();
+                    sqlCmd = new SqlCommand(sqlQuery, sqlConn);
+                    SqlDataReader sdr = sqlCmd.ExecuteReader();
+
+                    if (sdr.HasRows)
+                    {
+                        while (sdr.Read())
+                        {
+                            clsItemDeletedFromSystem idfs = new clsItemDeletedFromSystem();
+
+                            idfs.TicketDate = ConverTicketDate(sdr["TicketDate"].ToString());
+                            idfs.ItemID = Convert.ToInt32(sdr["ItemID"]);
+                            idfs.ItemDescription = sdr["ItemDescription"].ToString();
+                            idfs.WhoDeletedName = sdr["WhoDeletedName"].ToString();
+                            idfs.DeletedAt = Convert.ToDateTime(sdr["DeletedAt"]);
+                            idfs.DeletedAtString = idfs.DeletedAt.ToString("dd-MM-yyyy HH:mm:ss");
+
+                            itemsList.Add(idfs);
+                        }
+                    }
+                }
+                return itemsList;
+            }
+            catch (Exception ex)
+            {
+                sqlConn.Close();
+                Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, ex, Logger.Severity.ERROR);
+                Helper.ShowMessage("ERROR: " + ex, System.Windows.Forms.MessageBoxIcon.Error);
+                return null;
+            }
+        }
         #endregion
 
         #region UTILITIES
@@ -5589,7 +5630,6 @@ namespace AWC.DigitalCommerce.TicketsController
                 return false;
             }
         }
-
         public static bool InsertSalaryAdvance(clsSalaryAdvance salAdv)
         {
             try
@@ -6152,6 +6192,37 @@ namespace AWC.DigitalCommerce.TicketsController
                 sqlConn.Close();
                 Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, ex, Logger.Severity.ERROR);
                 return false; ;
+            }
+        }
+        public static bool InsertItemDeletedFromSystem(clsItemDeletedFromSystem idfs)
+        {
+            try
+            {
+                string sqlQry = "INSERT INTO tbl_ItemsDeletedFromSystem (TicketDate, ItemID, ItemDescription, whoDeleted, whoDeletedName)" +
+                                "VALUES ('" + idfs.TicketDate + "', "
+                                           + idfs.ItemID + ", '"
+                                           + idfs.ItemDescription + "', "
+                                           + idfs.WhoDeleted + ", '"
+                                           + idfs.WhoDeletedName + "')";
+
+                using (sqlConn = new SqlConnection(Settings.Default.TicketsControllerDbConn))
+                {
+                    sqlConn.Open();
+                    SqlCommand sqlCmd = new SqlCommand(sqlQry, sqlConn);
+                    sqlCmd.ExecuteNonQuery();
+                }
+
+                if (Settings.Default.DebugTrace)
+                    Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, sqlQry, Logger.Severity.DEBUG);
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                sqlConn.Close();
+                Logger.WriteToLog("InsertItemDeletedFromSystem", ex, Logger.Severity.ERROR);
+                Helper.ShowMessage("ERROR: " + ex, System.Windows.Forms.MessageBoxIcon.Error);
+                return false;
             }
         }
         #endregion
