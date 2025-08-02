@@ -43,7 +43,7 @@
                 Content="7"
                 Click="btn_Num7"
                 Width="100"
-                FontSize="40"
+                FontSize="50"
                 Margin="5"
                 Cursor="Hand"
                 FontWeight="DemiBold" />
@@ -51,7 +51,7 @@
                 Content="8"
                 Click="btn_Num8"
                 Width="100"
-                FontSize="40"
+                FontSize="50"
                 Margin="5"
                 Cursor="Hand"
                 FontWeight="DemiBold" />
@@ -59,7 +59,7 @@
                 Content="9"
                 Click="btn_Num9"
                 Width="100"
-                FontSize="40"
+                FontSize="50"
                 Margin="5"
                 Cursor="Hand"
                 FontWeight="DemiBold" />
@@ -68,7 +68,7 @@
                 Content="4"
                 Click="btn_Num4"
                 Width="100"
-                FontSize="40"
+                FontSize="50"
                 Margin="5"
                 Cursor="Hand"
                 FontWeight="DemiBold" />
@@ -76,7 +76,7 @@
                 Content="5"
                 Click="btn_Num5"
                 Width="100"
-                FontSize="40"
+                FontSize="50"
                 Margin="5"
                 Cursor="Hand"
                 FontWeight="DemiBold" />
@@ -84,7 +84,7 @@
                 Content="6"
                 Click="btn_Num6"
                 Width="100"
-                FontSize="40"
+                FontSize="50"
                 Margin="5"
                 Cursor="Hand"
                 FontWeight="DemiBold" />
@@ -93,7 +93,7 @@
                 Content="1"
                 Click="btn_Num1"
                 Width="100"
-                FontSize="40"
+                FontSize="50"
                 Margin="5"
                 Cursor="Hand"
                 FontWeight="DemiBold" />
@@ -101,7 +101,7 @@
                 Content="2"
                 Click="btn_Num2"
                 Width="100"
-                FontSize="40"
+                FontSize="50"
                 Margin="5"
                 Cursor="Hand"
                 FontWeight="DemiBold" />
@@ -109,7 +109,7 @@
                 Content="3"
                 Click="btn_Num3"
                 Width="100"
-                FontSize="40"
+                FontSize="50"
                 Margin="5"
                 Cursor="Hand"
                 FontWeight="DemiBold" />
@@ -118,7 +118,7 @@
                 Content="AC"
                 Click="btn_Clean"
                 Width="100"
-                FontSize="40"
+                FontSize="30"
                 Margin="5"
                 Cursor="Hand"
                 FontWeight="DemiBold" />
@@ -126,7 +126,7 @@
                 Content="0"
                 Click="btn_Num0"
                 Width="100"
-                FontSize="40"
+                FontSize="50"
                 Margin="5"
                 Cursor="Hand"
                 FontWeight="DemiBold" />
@@ -134,7 +134,7 @@
                 Content="OK"
                 Click="btn_OK"
                 Width="100"
-                FontSize="40"
+                FontSize="30"
                 Margin="5"
                 Cursor="Hand"
                 FontWeight="DemiBold" />
