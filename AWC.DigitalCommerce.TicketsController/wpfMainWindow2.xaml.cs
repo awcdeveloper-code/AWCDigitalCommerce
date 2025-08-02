@@ -319,7 +319,7 @@ namespace AWC.DigitalCommerce.TicketsController
 
                         this.Opacity = 1;
 
-                        SMTP.SendBusinbessDateChangeAlertByEMail();
+                        SMTP.SendBusinessDateChangeAlertByEMail();
 
                         Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, String.Format(strBusinessDateLog, Settings.Default.WhoOpen, bussinessDay, today, cro.CashRegisterAmount), Logger.Severity.WARNING);
                     }

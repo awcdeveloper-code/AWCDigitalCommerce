@@ -227,6 +227,25 @@ namespace AWC.DigitalCommerce.TicketsController
                 }
                 #endregion
 
+                #region PRODUCTS DELETED FROM SYSTEM
+                List<clsItemDeletedFromSystem> idfs = DB.ListBinding_tbl_ItemsDeletedFromSystem(dateProc, dateProc);
+
+                if (idfs.Count > 0)
+                {
+                    sb.Append("<h2>PRODUCTOS ELIMINADOS DEL SISTEMA</h2>");
+                    sb.Append("<table>");
+                    sb.Append("<tr><th>ID</th><th>DESCRIPCIÓN</th><th>COLABORADOR</th><th>FECHA-HORA</th></tr>");
+
+                    foreach (clsItemDeletedFromSystem dfs in idfs)
+                    {
+                        sb.Append("<tr><td>" + dfs.ItemID + "</td><td>" + dfs.ItemDescription + "</td><td>" + dfs.WhoDeletedName + "</td><td>" + dfs.DeletedAtString + "</td></tr>");
+                    }
+
+                    sb.Append("</table>");
+                    sb.Append("<p><br></p>");
+                }
+                #endregion
+
                 #region TICKETS LIST
                 if (ticketsList.Count > 0)
                 {
@@ -1425,7 +1444,7 @@ namespace AWC.DigitalCommerce.TicketsController
                 Mouse.OverrideCursor = null;
             }
         }
-        public static void SendBusinbessDateChangeAlertByEMail()
+        public static void SendBusinessDateChangeAlertByEMail()
         {
             try
             {
