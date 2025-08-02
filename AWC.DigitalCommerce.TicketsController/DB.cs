@@ -343,6 +343,9 @@ namespace AWC.DigitalCommerce.TicketsController
 
                             switch (item.ItemType)
                             {
+                                case 0:
+                                    item.ImagePath = @"C:\AWC.DigitalCommerce\Images\NoAvailable.png";
+                                    break;
                                 case 1:
                                     item.ImagePath = @"C:\AWC.DigitalCommerce\Images\beer.png";
                                     break;
@@ -2804,6 +2807,9 @@ namespace AWC.DigitalCommerce.TicketsController
 
                                 switch (item.ItemType)
                                 {
+                                    case 0:
+                                        detailItem.ImagePath = @"C:\AWC.DigitalCommerce\Images\NoAvailable.png";
+                                        break;
                                     case 1:
                                         detailItem.ImagePath = @"C:\AWC.DigitalCommerce\Images\beer.png";
                                         break;

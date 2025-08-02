@@ -1,29 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
-using System.Printing;
-using System.Security.Policy;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Web.UI;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using AWC.DigitalCommerce.TicketsController.Classes;
 using AWC.DigitalCommerce.TicketsController.Properties;
-using Microsoft.Office.Interop.Excel;
 using Newtonsoft.Json;
-using Org.BouncyCastle.Asn1.X500;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace AWC.DigitalCommerce.TicketsController.Controls
 {
@@ -423,7 +407,11 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
 
                 foreach (clsTicketDetail rdi in TicketDetail.Items)
                 {
-                    if (rdi.ItemDesc.Contains("EFECTIVO"))
+                    if (string.IsNullOrEmpty(rdi.ItemDesc))
+                    {
+                        rdi.ItemDesc = "DESCRIPCIÓN NO DISPONIBLE";
+                    }
+                    else if (rdi.ItemDesc.Contains("EFECTIVO"))
                     {
                         cash = "*";
                         ticket.CashLoan += rdi.TotalPrice;
