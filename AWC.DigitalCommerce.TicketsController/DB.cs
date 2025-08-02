@@ -360,11 +360,6 @@ namespace AWC.DigitalCommerce.TicketsController
                                     break;
                             }
 
-                            //if (item.ItemType == 1 && item.ItemSubType == 2)
-                            //{
-                            //    item.ImagePath = @"C:\AWC.DigitalCommerce\Images\beer-bottle.png";
-                            //}
-
                             switch (item.ItemSubType)
                             {
                                 case 0:
@@ -372,6 +367,9 @@ namespace AWC.DigitalCommerce.TicketsController
                                     break;
                                 case 2:
                                     item.ImagePath2 = @"C:\AWC.DigitalCommerce\Images\beer-bottle.png";
+                                    break;
+                                case 4:
+                                    item.ImagePath2 = @"C:\AWC.DigitalCommerce\Images\p-64.png";
                                     break;
                             }
 
