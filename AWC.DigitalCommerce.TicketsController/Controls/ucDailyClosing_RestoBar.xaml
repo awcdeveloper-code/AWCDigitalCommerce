@@ -72,7 +72,7 @@
         <Image Source="Images/sinpe_icon.png" 
                Grid.Row="8" Grid.Column="1"
                Height="35"/>
-        <Image Source="Images/wiretransfer.png" 
+        <Image Source="/Images/voucher-94.png" 
                Grid.Row="9" Grid.Column="1"
                Height="35"/>
         <Image Source="Images/waitress.png" 

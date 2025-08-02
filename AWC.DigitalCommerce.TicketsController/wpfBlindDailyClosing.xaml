@@ -30,7 +30,7 @@
             <Image Source="Images/calendar.png" 
                Grid.Row="2" Grid.Column="1"
                Height="35"/>
-            <Image Source="Images/Money.ico" 
+            <Image Source="Images/cash-48.png" 
                Grid.Row="3" Grid.Column="1"
                Height="35"/>
             <Image Source="Images/creditcard_icon.png" 
@@ -39,7 +39,7 @@
             <Image Source="Images/sinpe_icon.png" 
                Grid.Row="5" Grid.Column="1"
                Height="35"/>
-            <Image Source="Images/wiretransfer.png" 
+            <Image Source="Images/voucher-94.png" 
                Grid.Row="6" Grid.Column="1"
                Height="35"/>
             <Label Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2"

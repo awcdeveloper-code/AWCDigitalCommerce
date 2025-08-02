@@ -23,7 +23,7 @@
             <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"
                         Orientation="Horizontal"
                         HorizontalAlignment="Center">
-                <Image Source="Images/Money.ico" 
+                <Image Source="Images/cash-48.png" 
                        Margin="10"
                        Height="100"/>
                 <TextBlock VerticalAlignment="Center"
