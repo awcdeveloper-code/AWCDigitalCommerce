@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController"
-        mc:Ignorable="d" Background="White" WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d" Background="Azure" WindowStartupLocation="CenterScreen"
         Height="650" Width="495" WindowStyle="None" ResizeMode="NoResize"
         ContentRendered="wpfPayMethod2_ContentRendered" >
     <Border BorderBrush="Fuchsia" BorderThickness="5">
@@ -41,7 +41,7 @@
             <Image Source="Images/equalParts.png" 
                    Grid.Row="3" Grid.Column="1"
                    Height="40"/>
-            <Image Source="Images/cash_icon.png" 
+            <Image Source="Images/cash-48.png" 
                    Grid.Row="5" Grid.Column="1"
                    Height="40"/>
             <Image Source="Images/creditcard_icon.png" 
@@ -50,10 +50,10 @@
             <Image Source="Images/sinpe_icon.png" 
                    Grid.Row="7" Grid.Column="1"
                    Height="40"/>
-            <Image Source="Images/wiretransfer.png" 
+            <Image Source="Images/voucher-94.png" 
                    Grid.Row="8" Grid.Column="1"
                    Height="40"/>
-            <Image Source="Images/cashdrawer.png" 
+            <Image Source="Images/validate.png" 
                    Grid.Row="9" Grid.Column="1"
                    Height="40"/>
             <!--LABELS-->
@@ -197,6 +197,7 @@
                         Grid.ColumnSpan="5"
                         Visibility="Visible">
                 <Image Source="/Images/LogoMH.png"
+                       Width="150"
                        Margin="5"/>
                 <StackPanel Orientation="Vertical"
                             Margin="15 5 0 0">
@@ -246,7 +247,7 @@
                     Cursor="Hand"
                     FontWeight="DemiBold">
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="/Images/38.ICO" Width="30" Height="30" Margin="5"/>
+                    <Image Source="/Images/cashdrawer.png" Width="35" Height="35" Margin="5"/>
                         <TextBlock Name="PayMethod" Text="VALIDAR" VerticalAlignment="Center"/>
                     </StackPanel>
             </Button>

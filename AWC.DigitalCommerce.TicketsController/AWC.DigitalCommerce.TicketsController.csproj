@@ -903,10 +903,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Themes\Generic.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Controls\ucCalculator.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -1586,9 +1582,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\LogoMH.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\Bucket.png" />
   </ItemGroup>
   <ItemGroup>
@@ -1846,6 +1839,16 @@
     <Resource Include="Images\Background_Blue.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\LogoMH.png" />
+    <Resource Include="Images\voucher-94.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\cash-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\validate.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\Background_Multi.jpg" />
     <Resource Include="Images\equalParts.png" />
     <Resource Include="Images\otherTrans.png" />

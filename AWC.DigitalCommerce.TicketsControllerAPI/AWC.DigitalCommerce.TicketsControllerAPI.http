@@ -1,6 +1,0 @@
-@AWC.DigitalCommerce.TicketsControllerAPI_HostAddress = http://localhost:5204
-
-GET {{AWC.DigitalCommerce.TicketsControllerAPI_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
