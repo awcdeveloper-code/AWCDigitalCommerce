@@ -1396,9 +1396,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <SplashScreen Include="Documentation\Images\TicketsControllerSplash.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Documentation\Images\Error.png" />
     <Resource Include="Documentation\Images\Information.png" />
     <Resource Include="Documentation\Images\Question.png" />
@@ -1562,7 +1559,9 @@
     <Resource Include="Images\Question.ico" />
     <Resource Include="Images\Question.png" />
     <Resource Include="Images\skull.ico" />
-    <Resource Include="Images\TicketsControllerSplash.png" />
+    <Resource Include="Images\TicketsControllerSplash.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\Warning.ico" />
     <Resource Include="Images\Warning.png" />
     <Resource Include="Images\xpworld.ico" />
@@ -1572,9 +1571,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\dinner.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\WIP-9th-anniversary-wallpaper-dark.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
@@ -1846,6 +1842,9 @@
     <Resource Include="Images\Background_Blue.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <SplashScreen Include="Images\TicketsController2025.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </SplashScreen>
     <Resource Include="Images\LogoMH.png" />
     <Resource Include="Images\voucher-94.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
