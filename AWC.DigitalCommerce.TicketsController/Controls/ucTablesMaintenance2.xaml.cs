@@ -603,7 +603,10 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
 
                 DB.UpdateItem(itemID, (cbBox_ItemType.SelectedIndex + 1), Convert.ToInt32(txtBox_ItemPrice.Text), Convert.ToInt32(txtBox_ItemCost.Text), ia, isSubtype);
 
-                DB.InsertItemsChangePrice(itemID, itemPreviousPrice, Convert.ToInt32(txtBox_ItemPrice.Text));
+                if ((itemPreviousPrice - Convert.ToInt32(txtBox_ItemPrice.Text)) != 0)
+                {
+                    DB.InsertItemsChangePrice(itemID, itemPreviousPrice, Convert.ToInt32(txtBox_ItemPrice.Text));
+                }
 
                 Helper.ShowToastNotification($"{txtBox_ItemName.Text.ToUpper()} modificado");
 

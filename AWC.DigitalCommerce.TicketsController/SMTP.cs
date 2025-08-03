@@ -307,10 +307,10 @@ namespace AWC.DigitalCommerce.TicketsController
                         clsUser user = DB.CheckUserPIN(itemChangePrice.WhoDidit);
                         clsItem item = DB.GetItem(itemChangePrice.ItemID);
 
-                        sb.Append("</td><td>" + user.userName +
+                        sb.Append("<tr><td>" + user.userName +
                                   "</td><td>" + item.ItemDescription +
-                                  "</td><td>" + itemChangePrice.PreviousPrice +
-                                  "</td><td>" + itemChangePrice.CurrentPrice +
+                                  "</td><td>" + itemChangePrice.PreviousPrice.ToString("N0") +
+                                  "</td><td>" + itemChangePrice.CurrentPrice.ToString("N0") +
                                   "</td><td>" + itemChangePrice.MadeItAt.ToString() + "</td></tr>");
                     }
 

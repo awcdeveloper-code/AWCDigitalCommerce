@@ -4,9 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController"
-        mc:Ignorable="d" Height="560" Width="490" Background="Yellow"
+        mc:Ignorable="d" Height="560" Width="490" Background="Azure"
         ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
-    <Border BorderBrush="Red" BorderThickness="5">
+    <Border BorderBrush="Cyan" BorderThickness="5">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="10"/>
@@ -24,7 +24,7 @@
                 <RowDefinition Height="60"/>
                 <RowDefinition Height="60"/>
                 <RowDefinition Height="40"/>
-                <RowDefinition Height="80"/>
+                <RowDefinition Height="70"/>
                 <RowDefinition Height="10"/>
             </Grid.RowDefinitions>
             <Image Source="Images/calendar.png" 
@@ -68,7 +68,7 @@
                    Foreground="DarkBlue"
                    HorizontalAlignment="Right"
                    VerticalAlignment="Center"
-                   Content="CRÉDITO:"
+                   Content="TARJ CRÉD:"
                    FontSize="30"
                    FontWeight="DemiBold"/>
             <Label Grid.Row="5" Grid.Column="2"
@@ -137,7 +137,9 @@
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/Images/delete_sign.png"
                            Width="30" Height="30" Margin="5"/>
-                    <TextBlock Text="CERRAR" VerticalAlignment="Center"/>
+                    <TextBlock Text="CERRAR"
+                               VerticalAlignment="Center"
+                               Margin="5"/>
                 </StackPanel>
             </Button>
             <Button Grid.Row="8" Grid.Column="3"
@@ -150,7 +152,9 @@
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/Images/38.ico"
                            Width="30" Height="30" Margin="5"/>
-                    <TextBlock Text="VALIDAR" VerticalAlignment="Center"/>
+                    <TextBlock Text="VALIDAR"
+                               VerticalAlignment="Center"
+                               Margin="5"/>
                 </StackPanel>
             </Button>
         </Grid>

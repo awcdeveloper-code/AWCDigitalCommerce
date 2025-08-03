@@ -4579,7 +4579,6 @@ namespace AWC.DigitalCommerce.TicketsController
                 return null;
             }
         }
-
         public static List<clsOpenDrawerRequest> GetOpenDrawerRequest(string businessDate)
         {
             try
@@ -5495,6 +5494,8 @@ namespace AWC.DigitalCommerce.TicketsController
         {
             try
             {
+                if ((previousPrice - currentPrice) == 0) return true;
+
                 string sqlQry = $"INSERT INTO tbl_ItemsChangePrice (BusinessDate, ItemID, PreviousPrice, CurrentPrice, WhoDidit) VALUES ('{Settings.Default.BusinessDate}', {itemID}, {previousPrice}, {currentPrice}, '{Settings.Default.WhoOpen}')";
 
                 using (sqlConn = new SqlConnection(Settings.Default.TicketsControllerDbConn))
