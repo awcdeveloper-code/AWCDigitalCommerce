@@ -280,5 +280,13 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
             itemdel.ShowDialog();
             mw.Opacity = 1;
         }
+
+        private void btn_SalesDashboard(object sender, RoutedEventArgs e)
+        {
+            mw.Opacity = 0.5;
+            wpfSalesDashboard salesdash = new wpfSalesDashboard();
+            salesdash.ShowDialog();
+            mw.Opacity = 1;
+        }
     }
 }

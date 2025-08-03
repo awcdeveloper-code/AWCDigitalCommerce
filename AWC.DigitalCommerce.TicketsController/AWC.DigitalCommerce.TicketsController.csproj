@@ -706,6 +706,9 @@
     <Compile Include="wpfRequestPIN.xaml.cs">
       <DependentUpon>wpfRequestPIN.xaml</DependentUpon>
     </Compile>
+    <Compile Include="wpfSalesDashboard.xaml.cs">
+      <DependentUpon>wpfSalesDashboard.xaml</DependentUpon>
+    </Compile>
     <Compile Include="wpfSalesHistory.xaml.cs">
       <DependentUpon>wpfSalesHistory.xaml</DependentUpon>
     </Compile>
@@ -1280,6 +1283,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="wpfRequestPIN.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfSalesDashboard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

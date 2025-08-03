@@ -4,8 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController"
-        mc:Ignorable="d" Height="580" Width="550" Background="DarkBlue"
-        WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
+        mc:Ignorable="d" Height="580" Width="550" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
+    <Window.Background>
+        <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+            <GradientStop Color="Azure" Offset="0.0"/>
+            <!-- Cyan -->
+            <GradientStop Color="DarkBlue" Offset="1.0"/>
+            <!-- Dark Blue -->
+        </LinearGradientBrush>
+    </Window.Background>
     <Window.Resources>
         <Style x:Key="CenterGridHeaderStyle" TargetType="DataGridColumnHeader">
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -14,7 +21,7 @@
             <Setter Property="Width" Value="40"/>
         </Style>
     </Window.Resources>
-    <Border BorderBrush="Fuchsia" BorderThickness="5">
+    <Border BorderBrush="Cyan" BorderThickness="3">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="20"/>
@@ -30,11 +37,11 @@
                 <RowDefinition Height="10"/>
             </Grid.RowDefinitions>
             <GroupBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="5"
-                  Name="GroupBoxDataGrid"
-                      Foreground="Cyan"
-                  FontSize="15"
-                  FontWeight="DemiBold"
-                  Header="TIPOS: (1) CERVEZAS/LIGAS (2) LICORES (3) COMIDAS">
+                      Name="GroupBoxDataGrid"
+                      Foreground="DarkBlue"
+                      FontSize="15"
+                      FontWeight="DemiBold"
+                      Header="TIPOS: (1) CERVEZAS/LIGAS (2) LICORES (3) COMIDAS">
                 <DataGrid Name="ItemsPriceList"
                       Height="460" Width="465"
                       Margin="5"
@@ -95,8 +102,6 @@
             </GroupBox>
             <Button Grid.Row="2" Grid.Column="1"
                 Click="btn_Close"
-                Background="DarkBlue"
-                Foreground="White"
                 FontSize="20"
                 Margin="5"
                 Cursor="Hand"
@@ -110,8 +115,6 @@
             <Button Grid.Row="2" Grid.Column="3"
                 Name="PrintItemsList"
                 Click="btn_PrintItemsPriceList"
-                Background="DarkBlue"
-                Foreground="White"
                 FontSize="20"
                 Margin="5"
                 Cursor="Hand"

@@ -4,8 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController"
-        mc:Ignorable="d" Background="Cyan" Height="570" Width="1130"
+        mc:Ignorable="d" Height="570" Width="1130"
         WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
+    <Window.Background>
+        <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+            <GradientStop Color="Azure" Offset="0.0"/>
+            <GradientStop Color="DarkBlue" Offset="1.0"/>
+        </LinearGradientBrush>
+    </Window.Background>
     <Window.Resources>
         <Style x:Key="CenterGridHeaderStyle" TargetType="DataGridColumnHeader">
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -25,7 +31,7 @@
             </StackPanel>
         </DataTemplate>
     </Window.Resources>
-    <Border BorderBrush="Red" BorderThickness="3">
+    <Border BorderBrush="Cyan" BorderThickness="3">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="10"/>

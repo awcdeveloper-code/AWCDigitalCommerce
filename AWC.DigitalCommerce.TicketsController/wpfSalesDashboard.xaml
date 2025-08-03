@@ -1,0 +1,110 @@
+﻿<Window x:Class="AWC.DigitalCommerce.TicketsController.wpfSalesDashboard"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController"
+        mc:Ignorable="d" Height="500" Width="1080"
+        WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
+    <Window.Background>
+        <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+            <GradientStop Color="Azure" Offset="0.0"/>
+            <GradientStop Color="DarkBlue" Offset="1.0"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Border BorderBrush="Cyan" BorderThickness="3">
+        <ScrollViewer>
+            <ScrollViewer.Resources>
+                <Style TargetType="ScrollBar">
+                    <Style.Triggers>
+                        <Trigger Property="Orientation" Value="Vertical">
+                            <Setter Property="Width" Value="40"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </ScrollViewer.Resources>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="10"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="10"/>
+                </Grid.RowDefinitions>
+                <!--HEADER -->
+                <Label Grid.Row="1" Grid.Column="1"
+                       Foreground="DarkBlue"
+                       Content="FECHA INICIAL:"
+                       VerticalAlignment="Center"
+                       FontSize="18"
+                       FontWeight="DemiBold"/>
+                <DatePicker Grid.Row="1" Grid.Column="2"
+                    Name="StartDate"
+                    Foreground="DarkBlue"
+                    SelectedDateFormat="Short"
+                    VerticalAlignment="Center"
+                    Margin="5"
+                    FontSize="20"
+                    FontWeight="DemiBold"
+                    SelectedDateChanged="StartDate_SelectedDateChanged"/>
+                <Label Grid.Row="2" Grid.Column="1"
+                       Foreground="DarkBlue"
+                       Content="FECHA FINAL:"
+                       VerticalAlignment="Center"
+                       FontSize="18"
+                       FontWeight="DemiBold"/>
+                <DatePicker Grid.Row="2" Grid.Column="2"
+                    Name="FinishDate"
+                    Foreground="DarkBlue"
+                    SelectedDateFormat="Short"
+                    VerticalAlignment="Center"
+                    Margin="5"
+                    FontSize="20"
+                    FontWeight="DemiBold"
+                    SelectedDateChanged="FinishDate_SelectedDateChanged"/>
+                <Label Grid.Row="1" Grid.Column="4" Grid.RowSpan="2"
+                       Foreground="DarkBlue"
+                       Content="PANEL DE VENTAS"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="30"
+                       FontWeight="DemiBold"/>
+                <!-- SEARCH BUTTON -->
+                <Button Grid.Row="1" Grid.Column="3" Grid.RowSpan="2"
+                        Click="btn_search"
+                        FontSize="15"
+                        Margin="5"
+                        Cursor="Hand"
+                        FontWeight="DemiBold">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Images/search.png"
+                               Width="25" Height="25" Margin="5"/>
+                        <TextBlock Text="BUSCAR" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <!-- CLOSE BUTTON -->
+                <Button Grid.Row="4" Grid.Column="1"
+                        Click="btn_close"
+                        FontSize="15"
+                        Margin="5"
+                        Cursor="Hand"
+                        FontWeight="DemiBold">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Images/delete_sign.png"
+                               Width="25" Height="25" Margin="5"/>
+                        <TextBlock Text="CERRAR" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </Grid>
+        </ScrollViewer>
+    </Border>
+</Window>
