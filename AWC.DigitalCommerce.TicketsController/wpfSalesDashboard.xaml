@@ -4,7 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController"
-        mc:Ignorable="d" Height="500" Width="1080"
+        xmlns:DV="clr-namespace:System.Windows.Controls.DataVisualization;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+        xmlns:DVC="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+        mc:Ignorable="d" Height="700" Width="1100"
         WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
     <Window.Background>
         <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
@@ -24,6 +26,9 @@
                 </Style>
             </ScrollViewer.Resources>
             <Grid>
+                <Grid.Resources>
+                    <local:clsItemTypeCollection x:Key = "clsItemTypeCollection" />
+                </Grid.Resources>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="10"/>
                     <ColumnDefinition Width="150"/>
@@ -80,17 +85,68 @@
                        FontWeight="DemiBold"/>
                 <!-- SEARCH BUTTON -->
                 <Button Grid.Row="1" Grid.Column="3" Grid.RowSpan="2"
+                        Name="btnSearch"
                         Click="btn_search"
                         FontSize="15"
                         Margin="5"
                         Cursor="Hand"
-                        FontWeight="DemiBold">
+                        FontWeight="DemiBold"
+                        IsEnabled="False">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/Images/search.png"
                                Width="25" Height="25" Margin="5"/>
                         <TextBlock Text="BUSCAR" VerticalAlignment="Center"/>
                     </StackPanel>
                 </Button>
+
+                <!-- CHARTS STACKPANEL -->
+                <StackPanel Grid.Row="3" Grid.Column="1"
+                            Grid.ColumnSpan="5"
+                            Name="CharsStackPanel"
+                            Margin="20"
+                            Orientation="Vertical"
+                            Visibility="Hidden">
+                    <!-- Pie chart: 10 products more saled -->
+                    <Label Content="Los 10 Más Vendidos"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontSize="35"
+                           FontWeight="DemiBold"/>
+                    <DVC:Chart Canvas.Top="10" Canvas.Left="10"
+                               Name="mcChartTab5"
+                               VerticalAlignment="Center"
+                               Width="1000" Height="500"
+                               Margin="10"
+                               Background="Azure">
+                        <DVC:Chart.Series>
+                            <DVC:PieSeries Name="PieItemsListSeriesTab5"
+                                           Title="Cantidad"
+                                           FontSize="10"
+                                           ItemsSource = "{StaticResource clsItemTypeCollection}"
+                                           IndependentValueBinding = "{Binding Path = ItemDesc}"
+                                           DependentValueBinding = "{Binding Path = Qty}"
+                                           IsSelectionEnabled="False">
+                            </DVC:PieSeries>
+                        </DVC:Chart.Series>
+                    </DVC:Chart>
+                    <DVC:Chart Canvas.Top="10" Canvas.Left="10"
+                               Name="mcBartTab5"
+                               VerticalAlignment="Center"
+                               Width="1000" Height="500"
+                               Margin="10"
+                               Background="Azure">
+                        <DVC:Chart.Series>
+                            <DVC:ColumnSeries Name="BarItemsListSeriesTab5"
+                                              Title="Precio"
+                                              FontSize="10"
+                                              ItemsSource = "{StaticResource clsItemTypeCollection}"
+                                              IndependentValueBinding = "{Binding Path = ItemDesc}"
+                                              DependentValueBinding = "{Binding Path = TotalPrice}"
+                                              IsSelectionEnabled="False">
+                            </DVC:ColumnSeries>
+                        </DVC:Chart.Series>
+                    </DVC:Chart>
+                </StackPanel>
                 <!-- CLOSE BUTTON -->
                 <Button Grid.Row="4" Grid.Column="1"
                         Click="btn_close"

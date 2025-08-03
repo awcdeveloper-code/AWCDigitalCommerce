@@ -355,6 +355,8 @@
     <Compile Include="Classes\clsTicketProform.cs" />
     <Compile Include="Classes\clsPromoConfig.cs" />
     <Compile Include="Classes\clsUserSecurityProfileViewModel.cs" />
+    <Compile Include="Classes\ColorConverter.cs" />
+    <Compile Include="Classes\PercentageConverter.cs" />
     <Compile Include="CocktailsWebService.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Controls\ucCategories.xaml.cs">

@@ -61,7 +61,7 @@
                    Width="800" Height="450"
                    Background="LightSteelBlue">
             <DVC:Chart.Series>
-                <DVC:PieSeries x:Name="ItemsListSeriesTab5"
+                <DVC:PieSeries Name="ItemsListSeriesTab5"
                                Title="CONSUMO"
                                FontSize="10"
                                ItemsSource = "{StaticResource clsItemTypeCollection}"

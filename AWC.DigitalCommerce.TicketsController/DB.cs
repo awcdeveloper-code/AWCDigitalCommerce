@@ -1125,6 +1125,62 @@ namespace AWC.DigitalCommerce.TicketsController
                 return null;
             }
         }
+        public static List<clsItemType> DataBinding_tbl_TicketsDetail(string sd, string fd, int qry)
+        {
+            try
+            {
+                string sqlQuery = string.Empty;
+                List <clsItemType> itemTypeList = new List<clsItemType>();
+
+                switch (qry)
+                {
+                    case 0:
+                        sqlQuery = "SELECT TOP 10 sum(Qty) AS 'Qty', I.ItemDescription AS 'ItemDesc', sum(TD.TotalPrice) as 'TotalPrice' " +
+                                   "FROM tbl_TicketsDetail TD " + "" +
+                                   "INNER JOIN tbl_Items I ON TD.ItemID = I.ID " +
+                                   "INNER JOIN tbl_Tickets T ON TD.GUID = T.GUID " +
+                                  $"WHERE T.TicketDate BETWEEN '{sd}' AND '{fd}' " +
+                                   "GROUP BY I.ID, I.ItemDescription " +
+                                   "ORDER BY Qty DESC";
+                        break;
+                    case 1:
+                        sqlQuery = "SELECT TOP 10 sum(Qty) AS 'Qty', I.ItemDescription AS 'ItemDesc', sum(TD.TotalPrice) as 'TotalPrice' " +
+                                   "FROM tbl_TicketsDetail TD " + "" +
+                                   "INNER JOIN tbl_Items I ON TD.ItemID = I.ID " +
+                                   "INNER JOIN tbl_Tickets T ON TD.GUID = T.GUID " +
+                                  $"WHERE T.TicketDate BETWEEN '{sd}' AND '{fd}' " +
+                                   "GROUP BY I.ID, I.ItemDescription " +
+                                   "ORDER BY TotalPrice DESC";
+                        break;
+                }
+                using (sqlConn = new SqlConnection(Settings.Default.TicketsControllerDbConn))
+                {
+                    sqlConn.Open();
+                    sqlCmd = new SqlCommand(sqlQuery, sqlConn);
+                    SqlDataReader sdr = sqlCmd.ExecuteReader();
+
+                    if (sdr.HasRows)
+                    {
+                        while (sdr.Read())
+                        {
+                            clsItemType itemType = new clsItemType();
+                            itemType.Qty = Convert.ToInt32(sdr["Qty"]);
+                            itemType.ItemDesc = sdr["ItemDesc"].ToString();
+                            itemType.TotalPrice = Convert.ToInt32(sdr["TotalPrice"].ToString());
+                            itemTypeList.Add(itemType);
+                        }
+                    }
+                }
+                return itemTypeList;
+            }
+            catch (Exception ex)
+            {
+                sqlConn.Close();
+                Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, ex, Logger.Severity.ERROR);
+                Helper.ShowMessage("ERROR: " + ex, System.Windows.Forms.MessageBoxIcon.Error);
+                return null;
+            }
+        }
         public static List<clsProvider> ListBinding_tbl_Providers()
         {
             try

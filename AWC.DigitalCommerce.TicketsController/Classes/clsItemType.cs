@@ -10,5 +10,6 @@ namespace AWC.DigitalCommerce.TicketsController
     {
         public int Qty { get; set; }
         public string ItemDesc { get; set; }
+        public int TotalPrice { get; set; }
     }
 }
