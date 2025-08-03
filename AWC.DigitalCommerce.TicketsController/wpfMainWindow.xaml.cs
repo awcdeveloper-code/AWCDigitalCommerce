@@ -713,7 +713,7 @@ namespace AWC.DigitalCommerce.TicketsController
                     ucNewTicketTab4.FontWeight = FontWeights.DemiBold;
 
                     // Defective Items
-                    var ucNewTicket3 = new ucMaintenance(lang);
+                    var ucNewTicket3 = new ucDamagedProducts();
                     ucNewTicketTab3 = new TabItem { Content = ucNewTicket3 };
                     ucNewTicketTab3.Header = (lang == "-en") ? "DEFECTIVE" : "DEFECTUOSOS";
                     ucNewTicketTab3.FontSize = 20;

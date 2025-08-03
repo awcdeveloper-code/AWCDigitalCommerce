@@ -1149,56 +1149,6 @@ namespace AWC.DigitalCommerce.TicketsController
                 MessageBox.Show("ERROR: " + ex.Message, "Tickets Controller", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-        public static void ApplyTranslation(ucMaintenance ucDI, string lang)
-        {
-            try
-            {
-                if (lang.Length == 0) return;    // no translation is required
-
-                // read dictionary
-                string transDict = File.ReadAllText(Settings.Default.TranslationDictionary);
-
-                // remove special chars
-                transDict = string.Join(string.Empty, transDict.Split(new char[] { '\r', '\n', '\t', '\b' }));
-
-                // deserialize and classify the content
-                JavaScriptSerializer oJSS = new JavaScriptSerializer();
-                clsConfig cnfg = oJSS.Deserialize<clsConfig>(transDict);
-
-                clsLanguage language = new clsLanguage();
-                clswpfForm form = new clswpfForm();
-
-                switch (lang)
-                {
-                    case "-en":
-                        // locate translations
-                        language = cnfg.Languages.Find(l => l.Name.Equals("lang_en"));
-                        form = language.Forms.Find(p => p.Name.Equals("ucMaintenance"));
-                        break;
-                    case "-sp":
-                        // locate translations
-                        language = cnfg.Languages.Find(l => l.Name.Equals("lang_sp"));
-                        form = language.Forms.Find(p => p.Name.Equals("ucMaintenance"));
-                        break;
-                    default:
-                        Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, "Argument invalid, no translation applied.", Logger.Severity.WARNING);
-                        return;
-                }
-
-                #region ASSIGN TRANSLATION
-                ucDI.grpDefectiveItems.Header = form.Properties["grpDefectiveItems"];
-                ucDI.lblItemName.Content = form.Properties["lblItemName"];
-                ucDI.lblQuantity.Content = form.Properties["lblQuantity"];
-                ucDI.btnAddDefective.Content = form.Properties["btnAddDefective"];
-                ucDI.strDefectiveItemSaved = form.Properties["strDefectiveItemSaved"];
-                #endregion
-            }
-            catch (Exception ex)
-            {
-                Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, ex.Message, Logger.Severity.ERROR);
-                MessageBox.Show("ERROR: " + ex.Message, "Tickets Controller", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
         public static void ApplyTranslation(wpfCashRegisterOpen wpfCRO, string lang)
         {
             try

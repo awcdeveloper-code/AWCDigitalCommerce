@@ -433,9 +433,6 @@
     <Compile Include="Controls\ucDailyClosing_ServiceFeeByWho.xaml.cs">
       <DependentUpon>ucDailyClosing_ServiceFeeByWho.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ucMaintenance.xaml.cs">
-      <DependentUpon>ucMaintenance.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Controls\ucNotes.xaml.cs">
       <DependentUpon>ucNotes.xaml</DependentUpon>
     </Compile>
@@ -949,10 +946,6 @@
     <Page Include="Controls\ucDailyClosing_ServiceFeeByWho.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\ucMaintenance.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\ucNotes.xaml">
       <SubType>Designer</SubType>

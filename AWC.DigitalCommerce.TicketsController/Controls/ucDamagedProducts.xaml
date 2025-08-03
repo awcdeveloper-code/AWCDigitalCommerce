@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController.Controls"
              mc:Ignorable="d" Background="DarkBlue"
-             d:DesignHeight="450" d:DesignWidth="530">
+             d:DesignHeight="470" d:DesignWidth="550">
     <UserControl.Resources>
         <Style x:Key="CenterGridHeaderStyle"
                TargetType="DataGridColumnHeader">
@@ -30,8 +30,8 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"/>
-            <ColumnDefinition Width="250"/>
-            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="260"/>
+            <ColumnDefinition Width="260"/>
             <ColumnDefinition Width="10"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -41,12 +41,13 @@
             <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
         <!--DATAGRID-->
-        <DataGrid Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"
-                  Name="dgItemsList"
-                  Width="525"
+        <StackPanel Grid.Row="1" Grid.Column="1"
+                    Grid.RowSpan="2" Grid.ColumnSpan="2"
+                    Orientation="Vertical">
+            <DataGrid Name="dgItemsList"
+                  Width="520"
                   Height="370"
                   FontSize="20"
-                  Padding="5"
                   HorizontalAlignment="Left"
                   FontWeight="DemiBold"
                   IsReadOnly="True"
@@ -59,59 +60,73 @@
                   CanUserResizeColumns="False"
                   CanUserSortColumns = "False"
                   AutoGenerateColumns="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="ID"
-                                    Width="65"
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID"
+                                    Width="75"
                                     Binding="{Binding ID}"
                                     HeaderStyle="{StaticResource CenterGridHeaderStyle}">
-                    <DataGridTextColumn.ElementStyle>
-                        <Style TargetType="{x:Type TextBlock}">
-                            <Setter Property="HorizontalAlignment" Value="Center" />
-                        </Style>
-                    </DataGridTextColumn.ElementStyle>
-                </DataGridTextColumn>
-                <DataGridTextColumn Header="DESCRIPCIÓN DEL PRODUCTO"
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="HorizontalAlignment" Value="Center" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="DESCRIPCIÓN DEL PRODUCTO"
                                     Width="350"
                                     Binding="{Binding ItemDescription}"
                                     HeaderStyle="{StaticResource CenterGridHeaderStyle}"/>
-                <DataGridTextColumn Header="CANT"
+                    <DataGridTextColumn Header="CANT"
                                     Width="75"
                                     Binding="{Binding ItemQty}"
                                     HeaderStyle="{StaticResource CenterGridHeaderStyle}">
-                    <DataGridTextColumn.ElementStyle>
-                        <Style TargetType="{x:Type TextBlock}">
-                            <Setter Property="HorizontalAlignment" Value="Center" />
-                        </Style>
-                    </DataGridTextColumn.ElementStyle>
-                </DataGridTextColumn>
-            </DataGrid.Columns>
-        </DataGrid>
-        <Button Grid.Row="2" Grid.Column="1"
-                Name="btnAddProducts"
-                Click="btn_AddProducts"
-                Foreground="DarkBlue"
-                FontSize="15"
-                Margin="5"
-                Cursor="Hand"
-                FontWeight="DemiBold">
-            <StackPanel Orientation="Horizontal">
-                <Image Source="/Images/Plus_sign.png" Width="20" Height="20" Margin="3"/>
-                <TextBlock Text="AGREGAR PRODUCTO" VerticalAlignment="Center"/>
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="HorizontalAlignment" Value="Center" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Margin="0 20 0 0">
+                <Button Name="btnAddProducts"
+                        Click="btn_AddProducts"
+                        Foreground="DarkBlue"
+                        Width="230"
+                        FontSize="15"
+                        Margin="5"
+                        Cursor="Hand"
+                        FontWeight="DemiBold">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Images/Plus_sign.png"
+                               Width="30" Height="30"
+                               Margin="5"/>
+                        <TextBlock Text="AGREGAR PRODUCTO"
+                                   VerticalAlignment="Center"
+                                   Margin="5"/>
+                    </StackPanel>
+                </Button>
+                <Button Name="btnApply"
+                        Click="btn_Apply"
+                        Foreground="DarkBlue"
+                        Width="230"
+                        FontSize="15"
+                        Margin="5"
+                        Cursor="Hand"
+                        IsEnabled="False"
+                        FontWeight="DemiBold">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Images/38.ico"
+                               Width="30" Height="30"
+                               Margin="5"/>
+                        <TextBlock Text="SALVAR"
+                                   VerticalAlignment="Center"
+                                   Margin="5"/>
+                    </StackPanel>
+                </Button>
             </StackPanel>
-        </Button>
-        <Button Grid.Row="2" Grid.Column="2"
-                Name="btnApply"
-                Click="btn_Apply"
-                Foreground="DarkBlue"
-                FontSize="15"
-                Margin="5"
-                Cursor="Hand"
-                IsEnabled="False"
-                FontWeight="DemiBold">
-            <StackPanel Orientation="Horizontal">
-                <Image Source="/Images/38.ico" Width="20" Height="20" Margin="3"/>
-                <TextBlock Text="SALVAR" VerticalAlignment="Center"/>
-            </StackPanel>
-        </Button>
+        </StackPanel>
     </Grid>
 </UserControl>

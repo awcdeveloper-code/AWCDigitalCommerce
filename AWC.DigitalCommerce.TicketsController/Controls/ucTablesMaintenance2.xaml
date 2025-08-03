@@ -1249,8 +1249,7 @@
                         <ColumnDefinition Width="215"/>
                         <ColumnDefinition Width="250"/>
                         <ColumnDefinition Width="10"/>
-                        <ColumnDefinition Width="497*" />
-                        <ColumnDefinition Width="92*"/>
+                        <ColumnDefinition Width="600" />
                         <ColumnDefinition Width="10"/>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
@@ -1329,7 +1328,7 @@
                     <!--DATAGRID-->
                     <DataGrid Grid.Row="1" Grid.Column="3" Grid.RowSpan="6"
                               Name="ItemParentCatalog"
-                              Height="520" Width="723"
+                              Height="400" Width="600"
                               Margin="3,3,0,0"
                               RowHeight="30"
                               IsReadOnly="True"
@@ -1350,17 +1349,17 @@
                               SelectionChanged="ItemParentCatalog_SelectionChanged" Grid.ColumnSpan="3">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="PRODUCTO VENDIDO"
-                                            Width="315"
+                                            Width="250"
                                             Binding="{Binding Path=ItemDescription}"
                                             HeaderStyle="{StaticResource CenterGridHeaderStyle}">
                             </DataGridTextColumn>
                             <DataGridTextColumn Header="DESCONTAR A"
-                                            Width="315"
+                                            Width="250"
                                             Binding="{Binding Path=ItemParentDescription}"
                                             HeaderStyle="{StaticResource CenterGridHeaderStyle}">
                             </DataGridTextColumn>
                             <DataGridTextColumn Header="CANT"
-                                            Width="65"
+                                            Width="50"
                                             Binding="{Binding Path=ItemParentUnit}"
                                             HeaderStyle="{StaticResource CenterGridHeaderStyle}">
                                 <DataGridTextColumn.ElementStyle>
@@ -1392,7 +1391,7 @@
                         <ColumnDefinition Width="215"/>
                         <ColumnDefinition Width="250"/>
                         <ColumnDefinition Width="10"/>
-                        <ColumnDefinition />
+                        <ColumnDefinition Width="600"/>
                         <ColumnDefinition Width="10"/>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
@@ -1471,7 +1470,7 @@
                     <!--DATAGRID-->
                     <DataGrid Grid.Row="1" Grid.Column="3" Grid.RowSpan="6"
                               Name="MealItemParentCatalog"
-                              Height="520" Width="723"
+                              Height="400" Width="600"
                               Margin="3"
                               RowHeight="30"
                               IsReadOnly="True"
@@ -1492,17 +1491,17 @@
                               SelectionChanged="MealItemParentCatalog_SelectionChanged">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="PRODUCTO VENDIDO"
-                                            Width="315"
+                                            Width="250"
                                             Binding="{Binding Path=ItemDescription}"
                                             HeaderStyle="{StaticResource CenterGridHeaderStyle}">
                             </DataGridTextColumn>
                             <DataGridTextColumn Header="DESCONTAR A"
-                                            Width="315"
+                                            Width="250"
                                             Binding="{Binding Path=ItemParentDescription}"
                                             HeaderStyle="{StaticResource CenterGridHeaderStyle}">
                             </DataGridTextColumn>
                             <DataGridTextColumn Header="CANT"
-                                            Width="65"
+                                            Width="50"
                                             Binding="{Binding Path=ItemParentUnit}"
                                             HeaderStyle="{StaticResource CenterGridHeaderStyle}">
                                 <DataGridTextColumn.ElementStyle>

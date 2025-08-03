@@ -992,7 +992,7 @@ namespace AWC.DigitalCommerce.TicketsController
                     // Defective Itemes
                     if (Helper.CheckUserAccessToResource2("Maintenance_DefectiveItems"))
                     {
-                        var Maint = new ucMaintenance(lang);
+                        var Maint = new ucDamagedProducts();
                         newTab = new TabItem { Content = Maint };
                         newTab.Header = CreateHeaderForTabItem(newTab, "pack://application:,,,/Images/damage.png", "DAÑADOS");
                         tabCtrlWorkArea.Items.Add(newTab);
