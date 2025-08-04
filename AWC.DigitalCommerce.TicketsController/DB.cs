@@ -880,6 +880,73 @@ namespace AWC.DigitalCommerce.TicketsController
                 return null;
             }
         }
+
+        public static List<clsItemType> DataBinding_tbl_Tickets(string sd, string fd, int qry)
+        {
+            try
+            {
+                string sqlQry = string.Empty;
+
+                List<clsItemType> salesHist = new List<clsItemType>();
+
+                switch (qry)
+                {
+                    case 0:
+                        sqlQry = "SELECT TOP 10 COUNT(*) AS 'Qty', CI.CustomerID AS 'ClientID', TCK.customerAKA AS 'CustomerAKA', SUM(TCK.TotalPrice) AS 'TotalPrice' " +
+                                 "FROM tbl_Tickets TCK " +
+                                 "INNER JOIN tbl_CustomerID CI ON TCK.CustomerID = CI.ID " +
+                                $"WHERE TCK.Status = 1 AND TCK.TotalPrice > 0 AND TCK.TicketDate BETWEEN '{sd}' AND '{fd}'" +
+                                 "GROUP BY TCK.CustomerID, CI.CustomerID, TCK.customerAKA " +
+                                 "ORDER BY Qty DESC";
+                        break;
+                    case 1:
+                        sqlQry = "SELECT TOP 10 COUNT(*) AS 'Qty', CI.CustomerID AS 'ClientID', TCK.customerAKA AS 'CustomerAKA', SUM(TCK.TotalPrice) AS 'TotalPrice' " +
+                                 "FROM tbl_Tickets TCK " +
+                                 "INNER JOIN tbl_CustomerID CI ON TCK.CustomerID = CI.ID " +
+                                $"WHERE TCK.Status = 1 AND TCK.TotalPrice > 0 AND TCK.TicketDate BETWEEN '{sd}' AND '{fd}'" +
+                                 "GROUP BY TCK.CustomerID, CI.CustomerID, TCK.customerAKA " +
+                                 "ORDER BY TotalPrice DESC";
+                        break;
+                }
+
+                using (sqlConn = new SqlConnection(Settings.Default.TicketsControllerDbConn))
+                {
+                    sqlConn.Open();
+                    sqlCmd = new SqlCommand(sqlQry, sqlConn);
+                    SqlDataReader sdr = sqlCmd.ExecuteReader();
+
+                    if (sdr.HasRows)
+                    {
+                        while (sdr.Read())
+                        {
+                            clsItemType ticketOpen = new clsItemType();
+                            ticketOpen.Qty = Convert.ToInt32(sdr["Qty"]);
+                            ticketOpen.ItemDesc = sdr["CustomerAKA"].ToString();
+                            ticketOpen.TotalPrice = Convert.ToInt32(sdr["TotalPrice"].ToString());
+                            salesHist.Add(ticketOpen);
+                        }
+                    }
+                }
+                return salesHist;
+            }
+            catch (Exception ex)
+            {
+                sqlConn.Close();
+                Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, ex, Logger.Severity.ERROR);
+                Helper.ShowMessage("ERROR: " + ex, System.Windows.Forms.MessageBoxIcon.Error);
+                return null;
+            }
+        }
+
+
+
+
+
+
+
+
+
+
         public static List<clsTicketsForDataGrid> DataBinding_tbl_DailyClose(string workDay)
         {
             try
@@ -1153,6 +1220,7 @@ namespace AWC.DigitalCommerce.TicketsController
                                    "ORDER BY TotalPrice DESC";
                         break;
                 }
+
                 using (sqlConn = new SqlConnection(Settings.Default.TicketsControllerDbConn))
                 {
                     sqlConn.Open();

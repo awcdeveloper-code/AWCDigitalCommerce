@@ -63,21 +63,21 @@ namespace AWC.DigitalCommerce.TicketsController
             {
                 Mouse.OverrideCursor = Cursors.Wait;
 
-                // group by Quantity
+                // 10 most saled - group by Quantity
                 List<clsItemType> pieItemsList = DB.DataBinding_tbl_TicketsDetail(startDate, finishDate, 0);
-
-                if (pieItemsList.Count == 0)
-                {
-                    MessageBox.Show("ATENCIÓN: La combinación de parámetros seleccionados NO encontró información", "Tickets Controller", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                    return;
-                }
-
                 PieItemsListSeriesTab5.ItemsSource = pieItemsList;
 
-                // group by Total Price
+                // 10 most saled - group by Total Price
                 List<clsItemType> barItemsList = DB.DataBinding_tbl_TicketsDetail(startDate, finishDate, 1);
-
                 BarItemsListSeriesTab5.ItemsSource = barItemsList;
+
+                // 10 most wanted - group by Quantity
+                List<clsItemType> pieItemsListMoreWanted = DB.DataBinding_tbl_Tickets(startDate, finishDate, 0);
+                PieItemsListSeriesMoreWanted.ItemsSource = pieItemsListMoreWanted;
+
+                // 10 most wanted - group by Total Price
+                List<clsItemType> barItemsListMoreWanted = DB.DataBinding_tbl_Tickets(startDate, finishDate, 1);
+                BarItemsListSeriesMoreWanted.ItemsSource = barItemsListMoreWanted;
 
                 CharsStackPanel.Visibility = Visibility.Visible;
 

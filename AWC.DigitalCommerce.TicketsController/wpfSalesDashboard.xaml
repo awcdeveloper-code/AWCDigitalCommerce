@@ -106,7 +106,8 @@
                             Margin="20"
                             Orientation="Vertical"
                             Visibility="Hidden">
-                    <!-- Pie chart: 10 products more saled -->
+                    
+                    <!-- charts: 10 products more saled -->
                     <Label Content="Los 10 Más Vendidos"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
@@ -146,7 +147,49 @@
                             </DVC:ColumnSeries>
                         </DVC:Chart.Series>
                     </DVC:Chart>
+
+                    <!-- charts: 10 customers most wanted -->
+                    <Label Content="Los 10 Clientes Más Buscados"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontSize="35"
+                           FontWeight="DemiBold"/>
+                    <DVC:Chart Canvas.Top="10" Canvas.Left="10"
+                               Name="mcChartMoreWantedPie"
+                               VerticalAlignment="Center"
+                               Width="1000" Height="500"
+                               Margin="10"
+                               Background="Azure">
+                        <DVC:Chart.Series>
+                            <DVC:PieSeries Name="PieItemsListSeriesMoreWanted"
+                                           Title="Cantidad"
+                                           FontSize="10"
+                                           ItemsSource = "{StaticResource clsItemTypeCollection}"
+                                           IndependentValueBinding = "{Binding Path = ItemDesc}"
+                                           DependentValueBinding = "{Binding Path = Qty}"
+                                           IsSelectionEnabled="False">
+                            </DVC:PieSeries>
+                        </DVC:Chart.Series>
+                    </DVC:Chart>
+                    <DVC:Chart Canvas.Top="10" Canvas.Left="10"
+                               Name="mcChartMoreWantedBar"
+                               VerticalAlignment="Center"
+                               Width="1000" Height="500"
+                               Margin="10"
+                               Background="Azure">
+                        <DVC:Chart.Series>
+                            <DVC:ColumnSeries Name="BarItemsListSeriesMoreWanted"
+                                              Title="Precio"
+                                              FontSize="10"
+                                              ItemsSource = "{StaticResource clsItemTypeCollection}"
+                                              IndependentValueBinding = "{Binding Path = ItemDesc}"
+                                              DependentValueBinding = "{Binding Path = TotalPrice}"
+                                              IsSelectionEnabled="False">
+                            </DVC:ColumnSeries>
+                        </DVC:Chart.Series>
+                    </DVC:Chart>
                 </StackPanel>
+                
                 <!-- CLOSE BUTTON -->
                 <Button Grid.Row="4" Grid.Column="1"
                         Click="btn_close"
