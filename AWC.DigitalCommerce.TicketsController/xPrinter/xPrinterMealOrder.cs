@@ -60,20 +60,21 @@ namespace AWC.DigitalCommerce.TicketsController
             int startY = 0;
             int Offset = 0;
 
-            graphics.DrawString(Helper.FormatGralLine(Settings.Default.BusinessName), new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
+            workVar = "ORDEN DE COCINA";
+            graphics.DrawString(new string(' ', 16 - (workVar.Length / 2)) + workVar, new Font("Consolas Bold", 10), new SolidBrush(Color.Black), startX, startY + Offset);
             Offset += 20;
 
-            graphics.DrawString(Helper.FormatGralLine("ORDEN DE COCINA"), new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
-            Offset += 20;
-
-            graphics.DrawString(Helper.FormatGralLine(Settings.Default.WorkStationType), new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
+            graphics.DrawString(new string(' ', 18 - (Settings.Default.WorkStationType.Length / 2)) + Settings.Default.WorkStationType, new Font("Consolas Bold", 10), new SolidBrush(Color.Black), startX, startY + Offset);
             Offset += 20;
 
             if (custDesc.Length > 22)
                 custDesc = custDesc.Substring(0, 22);
 
-            graphics.DrawString(new string(' ', 16 - (custDesc.Length / 2)) + custDesc, new Font("Consolas Bold", 10), new SolidBrush(Color.Black), startX, startY + Offset);
+            graphics.DrawString(new string(' ', 18 - (custDesc.Length / 2)) + custDesc, new Font("Consolas Bold", 10), new SolidBrush(Color.Black), startX, startY + Offset);
             Offset += 20;
+
+            //e.Graphics.DrawLine(blackPen, 0, Offset, 200, Offset);
+            //Offset += 18;
 
             graphics.DrawString(new string('=', 30), new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
             Offset += 18;
@@ -81,14 +82,31 @@ namespace AWC.DigitalCommerce.TicketsController
             // LIST OF MEALS
             foreach (string meal in mealList)
             {
-                workVar = Helper.FormatItemDetailLine(Convert.ToInt32(meal.Split('|')[0]), meal.Split('|')[1]);
-                graphics.DrawString(workVar, new Font("Consolas", 10), new SolidBrush(Color.Black), startX, startY + Offset);
-
-                if (meal.Split('|')[2].Length > 0)
+                if (Settings.Default.MealOrderTwoLines)
                 {
-                    Offset += 18;
-                    graphics.DrawString(new string(' ', 3) + meal.Split('|')[2], new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
+                    graphics.DrawString($"{meal.Split('|')[0]} X", new Font("Consolas", 11), new SolidBrush(Color.Black), startX, startY + Offset);
+                    Offset += 20;
+                    graphics.DrawString(meal.Split('|')[1], new Font("Consolas", 11), new SolidBrush(Color.Black), startX, startY + Offset);
+
+                    if (meal.Split('|')[2].Length > 0)
+                    {
+                        Offset += 18;
+                        graphics.DrawString(meal.Split('|')[2], new Font("Consolas", 10), new SolidBrush(Color.Black), startX, startY + Offset);
+                    }
+                    Offset += 20;
                 }
+                else
+                {
+                    workVar = Helper.FormatItemDetailLine(Convert.ToInt32(meal.Split('|')[0]), meal.Split('|')[1]);
+                    graphics.DrawString(workVar, new Font("Consolas", 10), new SolidBrush(Color.Black), startX, startY + Offset);
+
+                    if (meal.Split('|')[2].Length > 0)
+                    {
+                        Offset += 18;
+                        graphics.DrawString(new string(' ', 3) + meal.Split('|')[2], new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
+                    }
+                }
+
                 Offset += 20;
 
                 DB.InsertItemOrder(Settings.Default.WhoOpen.ToString(), meal.Split('|')[1], Convert.ToInt32(meal.Split('|')[0]));

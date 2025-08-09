@@ -1034,5 +1034,14 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
                 this["WhoOpenName"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool MealOrderTwoLines {
+            get {
+                return ((bool)(this["MealOrderTwoLines"]));
+            }
+        }
     }
 }
