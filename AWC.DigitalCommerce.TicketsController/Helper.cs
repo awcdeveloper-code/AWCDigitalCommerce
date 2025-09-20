@@ -1398,13 +1398,6 @@ namespace AWC.DigitalCommerce.TicketsController
         public static string FormatItemDetailLine(int Qty, string mealDesc)
         {
             return Qty.ToString() + " " + mealDesc;
-
-            //if (mealDesc.Length > 20)
-            //    mealDesc = mealDesc.Substring(0, 20);
-            //else
-            //    mealDesc = mealDesc + new string(' ', 20 - mealDesc.Length);
-
-            //return Qty.ToString().PadLeft(2) + " " + mealDesc;
         }
 
         public static string FormatMinimumItemLine(clsItem item)

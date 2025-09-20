@@ -110,8 +110,13 @@ namespace AWC.DigitalCommerce.TicketsController
                 if (Settings.Default.BusinessAddress2.Length > 0)
                 {
                     graphics.DrawString(Helper.FormatGralLine(Settings.Default.BusinessAddress2), new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
-                    Offset += 25;
+                    Offset += 15;
                 }
+
+                workVar = $"TURNO ACTIVO: {Settings.Default.Shift}";
+                graphics.DrawString(Helper.FormatGralLine(workVar), new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
+                Offset += 15;
+
                 workVar = "FEC: " + ticket.TicketDate + "  FOLIO: " + ticket.ID.ToString("000000");
                 graphics.DrawString(workVar, new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
                 Offset += 25;

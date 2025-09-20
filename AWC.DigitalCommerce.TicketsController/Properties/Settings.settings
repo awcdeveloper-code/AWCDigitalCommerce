@@ -326,8 +326,8 @@
     <Setting Name="WhoOpenName" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="MealOrderTwoLines" Type="System.Boolean" Scope="Application">
-      <Value Profile="(Default)">False</Value>
+    <Setting Name="DetailOfMealOrderInVertical" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>
 </SettingsFile>

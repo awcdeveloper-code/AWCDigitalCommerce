@@ -58,6 +58,10 @@ namespace AWC.DigitalCommerce.TicketsController
 
             int startX = 0;
             int startY = 0;
+
+            int startXV = 120;
+            int startYV = -85;
+
             int Offset = 0;
 
             workVar = "ORDEN DE COCINA";
@@ -76,28 +80,51 @@ namespace AWC.DigitalCommerce.TicketsController
             //e.Graphics.DrawLine(blackPen, 0, Offset, 200, Offset);
             //Offset += 18;
 
+            graphics.DrawString(DateTime.Now.ToString("dd.MM.yyyy hh:mm tt"), new Font("Consolas", 11), new SolidBrush(Color.Black), startX, startY + Offset);
+            Offset += 20;
+
+            clsUser userProf = Helper.CheckUserProfile(Settings.Default.WhoOpen.ToString());
+            workVar = $"COLABORADOR: {userProf.userName}";
+            graphics.DrawString(Helper.FormatGralLine(workVar), new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
+            Offset += 20;
+
             graphics.DrawString(new string('=', 30), new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
             Offset += 18;
 
             // LIST OF MEALS
+            bool isFirstVerticalLine = true;
+
             foreach (string meal in mealList)
             {
-                if (Settings.Default.MealOrderTwoLines)
+                if (Settings.Default.DetailOfMealOrderInVertical)
                 {
-                    graphics.DrawString($"{meal.Split('|')[0]} X", new Font("Consolas", 11), new SolidBrush(Color.Black), startX, startY + Offset);
-                    Offset += 20;
-                    graphics.DrawString(meal.Split('|')[1], new Font("Consolas", 11), new SolidBrush(Color.Black), startX, startY + Offset);
-
-                    if (meal.Split('|')[2].Length > 0)
+                    if (isFirstVerticalLine)
                     {
-                        Offset += 18;
-                        graphics.DrawString(meal.Split('|')[2], new Font("Consolas", 10), new SolidBrush(Color.Black), startX, startY + Offset);
+                        graphics.TranslateTransform(100, 0);
+                        graphics.RotateTransform(90);
+                        isFirstVerticalLine= false;
                     }
-                    Offset += 20;
+
+                    using (Font font = new Font("Arial", 14))
+                    {
+                        workVar = Helper.FormatItemDetailLine(Convert.ToInt32(meal.Split('|')[0]), meal.Split('|')[1]);
+
+                        graphics.DrawString(workVar, font, Brushes.Black, startXV, startYV);
+
+                        if (meal.Split('|')[2].Length > 0)
+                        {
+                            string secondLine = new string(' ', 4) + meal.Split('|')[2];
+                            startYV += 20;
+                            graphics.DrawString(secondLine, new Font("Arial", 10), Brushes.Black, startXV, startYV);
+                        }
+                    }
+
+                    startYV += 25;
                 }
                 else
                 {
                     workVar = Helper.FormatItemDetailLine(Convert.ToInt32(meal.Split('|')[0]), meal.Split('|')[1]);
+
                     graphics.DrawString(workVar, new Font("Consolas", 10), new SolidBrush(Color.Black), startX, startY + Offset);
 
                     if (meal.Split('|')[2].Length > 0)
@@ -105,30 +132,12 @@ namespace AWC.DigitalCommerce.TicketsController
                         Offset += 18;
                         graphics.DrawString(new string(' ', 3) + meal.Split('|')[2], new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
                     }
-                }
 
-                Offset += 20;
+                    Offset += 20;
+                }
 
                 DB.InsertItemOrder(Settings.Default.WhoOpen.ToString(), meal.Split('|')[1], Convert.ToInt32(meal.Split('|')[0]));
             }
-
-            //e.Graphics.DrawLine(blackPen, 0, Offset, 200, Offset);
-            //Offset += 18;
-
-            graphics.DrawString(new string('=', 30), new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
-            Offset += 18;
-
-            clsUser userProf = Helper.CheckUserProfile(Settings.Default.WhoOpen.ToString());
-            workVar = $"COLABORADOR: {userProf.userName}";
-            graphics.DrawString(Helper.FormatGralLine(workVar), new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
-            Offset += 20;
-
-            graphics.DrawString(DateTime.Now.ToString("dd.MM.yyyy hh:mm tt"), new Font("Consolas", 11), new SolidBrush(Color.Black), startX, startY + Offset);
-            Offset += 50;
-
-            // Cut line
-            workVar = ".   .    .    .    .    .    .";
-            graphics.DrawString(workVar, new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
         }
     }
 }

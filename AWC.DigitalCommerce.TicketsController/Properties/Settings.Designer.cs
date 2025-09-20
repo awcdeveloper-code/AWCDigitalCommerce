@@ -1037,10 +1037,10 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool MealOrderTwoLines {
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool DetailOfMealOrderInVertical {
             get {
-                return ((bool)(this["MealOrderTwoLines"]));
+                return ((bool)(this["DetailOfMealOrderInVertical"]));
             }
         }
     }
