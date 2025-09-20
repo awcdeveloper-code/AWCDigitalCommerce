@@ -1303,7 +1303,7 @@ namespace AWC.DigitalCommerce.TicketsController
                 item2print.ItemDesc = item2print.ItemDesc + new string(' ', 19 - item2print.ItemDesc.Length);
 
             string qty = item2print.Qty.ToString();
-            string tot = item2print.TotalPrice.ToString("N0");
+            string tot = item2print.TotalPrice.ToString("N0", CultureInfo.GetCultureInfo("en-US"));
 
             string line = qty.PadLeft(2) + " " +
                           item2print.ItemDesc + " " +
@@ -1319,7 +1319,7 @@ namespace AWC.DigitalCommerce.TicketsController
                 item2print.ItemDesc = item2print.ItemDesc + new string(' ', 19 - item2print.ItemDesc.Length);
 
             string qty = item2print.Qty.ToString();
-            string tot = item2print.TotalPrice.ToString("N0");
+            string tot = item2print.TotalPrice.ToString("N0", CultureInfo.GetCultureInfo("en-US"));
 
             string line = qty.PadLeft(2) + " " +
                           item2print.ItemDesc + " " +
@@ -1342,7 +1342,7 @@ namespace AWC.DigitalCommerce.TicketsController
                 item2print.ItemDesc = item2print.ItemDesc + new string(' ', 18 - item2print.ItemDesc.Length);
 
             string qty = item2print.Qty.ToString();
-            string tot = item2print.TotalPrice.ToString("N0");
+            string tot = item2print.TotalPrice.ToString("N0", CultureInfo.GetCultureInfo("en-US"));
 
             string line = qty.PadLeft(3) + " " +
                           item2print.ItemDesc + " " +
@@ -1358,7 +1358,7 @@ namespace AWC.DigitalCommerce.TicketsController
                 item2print.ItemDesc = item2print.ItemDesc + new string(' ', 18 - item2print.ItemDesc.Length);
 
             string qty = item2print.Qty.ToString();
-            string tot = item2print.TotalCost.ToString("N0");
+            string tot = item2print.TotalCost.ToString("N0", CultureInfo.GetCultureInfo("en-US"));
 
             string line = qty.PadLeft(3) + " " +
                           item2print.ItemDesc + " " +
@@ -1374,7 +1374,7 @@ namespace AWC.DigitalCommerce.TicketsController
                 item2print.ItemDesc = item2print.ItemDesc + new string(' ', 18 - item2print.ItemDesc.Length);
 
             string qty = item2print.Qty.ToString();
-            string tot = item2print.TotalPrice.ToString("N0");
+            string tot = item2print.TotalPrice.ToString("N0", CultureInfo.GetCultureInfo("en-US"));
 
             string line = qty.PadLeft(3) + " " +
                           item2print.ItemDesc + " " +
@@ -1389,7 +1389,7 @@ namespace AWC.DigitalCommerce.TicketsController
             else
                 item2print.ItemDescription = item2print.ItemDescription + new string(' ', 22 - item2print.ItemDescription.Length);
 
-            string uPrice = item2print.UnitPrice.ToString("N0");
+            string uPrice = item2print.UnitPrice.ToString("N0", CultureInfo.GetCultureInfo("en-US"));
 
             string line = item2print.ItemDescription + " " + uPrice.PadLeft(7);
             return line;
@@ -1407,8 +1407,8 @@ namespace AWC.DigitalCommerce.TicketsController
             else
                 item.ItemDescription = item.ItemDescription + new string(' ', 17 - item.ItemDescription.Length);
 
-            string min = item.ItemMinimum.ToString("N0");
-            string ava = item.ItemAvailable.ToString("N0");
+            string min = item.ItemMinimum.ToString("N0", CultureInfo.GetCultureInfo("en-US"));
+            string ava = item.ItemAvailable.ToString("N0", CultureInfo.GetCultureInfo("en-US"));
 
             string line = item.ItemDescription + "   " + min.PadLeft(4) + "  " + ava.PadLeft(4);
             return line;
@@ -1421,7 +1421,7 @@ namespace AWC.DigitalCommerce.TicketsController
             else
                 exp.ExpenseDescription = exp.ExpenseDescription + new string(' ', 22 - exp.ExpenseDescription.Length);
 
-            string tot = exp.ExpenseAmount.ToString("N0");
+            string tot = exp.ExpenseAmount.ToString("N0", CultureInfo.GetCultureInfo("en-US"));
 
             string line = exp.ExpenseDescription + " " + tot.PadLeft(7);
             return line;
@@ -1449,7 +1449,7 @@ namespace AWC.DigitalCommerce.TicketsController
             else
                 itemDesc = itemDesc + new string(' ', 20 - itemDesc.Length);
 
-            string tot = total.ToString("N0");
+            string tot = total.ToString("N0", CultureInfo.GetCultureInfo("en-US"));
 
             string line = qty.PadLeft(2) + " " +
                           itemDesc + " " +
@@ -1463,7 +1463,7 @@ namespace AWC.DigitalCommerce.TicketsController
             else
                 item2print.ItemDescription = item2print.ItemDescription + new string(' ', 24 - item2print.ItemDescription.Length);
 
-            string uAvail = item2print.ItemAvailable.ToString("N0");
+            string uAvail = item2print.ItemAvailable.ToString("N0", CultureInfo.GetCultureInfo("en-US"));
             string line = item2print.ItemDescription + uAvail.PadLeft(6);
             return line;
         }
@@ -1474,7 +1474,7 @@ namespace AWC.DigitalCommerce.TicketsController
             else
                 item2print.ItemDesc = item2print.ItemDesc + new string(' ', 24 - item2print.ItemDesc.Length);
 
-            string uAvail = item2print.Qty.ToString("N0");
+            string uAvail = item2print.Qty.ToString("N0", CultureInfo.GetCultureInfo("en-US"));
             string line = item2print.ItemDesc + uAvail.PadLeft(6);
             return line;
         }

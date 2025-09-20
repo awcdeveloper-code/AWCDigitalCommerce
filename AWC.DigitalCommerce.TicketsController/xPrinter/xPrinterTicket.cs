@@ -1,9 +1,10 @@
-﻿using System;
+﻿using AWC.DigitalCommerce.TicketsController.Properties;
+using System;
 using System.Collections.Generic;
-using System.Windows.Forms;
-using System.Drawing.Printing;
 using System.Drawing;
-using AWC.DigitalCommerce.TicketsController.Properties;
+using System.Drawing.Printing;
+using System.Globalization;
+using System.Windows.Forms;
 
 namespace AWC.DigitalCommerce.TicketsController
 {
@@ -190,13 +191,13 @@ namespace AWC.DigitalCommerce.TicketsController
                 graphics.DrawString(new string('=', 30), new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
                 Offset += 18;
 
-                string subTot = totalPrice.ToString("N0");
+                string subTot = totalPrice.ToString("N0", CultureInfo.GetCultureInfo("en-US"));
                 workVar = new string(' ', 13) + "SUBTOTAL: " + subTot.PadLeft(7);
                 graphics.DrawString(workVar, new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
                 Offset += 18;
 
                 // SERVICE FEE
-                string serviceFee = ticket.ServiceFee.ToString("N0");
+                string serviceFee = ticket.ServiceFee.ToString("N0", CultureInfo.GetCultureInfo("en-US"));
                 workVar = new string(' ', 9) + "10% SERVICIO: " + serviceFee.PadLeft(7);
                 graphics.DrawString(workVar, new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
                 Offset += 18;
@@ -204,7 +205,7 @@ namespace AWC.DigitalCommerce.TicketsController
                 // IVA Fee
                 if (Settings.Default.ATVApplyFee)
                 {
-                    string ivaFee = ticket.IVAFee.ToString("N0");
+                    string ivaFee = ticket.IVAFee.ToString("N0", CultureInfo.GetCultureInfo("en-US"));
                     workVar = new string(' ', 14) + "13% IVA: " + ivaFee.PadLeft(7);
                     graphics.DrawString(workVar, new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
                     Offset += 18;
@@ -214,15 +215,15 @@ namespace AWC.DigitalCommerce.TicketsController
                 if (totalCash > 0)
                 {
                     Offset += 10;
-                    workVar = " TOTAL VENTA : " + (totalPrice + ticket.ServiceFee + ticket.IVAFee).ToString("N0").PadLeft(7);
+                    workVar = " TOTAL VENTA : " + (totalPrice + ticket.ServiceFee + ticket.IVAFee).ToString("N0", CultureInfo.GetCultureInfo("en-US")).PadLeft(7);
                     graphics.DrawString(workVar, new Font("Consolas", 10), new SolidBrush(Color.Black), startX, startY + Offset);
                     Offset += 18;
 
-                    workVar = "MÁS EFECTIVO : " + totalCash.ToString("N0").PadLeft(7);
+                    workVar = "MÁS EFECTIVO : " + totalCash.ToString("N0", CultureInfo.GetCultureInfo("en-US")).PadLeft(7);
                     graphics.DrawString(workVar, new Font("Consolas", 10), new SolidBrush(Color.Black), startX, startY + Offset);
                     Offset += 18;
 
-                    workVar = "  POR COBRAR : " + (totalPrice + ticket.ServiceFee + +ticket.IVAFee + totalCash).ToString("N0").PadLeft(7);
+                    workVar = "  POR COBRAR : " + (totalPrice + ticket.ServiceFee + +ticket.IVAFee + totalCash).ToString("N0", CultureInfo.GetCultureInfo("en-US")).PadLeft(7);
                     graphics.DrawString(workVar, new Font("Consolas", 10), new SolidBrush(Color.Black), startX, startY + Offset);
                     Offset += 30;
                 }
@@ -231,7 +232,7 @@ namespace AWC.DigitalCommerce.TicketsController
                     Offset += 12;
 
                     // TICKET TOTAL
-                    string tot = (totalPrice + ticket.ServiceFee + ticket.IVAFee).ToString("N0");
+                    string tot = (totalPrice + ticket.ServiceFee + ticket.IVAFee).ToString("N0", CultureInfo.GetCultureInfo("en-US"));
                     graphics.DrawString(new string(' ', 10 - (tot.Length / 2)) + tot, new Font("Consolas Bold", 20), new SolidBrush(Color.Black), startX, startY + Offset);
                     Offset += 40;
 
@@ -239,7 +240,7 @@ namespace AWC.DigitalCommerce.TicketsController
                     if (Settings.Default.USDollarExchangeRate > 0)
                     {
                         int totalUSD = (int)Math.Ceiling((double)(totalPrice + ticket.ServiceFee + ticket.IVAFee) / (double)Settings.Default.USDollarExchangeRate);
-                        string totUSD = "USD " + (totalUSD).ToString("N0");
+                        string totUSD = "USD " + (totalUSD).ToString("N0", CultureInfo.GetCultureInfo("en-US"));
                         graphics.DrawString(new string(' ', 23 - (totUSD.Length / 2)) + totUSD, new Font("Consolas Bold", 10), new SolidBrush(Color.Black), startX, startY + Offset);
                         Offset += 20;
                     }

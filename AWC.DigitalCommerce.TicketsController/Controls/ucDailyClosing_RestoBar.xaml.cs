@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Globalization;
+
 using AWC.DigitalCommerce.TicketsController.Properties;
 
 namespace AWC.DigitalCommerce.TicketsController.Controls
@@ -206,17 +208,17 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
             }
 
             int incomeCash = incomeCashList.Sum(x => x.IncomeAmount);
-            lbl_IncomeCash.Content = incomeCash.ToString("N0");
-            lbl_OutstandingAmount.Content = ticketSummary.Payments.ToString("N0");
-            lbl_Cash.Content = (CashRegisterOpening + incomeCash + ticketSummary.Cash - totExp).ToString("N0");
-            lbl_CreditCard.Content = ticketSummary.CreditCard.ToString("N0");
-            lbl_Transfer.Content = ticketSummary.Transfer.ToString("N0");
-            lbl_Voucher.Content = ticketSummary.Voucher.ToString("N0");
-            lbl_TotalSale.Content = totalPrice.ToString("N0");
-            lbl_NetSale.Content = netPrice.ToString("N0");
-            lbl_ServiceFee.Content = ticketSummary.ServiceFee.ToString("N0");
-            lbl_Expenses.Content = expensesList.Sum(x => x.ExpenseAmount).ToString("N0");
-            lbl_OldTicketsPay.Content = (oldTicketsCancelled + smlPay.Cash + smlPay.CreditCard + smlPay.Transfer + smlPay.Voucher).ToString("N0");
+            lbl_IncomeCash.Content = incomeCash.ToString("N0", CultureInfo.GetCultureInfo("en-US"));
+            lbl_OutstandingAmount.Content = ticketSummary.Payments.ToString("N0", CultureInfo.GetCultureInfo("en-US"));
+            lbl_Cash.Content = (CashRegisterOpening + incomeCash + ticketSummary.Cash - totExp).ToString("N0", CultureInfo.GetCultureInfo("en-US"));
+            lbl_CreditCard.Content = ticketSummary.CreditCard.ToString("N0", CultureInfo.GetCultureInfo("en-US"));
+            lbl_Transfer.Content = ticketSummary.Transfer.ToString("N0", CultureInfo.GetCultureInfo("en-US"));
+            lbl_Voucher.Content = ticketSummary.Voucher.ToString("N0", CultureInfo.GetCultureInfo("en-US"));
+            lbl_TotalSale.Content = totalPrice.ToString("N0", CultureInfo.GetCultureInfo("en-US"));
+            lbl_NetSale.Content = netPrice.ToString("N0", CultureInfo.GetCultureInfo("en-US"));
+            lbl_ServiceFee.Content = ticketSummary.ServiceFee.ToString("N0", CultureInfo.GetCultureInfo("en-US"));
+            lbl_Expenses.Content = expensesList.Sum(x => x.ExpenseAmount).ToString("N0", CultureInfo.GetCultureInfo("en-US"));
+            lbl_OldTicketsPay.Content = (oldTicketsCancelled + smlPay.Cash + smlPay.CreditCard + smlPay.Transfer + smlPay.Voucher).ToString("N0", CultureInfo.GetCultureInfo("en-US"));
 
             CashOnDrawer = CashRegisterOpening + incomeCash + ticketSummary.Cash - totExp;
 

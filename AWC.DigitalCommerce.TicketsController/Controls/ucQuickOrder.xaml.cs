@@ -558,6 +558,7 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
                 ticket.ID = ticketNumber;
                 ticket.TicketDate = DB.ConverTicketDate(Settings.Default.BusinessDate);
                 ticket.CustomerID = DB.GetCustomerIDByID(Settings.Default.QuickOrderCustID);
+                ticket.CustomerAKA = ticket.CustomerID;
                 ticket.Cash = payForm.cash;
                 ticket.CreditCard = payForm.creditCard;
                 ticket.Transfer = payForm.transfer;
