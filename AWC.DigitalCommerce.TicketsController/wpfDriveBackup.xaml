@@ -1,0 +1,22 @@
+﻿<Window x:Class="AWC.DigitalCommerce.TicketsController.wpfDriveBackup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController"
+        mc:Ignorable="d"
+        Title="Drive Backup" Height="120" Width="400">
+    <Grid>
+        <TextBox Name="StatusText"
+                 Text="Click the button below to back up the drive."
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Top"
+                 Margin="10"/>
+        <Button Name="btnBackup"
+                Content="Backup Drive"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Width="100"
+                Click="btnBackup_Click"/>
+    </Grid>
+</Window>

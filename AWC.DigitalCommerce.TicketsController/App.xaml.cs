@@ -18,6 +18,10 @@ namespace AWC.DigitalCommerce.TicketsController
 		{
             try
             {
+                // to test routine for uploading to Google Drive
+                //wpfDriveBackup wpfdbak = new wpfDriveBackup();
+                //wpfdbak.Show();
+
                 wpfMainWindow2 wnd = new wpfMainWindow2();
                 wnd.Show();
             }

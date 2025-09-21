@@ -874,15 +874,22 @@ namespace AWC.DigitalCommerce.TicketsController
 
             try
             {
-                HttpClient client = new HttpClient();
-                HttpResponseMessage response = await client.GetAsync(Settings.Default.GetDailyQuote);
-                response.EnsureSuccessStatusCode();
+                if (Settings.Default.GetDailyQuote.Length > 0)
+                {
+                    HttpClient client = new HttpClient();
+                    HttpResponseMessage response = await client.GetAsync(Settings.Default.GetDailyQuote);
+                    response.EnsureSuccessStatusCode();
 
-                string responseBody = await response.Content.ReadAsStringAsync();
+                    string responseBody = await response.Content.ReadAsStringAsync();
 
-                JArray json = JArray.Parse(responseBody);
+                    JArray json = JArray.Parse(responseBody);
 
-                return $"{json[0]["q"].ToString()}." + Environment.NewLine + $"{json[0]["a"].ToString()}";
+                    return $"{json[0]["q"].ToString()}." + Environment.NewLine + $"{json[0]["a"].ToString()}";
+                }
+                else
+                {
+                    return "No daily quote URL configured.";
+                }
             }
             catch (Exception e)
             {
