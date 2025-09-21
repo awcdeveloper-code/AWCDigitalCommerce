@@ -329,5 +329,8 @@
     <Setting Name="DetailOfMealOrderInVertical" Type="System.Boolean" Scope="Application">
       <Value Profile="(Default)">True</Value>
     </Setting>
+    <Setting Name="TicketsControllerCredentials" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\AWC.DigitalCommerce\AWC.DigitalCommerce.TicketsControllerCredentials.json</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -1043,5 +1043,14 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
                 return ((bool)(this["DetailOfMealOrderInVertical"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\AWC.DigitalCommerce\\AWC.DigitalCommerce.TicketsControllerCredentials.json")]
+        public string TicketsControllerCredentials {
+            get {
+                return ((string)(this["TicketsControllerCredentials"]));
+            }
+        }
     }
 }

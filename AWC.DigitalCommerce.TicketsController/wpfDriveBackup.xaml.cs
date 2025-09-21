@@ -21,10 +21,6 @@ namespace AWC.DigitalCommerce.TicketsController
     {
         private DispatcherTimer timer;
 
-        // TODO: Change these to your actual values
-        private const string ClientId = "180845554836-s0b5as2la9bmeqrgt25lkibdab4hug0e.apps.googleusercontent.com";
-        private const string ClientSecret = "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";
-
         private string ConnectionString = Settings.Default.TicketsControllerDbConn;
         private const string DatabaseName = "AWCDigitalCommerce";
         private const string BackupFolder = @"C:\AWC.DigitalCommerce\MSSQL\Backup";
@@ -80,30 +76,29 @@ namespace AWC.DigitalCommerce.TicketsController
                 StatusText.Text = "Error: " + ex.Message;
             }
         }
+
         private async Task<DriveService> AuthenticateAsync()
         {
-            var clientSecrets = new ClientSecrets
+            using (var stream = new FileStream(Settings.Default.TicketsControllerCredentials, FileMode.Open, FileAccess.Read))
             {
-                ClientId = ClientId,
-                ClientSecret = ClientSecret
-            };
+                // Load client secrets from JSON file
+                var clientSecrets = GoogleClientSecrets.FromStream(stream).Secrets;
+                var scopes = new[] { DriveService.Scope.DriveFile };
 
-            var scopes = new[] { DriveService.Scope.DriveFile };
-
-            // This will open a browser window for user consent on first run
-            var credential = await GoogleWebAuthorizationBroker.AuthorizeAsync(
-                clientSecrets,
-                scopes,
-                "user",
-                CancellationToken.None,
-                new FileDataStore("Drive.Api.Auth.Store"));
-
-            // Create Drive API service.
-            return new DriveService(new BaseClientService.Initializer()
-            {
-                HttpClientInitializer = credential,
-                ApplicationName = "TicketsController",
-            });
+                // This will open a browser window for user consent on first run
+                var credential = await GoogleWebAuthorizationBroker.AuthorizeAsync(
+                    clientSecrets,
+                    scopes,
+                    "user",
+                    CancellationToken.None,
+                    new FileDataStore("Drive.Api.Auth.Store"));
+                // Create Drive API service.
+                return new DriveService(new BaseClientService.Initializer()
+                {
+                    HttpClientInitializer = credential,
+                    ApplicationName = "TicketsController",
+                });
+            }
         }
 
         private async Task<string> UploadFileAsync(DriveService service, string filePath)
