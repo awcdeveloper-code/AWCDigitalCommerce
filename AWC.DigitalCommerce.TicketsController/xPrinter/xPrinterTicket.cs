@@ -144,6 +144,9 @@ namespace AWC.DigitalCommerce.TicketsController
                 graphics.DrawString(workVar, new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
                 Offset += 18;
 
+                //e.Graphics.DrawLine(blackPen, 0, Offset, 200, Offset);
+                //Offset += 18;
+
                 graphics.DrawString(new string('=', 30), new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
                 Offset += 18;
 
@@ -187,6 +190,9 @@ namespace AWC.DigitalCommerce.TicketsController
                     Offset += 18;
                     totalPrice += itemDet.TotalPrice;
                 }
+
+                //e.Graphics.DrawLine(blackPen, 0, Offset, 200, Offset);
+                //Offset += 18;
 
                 graphics.DrawString(new string('=', 30), new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
                 Offset += 18;
@@ -286,43 +292,22 @@ namespace AWC.DigitalCommerce.TicketsController
                     Offset += 30;
                 }
 
-                workVar = ticket.Status ? "* PENDIENTE *" : "* CANCELADA *";
+                workVar = ticket.Status ? "*PENDIENTE*" : "*CANCELADA*";
                 graphics.DrawString(workVar, new Font("Arial Narrow", 20), new SolidBrush(Color.Black), startX, startY + Offset);
                 Offset += 40;
 
-                workVar = "* GRACIAS POR SU VISITA *";
+                workVar = " * GRACIAS POR SU VISITA *";
                 graphics.DrawString(workVar, new Font("Consolas Bold", 10), new SolidBrush(Color.Black), startX, startY + Offset);
                 Offset += 30;
 
                 if (!ticket.Status && Settings.Default.PrintTicketFooter)
                 {
-                    //graphics.DrawString("ESTE NEGOCIO ESTÁ ADSCRITO AL", new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
-                    //Offset += 15;
+                    graphics.DrawString("AUTORIZADO MEDIANTE OFICIO 11-97 D.G.T.D.", new Font("Consolas", 6), new SolidBrush(Color.Black), startX, startY + Offset);
+                    Offset += 10;
 
-                    //graphics.DrawString("   RÉGIMEN DE TRIBUTACIÓN", new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
-                    //Offset += 15;
-
-                    //graphics.DrawString("SIMPLIFICADA PARA COMERCIANTES", new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
-                    //Offset += 15;
-
-                    //graphics.DrawString("MINORISTAS Y BARES N° 25514-H", new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
-                    //Offset += 25;
-
-                    //graphics.DrawString("*NO EMITE FACTURA ELECTRÓNICA*", new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
-                    //Offset += 25;
-
-                    graphics.DrawString("AUTORIZADO MEDIANTE RESOLUCIÓN", new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
-                    Offset += 15;
-
-                    graphics.DrawString("  NÚMERO DG T-R-033.2019 DEL", new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
-                    Offset += 15;
-
-                    graphics.DrawString("    20 DE JUNIO 2019 DGTD", new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
+                    graphics.DrawString("       BAJO RÉGIMEN SIMPLIFICADO", new Font("Consolas", 6), new SolidBrush(Color.Black), startX, startY + Offset);
                     Offset += 25;
                 }
-
-                graphics.DrawString(Helper.FormatGralLine(DateTime.Now.ToString("dd.MM.yyyy hh:mm tt")), new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
-                Offset += 15;
 
                 graphics.DrawString(Helper.FormatGralLine(Environment.MachineName), new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
                 Offset += 15;
