@@ -1012,9 +1012,19 @@ namespace AWC.DigitalCommerce.TicketsController
                     {
                         var Vouchers = new ucVouchers();
                         newTab = new TabItem { Content = Vouchers };
-                        newTab.Header = CreateHeaderForTabItem(newTab, "pack://application:,,,/Images/icons8-tarjeta-de-regalo-94.png", "VOUCHERS");
+                        newTab.Header = CreateHeaderForTabItem(newTab, "pack://application:,,,/Images/icons8-tarjeta-de-regalo-94.png", "CUPONES");
                         tabCtrlWorkArea.Items.Add(newTab);
                     }
+
+                    // Records Retention & Purge
+                    if (Helper.CheckUserAccessToResource2("Maintenance_RetentionAndPurge"))
+                    {
+                        var RetentionAndPurge = new ucRetentionAndPurge();
+                        newTab = new TabItem { Content = RetentionAndPurge };
+                        newTab.Header = CreateHeaderForTabItem(newTab, "pack://application:,,,/Images/trash.png", "RETENCIÓN");
+                        tabCtrlWorkArea.Items.Add(newTab);
+                    }
+
                     tabCtrlWorkArea.Items.Refresh();
                     tabCtrlWorkArea.Visibility = Visibility.Visible;
                 }
