@@ -1,6 +1,6 @@
 USE [AWCDigitalCommerce]
 GO
-/****** Object:  Table [dbo].[tbl_Advancements]    Script Date: 27/9/2025 18:00:18 ******/
+/****** Object:  Table [dbo].[tbl_Advancements]    Script Date: 29/10/2025 20:35:33 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -18,7 +18,7 @@ CREATE TABLE [dbo].[tbl_Advancements](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_ATV]    Script Date: 27/9/2025 18:00:18 ******/
+/****** Object:  Table [dbo].[tbl_ATV]    Script Date: 29/10/2025 20:35:33 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -38,7 +38,7 @@ CREATE TABLE [dbo].[tbl_ATV](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_BartenderOrder]    Script Date: 27/9/2025 18:00:18 ******/
+/****** Object:  Table [dbo].[tbl_BartenderOrder]    Script Date: 29/10/2025 20:35:33 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -49,7 +49,7 @@ CREATE TABLE [dbo].[tbl_BartenderOrder](
 	[BeveragesList] [varchar](5000) NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_BucketsConfig]    Script Date: 27/9/2025 18:00:18 ******/
+/****** Object:  Table [dbo].[tbl_BucketsConfig]    Script Date: 29/10/2025 20:35:33 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -64,7 +64,7 @@ CREATE TABLE [dbo].[tbl_BucketsConfig](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_BucketsDetail]    Script Date: 27/9/2025 18:00:18 ******/
+/****** Object:  Table [dbo].[tbl_BucketsDetail]    Script Date: 29/10/2025 20:35:33 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -81,7 +81,7 @@ CREATE TABLE [dbo].[tbl_BucketsDetail](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_CashIncomes]    Script Date: 27/9/2025 18:00:18 ******/
+/****** Object:  Table [dbo].[tbl_CashIncomes]    Script Date: 29/10/2025 20:35:33 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -96,7 +96,7 @@ CREATE TABLE [dbo].[tbl_CashIncomes](
 	[CreatedAt] [datetime] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_CashOnDrawer]    Script Date: 27/9/2025 18:00:18 ******/
+/****** Object:  Table [dbo].[tbl_CashOnDrawer]    Script Date: 29/10/2025 20:35:33 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -111,7 +111,7 @@ CREATE TABLE [dbo].[tbl_CashOnDrawer](
 	[WhoDidIt] [varchar](10) NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_Categories]    Script Date: 27/9/2025 18:00:18 ******/
+/****** Object:  Table [dbo].[tbl_Categories]    Script Date: 29/10/2025 20:35:33 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -122,7 +122,7 @@ CREATE TABLE [dbo].[tbl_Categories](
 	[ParentID] [int] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_CustomerID]    Script Date: 27/9/2025 18:00:18 ******/
+/****** Object:  Table [dbo].[tbl_CustomerID]    Script Date: 29/10/2025 20:35:33 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -146,7 +146,7 @@ CREATE TABLE [dbo].[tbl_CustomerID](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_DailyAccountantReport]    Script Date: 27/9/2025 18:00:18 ******/
+/****** Object:  Table [dbo].[tbl_DailyAccountantReport]    Script Date: 29/10/2025 20:35:33 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -166,7 +166,7 @@ CREATE TABLE [dbo].[tbl_DailyAccountantReport](
 	[Drawer_Voucher] [int] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_DailyClosing]    Script Date: 27/9/2025 18:00:18 ******/
+/****** Object:  Table [dbo].[tbl_DailyClosing]    Script Date: 29/10/2025 20:35:33 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -183,7 +183,7 @@ CREATE TABLE [dbo].[tbl_DailyClosing](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_DailyClosingSummary]    Script Date: 27/9/2025 18:00:18 ******/
+/****** Object:  Table [dbo].[tbl_DailyClosingSummary]    Script Date: 29/10/2025 20:35:33 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -213,7 +213,7 @@ CREATE TABLE [dbo].[tbl_DailyClosingSummary](
 	[Splited] [int] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_DigitalKeyboardFields]    Script Date: 27/9/2025 18:00:18 ******/
+/****** Object:  Table [dbo].[tbl_DigitalKeyboardFields]    Script Date: 29/10/2025 20:35:33 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -230,7 +230,7 @@ CREATE TABLE [dbo].[tbl_DigitalKeyboardFields](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_Expenses]    Script Date: 27/9/2025 18:00:18 ******/
+/****** Object:  Table [dbo].[tbl_Expenses]    Script Date: 29/10/2025 20:35:33 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -248,7 +248,7 @@ CREATE TABLE [dbo].[tbl_Expenses](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_InternalOrders]    Script Date: 27/9/2025 18:00:18 ******/
+/****** Object:  Table [dbo].[tbl_InternalOrders]    Script Date: 29/10/2025 20:35:33 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -261,7 +261,7 @@ CREATE TABLE [dbo].[tbl_InternalOrders](
 	[CreatedAt] [datetime] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_InternalOrdersDetail]    Script Date: 27/9/2025 18:00:19 ******/
+/****** Object:  Table [dbo].[tbl_InternalOrdersDetail]    Script Date: 29/10/2025 20:35:33 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -272,7 +272,7 @@ CREATE TABLE [dbo].[tbl_InternalOrdersDetail](
 	[Qty] [int] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_Invoices]    Script Date: 27/9/2025 18:00:19 ******/
+/****** Object:  Table [dbo].[tbl_Invoices]    Script Date: 29/10/2025 20:35:33 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -286,7 +286,7 @@ CREATE TABLE [dbo].[tbl_Invoices](
 	[InvoiceGUID] [varchar](50) NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_InvoicesDetail]    Script Date: 27/9/2025 18:00:19 ******/
+/****** Object:  Table [dbo].[tbl_InvoicesDetail]    Script Date: 29/10/2025 20:35:33 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -299,7 +299,7 @@ CREATE TABLE [dbo].[tbl_InvoicesDetail](
 	[ItemQty] [int] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_Items]    Script Date: 27/9/2025 18:00:19 ******/
+/****** Object:  Table [dbo].[tbl_Items]    Script Date: 29/10/2025 20:35:33 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -332,7 +332,7 @@ CREATE TABLE [dbo].[tbl_Items](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_ItemsChangePrice]    Script Date: 27/9/2025 18:00:19 ******/
+/****** Object:  Table [dbo].[tbl_ItemsChangePrice]    Script Date: 29/10/2025 20:35:33 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -347,7 +347,7 @@ CREATE TABLE [dbo].[tbl_ItemsChangePrice](
 	[MadeItAt] [datetime] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_ItemsDefective]    Script Date: 27/9/2025 18:00:19 ******/
+/****** Object:  Table [dbo].[tbl_ItemsDefective]    Script Date: 29/10/2025 20:35:33 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -360,7 +360,7 @@ CREATE TABLE [dbo].[tbl_ItemsDefective](
 	[whoDeclared] [int] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_ItemsDeleted]    Script Date: 27/9/2025 18:00:19 ******/
+/****** Object:  Table [dbo].[tbl_ItemsDeleted]    Script Date: 29/10/2025 20:35:33 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -375,7 +375,7 @@ CREATE TABLE [dbo].[tbl_ItemsDeleted](
 	[DeletedAt] [datetime] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_ItemsDeletedFromSystem]    Script Date: 27/9/2025 18:00:19 ******/
+/****** Object:  Table [dbo].[tbl_ItemsDeletedFromSystem]    Script Date: 29/10/2025 20:35:33 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -390,7 +390,7 @@ CREATE TABLE [dbo].[tbl_ItemsDeletedFromSystem](
 	[DeletedAt] [datetime] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_ItemsOrders]    Script Date: 27/9/2025 18:00:19 ******/
+/****** Object:  Table [dbo].[tbl_ItemsOrders]    Script Date: 29/10/2025 20:35:33 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -407,7 +407,7 @@ CREATE TABLE [dbo].[tbl_ItemsOrders](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_LoyaltyRewards]    Script Date: 27/9/2025 18:00:19 ******/
+/****** Object:  Table [dbo].[tbl_LoyaltyRewards]    Script Date: 29/10/2025 20:35:33 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -424,7 +424,7 @@ CREATE TABLE [dbo].[tbl_LoyaltyRewards](
 	[TotalItemsAwarded] [int] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_Lunches]    Script Date: 27/9/2025 18:00:19 ******/
+/****** Object:  Table [dbo].[tbl_Lunches]    Script Date: 29/10/2025 20:35:33 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -442,7 +442,7 @@ CREATE TABLE [dbo].[tbl_Lunches](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_MealsRelationships]    Script Date: 27/9/2025 18:00:19 ******/
+/****** Object:  Table [dbo].[tbl_MealsRelationships]    Script Date: 29/10/2025 20:35:33 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -460,7 +460,7 @@ CREATE TABLE [dbo].[tbl_MealsRelationships](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_MoneyDrawerLog]    Script Date: 27/9/2025 18:00:19 ******/
+/****** Object:  Table [dbo].[tbl_MoneyDrawerLog]    Script Date: 29/10/2025 20:35:33 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -472,7 +472,7 @@ CREATE TABLE [dbo].[tbl_MoneyDrawerLog](
 	[WhoDidIt] [varchar](10) NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_Notes]    Script Date: 27/9/2025 18:00:19 ******/
+/****** Object:  Table [dbo].[tbl_Notes]    Script Date: 29/10/2025 20:35:33 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -490,7 +490,7 @@ CREATE TABLE [dbo].[tbl_Notes](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_NotesDetail]    Script Date: 27/9/2025 18:00:19 ******/
+/****** Object:  Table [dbo].[tbl_NotesDetail]    Script Date: 29/10/2025 20:35:33 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -509,7 +509,7 @@ CREATE TABLE [dbo].[tbl_NotesDetail](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_OpenCashDrawerRequest]    Script Date: 27/9/2025 18:00:19 ******/
+/****** Object:  Table [dbo].[tbl_OpenCashDrawerRequest]    Script Date: 29/10/2025 20:35:33 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -521,7 +521,7 @@ CREATE TABLE [dbo].[tbl_OpenCashDrawerRequest](
 	[CreatedAt] [datetime] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_OpenTickets]    Script Date: 27/9/2025 18:00:19 ******/
+/****** Object:  Table [dbo].[tbl_OpenTickets]    Script Date: 29/10/2025 20:35:33 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -541,7 +541,7 @@ CREATE TABLE [dbo].[tbl_OpenTickets](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_Payments]    Script Date: 27/9/2025 18:00:19 ******/
+/****** Object:  Table [dbo].[tbl_Payments]    Script Date: 29/10/2025 20:35:33 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -563,7 +563,7 @@ CREATE TABLE [dbo].[tbl_Payments](
 	[Shift] [int] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_PayMethodChange]    Script Date: 27/9/2025 18:00:19 ******/
+/****** Object:  Table [dbo].[tbl_PayMethodChange]    Script Date: 29/10/2025 20:35:33 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -584,13 +584,13 @@ CREATE TABLE [dbo].[tbl_PayMethodChange](
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [IDX_TicketDate]    Script Date: 27/9/2025 18:00:19 ******/
+/****** Object:  Index [IDX_TicketDate]    Script Date: 29/10/2025 20:35:33 ******/
 CREATE CLUSTERED INDEX [IDX_TicketDate] ON [dbo].[tbl_PayMethodChange]
 (
 	[TicketDate] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_Prefixes]    Script Date: 27/9/2025 18:00:19 ******/
+/****** Object:  Table [dbo].[tbl_Prefixes]    Script Date: 29/10/2025 20:35:33 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -608,7 +608,7 @@ CREATE TABLE [dbo].[tbl_Prefixes](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_PrintTicketRemotely]    Script Date: 27/9/2025 18:00:19 ******/
+/****** Object:  Table [dbo].[tbl_PrintTicketRemotely]    Script Date: 29/10/2025 20:35:33 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -618,7 +618,7 @@ CREATE TABLE [dbo].[tbl_PrintTicketRemotely](
 	[TicketForDataGrid] [varchar](5000) NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_PromoConfig]    Script Date: 27/9/2025 18:00:19 ******/
+/****** Object:  Table [dbo].[tbl_PromoConfig]    Script Date: 29/10/2025 20:35:33 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -631,7 +631,7 @@ CREATE TABLE [dbo].[tbl_PromoConfig](
 	[Qty] [int] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_Providers]    Script Date: 27/9/2025 18:00:19 ******/
+/****** Object:  Table [dbo].[tbl_Providers]    Script Date: 29/10/2025 20:35:33 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -651,7 +651,7 @@ CREATE TABLE [dbo].[tbl_Providers](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_SalaryAdvances]    Script Date: 27/9/2025 18:00:19 ******/
+/****** Object:  Table [dbo].[tbl_SalaryAdvances]    Script Date: 29/10/2025 20:35:33 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -665,7 +665,7 @@ CREATE TABLE [dbo].[tbl_SalaryAdvances](
 	[CreatedAt] [datetime] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_Tickets]    Script Date: 27/9/2025 18:00:19 ******/
+/****** Object:  Table [dbo].[tbl_Tickets]    Script Date: 29/10/2025 20:35:33 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -707,7 +707,7 @@ CREATE TABLE [dbo].[tbl_Tickets](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_TicketsAborted]    Script Date: 27/9/2025 18:00:19 ******/
+/****** Object:  Table [dbo].[tbl_TicketsAborted]    Script Date: 29/10/2025 20:35:33 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -749,7 +749,7 @@ CREATE TABLE [dbo].[tbl_TicketsAborted](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_TicketsDetail]    Script Date: 27/9/2025 18:00:19 ******/
+/****** Object:  Table [dbo].[tbl_TicketsDetail]    Script Date: 29/10/2025 20:35:33 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -773,13 +773,13 @@ CREATE TABLE [dbo].[tbl_TicketsDetail](
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [IDX_ByGUID]    Script Date: 27/9/2025 18:00:19 ******/
+/****** Object:  Index [IDX_ByGUID]    Script Date: 29/10/2025 20:35:33 ******/
 CREATE CLUSTERED INDEX [IDX_ByGUID] ON [dbo].[tbl_TicketsDetail]
 (
 	[GUID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_TicketsDetailAborted]    Script Date: 27/9/2025 18:00:19 ******/
+/****** Object:  Table [dbo].[tbl_TicketsDetailAborted]    Script Date: 29/10/2025 20:35:33 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -801,7 +801,7 @@ CREATE TABLE [dbo].[tbl_TicketsDetailAborted](
 	[GUIDBucket] [varchar](50) NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_TicketsInherited]    Script Date: 27/9/2025 18:00:19 ******/
+/****** Object:  Table [dbo].[tbl_TicketsInherited]    Script Date: 29/10/2025 20:35:33 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -821,7 +821,7 @@ CREATE TABLE [dbo].[tbl_TicketsInherited](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_TicketsInheritedDetail]    Script Date: 27/9/2025 18:00:19 ******/
+/****** Object:  Table [dbo].[tbl_TicketsInheritedDetail]    Script Date: 29/10/2025 20:35:33 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -835,7 +835,7 @@ CREATE TABLE [dbo].[tbl_TicketsInheritedDetail](
 	[TotalPrice] [int] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_TicketsModified]    Script Date: 27/9/2025 18:00:19 ******/
+/****** Object:  Table [dbo].[tbl_TicketsModified]    Script Date: 29/10/2025 20:35:33 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -864,7 +864,7 @@ CREATE TABLE [dbo].[tbl_TicketsModified](
 	[modCreatedAt] [datetime] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_TicketsOldCancelled]    Script Date: 27/9/2025 18:00:19 ******/
+/****** Object:  Table [dbo].[tbl_TicketsOldCancelled]    Script Date: 29/10/2025 20:35:33 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -878,7 +878,7 @@ CREATE TABLE [dbo].[tbl_TicketsOldCancelled](
 	[Shift] [int] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_TicketsProforms]    Script Date: 27/9/2025 18:00:19 ******/
+/****** Object:  Table [dbo].[tbl_TicketsProforms]    Script Date: 29/10/2025 20:35:33 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -892,7 +892,7 @@ CREATE TABLE [dbo].[tbl_TicketsProforms](
 	[Qty] [int] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_TicketsReassigned]    Script Date: 27/9/2025 18:00:19 ******/
+/****** Object:  Table [dbo].[tbl_TicketsReassigned]    Script Date: 29/10/2025 20:35:33 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -911,7 +911,7 @@ CREATE TABLE [dbo].[tbl_TicketsReassigned](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_Timecards]    Script Date: 27/9/2025 18:00:19 ******/
+/****** Object:  Table [dbo].[tbl_Timecards]    Script Date: 29/10/2025 20:35:33 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -923,7 +923,7 @@ CREATE TABLE [dbo].[tbl_Timecards](
 	[EventDatetime] [datetime] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_Users]    Script Date: 27/9/2025 18:00:19 ******/
+/****** Object:  Table [dbo].[tbl_Users]    Script Date: 29/10/2025 20:35:33 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -941,7 +941,7 @@ CREATE TABLE [dbo].[tbl_Users](
 	[userFingerprint] [varchar](max) NOT NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_Vouchers]    Script Date: 27/9/2025 18:00:19 ******/
+/****** Object:  Table [dbo].[tbl_Vouchers]    Script Date: 29/10/2025 20:35:33 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -961,7 +961,7 @@ CREATE TABLE [dbo].[tbl_Vouchers](
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [IDX_BusinessDate]    Script Date: 27/9/2025 18:00:19 ******/
+/****** Object:  Index [IDX_BusinessDate]    Script Date: 29/10/2025 20:35:33 ******/
 CREATE NONCLUSTERED INDEX [IDX_BusinessDate] ON [dbo].[tbl_Advancements]
 (
 	[BusinessDate] ASC
@@ -969,7 +969,7 @@ CREATE NONCLUSTERED INDEX [IDX_BusinessDate] ON [dbo].[tbl_Advancements]
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [IDX_All]    Script Date: 27/9/2025 18:00:19 ******/
+/****** Object:  Index [IDX_All]    Script Date: 29/10/2025 20:35:33 ******/
 CREATE UNIQUE NONCLUSTERED INDEX [IDX_All] ON [dbo].[tbl_DailyClosing]
 (
 	[WorkDay] ASC,
@@ -977,7 +977,7 @@ CREATE UNIQUE NONCLUSTERED INDEX [IDX_All] ON [dbo].[tbl_DailyClosing]
 	[TicketNumber] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
-/****** Object:  Index [IDX_TicketNumber]    Script Date: 27/9/2025 18:00:19 ******/
+/****** Object:  Index [IDX_TicketNumber]    Script Date: 29/10/2025 20:35:33 ******/
 CREATE UNIQUE NONCLUSTERED INDEX [IDX_TicketNumber] ON [dbo].[tbl_DailyClosing]
 (
 	[TicketNumber] ASC
@@ -985,20 +985,20 @@ CREATE UNIQUE NONCLUSTERED INDEX [IDX_TicketNumber] ON [dbo].[tbl_DailyClosing]
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [IDX_TicketDate_WhoOrder]    Script Date: 27/9/2025 18:00:19 ******/
+/****** Object:  Index [IDX_TicketDate_WhoOrder]    Script Date: 29/10/2025 20:35:33 ******/
 CREATE NONCLUSTERED INDEX [IDX_TicketDate_WhoOrder] ON [dbo].[tbl_ItemsOrders]
 (
 	[TicketDate] ASC,
 	[WhoOrder] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
-/****** Object:  Index [IDX_ByCustomerID]    Script Date: 27/9/2025 18:00:19 ******/
+/****** Object:  Index [IDX_ByCustomerID]    Script Date: 29/10/2025 20:35:33 ******/
 CREATE NONCLUSTERED INDEX [IDX_ByCustomerID] ON [dbo].[tbl_Tickets]
 (
 	[CustomerID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
-/****** Object:  Index [IDX_ByID]    Script Date: 27/9/2025 18:00:19 ******/
+/****** Object:  Index [IDX_ByID]    Script Date: 29/10/2025 20:35:33 ******/
 CREATE NONCLUSTERED INDEX [IDX_ByID] ON [dbo].[tbl_Tickets]
 (
 	[ID] ASC
@@ -1006,13 +1006,13 @@ CREATE NONCLUSTERED INDEX [IDX_ByID] ON [dbo].[tbl_Tickets]
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [IDX_ByTicketDate]    Script Date: 27/9/2025 18:00:19 ******/
+/****** Object:  Index [IDX_ByTicketDate]    Script Date: 29/10/2025 20:35:33 ******/
 CREATE NONCLUSTERED INDEX [IDX_ByTicketDate] ON [dbo].[tbl_Tickets]
 (
 	[TicketDate] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
-/****** Object:  Index [IDX_ByItemID]    Script Date: 27/9/2025 18:00:19 ******/
+/****** Object:  Index [IDX_ByItemID]    Script Date: 29/10/2025 20:35:33 ******/
 CREATE NONCLUSTERED INDEX [IDX_ByItemID] ON [dbo].[tbl_TicketsDetail]
 (
 	[ItemID] ASC
@@ -1020,7 +1020,7 @@ CREATE NONCLUSTERED INDEX [IDX_ByItemID] ON [dbo].[tbl_TicketsDetail]
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [IDX_TicketDate]    Script Date: 27/9/2025 18:00:19 ******/
+/****** Object:  Index [IDX_TicketDate]    Script Date: 29/10/2025 20:35:33 ******/
 CREATE NONCLUSTERED INDEX [IDX_TicketDate] ON [dbo].[tbl_TicketsInherited]
 (
 	[TicketDate] ASC
@@ -1028,7 +1028,7 @@ CREATE NONCLUSTERED INDEX [IDX_TicketDate] ON [dbo].[tbl_TicketsInherited]
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [IDX_TicketDate]    Script Date: 27/9/2025 18:00:19 ******/
+/****** Object:  Index [IDX_TicketDate]    Script Date: 29/10/2025 20:35:33 ******/
 CREATE NONCLUSTERED INDEX [IDX_TicketDate] ON [dbo].[tbl_TicketsReassigned]
 (
 	[TicketDate] ASC
@@ -1036,7 +1036,7 @@ CREATE NONCLUSTERED INDEX [IDX_TicketDate] ON [dbo].[tbl_TicketsReassigned]
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [IDX_BusinessDate]    Script Date: 27/9/2025 18:00:19 ******/
+/****** Object:  Index [IDX_BusinessDate]    Script Date: 29/10/2025 20:35:33 ******/
 CREATE NONCLUSTERED INDEX [IDX_BusinessDate] ON [dbo].[tbl_Vouchers]
 (
 	[BusinessDate] ASC
