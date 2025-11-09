@@ -106,6 +106,7 @@
                     Margin="5"
                     FontSize="20"
                     FontWeight="DemiBold"
+                    IsEnabled="False"
                     SelectedDateChanged="SelectedDay_SelectedDateChanged"/>
         <Label Grid.Row="2" Grid.Column="2"
                Content="TURNO :"
@@ -124,6 +125,7 @@
                  HorizontalContentAlignment="Center"
                  VerticalAlignment="Center"
                  FontWeight="DemiBold"
+                 IsEnabled="False"
                  TextChanged="txtShift_TextChanged"/>
         <Label Grid.Row="3" Grid.Column="2"
                Content="CAJA INICIAL (CI) :"
@@ -401,14 +403,5 @@
                   FontSize="15"
                   FontWeight="DemiBold"
                   Content="ENVIAR POR CORREO ELECTRÓNICO"/>
-        <CheckBox Grid.Row="15" Grid.Column="7" Grid.ColumnSpan="2"
-                  Name="PrintSummaryWithDetail"
-                  Foreground="Cyan"
-                  VerticalAlignment="Center"
-                  IsChecked="False"
-                  Margin="5"
-                  FontSize="15"
-                  FontWeight="DemiBold"
-                  Content="IMPRIMIR RESUMEN DE FACTURAS" Checked="PrintSummaryWithDetail_Checked"/>
     </Grid>
 </UserControl>

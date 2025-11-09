@@ -544,7 +544,7 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Server=DESKTOP-EBOTL6M;Database=AWCDigitalCommerce;User Id=sa;Password=sa;")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Server=DESKTOP-R3LB5K0;Database=AWCDigitalCommerce;User Id=sa;Password=sa;")]
         public string TicketsControllerDbConn {
             get {
                 return ((string)(this["TicketsControllerDbConn"]));

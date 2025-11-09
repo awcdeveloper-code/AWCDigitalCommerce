@@ -49,7 +49,6 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
                 Helper.ShowToastNotification("ATENCIÓN: Sin acceso a Internet");
             }
 
-            PrintSummaryWithDetail.IsChecked = Settings.Default.PrintSummaryWithDetail;
             this.GroupBoxDataGrid.Header += $" - TURNO {Settings.Default.Shift}";
             txtShift.Text = Settings.Default.Shift.ToString();
         }
@@ -68,6 +67,7 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
             txtShift.Text = string.Empty;
             txtShift.Focus();
         }
+
         private void btn_DailyClosePrint(object sender, RoutedEventArgs e)
         {
             if (wpfMessageBox.Show("Ticket Controller", $"CONFIRMACIÓN: DESEA HACER EL CIERRE DEL TURNO {Settings.Default.Shift} (SI/NO)?",
@@ -80,11 +80,7 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
 
             DB.InsertDailyClosingSummary(dcReport);
 
-            if (PrintSummaryWithDetail.IsChecked == true)
-            {
-                Helper.PrintTicket(workDay, itemsList, 0);
-            }
-            else if (Settings.Default.PrintDailyClosingReport)
+            if (Settings.Default.PrintDailyClosingReport)
             {
                 Helper.PrintTicket(workDay, dcReport);
             }
@@ -127,15 +123,6 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
             }
 
             txtShift.Text = Settings.Default.Shift.ToString();
-        }
-        private void PrintSummaryWithDetail_Checked(object sender, RoutedEventArgs e)
-        {
-            if (Settings.Default.PrintSummaryWithDetail == false)
-                Settings.Default.PrintSummaryWithDetail = true;
-            else
-                Settings.Default.PrintSummaryWithDetail = false;
-
-            Settings.Default.Save();
         }
         private void txtShift_TextChanged(object sender, TextChangedEventArgs e)
         {
