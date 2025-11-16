@@ -138,7 +138,7 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="TicketHeaderWH" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">190,190</Value>
+      <Value Profile="(Default)">190,80</Value>
     </Setting>
     <Setting Name="WorkStationType" Type="System.String" Scope="Application">
       <Value Profile="(Default)">MASTER</Value>
@@ -168,7 +168,7 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="TicketsControllerDbConn" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">Server=DESKTOP-R3LB5K0;Database=AWCDigitalCommerce;User Id=sa;Password=sa;</Value>
+      <Value Profile="(Default)">Server=DESKTOP-EBOTL6M;Database=AWCDigitalCommerce;User Id=sa;Password=sa;</Value>
     </Setting>
     <Setting Name="BartenderPrinter" Type="System.String" Scope="Application">
       <Value Profile="(Default)" />
@@ -192,10 +192,10 @@
       <Value Profile="(Default)">https://gee.bccr.fi.cr/Indicadores/Suscripciones/WS/wsindicadoreseconomicos.asmx</Value>
     </Setting>
     <Setting Name="BusinessLogo" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">C:\AWC.DigitalCommerce\Images\RestobarElRancho.png</Value>
+      <Value Profile="(Default)">C:\AWC.DigitalCommerce\Images\RestoBarPimenton.jpg</Value>
     </Setting>
     <Setting Name="BusinessName" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">RESTOBAR EL RANCHO</Value>
+      <Value Profile="(Default)">RESTOBAR PIMENTÓN</Value>
     </Setting>
     <Setting Name="BusinessID" Type="System.String" Scope="Application">
       <Value Profile="(Default)" />

@@ -454,7 +454,7 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("190,190")]
+        [global::System.Configuration.DefaultSettingValueAttribute("190,80")]
         public string TicketHeaderWH {
             get {
                 return ((string)(this["TicketHeaderWH"]));
@@ -544,7 +544,7 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Server=DESKTOP-R3LB5K0;Database=AWCDigitalCommerce;User Id=sa;Password=sa;")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Server=DESKTOP-EBOTL6M;Database=AWCDigitalCommerce;User Id=sa;Password=sa;")]
         public string TicketsControllerDbConn {
             get {
                 return ((string)(this["TicketsControllerDbConn"]));
@@ -617,7 +617,7 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\AWC.DigitalCommerce\\Images\\RestobarElRancho.png")]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\AWC.DigitalCommerce\\Images\\RestoBarPimenton.jpg")]
         public string BusinessLogo {
             get {
                 return ((string)(this["BusinessLogo"]));
@@ -626,7 +626,7 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("RESTOBAR EL RANCHO")]
+        [global::System.Configuration.DefaultSettingValueAttribute("RESTOBAR PIMENTÓN")]
         public string BusinessName {
             get {
                 return ((string)(this["BusinessName"]));
