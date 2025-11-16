@@ -31,6 +31,7 @@ namespace AWC.DigitalCommerce.TicketsController
         public bool DailyClosingMatch { get; set; }
         public string WhoDidIt { get; set; }
         public DateTime CreatedAt { get; set; }
+        public List<clsCashIncomes> CashIncomeList { get; set; }
         public List<clsExpense> ExpensesList { get; set; }
         public int CashWithdrawal { get; set; }
         public int Vouchers { get; set; }

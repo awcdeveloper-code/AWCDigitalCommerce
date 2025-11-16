@@ -8,7 +8,7 @@ truncate table tbl_BucketsDetail
 truncate table tbl_CashIncomes
 truncate table tbl_CashOnDrawer
 truncate table tbl_Categories
-truncate table tbl_CustomerID
+--truncate table tbl_CustomerID
 truncate table tbl_DailyAccountantReport
 truncate table tbl_DailyClosing
 truncate table tbl_DailyClosingSummary
@@ -18,7 +18,7 @@ truncate table tbl_InternalOrders
 truncate table tbl_InternalOrdersDetail
 truncate table tbl_Invoices
 truncate table tbl_InvoicesDetail
-truncate table tbl_Items
+--truncate table tbl_Items
 truncate table tbl_ItemsChangePrice
 truncate table tbl_ItemsDefective
 truncate table tbl_ItemsDeleted
@@ -49,7 +49,7 @@ truncate table tbl_TicketsOldCancelled
 truncate table tbl_TicketsProforms
 truncate table tbl_TicketsReassigned
 truncate table tbl_Timecards
-truncate table tbl_Users
+--truncate table tbl_Users
 truncate table tbl_Vouchers
 
 SET IDENTITY_INSERT [dbo].[tbl_CustomerID] ON 

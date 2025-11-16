@@ -288,5 +288,13 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
             salesdash.ShowDialog();
             mw.Opacity = 1;
         }
+
+        private void btn_DailyCloseSummary(object sender, RoutedEventArgs e)
+        {
+            mw.Opacity = 0.5;
+            wpfDailyCloseSummary dcs = new wpfDailyCloseSummary();
+            dcs.ShowDialog();
+            mw.Opacity = 1;
+        }
     }
 }
