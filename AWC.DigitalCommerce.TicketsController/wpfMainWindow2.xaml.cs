@@ -12,6 +12,7 @@ using AWC.DigitalCommerce.TicketsController.Controls;
 using System.Runtime.InteropServices;
 using System.Reflection;
 using System.Windows.Media.Imaging;
+using System.Globalization;
 
 namespace AWC.DigitalCommerce.TicketsController
 {
@@ -62,6 +63,15 @@ namespace AWC.DigitalCommerce.TicketsController
 
             try
             {
+                // Set Spanish Culture Info
+                CultureInfo culture = new CultureInfo("es-ES");
+                Thread.CurrentThread.CurrentCulture = culture;
+                Thread.CurrentThread.CurrentUICulture = culture;
+
+                DateTime now = DateTime.Now;
+                Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, $"Current DateTime Formats: {now.ToString("D")}", Logger.Severity.DEBUG);
+                Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, $"Current DateTime Formats: {now.ToString("d")}", Logger.Severity.DEBUG);
+
                 if (!singleton.WaitOne(TimeSpan.Zero, true))
                 {
                     wpfMessageBox.Show("Tickets Controller", "ATENCIÓN: La aplicación YA ESTÁ en ejecución. Por favor, revise la barra de tareas para reactivarla.", MessageBoxButton.OK, wpfMessageBox.MessageBoxImage.Warning, lang);
