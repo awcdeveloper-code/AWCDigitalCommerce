@@ -8,9 +8,11 @@ using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using System.Windows.Ink;
 using System.Windows.Input;
 using AWC.DigitalCommerce.TicketsController.Classes;
 using AWC.DigitalCommerce.TicketsController.Properties;
+using Microsoft.Office.Interop.Excel;
 
 namespace AWC.DigitalCommerce.TicketsController
 {
@@ -86,14 +88,21 @@ namespace AWC.DigitalCommerce.TicketsController
             }
             Helper.ShowToastNotification("Correo enviado exitosamente");
         }
-        public static bool SendDailyReport(clsDailyClosing dcRep, string dateProc, List<clsTicketsForDataGrid> ticketsList)
+        public static bool SendDailyReport(clsDailyClosing dcRep, string dateProc, List<clsTicketsForDataGrid> ticketsList, int shift = 0)
         {
             try
             {
                 Mouse.OverrideCursor = System.Windows.Input.Cursors.Wait;
 
+                int shiftForQuery = 0;
+
+                if (shift == 0)
+                    shiftForQuery = Settings.Default.ShiftForQuery;
+                else
+                    shiftForQuery = shift;
+
                 #region HEADER
-                string subject = Settings.Default.BusinessName + $" - Cierre Diario del {DB.ConverTicketDate(dateProc)} Turno {Settings.Default.ShiftForQuery}";
+                string subject = Settings.Default.BusinessName + $" - Cierre Diario del {DB.ConverTicketDate(dateProc)} Turno {shiftForQuery}";
 
                 StringBuilder sb = new StringBuilder();
 

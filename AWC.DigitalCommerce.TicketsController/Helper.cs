@@ -1162,11 +1162,18 @@ namespace AWC.DigitalCommerce.TicketsController
             }
         }
 
-        public static void PrintTicket(string workDay, clsDailyClosing dc)
+        public static void PrintTicket(string workDay, clsDailyClosing dc, int shift = 0)
         {
             try
             {
-                xPrinterDailyCloseSummary xPrintDCSummary = new xPrinterDailyCloseSummary(workDay, dc);
+                int shiftForQuery = 0;
+
+                if (shift == 0)
+                    shiftForQuery = Settings.Default.ShiftForQuery;
+                else
+                    shiftForQuery = shift;
+
+                xPrinterDailyCloseSummary xPrintDCSummary = new xPrinterDailyCloseSummary(workDay, dc, shiftForQuery);
                 xPrintDCSummary.print();
             }
             catch (Exception ex)

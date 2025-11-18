@@ -309,6 +309,23 @@
                                    VerticalAlignment="Center"/>
                     </StackPanel>
                 </Button>
+                <Button Click="btn_DailyCloseSummary"
+                        Name="DailyCloseSummary"
+                        Foreground="Black"
+                        FontSize="20"
+                        Height="60"
+                        Width="240"
+                        Margin="3"
+                        Cursor="Hand"
+                        FontWeight="DemiBold">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Images/report.png"
+                               Width="30" Height="30"
+                               Margin="5"/>
+                        <TextBlock Text="RESUMEN CIERRE"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
             </StackPanel>
         </GroupBox>
         <!--STATISTICS-->

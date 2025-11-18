@@ -938,16 +938,7 @@ namespace AWC.DigitalCommerce.TicketsController
             }
         }
 
-
-
-
-
-
-
-
-
-
-        public static List<clsTicketsForDataGrid> DataBinding_tbl_DailyClose(string workDay)
+        public static List<clsTicketsForDataGrid> DataBinding_tbl_DailyClose(string workDay, int shift = 0)
         {
             try
             {
@@ -955,7 +946,14 @@ namespace AWC.DigitalCommerce.TicketsController
 
                 List<clsTicketsForDataGrid> Tickets = new List<clsTicketsForDataGrid>();
 
-                sqlQry = $"SELECT * FROM tbl_Tickets WHERE Shift = {Settings.Default.ShiftForQuery} AND TicketDate = '{workDay}' ORDER BY ID";
+                int shiftForQuery = 0;
+
+                if (shift == 0)
+                    shiftForQuery = Settings.Default.ShiftForQuery;
+                else
+                    shiftForQuery = shift;
+
+                sqlQry = $"SELECT * FROM tbl_Tickets WHERE Shift = {shiftForQuery} AND TicketDate = '{workDay}' ORDER BY ID";
 
                 using (sqlConn = new SqlConnection(Settings.Default.TicketsControllerDbConn))
                 {
@@ -2612,16 +2610,23 @@ namespace AWC.DigitalCommerce.TicketsController
                 return null;
             }
         }
-        public static clsTicket GetTicketsSummary(string workDay)
+        public static clsTicket GetTicketsSummary(string workDay, int shift = 0)
         {
             try
             {
                 clsTicket ticket = new clsTicket();
 
+                int shiftForQuery = 0;
+
+                if (shift == 0)
+                    shiftForQuery = Settings.Default.ShiftForQuery;
+                else
+                    shiftForQuery = shift;
+
                 string sqlQry = "SELECT SUM(Cash) AS 'Cash', SUM(CreditCard) AS 'CreditCard', SUM(Transfer) AS 'Transfer', SUM(Voucher) AS 'Voucher', " +
                                 "SUM(ServiceFee) AS 'ServiceFee', SUM(TotalPrice) AS 'TotalPrice', " +
                                 $"(SELECT SUM(TotalPrice) FROM tbl_Tickets WHERE Status = 1 AND TicketDate  = '{workDay}') AS 'OutstandingAmount' " +
-                                $"FROM tbl_Tickets WHERE Status = 0 AND Shift = {Settings.Default.ShiftForQuery} AND TicketDate = '{workDay}'";
+                                $"FROM tbl_Tickets WHERE Status = 0 AND Shift = {shiftForQuery} AND TicketDate = '{workDay}'";
 
                 using (sqlConn = new SqlConnection(Settings.Default.TicketsControllerDbConn))
                 {
@@ -3805,11 +3810,18 @@ namespace AWC.DigitalCommerce.TicketsController
             }
 
         }
-        public static int GetOldTicketsCancelled(string workDay)
+        public static int GetOldTicketsCancelled(string workDay, int shift = 0)
         {
             try
             {
                 int totalOldTicketsPay = 0;
+
+                int shiftForQuery = 0;
+
+                if (shift == 0)
+                    shiftForQuery = Settings.Default.ShiftForQuery;
+                else
+                    shiftForQuery = shift;
 
                 string sqlQry = $"SELECT * FROM tbl_TicketsOldCancelled WHERE Shift = {Settings.Default.ShiftForQuery} AND PayDate = '{workDay}' ORDER BY TicketID ASC";
 
@@ -3945,6 +3957,49 @@ namespace AWC.DigitalCommerce.TicketsController
                     Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, sqlQry, Logger.Severity.DEBUG);
 
                 return ticketsSummary;
+            }
+            catch (Exception ex)
+            {
+                sqlConn.Close();
+                Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, ex, Logger.Severity.ERROR);
+                Helper.ShowMessage("ERROR: " + ex, System.Windows.Forms.MessageBoxIcon.Error);
+                return null;
+            }
+        }
+        public static clsDailyClosing GetDailyClosingSummary(string businessDate)
+        {
+            try
+            {
+                clsDailyClosing dcs = new clsDailyClosing();
+
+                string sqlQry = $"SELECT * FROM tbl_DailyClosingSummary WHERE BusinessDate = '{businessDate}'";
+
+                using (sqlConn = new SqlConnection(Settings.Default.TicketsControllerDbConn))
+                {
+                    sqlConn.Open();
+                    sqlCmd = new SqlCommand(sqlQry, sqlConn);
+                    SqlDataReader sdr = sqlCmd.ExecuteReader();
+
+                    if (sdr.HasRows)
+                    {
+                        dcs.BusinessDate = ConverTicketDate(sdr["BusinessDate"].ToString());
+                        dcs.InitialCash = Convert.ToInt32(sdr["InitialCash"]);
+                        dcs.IncomeCash = Convert.ToInt32(sdr["IncomeCash"]);
+                        dcs.Cash = Convert.ToInt32(sdr["Cash"]);
+                        dcs.CreditCard = Convert.ToInt32(sdr["CreditCard"]);
+                        dcs.Transfer = Convert.ToInt32(sdr["Transfer"]);
+                        dcs.AccountsReceivable = Convert.ToInt32(sdr["AccountsReceivable"]);
+                        dcs.ServiceFee = Convert.ToInt32(sdr["ServiceFee"]);
+                        dcs.GrossSale = Convert.ToInt32(sdr["GrossSale"]);
+                        dcs.NetSale = Convert.ToInt32(sdr["NetSale"]);
+                        dcs.TotalCashInDrawer = Convert.ToInt32(sdr["TotalCashInDrawer"]);
+                    }
+                }
+
+                if (Settings.Default.DebugTrace)
+                    Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, sqlQry, Logger.Severity.DEBUG);
+
+                return dcs;
             }
             catch (Exception ex)
             {
@@ -4218,13 +4273,20 @@ namespace AWC.DigitalCommerce.TicketsController
             }
 
         }
-        public static List<clsCashIncomes> GetIncomeCash(string startDate, string endDate)
+        public static List<clsCashIncomes> GetIncomeCash(string startDate, string endDate, int shift = 0)
         {
             try
             {
                 List<clsCashIncomes> cashIncomesList = new List<clsCashIncomes>();
 
-                string sqlQry = $"SELECT * FROM tbl_CashIncomes WHERE BusinessDate >= '{startDate}' AND BusinessDate <= '{endDate}' AND Shift = {Settings.Default.Shift} ORDER BY ID ASC";
+                int shiftForQuery = 0;
+
+                if (shift == 0)
+                    shiftForQuery = Settings.Default.ShiftForQuery;
+                else
+                    shiftForQuery = shift;
+
+                string sqlQry = $"SELECT * FROM tbl_CashIncomes WHERE BusinessDate >= '{startDate}' AND BusinessDate <= '{endDate}' AND Shift = {shiftForQuery} ORDER BY ID ASC";
 
                 using (sqlConn = new SqlConnection(Settings.Default.TicketsControllerDbConn))
                 {
@@ -7363,13 +7425,20 @@ namespace AWC.DigitalCommerce.TicketsController
                 return null;
             }
         }
-        public static List<clsExpense> GetExpenses(string dt)
+        public static List<clsExpense> GetExpenses(string dt, int shift = 0)
         {
             try
             {
                 List<clsExpense> expensesList = new List<clsExpense>();
 
-                string sqlQry = $"SELECT * FROM tbl_Expenses WHERE Shift = {Settings.Default.ShiftForQuery} AND ExpenseDate = '{dt}'";
+                int shiftForQuery = 0;
+
+                if (shift == 0)
+                    shiftForQuery = Settings.Default.ShiftForQuery;
+                else
+                    shiftForQuery = shift;
+
+                string sqlQry = $"SELECT * FROM tbl_Expenses WHERE Shift = {shiftForQuery} AND ExpenseDate = '{dt}'";
 
                 using (sqlConn = new SqlConnection(Settings.Default.TicketsControllerDbConn))
                 {
@@ -7558,13 +7627,20 @@ namespace AWC.DigitalCommerce.TicketsController
                 return null;
             }
         }
-        public static clsSmallPayment GetSmallPaymentsSummary(string dt)
+        public static clsSmallPayment GetSmallPaymentsSummary(string dt, int shift = 0)
         {
             try
             {
                 clsSmallPayment smlPay = new clsSmallPayment(); ;
 
-                string sqlQry = $"SELECT SUM(Cash) AS 'Cash', SUM(CreditCard) AS 'CreditCard', SUM(Transfer) AS 'Transfer' FROM tbl_Payments WHERE Shift = {Settings.Default.ShiftForQuery} AND PaymentDate = '{dt}'";
+                int shiftForQuery = 0;
+
+                if (shift == 0)
+                    shiftForQuery = Settings.Default.ShiftForQuery;
+                else
+                    shiftForQuery = shift;
+
+                string sqlQry = $"SELECT SUM(Cash) AS 'Cash', SUM(CreditCard) AS 'CreditCard', SUM(Transfer) AS 'Transfer' FROM tbl_Payments WHERE Shift = {shiftForQuery} AND PaymentDate = '{dt}'";
 
                 using (sqlConn = new SqlConnection(Settings.Default.TicketsControllerDbConn))
                 {

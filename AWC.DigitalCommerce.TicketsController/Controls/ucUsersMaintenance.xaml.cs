@@ -274,9 +274,9 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
             updateUserProfile.userName = txtBox_Name.Text.ToUpper();
             updateUserProfile.userActive = cbox_Status.SelectedIndex == 0 ? true : false;
             updateUserProfile.userAccessLevel = cbox_Job.SelectedItem.ToString();
-            updateUserProfile.userPowerAdmin = cbox_Job.SelectedIndex == 3 ? true : false;
+            updateUserProfile.userPowerAdmin = (bool)chkBox_PowerAdmin.IsChecked ? true : false;
 
-            updateUserProfile.userSecurityProfile = strBld.ToString() + new string('0', 60 - strBld.ToString().Length);
+            updateUserProfile.userSecurityProfile = strBld.ToString() + new string('0', 100 - strBld.ToString().Length);
 
             return updateUserProfile;
         }

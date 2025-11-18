@@ -1,12 +1,14 @@
-﻿using System;
+﻿using AWC.DigitalCommerce.TicketsController.Classes;
+using AWC.DigitalCommerce.TicketsController.Properties;
+using SwiftExcel;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Printing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using System.Drawing.Printing;
-using System.Drawing;
-using AWC.DigitalCommerce.TicketsController.Properties;
-using AWC.DigitalCommerce.TicketsController.Classes;
 
 namespace AWC.DigitalCommerce.TicketsController
 {
@@ -20,23 +22,35 @@ namespace AWC.DigitalCommerce.TicketsController
         private string workDay2 = string.Empty;
         private clsDailyClosing dc = null;
         private bool twoDates = false;
+        private int shiftForQuery = 0;
+
         public xPrinterDailyCloseSummary()
         {
 
         }
 
-        public xPrinterDailyCloseSummary(string _workDay, clsDailyClosing _dc)
+        public xPrinterDailyCloseSummary(string _workDay, clsDailyClosing _dc, int shift = 0)
         {
             workDay = _workDay;
             dc = _dc;
+
+            if (shift == 0)
+                shiftForQuery = Settings.Default.ShiftForQuery;
+            else
+                shiftForQuery = shift;
         }
 
-        public xPrinterDailyCloseSummary(string _workDay1, string _workDay2, clsDailyClosing _dc)
+        public xPrinterDailyCloseSummary(string _workDay1, string _workDay2, clsDailyClosing _dc, int shift = 0)
         {
             workDay1 = _workDay1;
             workDay2 = _workDay2;
             dc = _dc;
             twoDates = true;
+
+            if (shift == 0)
+                shiftForQuery = Settings.Default.ShiftForQuery;
+            else
+                shiftForQuery = shift;
         }
 
         public void print()
@@ -103,7 +117,7 @@ namespace AWC.DigitalCommerce.TicketsController
 
             Offset += 25;
 
-            graphics.DrawString(new string(' ', 14) + $"TURNO {Settings.Default.ShiftForQuery}", new Font("Consolas Bold", 12), new SolidBrush(Color.Black), startX, startY + Offset);
+            graphics.DrawString(new string(' ', 14) + $"TURNO {shiftForQuery}", new Font("Consolas Bold", 12), new SolidBrush(Color.Black), startX, startY + Offset);
             Offset += 25;
 
             //e.Graphics.DrawLine(blackPen, 0, Offset, 200, Offset);
@@ -243,6 +257,29 @@ namespace AWC.DigitalCommerce.TicketsController
                     else
                     {
                         workVar = exp.ExpenseDescription + new string(' ', 21 - exp.ExpenseDescription.Length) + workVar2.PadLeft(9);
+                    }
+
+                    graphics.DrawString(workVar, new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
+                    Offset += 18;
+                }
+            }
+
+            if (dc.IncomeCash > 0)
+            {
+                graphics.DrawString("======INGRESOS DE DINERO======", new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
+                Offset += 18;
+
+                foreach (clsCashIncomes cashinc in dc.CashIncomeList)
+                {
+                    workVar2 = cashinc.IncomeAmount.ToString("N0", CultureInfo.InvariantCulture);
+
+                    if (cashinc.IncomeDescription.Length >= 21)
+                    {
+                        workVar = cashinc.IncomeDescription.Substring(0, 21) + workVar2.PadLeft(9);
+                    }
+                    else
+                    {
+                        workVar = cashinc.IncomeDescription + new string(' ', 21 - cashinc.IncomeDescription.Length) + workVar2.PadLeft(9);
                     }
 
                     graphics.DrawString(workVar, new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
