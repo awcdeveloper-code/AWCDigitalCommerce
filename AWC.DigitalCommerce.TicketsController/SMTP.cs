@@ -20,11 +20,11 @@ namespace AWC.DigitalCommerce.TicketsController
     {
         #region GLOBAL VARIABLES
 
-        private static string smtpAddress = "smtp.gmail.com";
-        private static int portNumber = 587;
+        private static string smtpAddress = Settings.Default.SMTPServer;
+        private static int portNumber = Settings.Default.SMTPPort;
         private static bool enableSSL = true;
-        private static string emailFromAddress = "aidawareconsultancies@gmail.com";
-        private static string password = "ucfyocmdgujnhtrm";
+        private static string emailFromAddress = Settings.Default.SMTPFromAddress;
+        private static string password = Settings.Default.SMTPPassword;
         private static string emailToAddress = Settings.Default.eMailDistributionList;
         private static string currentYear = DateTime.Now.ToString("yyyy");
         private static List<clsItemDetailForDatagrid> productsList = new List<clsItemDetailForDatagrid>();
@@ -50,23 +50,30 @@ namespace AWC.DigitalCommerce.TicketsController
         }
         private static void SendEMail(string subject, string body)
         {
-            using (MailMessage mail = new MailMessage())
+            try
             {
-                mail.From = new MailAddress(emailFromAddress);
-                mail.To.Add(emailToAddress);
-                mail.Bcc.Add(emailFromAddress);
-                mail.Subject = subject;
-                mail.Body = body;
-                mail.IsBodyHtml = true;
-
-                using (SmtpClient smtp = new SmtpClient(smtpAddress, portNumber))
+                using (MailMessage mail = new MailMessage())
                 {
-                    smtp.Credentials = new NetworkCredential(emailFromAddress, password);
-                    smtp.EnableSsl = enableSSL;
-                    smtp.Send(mail);
+                    mail.From = new MailAddress(emailFromAddress);
+                    mail.To.Add(emailToAddress);
+                    mail.Bcc.Add(emailFromAddress);
+                    mail.Subject = subject;
+                    mail.Body = body;
+                    mail.IsBodyHtml = true;
+
+                    using (SmtpClient smtp = new SmtpClient(smtpAddress, portNumber))
+                    {
+                        smtp.Credentials = new NetworkCredential(emailFromAddress, password);
+                        smtp.EnableSsl = enableSSL;
+                        smtp.Send(mail);
+                    }
                 }
+                Helper.ShowToastNotification("Correo enviado exitosamente");
             }
-            Helper.ShowToastNotification("Correo enviado exitosamente");
+            catch (Exception ex)
+            {
+                Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, ex.Message, Logger.Severity.ERROR);
+            }
         }
         private static void SendEMail(string subject, string body, string eMail)
         {
