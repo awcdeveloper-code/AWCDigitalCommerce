@@ -272,7 +272,7 @@
                         Grid.ColumnSpan="12"
                         Orientation="Vertical" VerticalAlignment="Center">
                 <Label Name="ApplicationTitle"
-                       Foreground="Fuchsia"
+                       Foreground="White"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"
                        FontFamily="Bahnschrift SemiLight Condensed"

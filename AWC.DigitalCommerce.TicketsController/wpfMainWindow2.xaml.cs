@@ -131,7 +131,9 @@ namespace AWC.DigitalCommerce.TicketsController
         }
         private void Timer_Tick(object sender, EventArgs e)
         {
+            timer.Stop();
             CurrentDateTime.Content = DateTime.Now.ToString("dd.MM.yyyy hh:mm tt");
+            timer.Start();
         }
         private void MainWindow2_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -426,10 +428,11 @@ namespace AWC.DigitalCommerce.TicketsController
 
                 if (Settings.Default.DisplayCurrentDateTime)
                 {
-                    CurrentDateTime.Content = DateTime.Now.ToString("dd.MM.yyyy hh:mm tt");
+                    CurrentDateTime.Content = DateTime.Now.ToString("dd.MM.yyyy hh:mm tt", CultureInfo.InvariantCulture);
                 }
 
                 clsUser userProf = Helper.CheckUserProfile(Settings.Default.WhoOpen.ToString());
+
                 CurrentUser.Content = $"COLABORADOR ACTIVO: {userProf.userName}";
 
                 Mouse.OverrideCursor = Cursors.Wait;
