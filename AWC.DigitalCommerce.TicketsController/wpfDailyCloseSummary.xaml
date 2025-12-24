@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController"
-        mc:Ignorable="d" Height="600" Width="750"
+        mc:Ignorable="d" Height="560" Width="750"
         WindowStartupLocation="CenterScreen" WindowStyle="None"
         ResizeMode="NoResize" Background="DarkBlue">
     <Border BorderBrush="Fuchsia" BorderThickness="2">
@@ -106,6 +106,17 @@
                     </StackPanel>
                 </Button>
             </StackPanel>
+
+            <!-- send email -->
+            <CheckBox Grid.Row="3" Grid.Column="1"
+                      Name="SendReportByEmail"
+                      Foreground="Cyan"
+                      VerticalAlignment="Top"
+                      IsChecked="True"
+                      Margin="5"
+                      FontSize="15"
+                      FontWeight="DemiBold"
+                      Content="ENVIAR POR CORREO ELECTRÓNICO"/>
 
             <!-- right body -->
             <StackPanel Grid.Column="2" Grid.Row="2"

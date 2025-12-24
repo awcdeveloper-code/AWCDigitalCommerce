@@ -617,7 +617,7 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\AWC.DigitalCommerce\\Images\\RestoBarPimenton.jpg")]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\AWC.DigitalCommerce\\Images\\RinconDelRobalo-BW.png")]
         public string BusinessLogo {
             get {
                 return ((string)(this["BusinessLogo"]));

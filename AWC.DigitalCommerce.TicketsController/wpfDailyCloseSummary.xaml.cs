@@ -33,6 +33,18 @@ namespace AWC.DigitalCommerce.TicketsController
         public wpfDailyCloseSummary()
         {
             InitializeComponent();
+
+            if (SMTP.CheckInternetConnection())
+            {
+                SendReportByEmail.IsChecked = true;
+                SendReportByEmail.IsEnabled = true;
+            }
+            else
+            {
+                SendReportByEmail.IsChecked = false;
+                SendReportByEmail.IsEnabled = false;
+                Helper.ShowToastNotification("ATENCIÓN: Sin acceso a Internet");
+            }
         }
 
         private void calDate_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
@@ -69,8 +81,11 @@ namespace AWC.DigitalCommerce.TicketsController
             }
             else
             {
-                SMTP.SendDailyReport(dcReport, businessDate, itemsList);
-                Helper.ShowToastNotification($"Cierre del {DB.ConverTicketDate(businessDate)} Turno {txtShift.Text} fue enviado exitosamente.");
+                if (SendReportByEmail.IsChecked == true && Settings.Default.eMailDistributionList.Length > 0)
+                {
+                    SMTP.SendDailyReport(dcReport, businessDate, itemsList);
+                    Helper.ShowToastNotification($"Cierre del {DB.ConverTicketDate(businessDate)} Turno {txtShift.Text} fue enviado exitosamente.");
+                }
             }
 
             Search.IsEnabled = false;
