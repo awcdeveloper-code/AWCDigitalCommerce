@@ -1593,7 +1593,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Warning.ico" />
-    <Resource Include="Images\Warning.png" />
+    <Resource Include="Images\Warning.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\xpworld.ico" />
   </ItemGroup>
   <ItemGroup>

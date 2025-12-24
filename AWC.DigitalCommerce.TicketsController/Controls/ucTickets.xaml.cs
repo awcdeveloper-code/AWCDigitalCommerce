@@ -497,6 +497,7 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
                 UpdateTicket.IsEnabled = Helper.CheckUserAccessToResource2("ucTickets_UpdateTicket");
                 SmallPayment.IsEnabled = Helper.CheckUserAccessToResource2("ucTickets_SmallPayment");
                 PayTicket.IsEnabled = Helper.CheckUserAccessToResource2("ucTickets_PayTicket");
+                Emergency.IsEnabled = Helper.CheckUserAccessToResource2("ucTickets_Emergency");
 
                 CancelUpdate.IsEnabled = false;
                 UpdateTicket.IsEnabled = false;
@@ -2243,5 +2244,35 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
             }
         }
         #endregion
+
+        private void btn_PrintAllTickets(object sender, RoutedEventArgs e)
+        {
+            if (Settings.Default.UseNickNames)
+            {
+                lstCustomers = DB.ListBinding_tbl_OpenTickets();
+            }
+            else
+            {
+                lstCustomers = DB.ListBinding_tbl_CustomerID(3, 1);
+            }
+
+            Mouse.OverrideCursor = Cursors.Wait;
+            Emergency.IsEnabled = false;
+
+            foreach (clsCustomerVIP custProf in lstCustomers)
+            {
+                ticket = DB.GetTicket(DB.GetTicketNumber(Settings.Default.BusinessDate, custProf.ID));
+
+                Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, $"PRINT TICKET {ticket.ID}", Logger.Severity.INFORMATION);
+
+                Helper.PrintTicket(Helper.Convert2TicketsForDataGrid(ticket, custProf.CustomerID));
+            }
+
+            wpfSplashWindow sw = new wpfSplashWindow(1, "");
+            sw.ShowDialog();
+
+            Emergency.IsEnabled = true;
+            Mouse.OverrideCursor = null;
+        }
     }
 }
