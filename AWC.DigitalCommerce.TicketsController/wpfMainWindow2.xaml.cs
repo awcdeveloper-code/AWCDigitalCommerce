@@ -13,6 +13,7 @@ using System.Runtime.InteropServices;
 using System.Reflection;
 using System.Windows.Media.Imaging;
 using System.Globalization;
+using AWC.DigitalCommerce.TicketsController.Classes;
 
 namespace AWC.DigitalCommerce.TicketsController
 {
@@ -54,9 +55,6 @@ namespace AWC.DigitalCommerce.TicketsController
         private Mutex singleton = new Mutex(true, "TicketController");
         public wpfMainWindow2()
         {
-            //string ec = ARC4Encryption.DoEncrypt("Hola, soy Memo Grillo", "Mimi0mores");
-            //string dc = ARC4Encryption.DoDecrypt(ec, "Mimi0mores");
-
             lang = "-sp";
 
             Helper.TextToSpeech($"WELCOME TO DIGITAL COMMERCE TICKETS CONTROLLER {DateTime.Now.ToString("yyyy")}");
@@ -91,7 +89,8 @@ namespace AWC.DigitalCommerce.TicketsController
                 InitializeComponent();
 
                 ApplicationTitle.Content = Settings.Default.ApplicationTitle;
-                BussinessName.Content = Settings.Default.BusinessName;
+                BussinessName.Content = Settings.Default.BusinessName;           
+                Trademark.Content = $"© {clsRomanYearConverter.ToRoman(Convert.ToInt32(DateTime.Now.ToString("yyyy")))} AIDAware - Derechos Reservados";
                 lblOSD.Content = $"{RuntimeInformation.OSDescription.ToUpper()} AWC {Assembly.GetExecutingAssembly().GetName().Version.ToString()}";
                 LoadControlsArray();
 

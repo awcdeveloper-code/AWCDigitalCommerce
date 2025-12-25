@@ -350,6 +350,7 @@
     <Compile Include="Classes\clsPayMethodChange.cs" />
     <Compile Include="Classes\clsPrintTicketRemotely.cs" />
     <Compile Include="Classes\clsProvider.cs" />
+    <Compile Include="Classes\clsRomanYearConverter.cs" />
     <Compile Include="Classes\clsSalaryAdvance.cs" />
     <Compile Include="Classes\clsSalesHistory.cs" />
     <Compile Include="Classes\clsServiceFeeByWho.cs" />
