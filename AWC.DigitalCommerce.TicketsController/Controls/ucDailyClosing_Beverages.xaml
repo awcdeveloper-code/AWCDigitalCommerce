@@ -37,20 +37,6 @@
             <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
-        <Label Grid.Row="0" Grid.Column="1"
-               Content="FECHA:"
-               Foreground="Cyan"
-               VerticalAlignment="Center"
-               FontSize="20"
-               FontWeight="DemiBold"/>
-        <DatePicker Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2"
-                    Name="SelectedDay"
-                    SelectedDateFormat="Short"
-                    VerticalAlignment="Center"
-                    Margin="5"
-                    FontSize="20"
-                    FontWeight="DemiBold"
-                    SelectedDateChanged="SelectedDay_SelectedDateChanged"/>
         <DataGrid Grid.Row="1" Grid.Column="1"
                   Grid.RowSpan="8" Grid.ColumnSpan="6"
                   Name="TicketDetail"

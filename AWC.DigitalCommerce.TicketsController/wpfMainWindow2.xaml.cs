@@ -815,12 +815,34 @@ namespace AWC.DigitalCommerce.TicketsController
                     isActive = true;
                     tokenID = 4;
                     EnableDisableLeftControls(TodaySales, F4, false);
+
+                    // today sales
                     var UC = new ucTodaySales(lang);
                     newTab = new TabItem { Content = UC };
                     newTab.Header = CreateHeaderForTabItem(newTab, "pack://application:,,,/Images/Money.ico", "VENTAS DEL DÍA");
+                    tabCtrlWorkArea.Items.Add(newTab);
+
+                    var UA = new ucDailyClosing_AllProducts(lang);
+                    newTab = new TabItem { Content = UA };
+                    newTab.Header = CreateHeaderForTabItem(newTab, "pack://application:,,,/Images/allProducts.png", "RESUMEN DE PRODUCTOS");
+                    tabCtrlWorkArea.Items.Add(newTab);
+
+                    var UB = new ucDailyClosing_Beverages(lang);
+                    newTab = new TabItem { Content = UB };
+                    newTab.Header = CreateHeaderForTabItem(newTab, "pack://application:,,,/Images/beer.png", "BEBIDAS");
+                    tabCtrlWorkArea.Items.Add(newTab);
+
+                    var UL = new ucDailyClosing_Liquors(lang);
+                    newTab = new TabItem { Content = UL };
+                    newTab.Header = CreateHeaderForTabItem(newTab, "pack://application:,,,/Images/liquors.ico", "LICORES");
+                    tabCtrlWorkArea.Items.Add(newTab);
+
+                    var UK = new ucDailyClosing_Kitchen(lang);
+                    newTab = new TabItem { Content = UK };
+                    newTab.Header = CreateHeaderForTabItem(newTab, "pack://application:,,,/Images/kitchen.ico", "COMIDAS");
+                    tabCtrlWorkArea.Items.Add(newTab);
 
                     // WorkArea Tab Manager
-                    tabCtrlWorkArea.Items.Add(newTab);
                     tabCtrlWorkArea.Items.Refresh();
                     tabCtrlWorkArea.Visibility = Visibility.Visible;
                 }

@@ -33,26 +33,13 @@
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="10"/>
             </Grid.RowDefinitions>
-            <!--SELECT DATE-->
-            <Label Grid.Row="1" Grid.Column="1"
-               Foreground="Cyan"
-               VerticalAlignment="Center"
-               FontWeight="DemiBold"
-               Content="SELECCIONE FECHA:"/>
-            <DatePicker Grid.Row="1" Grid.Column="2"
-                    Grid.ColumnSpan="2"
-                    Name="SelectedDay"
-                    SelectedDateFormat="Short"
-                    VerticalAlignment="Center"
-                    FontWeight="DemiBold"
-                    SelectedDateChanged="SelectedDay_SelectedDateChanged"/>
             <Label Grid.Row="1" Grid.Column="8" Grid.ColumnSpan="2"
-               Name="TotalTodayTickets"
-               Foreground="Cyan"
-               HorizontalAlignment="Right"
-               VerticalAlignment="Center"
-               FontSize="30"
-               FontWeight="DemiBold"/>
+                   Name="TotalTodayTickets"
+                   Foreground="Cyan"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Center"
+                   FontSize="30"
+                   FontWeight="DemiBold"/>
             <!--DATAGRID-->
             <GroupBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="9"
                   Name="GroupBoxDataGrid"

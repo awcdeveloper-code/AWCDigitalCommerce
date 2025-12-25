@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AWC.DigitalCommerce.TicketsController.Properties;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,32 +13,37 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using AWC.DigitalCommerce.TicketsController.Properties;
 
 namespace AWC.DigitalCommerce.TicketsController.Controls
 {
-    public partial class ucDailyClosing_Kitchen : UserControl
+    public partial class ucDailyClosing_AllProducts : UserControl
     {
         private string lang = string.Empty;
-        private List<clsItemDetailForDatagrid> itemsList = new List<clsItemDetailForDatagrid>();
+
+        private List<clsItemDetailForDatagrid> itemsList;
         private string workDay = string.Empty;
-        public ucDailyClosing_Kitchen(string _lang)
+        public ucDailyClosing_AllProducts(string _lang)
         {
             lang = _lang;
 
             InitializeComponent();
 
-            itemsList = DB.GetMealsItemsByDate(Settings.Default.BusinessDate);
+            itemsList = DB.GetItemsByDate(Settings.Default.BusinessDate, Settings.Default.BusinessDate, 4);
             TicketDetail.ItemsSource = itemsList;
-            int totalPrice = itemsList.Sum(x => x.TotalCost);
+            int totalPrice = itemsList.Sum(x => x.TotalPrice);
             lblTotalSale.Content = totalPrice.ToString("N0").PadLeft(7);
 
             if (itemsList.Count > 0)
-                MealsSummary.IsEnabled = true;
+                AllProductsSummary.IsEnabled = true;
         }
         private void btn_MealsSummary(object sender, RoutedEventArgs e)
         {
             Helper.PrintTicket(itemsList, 1, null, null);
+        }
+
+        private void btn_AllProductsSummary(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

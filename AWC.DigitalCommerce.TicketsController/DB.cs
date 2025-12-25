@@ -3102,7 +3102,7 @@ namespace AWC.DigitalCommerce.TicketsController
                         sqlQry = "SELECT tbl_Items.ItemDescription AS 'ItemDesc', SUM(Qty) AS 'Qty', tbl_TicketsDetail.UnitPrice, SUM(tbl_TicketsDetail.TotalPrice) AS 'TotalPrice', tbl_Items.ItemAvailable AS 'ItemAvail', tbl_Items.ItemType AS 'ItemType' FROM tbl_TicketsDetail " +
                                 $"INNER JOIN tbl_Items ON tbl_TicketsDetail.ItemID = tbl_Items.ID " +
                                 $"INNER JOIN tbl_Tickets ON tbl_Tickets.GUID = tbl_TicketsDetail.GUID " +
-                                $"WHERE tbl_Tickets.Shift = {Settings.Default.ShiftForQuery} AND tbl_Items.ItemType <> 9 AND (tbl_TicketsDetail.CreatedAt >= '{startDate}' AND tbl_TicketsDetail.CreatedAt <= '{finishDate}') " +
+                                $"WHERE tbl_Items.ItemType <> 9 AND (tbl_TicketsDetail.CreatedAt >= '{startDate}' AND tbl_TicketsDetail.CreatedAt <= '{finishDate}') " +
                                 "GROUP BY tbl_Items.ItemDescription, tbl_Items.ItemType, tbl_TicketsDetail.UnitPrice, tbl_Items.ItemAvailable ORDER BY tbl_Items.ItemDescription";
                         break;
                 }

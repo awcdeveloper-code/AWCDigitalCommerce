@@ -380,6 +380,9 @@
     <Compile Include="Controls\ucCocktails.xaml.cs">
       <DependentUpon>ucCocktails.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ucDailyClosing_AllProducts.xaml.cs">
+      <DependentUpon>ucDailyClosing_AllProducts.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ucDailyClosing_Beverages.xaml.cs">
       <DependentUpon>ucDailyClosing_Beverages.xaml</DependentUpon>
     </Compile>
@@ -882,6 +885,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\ucCocktails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ucDailyClosing_AllProducts.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -1875,6 +1882,9 @@
     <Resource Include="Images\Background_Blue.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\allProducts.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\trash.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
