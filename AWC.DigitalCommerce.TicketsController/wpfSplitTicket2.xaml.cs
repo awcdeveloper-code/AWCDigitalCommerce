@@ -121,7 +121,7 @@ namespace AWC.DigitalCommerce.TicketsController
         {
             try
             {
-                TicketDetailSource.Items.Clear();
+                //TicketDetailSource.Items.Clear();
 
                 foreach (clsTicketProform data in proformsList)
                 {
@@ -134,18 +134,18 @@ namespace AWC.DigitalCommerce.TicketsController
                     lblSubTotalPrice.Content = subTotalPrice.ToString("N0");
                     TicketDetailTarget.Items.Add(rdi);
 
-                    clsTicketDetail tdg = new clsTicketDetail();
+                    //clsTicketDetail tdg = new clsTicketDetail();
 
-                    tdg.ID = rdi.ID;
-                    tdg.ItemID = rdi.ItemID;
-                    tdg.GUID = rdi.GUID;
-                    tdg.ItemDesc = rdi.ItemDesc;
-                    tdg.Qty = rdi.Qty;
-                    tdg.UnitCost = rdi.UnitCost;
-                    tdg.TotalCost = rdi.TotalCost;
-                    tdg.UnitPrice = rdi.UnitPrice;
-                    tdg.TotalPrice = rdi.TotalPrice;
-                    TicketDetailSource.Items.Add(rdi);
+                    //tdg.ID = rdi.ID;
+                    //tdg.ItemID = rdi.ItemID;
+                    //tdg.GUID = rdi.GUID;
+                    //tdg.ItemDesc = rdi.ItemDesc;
+                    //tdg.Qty = rdi.Qty;
+                    //tdg.UnitCost = rdi.UnitCost;
+                    //tdg.TotalCost = rdi.TotalCost;
+                    //tdg.UnitPrice = rdi.UnitPrice;
+                    //tdg.TotalPrice = rdi.TotalPrice;
+                    //TicketDetailSource.Items.Add(rdi);
                 }
 
                 TicketDetailSource.Items.Refresh();
