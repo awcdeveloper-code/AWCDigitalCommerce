@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController"
              mc:Ignorable="d" Background="DarkBlue"
-             d:DesignHeight="705" d:DesignWidth="1280">
+             d:DesignHeight="705" d:DesignWidth="1360">
     <UserControl.Resources>
         <Style x:Key="CenterGridHeaderStyle" TargetType="DataGridColumnHeader">
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -55,14 +55,14 @@
                 <ColumnDefinition Width="120"/>
                 <ColumnDefinition Width="120"/>
                 <ColumnDefinition Width="150"/>
-                <ColumnDefinition Width="100"/>
                 <ColumnDefinition Width="115"/>
                 <ColumnDefinition Width="115"/>
                 <ColumnDefinition Width="115"/>
                 <ColumnDefinition Width="115"/>
-                <ColumnDefinition Width="100"/>
-                <ColumnDefinition Width="100"/>
-                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="115"/>
+                <ColumnDefinition Width="115"/>
+                <ColumnDefinition Width="115"/>
+                <ColumnDefinition Width="115"/>
                 <ColumnDefinition Width="80"/>
                 <ColumnDefinition Width="10"/>
             </Grid.ColumnDefinitions>
@@ -232,10 +232,10 @@
                FontSize="25"
                FontWeight="DemiBold"/>
             <DataGrid Grid.Row="2" Grid.Column="4"
-                      Grid.ColumnSpan="9"
+                      Grid.ColumnSpan="10"
                       Grid.RowSpan="14"
                       Name="TicketDetail"
-                      Height="515" Width="855"
+                      Height="515" Width="920"
                       RowHeight="35"
                       FontSize="25"
                       FontWeight="DemiBold"
@@ -354,7 +354,7 @@
                 </DataGrid.ContextMenu>
                 <DataGrid.Columns>
                     <DataGridTemplateColumn Header="DESCRIPCIÓN"
-                                            Width="450"
+                                            Width="515"
                                             HeaderStyle="{StaticResource CenterGridHeaderStyle}">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
@@ -412,11 +412,13 @@
                     <TextBlock Text="NUEVA" VerticalAlignment="Center"/>
                 </StackPanel>
             </Button>
+
             <Button Grid.Row="16" Grid.Column="5"
                 Name="PrintTicket"
                 Click="btn_PrintTicket"
                 IsEnabled="False"
                 FontSize="15"
+                Margin="2"
                 Cursor="Hand"
                 FontWeight="DemiBold">
                 <StackPanel Orientation="Horizontal">
@@ -437,6 +439,7 @@
                     <TextBlock Text="LEALTAD" VerticalAlignment="Center"/>
                 </StackPanel>
             </Button>
+
             <Button Grid.Row="16" Grid.Column="6"
                 Name="SplitTicket"
                 Click="btn_SplitTicket"
@@ -463,6 +466,7 @@
                     <TextBlock Text="ANULAR" VerticalAlignment="Center"/>
                 </StackPanel>
             </Button>
+            
             <Button Grid.Row="16" Grid.Column="8"
                 Name="SmallPayment"
                 Click="btn_SmallPayment"

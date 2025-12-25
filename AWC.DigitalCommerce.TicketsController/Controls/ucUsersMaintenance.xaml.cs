@@ -79,6 +79,7 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
             chkBoxList.Add(chkBox_Vouchers);
             chkBoxList.Add(chkBox_PendantReview);
             chkBoxList.Add(chkBox_PowerAdmin);
+            chkBoxList.Add(chkBox_Emergency);
 
             EnableDisableCheckboxes(false);
 
@@ -164,6 +165,7 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
                         chkBox_Vouchers.IsChecked = userProf.userSecurityProfile.Substring(49, 1) == "0" ? false : true;
                         chkBox_PendantReview.IsChecked = userProf.userSecurityProfile.Substring(50, 1) == "0" ? false : true;
                         chkBox_PowerAdmin.IsChecked = userProf.userSecurityProfile.Substring(51, 1) == "0" ? false : true;
+                        chkBox_Emergency.IsChecked = userProf.userSecurityProfile.Substring(52, 1) == "0" ? false : true;
 
                         txtBox_PIN.IsEnabled = false;
                         btnDelete.IsEnabled = true;
@@ -266,6 +268,7 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
             strBld.Append((bool)chkBox_Vouchers.IsChecked ? 1 : 0);
             strBld.Append((bool)chkBox_PendantReview.IsChecked ? 1 : 0);
             strBld.Append((bool)chkBox_PowerAdmin.IsChecked ? 1 : 0);
+            strBld.Append((bool)chkBox_Emergency.IsChecked ? 1 : 0);
 
             clsUser updateUserProfile = new clsUser();
 
@@ -352,6 +355,7 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
                 chkBox_SubButton.IsChecked = action;
                 chkBox_PrnButton.IsChecked = action;
                 chkBox_Loyalty.IsChecked = action;
+                chkBox_Emergency.IsChecked = action;
             }
         }
 
