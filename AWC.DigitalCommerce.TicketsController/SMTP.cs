@@ -95,7 +95,7 @@ namespace AWC.DigitalCommerce.TicketsController
             }
             Helper.ShowToastNotification("Correo enviado exitosamente");
         }
-        public static bool SendDailyReport(clsDailyClosing dcRep, string dateProc, List<clsTicketsForDataGrid> ticketsList, int shift = 0)
+        public static bool SendDailyReport(clsDailyClosing dcRep, string dateProc, List<clsTicketsForDataGrid> ticketsList, int shift = 1)
         {
             try
             {
@@ -125,7 +125,7 @@ namespace AWC.DigitalCommerce.TicketsController
                 //
                 // SYSTEM DAILY CLOSE SUMMARY
                 //
-                sb.Append($"<h2>CIERRE CONTABLE DEL SISTEMA - TURNO {Settings.Default.ShiftForQuery}</h2>");
+                sb.Append($"<h2>CIERRE CONTABLE DEL SISTEMA - TURNO {shiftForQuery}</h2>");
                 sb.Append("<table>");
                 sb.Append("<tr><th>DESCRIPCIÓN</th><th>MONTO</th></tr>");
                 sb.Append("<tr><td>CAJA INICIAL (CI)</td ><td class=\"amount\">" + dcRep.InitialCash.ToString("N0") + "</td></tr>");

@@ -813,6 +813,9 @@
     <Compile Include="wpfWorkLog.xaml.cs">
       <DependentUpon>wpfWorkLog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WPFwpfDailyCloseOperator.xaml.cs">
+      <DependentUpon>WPFwpfDailyCloseOperator.xaml</DependentUpon>
+    </Compile>
     <Compile Include="xPrinter\xPrintBusinessCard.cs" />
     <Compile Include="xPrinter\xPrinterConsumption.cs" />
     <Compile Include="xPrinter\xPrinterCreditCardPayments.cs" />
@@ -1429,6 +1432,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="wpfWorkLog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WPFwpfDailyCloseOperator.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

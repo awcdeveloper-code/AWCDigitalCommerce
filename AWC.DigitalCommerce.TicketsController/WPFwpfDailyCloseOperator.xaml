@@ -1,0 +1,277 @@
+﻿<Window x:Class="AWC.DigitalCommerce.TicketsController.WPFwpfDailyCloseOperator"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController"
+        mc:Ignorable="d" Height="560" Width="1350"
+        WindowStartupLocation="CenterScreen" WindowStyle="None"
+        ResizeMode="NoResize" Background="DarkBlue">
+    <Border BorderBrush="Fuchsia" BorderThickness="5">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="350"/>
+                <ColumnDefinition Width="350"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="10"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- left body -->
+            <StackPanel Grid.Column="1" Grid.Row="2" Grid.RowSpan="6"
+                        Orientation="Vertical"
+                        Margin="5">
+                <Label Foreground="Cyan"
+                       FontSize="20" FontWeight="DemiBold"
+                       Content="SELECCIONE LA FECHA"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+                <Viewbox>
+                    <Calendar Name="calDate"
+                              Margin="5"
+                              SelectedDatesChanged="calDate_SelectedDatesChanged"/>
+                </Viewbox>
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Center">
+                    <Label Foreground="Cyan"
+                           FontSize="20" FontWeight="DemiBold"
+                           Content="TURNO:"/>
+                    <TextBox Name="txtShift"
+                             Width="50" Height="30"
+                             Margin="5 0 0 0"
+                             FontSize="20" FontWeight="DemiBold"
+                             VerticalContentAlignment="Center"
+                             HorizontalContentAlignment="Center"
+                             Text="1"/>
+                </StackPanel>
+
+                <!-- search button -->
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Center">
+                    <Button Click="btn_Search"
+                            Name="Search"
+                            FontSize="15"
+                            Width="130"
+                            Margin="10"
+                            Cursor="Hand"
+                            IsEnabled="False"
+                            FontWeight="DemiBold">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Images/search.png"
+                                   Width="30" Height="30" Margin="5"/>
+                            <TextBlock Text="BUSCAR"
+                                       VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+
+            <!-- header -->
+            <Label Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="6"
+                   Content="CIERRE CONTABLE DEL OPERADOR " 
+                   FontSize="40" FontWeight="Bold"
+                   Foreground="Cyan"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
+
+            <!-- description -->
+            <Label Grid.Column="2" Grid.Row="2"
+                   Content="DESCRIPCIÓN" 
+                   FontSize="30"
+                   FontWeight="Bold" Foreground="White"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Center"/>
+
+            <!-- system -->
+            <Label Grid.Column="3" Grid.Row="2"
+                   Content="SISTEMA" 
+                   FontSize="30"
+                   FontWeight="Bold" Foreground="White"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
+
+            <!-- system -->
+            <Label Grid.Column="4" Grid.Row="2"
+                   Content="OPERADOR" 
+                   FontSize="30"
+                   FontWeight="Bold" Foreground="White"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
+
+            <!-- operator -->
+            <Label Grid.Column="5" Grid.Row="2"
+                   Content="DIFERENCIA" 
+                   FontSize="30"
+                   FontWeight="Bold" Foreground="White"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
+
+            <!-- EFECTIVO (CI + IC + E - G) -->
+            <Label Grid.Column="2" Grid.Row="3"
+                   Content="EFECTIVO (CI + IC + E - G)" 
+                   FontSize="25"
+                   FontWeight="Bold" Foreground="Cyan"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Center"/>
+
+            <!-- system -->
+            <Label Grid.Column="3" Grid.Row="3"
+                   Name="lblCashSystem"
+                   Content="0.00" 
+                   FontSize="35"
+                   FontWeight="Bold" Foreground="Cyan"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Center"/>
+
+            <!-- operator -->
+            <Label Grid.Column="4" Grid.Row="3"
+                   Name="lblCashOperator"
+                   Content="0.00" 
+                   FontSize="35"
+                   FontWeight="Bold" Foreground="Cyan"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Center"/>
+
+            <!-- difference -->
+            <Label Grid.Column="5" Grid.Row="3"
+                   Name="lblCashDifference"
+                   Content="0.00" 
+                   FontSize="35"
+                   FontWeight="Bold" Foreground="Cyan"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Center"/>
+
+            <!-- TARJETA DE CREDITO -->
+            <Label Grid.Column="2" Grid.Row="4"
+                   Content="TARJETAS DE CRÉDITO" 
+                   FontSize="25"
+                   FontWeight="Bold" Foreground="Cyan"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Center"/>
+
+            <!-- system -->
+            <Label Grid.Column="3" Grid.Row="4"
+                   Name="lblCreditCardSystem"
+                   Content="0.00" 
+                   FontSize="35"
+                   FontWeight="Bold" Foreground="Cyan"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Center"/>
+
+            <!-- operator -->
+            <Label Grid.Column="4" Grid.Row="4"
+                   Name="lblCreditCardOperator"
+                   Content="0.00" 
+                   FontSize="35"
+                   FontWeight="Bold" Foreground="Cyan"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Center"/>
+
+            <!-- difference -->
+            <Label Grid.Column="5" Grid.Row="4"
+                   Name="lblCreditCardDifference"
+                   Content="0.00" 
+                   FontSize="35"
+                   FontWeight="Bold" Foreground="Cyan"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Center"/>
+
+            <!-- TRANS SINPE -->
+            <Label Grid.Column="2" Grid.Row="5"
+                   Content="TRANSFERENCIAS SINPE" 
+                   FontSize="25"
+                   FontWeight="Bold" Foreground="Cyan"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Center"/>
+
+            <!-- system -->
+            <Label Grid.Column="3" Grid.Row="5"
+                   Name="lblSINPESystem"
+                   Content="0.00" 
+                   FontSize="35"
+                   FontWeight="Bold" Foreground="Cyan"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Center"/>
+
+            <!-- operator -->
+            <Label Grid.Column="4" Grid.Row="5"
+                   Name="lblSINPEOperator"
+                   Content="0.00" 
+                   FontSize="35"
+                   FontWeight="Bold" Foreground="Cyan"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Center"/>
+
+            <!-- difference -->
+            <Label Grid.Column="5" Grid.Row="5"
+                   Name="lblSINPEDifference"
+                   Content="0.00" 
+                   FontSize="35"
+                   FontWeight="Bold" Foreground="Cyan"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Center"/>
+
+            <!-- VOUCHERS -->
+            <Label Grid.Column="2" Grid.Row="6"
+                   Content="CERTIFICADOS DE REGALO" 
+                   FontSize="25"
+                   FontWeight="Bold" Foreground="Cyan"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Center"/>
+
+            <!-- system -->
+            <Label Grid.Column="3" Grid.Row="6"
+                   Name="lblVouchersSystem"
+                   Content="0.00" 
+                   FontSize="35"
+                   FontWeight="Bold" Foreground="Cyan"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Center"/>
+
+            <!-- operator -->
+            <Label Grid.Column="4" Grid.Row="6"
+                   Name="lblVouchersOperator"
+                   Content="0.00" 
+                   FontSize="35"
+                   FontWeight="Bold" Foreground="Cyan"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Center"/>
+
+            <!-- difference -->
+            <Label Grid.Column="5" Grid.Row="6"
+                   Name="lblVouchersDifference"
+                   Content="0.00" 
+                   FontSize="35"
+                   FontWeight="Bold" Foreground="Cyan"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Center"/>
+
+            <!-- exit -->
+            <Button Grid.Column="5" Grid.Row="7"
+                    Click="btn_Exit"
+                    Width="180" Height="60"
+                    Cursor="Hand"
+                    FontSize="25" FontWeight="DemiBold">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Images/cancel.png"
+                           Width="30" Height="30" Margin="5"/>
+                    <TextBlock Text="CERRAR"
+                               VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+        </Grid>
+    </Border>
+</Window>

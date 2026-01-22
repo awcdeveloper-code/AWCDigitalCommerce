@@ -268,6 +268,8 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
 
                     totalPrice = TotalizeTicket(TicketDetail);
 
+                    DB.UpdateTicketTotalPriceUsingItems(ticket.ID, totalPrice);
+
                     TicketDetail.Items.Refresh();
 
                     if (TicketDetail.Items.Count > 1)

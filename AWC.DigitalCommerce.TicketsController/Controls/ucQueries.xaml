@@ -212,7 +212,7 @@
                         Foreground="Black"
                         FontSize="20"
                         Height="60"
-                        Width="240"
+                        Width="260"
                         Margin="3"
                         Cursor="Hand"
                         FontWeight="DemiBold">
@@ -229,7 +229,7 @@
                         Foreground="Black"
                         FontSize="20"
                         Height="60"
-                        Width="240"
+                        Width="260"
                         Margin="3"
                         Cursor="Hand"
                         FontWeight="DemiBold">
@@ -246,7 +246,7 @@
                         Foreground="Black"
                         FontSize="20"
                         Height="60"
-                        Width="240"
+                        Width="260"
                         Margin="3"
                         Cursor="Hand"
                         FontWeight="DemiBold">
@@ -263,7 +263,7 @@
                         Foreground="Black"
                         FontSize="20"
                         Height="60"
-                        Width="240"
+                        Width="260"
                         Margin="3"
                         Cursor="Hand"
                         FontWeight="DemiBold">
@@ -280,7 +280,7 @@
                         Foreground="Black"
                         FontSize="20"
                         Height="60"
-                        Width="240"
+                        Width="260"
                         Margin="3"
                         Cursor="Hand"
                         FontWeight="DemiBold">
@@ -297,7 +297,7 @@
                         Foreground="Black"
                         FontSize="20"
                         Height="60"
-                        Width="240"
+                        Width="260"
                         Margin="3"
                         Cursor="Hand"
                         FontWeight="DemiBold">
@@ -314,7 +314,7 @@
                         Foreground="Black"
                         FontSize="20"
                         Height="60"
-                        Width="240"
+                        Width="260"
                         Margin="3"
                         Cursor="Hand"
                         FontWeight="DemiBold">
@@ -322,7 +322,24 @@
                         <Image Source="/Images/report.png"
                                Width="30" Height="30"
                                Margin="5"/>
-                        <TextBlock Text="RESUMEN CIERRE"
+                        <TextBlock Text="RESUMEN CIERRES"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button Click="btn_DailyCloseOperator"
+                        Name="DailyCloseOperator"
+                        Foreground="Black"
+                        FontSize="20"
+                        Height="60"
+                        Width="260"
+                        Margin="3"
+                        Cursor="Hand"
+                        FontWeight="DemiBold">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Images/people.ico"
+                               Width="30" Height="30"
+                               Margin="5"/>
+                        <TextBlock Text="CIERRES X OPERADOR"
                                    VerticalAlignment="Center"/>
                     </StackPanel>
                 </Button>

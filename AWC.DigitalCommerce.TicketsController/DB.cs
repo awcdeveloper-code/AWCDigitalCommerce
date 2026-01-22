@@ -6568,6 +6568,40 @@ namespace AWC.DigitalCommerce.TicketsController
                 return false;
             }
         }
+
+        public static bool UpdateTicketTotalPriceUsingItems(int ticketID, int totAmount)
+        {
+            try
+            {
+                bool result = false;
+
+                string sqlQry = $"UPDATE tbl_Tickets SET TotalPrice = {totAmount} WHERE ID = " + ticketID;
+
+                using (sqlConn = new SqlConnection(Settings.Default.TicketsControllerDbConn))
+                {
+                    sqlConn.Open();
+                    SqlCommand sqlCmd = new SqlCommand(sqlQry, sqlConn);
+                    sqlCmd.ExecuteNonQuery();
+                    result = true;
+                }
+
+                if (Settings.Default.DebugTrace)
+                    Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, sqlQry, Logger.Severity.DEBUG);
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                sqlConn.Close();
+                Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, ex, Logger.Severity.ERROR);
+                Helper.ShowMessage("ERROR: " + ex, System.Windows.Forms.MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+
+
+
         public static void UpdateTicketStatus(int ID, int status, int totalPrice, int serviceFeed, int cash, int creditCard, int transfer, int voucher, int whoClosed, string customerAKA)
         {
             try
