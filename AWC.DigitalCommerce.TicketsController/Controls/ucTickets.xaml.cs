@@ -740,7 +740,7 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
 
                 userProf = Helper.CheckUserProfile(wpfPIN.numKeyed);
 
-                if (!userProf.userPowerAdmin)
+                if (userProf.userSecurityProfile.Substring(51, 1) == "0")
                 {
                     wpfMessageBox.Show("Tickets Controller", "PIN INGRESADO NO TIENE PERMISO PARA ELIMINAR PRODUCTOS", MessageBoxButton.OK, wpfMessageBox.MessageBoxImage.Error, lang);
                     return;
@@ -1258,7 +1258,7 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
 
                 userProf = Helper.CheckUserProfile(wpfPIN.numKeyed);
 
-                if (!userProf.userPowerAdmin)
+                if (userProf.userSecurityProfile.Substring(51, 1) == "0")
                 {
                     wpfMessageBox.Show("Tickets Controller", "ATENCIÓN: EL PIN INGRESADO NO TIENE PERMISO PARA ANULAR CUENTAS.", MessageBoxButton.OK, wpfMessageBox.MessageBoxImage.Warning, lang);
                     return;

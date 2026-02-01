@@ -100,11 +100,11 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
         }
         private void InitializeButtons()
         {
-            //Print.IsEnabled = false;
-            PrintClosed.IsEnabled = false;
-            PrintFoodService.IsEnabled = false;
-            AbortTicket.IsEnabled = false;
-            ChangeName.IsEnabled = false;
+            Print.IsEnabled = true;
+            PrintClosed.IsEnabled = true;
+            PrintFoodService.IsEnabled = true;
+            AbortTicket.IsEnabled = true;
+            ChangeName.IsEnabled = true;
             ElectronicInvoice.IsEnabled = false;
         }
         private void btn_PrintFoodService(object sender, RoutedEventArgs e)

@@ -87,7 +87,7 @@
                                 </Style>
                             </DataGridTextColumn.ElementStyle>
                         </DataGridTextColumn>
-                            <DataGridTextColumn Header="TURNO"
+                        <DataGridTextColumn Header="TURNO"
                                             Width="80"
                                             Binding="{Binding Path=Shift}"
                                             HeaderStyle="{StaticResource CenterGridHeaderStyle}">
@@ -107,7 +107,7 @@
                                 </Style>
                             </DataGridTextColumn.ElementStyle>
                         </DataGridTextColumn>
-                            <DataGridTextColumn Header="CLIENTE"
+                        <DataGridTextColumn Header="CLIENTE"
                                                 Width="450"
                                                 Binding="{Binding Path=CustomerID}"
                                                 HeaderStyle="{StaticResource CenterGridHeaderStyle}"/>
@@ -131,7 +131,7 @@
                                 </Style>
                             </DataGridTextColumn.ElementStyle>
                         </DataGridTextColumn>
-                            <DataGridTextColumn Header="TOTAL"
+                        <DataGridTextColumn Header="TOTAL"
                                                 Width="95"
                                                 Binding="{Binding Path=TotalPrice, StringFormat=N0}"
                                                 HeaderStyle="{StaticResource CenterGridHeaderStyle}">
@@ -151,10 +151,10 @@
                     Margin="2"
                     Cursor="Hand"
                     FontWeight="DemiBold">
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="/Images/printer_icon.png" Width="30" Height="30" Margin="5"/>
-                        <TextBlock Text="ABIERTAS" VerticalAlignment="Center"/>
-                    </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Images/printer_icon.png" Width="30" Height="30" Margin="5"/>
+                    <TextBlock Text="ABIERTAS" VerticalAlignment="Center"/>
+                </StackPanel>
             </Button>
             <Button Grid.Row="4" Grid.Column="2"
                     Name="PrintClosed"
@@ -164,10 +164,10 @@
                     Margin="2"
                     Cursor="Hand"
                     FontWeight="DemiBold">
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="/Images/printer_icon.png" Width="30" Height="30" Margin="5"/>
-                        <TextBlock Text="IMPRIMIR" VerticalAlignment="Center"/>
-                    </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Images/printer_icon.png" Width="30" Height="30" Margin="5"/>
+                    <TextBlock Text="IMPRIMIR" VerticalAlignment="Center"/>
+                </StackPanel>
             </Button>
             <Button Grid.Row="4" Grid.Column="3"
                     Name="ElectronicInvoice"
@@ -177,10 +177,10 @@
                     Margin="2"
                     Cursor="Hand"
                     FontWeight="DemiBold">
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="/Images/printer_icon.png" Width="30" Height="30" Margin="5"/>
-                        <TextBlock Text="IVA" VerticalAlignment="Center"/>
-                    </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Images/printer_icon.png" Width="30" Height="30" Margin="5"/>
+                    <TextBlock Text="IVA" VerticalAlignment="Center"/>
+                </StackPanel>
             </Button>
             <Button Grid.Row="4" Grid.Column="4"
                     Name="FakeTicket"
@@ -190,10 +190,10 @@
                     Margin="2"
                     Cursor="Hand"
                     FontWeight="DemiBold">
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="/Images/money_icon.png" Width="30" Height="30" Margin="5"/>
-                        <TextBlock Text="MONTO" VerticalAlignment="Center"/>
-                    </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Images/money_icon.png" Width="30" Height="30" Margin="5"/>
+                    <TextBlock Text="MONTO" VerticalAlignment="Center"/>
+                </StackPanel>
             </Button>
             <Button Grid.Row="4" Grid.Column="5"
                     Name="eMailTicket"
@@ -203,23 +203,23 @@
                     Margin="2"
                     Cursor="Hand"
                     FontWeight="DemiBold">
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="/Images/email.png" Width="30" Height="30" Margin="5"/>
-                        <TextBlock Text="CORREO" VerticalAlignment="Center"/>
-                    </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Images/email.png" Width="30" Height="30" Margin="5"/>
+                    <TextBlock Text="CORREO" VerticalAlignment="Center"/>
+                </StackPanel>
             </Button>
             <Button Grid.Row="4" Grid.Column="6"
                     Name="AbortTicket"
                     Click="btn_AbortTicket"
                     IsEnabled="False"
                     FontSize="15"
-                    Margin="2"
+                    Margin="2,2,0,2"
                     Cursor="Hand"
-                    FontWeight="DemiBold">
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="/Images/delete_sign.png" Width="30" Height="30" Margin="5"/>
-                        <TextBlock Text="ANULAR" VerticalAlignment="Center"/>
-                    </StackPanel>
+                    FontWeight="DemiBold" HorizontalAlignment="Left" Width="116">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Images/delete_sign.png" Width="30" Height="30" Margin="5"/>
+                    <TextBlock Text="ANULAR" VerticalAlignment="Center"/>
+                </StackPanel>
             </Button>
             <Button Grid.Row="4" Grid.Column="7"
                     Name="ChangeName"
@@ -229,10 +229,10 @@
                     Margin="2"
                     Cursor="Hand"
                     FontWeight="DemiBold">
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="/Images/people.ico" Width="30" Height="30" Margin="5"/>
-                        <TextBlock Text="NOMBRE" VerticalAlignment="Center"/>
-                    </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Images/people.ico" Width="30" Height="30" Margin="5"/>
+                    <TextBlock Text="NOMBRE" VerticalAlignment="Center"/>
+                </StackPanel>
             </Button>
             <Button Grid.Row="4" Grid.Column="8"
                     Name="PrintFoodService"
@@ -242,10 +242,10 @@
                     Margin="2"
                     Cursor="Hand"
                     FontWeight="DemiBold">
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="/Images/food-service.png" Width="30" Height="30" Margin="5"/>
-                        <TextBlock Text="SERVICIO" VerticalAlignment="Center"/>
-                    </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Images/food-service.png" Width="30" Height="30" Margin="5"/>
+                    <TextBlock Text="SERVICIO" VerticalAlignment="Center"/>
+                </StackPanel>
             </Button>
             <Button Grid.Row="4" Grid.Column="9"
                     Name="ChangePayMethod"
@@ -255,10 +255,10 @@
                     Margin="2"
                     Cursor="Hand"
                     FontWeight="DemiBold">
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="/Images/Money.ico" Width="30" Height="30" Margin="5"/>
-                        <TextBlock Text="PAGO" VerticalAlignment="Center"/>
-                    </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Images/Money.ico" Width="30" Height="30" Margin="5"/>
+                    <TextBlock Text="PAGO" VerticalAlignment="Center"/>
+                </StackPanel>
             </Button>
         </Grid>
     </Border>

@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController"
              mc:Ignorable="d" Background="DarkBlue"
-             d:DesignHeight="570" d:DesignWidth="830">
+             d:DesignHeight="630" d:DesignWidth="830">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"/>
@@ -25,6 +25,8 @@
             <RowDefinition Height="50"/>
             <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
@@ -407,7 +409,7 @@
                   Margin="5"
                   FontSize="15"
                   FontWeight="DemiBold"
-                  Content="ELIMINAR ITEMES DE FACTURA"/>
+                  Content="POWER ADMIN"/>
         <CheckBox Grid.Row="5" Grid.Column="9"
                   Name="chkBox_Daily"
                   Foreground="Cyan"
@@ -486,7 +488,7 @@
                   FontWeight="DemiBold"
                   Content="VOUCHERS"/>
         <!--FOOTER BUTTONS-->
-        <StackPanel Grid.Row="17" Grid.Column="1" Grid.ColumnSpan="7"
+        <StackPanel Grid.Row="19" Grid.Column="1" Grid.ColumnSpan="7"
                     Orientation="Horizontal" HorizontalAlignment="Center">
             <Button Name="btnCancel"
                     Click="btn_Cancel"
