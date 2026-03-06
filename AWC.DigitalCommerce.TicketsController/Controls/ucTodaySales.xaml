@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController"
-             mc:Ignorable="d" d:DesignHeight="650" d:DesignWidth="1100" Background="DarkBlue">
+             mc:Ignorable="d" d:DesignHeight="900" d:DesignWidth="1600" Background="DarkBlue">
     <UserControl.Resources>
         <Style x:Key="CenterGridHeaderStyle" TargetType="DataGridColumnHeader">
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -59,7 +59,7 @@
                   Foreground="Cyan"
                   Header="CUENTAS DEL DIA">
                 <DataGrid Name="TodayTickets"
-                          Height="505" Width="1060"
+                          Height="725" Width="1060"
                           Margin="5"
                           RowHeight="25"
                           IsReadOnly="True"

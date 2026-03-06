@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController"
              mc:Ignorable="d" Background="DarkBlue"
-             d:DesignHeight="850" d:DesignWidth="1100">
+             d:DesignHeight="900" d:DesignWidth="1600">
     <UserControl.Resources>
         <Style x:Key="CenterGridHeaderStyle" TargetType="DataGridColumnHeader">
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -65,7 +65,7 @@
                         <RowDefinition Height="120"/>
                         <RowDefinition Height="100"/>
                         <RowDefinition Height="100"/>
-                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <!--LABELS COLUMN-->
                     <Label Grid.Row="1" Grid.Column="0"
@@ -248,9 +248,9 @@
                                MouseDown="btnMod_Item"/>
                     </StackPanel>
                     <!--DATAGRID-->
-                    <DataGrid Grid.Row="1" Grid.Column="3" Grid.RowSpan="13"
+                    <DataGrid Grid.Row="1" Grid.Column="3" Grid.RowSpan="14"
                               Name="ItemCatalog"
-                              Height="660" Width="785"
+                              Height="810" Width="785"
                               Margin="3"
                               RowHeight="35"
                               FontSize="20"
@@ -443,7 +443,7 @@
                     <DataGrid Grid.Row="2" Grid.Column="1"
                               Grid.ColumnSpan="2" Grid.RowSpan="2"
                               Name="tsCustCatalog"
-                              Height="450" Width="490"
+                              Height="650" Width="490"
                               Margin="5"
                               RowHeight="30"
                               IsReadOnly="True"
@@ -676,7 +676,7 @@
                     <!--DATAGRID-->
                     <DataGrid Grid.Row="1" Grid.Column="5" Grid.RowSpan="9"
                               Name="CustCatalog"
-                              Height="520" Width="680"
+                              Height="815" Width="680"
                               Margin="3,3,0,0"
                               RowHeight="30"
                               IsReadOnly="True"

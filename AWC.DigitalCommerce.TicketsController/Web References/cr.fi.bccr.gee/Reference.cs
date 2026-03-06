@@ -24,7 +24,7 @@ namespace AWC.DigitalCommerce.TicketsController.cr.fi.bccr.gee {
     
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Web.Services.WebServiceBindingAttribute(Name="wsindicadoreseconomicosSoap", Namespace="http://ws.sdde.bccr.fi.cr")]
@@ -180,11 +180,11 @@ namespace AWC.DigitalCommerce.TicketsController.cr.fi.bccr.gee {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
     public delegate void ObtenerIndicadoresEconomicosCompletedEventHandler(object sender, ObtenerIndicadoresEconomicosCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class ObtenerIndicadoresEconomicosCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -206,11 +206,11 @@ namespace AWC.DigitalCommerce.TicketsController.cr.fi.bccr.gee {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
     public delegate void ObtenerIndicadoresEconomicosXMLCompletedEventHandler(object sender, ObtenerIndicadoresEconomicosXMLCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class ObtenerIndicadoresEconomicosXMLCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {

@@ -4,9 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController"
-        mc:Ignorable="d" Width="1466" Height="850" 
-        MouseDown="MainWindow2_MouseDown"
-        Background="DarkBlue" ResizeMode="NoResize"
+        mc:Ignorable="d" Width="1600" Height="900" 
+        MouseDown="MainWindow2_MouseDown" Background="DarkBlue" ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen" WindowStyle="None">
     <Window.Resources>
         <Style x:Key="ButtonIndigo" TargetType="{x:Type Button}" >
@@ -41,7 +40,7 @@
             </VisualStateManager.VisualStateGroups>
             <Grid.Background>
                 <ImageBrush Stretch="Fill"
-                            ImageSource="/Images/Background_Multi.jpg"
+                            ImageSource="/Images/Wallpaper_Light_2560x1600.jpg"
                             AlignmentY="Top" AlignmentX="Center"/>
             </Grid.Background>
             <Grid.ColumnDefinitions>
@@ -200,70 +199,60 @@
             <!--LABELS-->
             <Label Grid.Row="2" Grid.Column="1"
                    Name="F1"
-                   Foreground="White"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Top"
                    FontWeight="Bold"
                    Content="F1"/>
             <Label Grid.Row="2" Grid.Column="2"
                    Name="F2"
-                   Foreground="White"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Top"
                    FontWeight="Bold"
                    Content="F2"/>
             <Label Grid.Row="2" Grid.Column="3"
                    Name="F3"
-                   Foreground="White"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Top"
                    FontWeight="Bold"
                    Content="F3"/>
             <Label Grid.Row="2" Grid.Column="4"
                    Name="F4"
-                   Foreground="White"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Top"
                    FontWeight="Bold"
                    Content="F4"/>
             <Label Grid.Row="2" Grid.Column="5"
                    Name="F5"
-                   Foreground="White"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Top"
                    FontWeight="Bold"
                    Content="F5"/>
             <Label Grid.Row="2" Grid.Column="6"
                    Name="F6"
-                   Foreground="White"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Top"
                    FontWeight="Bold"
                    Content="F6"/>
             <Label Grid.Row="2" Grid.Column="7"
                    Name="F7"
-                   Foreground="White"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Top"
                    FontWeight="Bold"
                    Content="F7"/>
             <Label Grid.Row="2" Grid.Column="8"
                    Name="F8"
-                   Foreground="White"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Top"
                    FontWeight="Bold"
                    Content="F8"/>
             <Label Grid.Row="2" Grid.Column="9"
                    Name="F9"
-                   Foreground="White"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Top"
                    FontWeight="Bold"
                    Content="F9"/>
             <Label Grid.Row="2" Grid.Column="10"
                    Name="F10"
-                   Foreground="White"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Top"
                    FontWeight="Bold"
@@ -317,7 +306,7 @@
                    FontSize="25"
                    FontFamily="Bahnschrift SemiLight Condensed"
                    FontWeight="DemiBold"
-                   Content="© 2021-2025 AIDAWARE GUILLERMO E. GRILLO III"/>
+                   Content="© 2021-2026 AIDAWARE GUILLERMO E. GRILLO III"/>
             <Label Grid.Row="5" Grid.Column="6"
                    Grid.ColumnSpan="4"
                    Name="lblOSD"

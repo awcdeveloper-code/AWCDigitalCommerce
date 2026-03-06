@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController"
              mc:Ignorable="d" 
-             d:DesignHeight="700" d:DesignWidth="1300" Background="DarkBlue">
+             d:DesignHeight="900" d:DesignWidth="1600" Background="DarkBlue">
     <UserControl.Resources>
         <Style x:Key="CenterGridHeaderStyle" TargetType="DataGridColumnHeader">
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -38,10 +38,10 @@
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="10"/>
-                <RowDefinition Height="580"/>
+                <RowDefinition Height="760"/>
                 <RowDefinition Height="60"/>
                 <RowDefinition Height="40"/>
-                <RowDefinition Height="10"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <!--DEFAULT CUSTOMERS-->
             <GroupBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"
@@ -50,7 +50,7 @@
                   Header="CLIENTES MOROSOS">
                 <StackPanel Orientation="Vertical">
                     <ListBox Name="lBox_CustomerID"
-                             Height="540"
+                             Height="720"
                              Margin="5"
                              VerticalAlignment="Top"
                              ScrollViewer.VerticalScrollBarVisibility="Visible"
@@ -72,17 +72,16 @@
                 </StackPanel>
             </GroupBox>
             <!--TICKETS OPENS-->
-            <GroupBox Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="4"
+            <GroupBox Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="6"
                   Foreground="Cyan"
                   Name="grpOpenTickets"
                   Header="CUENTAS PENDIENTES DE PAGO">
                 <StackPanel Orientation="Vertical">
                     <DataGrid Name="OldOpenTickets"
-                          Height="540" Width="690"
+                          Height="725" Width="743"
                           RowHeight="35"
                           FontSize="25"
                           IsReadOnly="True"
-                          IsEnabled="False"
                           HorizontalAlignment="Left"
                           HorizontalScrollBarVisibility="Disabled"
                           VerticalAlignment="Top"
@@ -129,7 +128,7 @@
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
                             <DataGridTextColumn Header="CLIENTE"
-                                        Width="310"
+                                        Width="360"
                                         Binding="{Binding Path=CustomerAKA}"
                                         HeaderStyle="{StaticResource CenterGridHeaderStyle}"/>
                             <DataGridTextColumn Header="TOTAL"

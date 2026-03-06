@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AWC.DigitalCommerce.TicketsController"
              mc:Ignorable="d" Background="DarkBlue"
-             d:DesignHeight="645" d:DesignWidth="1310">
+             d:DesignHeight="900" d:DesignWidth="1600">
     <UserControl.Resources>
         <Style x:Key="CenterGridHeaderStyle" TargetType="DataGridColumnHeader">
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -44,8 +44,9 @@
             <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="10"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <!--LABELS IMAGES-->
         <Image Source="Images/calendar.png" 
@@ -381,7 +382,7 @@
                 </DataGrid.Columns>
             </DataGrid>
         </GroupBox>
-        <Button Grid.Row="15" Grid.Column="2" Grid.ColumnSpan="2"
+        <Button Grid.Row="16" Grid.Column="2" Grid.ColumnSpan="2"
                 Name="DailyClosePrint"
                 Click="btn_DailyClosePrint"
                 FontSize="20"
@@ -394,7 +395,7 @@
                            VerticalAlignment="Center"/>
             </StackPanel>
         </Button>
-        <CheckBox Grid.Row="15" Grid.Column="5" Grid.ColumnSpan="2"
+        <CheckBox Grid.Row="16" Grid.Column="5" Grid.ColumnSpan="2"
                   Name="SendReportByEmail"
                   Foreground="Cyan"
                   VerticalAlignment="Center"
