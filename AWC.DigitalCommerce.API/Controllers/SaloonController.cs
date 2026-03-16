@@ -1,5 +1,9 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using AWC.DigitalCommerce.API.Models.Domain;
+using AWC.DigitalCommerce.API.Models.DTO;
+using AWC.DigitalCommerce.API.Repositories;
 
 namespace AWC.DigitalCommerce.API.Controllers
 {
@@ -8,27 +12,48 @@ namespace AWC.DigitalCommerce.API.Controllers
     public class SaloonController : ControllerBase
     {
         private readonly ILogger<SaloonController> _logger;
-        private readonly AppDbContext _dbContext;
-        
-        public SaloonController(AppDbContext dbContext, ILogger<SaloonController> _logger)
-        {
-            _dbContext = dbContext;
+        private readonly ISaloonRepository _saloon;
 
-            _logger = _logger ?? throw new ArgumentNullException(nameof(_logger));
+        public SaloonController(ISaloonRepository saloon, ILogger<SaloonController> logger)
+        {
+            _saloon = saloon;
+            _logger = logger;
         }
 
+        [HttpGet("available")]
         public async Task<IActionResult> GetAvailableSaloon()
         {
             try
             {
+                List<Seat> availableSeats = await _saloon.GetAvailableSaloonAsync();
 
                 _logger.LogInformation("GetAvailableSaloon executed succesfuly.");
 
-                return Ok("SaloonController");
+                return Ok(availableSeats);
             }
             catch (Exception ex)
             {
                 _logger.LogError($"GetAvailableSaloon Error: {ex.Message}{ex.StackTrace}");
+
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet("seat")]
+        public async Task<IActionResult> GetSeatAsync(int id)
+        {
+            try
+            {
+                Seat? seat = await _saloon.GetSeatAsync(id);
+
+                _logger.LogInformation("GetSeatAsync executed succesfuly.");
+
+                return Ok(seat);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"GetSeatAsync Error: {ex.Message}{ex.StackTrace}");
+
                 return BadRequest(ex.Message);
             }
         }

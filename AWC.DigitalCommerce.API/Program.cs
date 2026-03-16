@@ -1,4 +1,5 @@
 using AWC.DigitalCommerce.API;
+using AWC.DigitalCommerce.API.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 
@@ -22,6 +23,8 @@ Log.Logger = new LoggerConfiguration()
     .CreateLogger();
 
 builder.Host.UseSerilog();
+
+builder.Services.AddScoped<ISaloonRepository, SaloonRepository>();
 
 var app = builder.Build();
 

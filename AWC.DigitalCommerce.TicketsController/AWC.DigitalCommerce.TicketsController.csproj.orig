@@ -1,0 +1,1971 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{170EFC1B-DC93-44FB-AE19-52746B91DC3F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>AWC.DigitalCommerce.TicketsController</RootNamespace>
+    <AssemblyName>AWC.DigitalCommerce.TicketsController</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\..\..\..\AWC.DigitalCommerce\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>G3_Logo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Aspose.Zip, Version=24.6.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aspose.Zip.24.6.0\lib\net40\Aspose.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
+      <HintPath>..\packages\BouncyCastle.Cryptography.2.4.0\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis, Version=1.71.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.71.0\lib\net462\Google.Apis.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth, Version=1.71.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Auth.1.71.0\lib\net462\Google.Apis.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Core, Version=1.71.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Core.1.71.0\lib\net462\Google.Apis.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Drive.v3, Version=1.70.0.3893, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Drive.v3.1.70.0.3893\lib\net462\Google.Apis.Drive.v3.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.barcodes, Version=8.0.4.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.8.0.4\lib\net461\itext.barcodes.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.bouncy-castle-connector, Version=8.0.4.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.8.0.4\lib\net461\itext.bouncy-castle-connector.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.commons, Version=8.0.4.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.commons.8.0.4\lib\net461\itext.commons.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.forms, Version=8.0.4.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.8.0.4\lib\net461\itext.forms.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.io, Version=8.0.4.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.8.0.4\lib\net461\itext.io.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.kernel, Version=8.0.4.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.8.0.4\lib\net461\itext.kernel.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.layout, Version=8.0.4.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.8.0.4\lib\net461\itext.layout.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.pdfa, Version=8.0.4.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.8.0.4\lib\net461\itext.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.pdfua, Version=8.0.4.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.8.0.4\lib\net461\itext.pdfua.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.sign, Version=8.0.4.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.8.0.4\lib\net461\itext.sign.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.styledxmlparser, Version=8.0.4.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.8.0.4\lib\net461\itext.styledxmlparser.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.svg, Version=8.0.4.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.8.0.4\lib\net461\itext.svg.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignColors, Version=3.1.1.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.3.1.1-ci675\lib\net462\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=5.1.1.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.5.1.1-ci675\lib\net462\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.9.0.0-preview.5.24306.7\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.9.0.0-preview.5.24306.7\lib\net462\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.9.0.0-preview.5.24306.7\lib\net462\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.9.0.0-preview.5.24306.7\lib\net462\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.9.0.0-preview.5.24306.7\lib\net462\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Options.9.0.0-preview.5.24306.7\lib\net462\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.9.0.0-preview.5.24306.7\lib\net462\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Abstractions, Version=8.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Abstractions.8.0.0-preview1\lib\net472\Microsoft.IdentityModel.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.JsonWebTokens, Version=8.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.JsonWebTokens.8.0.0-preview1\lib\net472\Microsoft.IdentityModel.JsonWebTokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=8.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.8.0.0-preview1\lib\net472\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=8.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.8.0.0-preview1\lib\net472\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\..\AWC.DigitalCommerce\Assemblies\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.TransactSql.ScriptDom, Version=16.1.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.TransactSql.ScriptDom.161.9123.0\lib\net462\Microsoft.SqlServer.TransactSql.ScriptDom.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.122\lib\net462\Microsoft.Xaml.Behaviors.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="office, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\..\AWC.DigitalCommerce\Assemblies\office.dll</HintPath>
+    </Reference>
+    <Reference Include="ReachFramework" />
+    <Reference Include="Serilog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Serilog.4.0.0\lib\net471\Serilog.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Sinks.File, Version=6.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Serilog.Sinks.File.6.0.0\lib\net471\Serilog.Sinks.File.dll</HintPath>
+    </Reference>
+    <Reference Include="SwiftExcel, Version=1.0.14.0, Culture=neutral, PublicKeyToken=64ef85d6527da537, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\AWC.DigitalCommerce\SwiftExcel.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.5.0.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.9.0.0-preview.5.24306.7\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=8.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.8.0.0-preview1\lib\net472\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Compression, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Compression.4.3.0\lib\net46\System.IO.Compression.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.IO.Pipelines, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Pipelines.9.0.0-preview.5.24306.7\lib\net462\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.1\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.1\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.2\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Speech" />
+    <Reference Include="System.Text.Encoding.CodePages, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encoding.CodePages.9.0.0-preview.5.24306.7\lib\net462\System.Text.Encoding.CodePages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.9.0.0-preview.5.24306.7\lib\net462\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.9.0.0-preview.5.24306.7\lib\net462\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Channels, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Channels.9.0.0-preview.5.24306.7\lib\net462\System.Threading.Channels.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Controls.DataVisualization.Toolkit, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Windows.Controls.DataVisualization.Toolkit.4.0.0.0\lib\net40-Client\System.Windows.Controls.DataVisualization.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\AWC.DigitalCommerce\Assemblies\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Wpf.Ui, Version=4.0.0.0, Culture=neutral, PublicKeyToken=11f9f5cc97b3ffd6, processorArchitecture=MSIL">
+      <HintPath>..\packages\WPF-UI.4.0.2\lib\net472\Wpf.Ui.dll</HintPath>
+    </Reference>
+    <Reference Include="Wpf.Ui.Abstractions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=11f9f5cc97b3ffd6, processorArchitecture=MSIL">
+      <HintPath>..\packages\WPF-UI.Abstractions.4.0.2\lib\net472\Wpf.Ui.Abstractions.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="AuthenticateDriveAsync.cs" />
+    <Compile Include="Classes\AesEncryption.cs" />
+    <Compile Include="Classes\AlphabetTextBox.cs" />
+    <Compile Include="Classes\clsATV.cs" />
+    <Compile Include="Classes\clsBartenderOrder.cs" />
+    <Compile Include="Classes\clsBucketsDetail.cs" />
+    <Compile Include="Classes\clsCashIncomes.cs" />
+    <Compile Include="Classes\clsCategory.cs" />
+    <Compile Include="Classes\clsConfig.cs" />
+    <Compile Include="Classes\clsCustFreqItem.cs" />
+    <Compile Include="Classes\clsCustomerVIP.cs" />
+    <Compile Include="Classes\clsDailyAccountantReport.cs" />
+    <Compile Include="Classes\clsDailyClosing.cs" />
+    <Compile Include="Classes\clsDelincuency.cs" />
+    <Compile Include="Classes\clsDisposable.cs" />
+    <Compile Include="Classes\clsElectronicInvoice.cs" />
+    <Compile Include="Classes\clsExpense.cs" />
+    <Compile Include="Classes\clsInternalOrders.cs" />
+    <Compile Include="Classes\clsInvoice.cs" />
+    <Compile Include="Classes\clsInvoiceItem.cs" />
+    <Compile Include="Classes\clsItem.cs" />
+    <Compile Include="Classes\clsItemDefective.cs" />
+    <Compile Include="Classes\clsItemDeleted.cs" />
+    <Compile Include="Classes\clsItemDeletedFromSystem.cs" />
+    <Compile Include="Classes\clsItemDetailForDatagrid.cs" />
+    <Compile Include="Classes\clsItemsOrders.cs" />
+    <Compile Include="Classes\clsItemType.cs" />
+    <Compile Include="Classes\clsItemTypeCollection.cs" />
+    <Compile Include="Classes\clsLanguage.cs" />
+    <Compile Include="Classes\clsListBoxCheckbox.cs" />
+    <Compile Include="Classes\clsLoyaltyReward.cs" />
+    <Compile Include="Classes\clsLunch.cs" />
+    <Compile Include="Classes\clsNote.cs" />
+    <Compile Include="Classes\clsNoteDetail.cs" />
+    <Compile Include="Classes\clsOpenCashDrawer.cs" />
+    <Compile Include="Classes\clsOpenDrawerRequest.cs" />
+    <Compile Include="Classes\clsPayMethodChange.cs" />
+    <Compile Include="Classes\clsPrintTicketRemotely.cs" />
+    <Compile Include="Classes\clsProvider.cs" />
+    <Compile Include="Classes\clsRomanYearConverter.cs" />
+    <Compile Include="Classes\clsSalaryAdvance.cs" />
+    <Compile Include="Classes\clsSalesHistory.cs" />
+    <Compile Include="Classes\clsServiceFeeByWho.cs" />
+    <Compile Include="Classes\clsSmallPayment.cs" />
+    <Compile Include="Classes\clsItemsChangePrice.cs" />
+    <Compile Include="Classes\clsTicket.cs" />
+    <Compile Include="Classes\clsTicketDetail.cs" />
+    <Compile Include="Classes\clsTicketsForDataGrid.cs" />
+    <Compile Include="Classes\clsTicketsInherited.cs" />
+    <Compile Include="Classes\clsTicketsInheritedDetail.cs" />
+    <Compile Include="Classes\clsTicketsReassigned.cs" />
+    <Compile Include="Classes\clsTimeCard.cs" />
+    <Compile Include="Classes\clsUser.cs" />
+    <Compile Include="Classes\clsUserSecurityProfile.cs" />
+    <Compile Include="Classes\clsVoucher.cs" />
+    <Compile Include="Classes\clswpfForm.cs" />
+    <Compile Include="Classes\clsTicketProform.cs" />
+    <Compile Include="Classes\clsPromoConfig.cs" />
+    <Compile Include="Classes\clsUserSecurityProfileViewModel.cs" />
+    <Compile Include="Classes\ColorConverter.cs" />
+    <Compile Include="Classes\PercentageConverter.cs" />
+    <Compile Include="CocktailsWebService.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="Controls\ucCategories.xaml.cs">
+      <DependentUpon>ucCategories.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucCocktails.xaml.cs">
+      <DependentUpon>ucCocktails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucDailyClosing_AllProducts.xaml.cs">
+      <DependentUpon>ucDailyClosing_AllProducts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucDailyClosing_Beverages.xaml.cs">
+      <DependentUpon>ucDailyClosing_Beverages.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucDailyClosing_ItemsByUser.xaml.cs">
+      <DependentUpon>ucDailyClosing_ItemsByUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucDailyClosing_Liquors.xaml.cs">
+      <DependentUpon>ucDailyClosing_Liquors.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucDamagedProducts.xaml.cs">
+      <DependentUpon>ucDamagedProducts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucHelp.xaml.cs">
+      <DependentUpon>ucHelp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucIncomeCash.xaml.cs">
+      <DependentUpon>ucIncomeCash.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucInternalOrders.xaml.cs">
+      <DependentUpon>ucInternalOrders.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucLoyaltyRewards.xaml.cs">
+      <DependentUpon>ucLoyaltyRewards.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucRetentionAndPurge.xaml.cs">
+      <DependentUpon>ucRetentionAndPurge.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucSpecials.xaml.cs">
+      <DependentUpon>ucSpecials.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucUsersMaintenance2.xaml.cs">
+      <DependentUpon>ucUsersMaintenance2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucVouchers.xaml.cs">
+      <DependentUpon>ucVouchers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="JSON.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="SimpleCommand.cs" />
+    <Compile Include="SMTP.cs" />
+    <Compile Include="Controls\ucCalculator.xaml.cs">
+      <DependentUpon>ucCalculator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucDailyClose.xaml.cs">
+      <DependentUpon>ucDailyClose.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucDailyClosing_AccountsReceivable.xaml.cs">
+      <DependentUpon>ucDailyClosing_AccountsReceivable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucDailyClosing_Comsuption.xaml.cs">
+      <DependentUpon>ucDailyClosing_Comsuption.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucDailyClosing_Graphics.xaml.cs">
+      <DependentUpon>ucDailyClosing_Graphics.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucDailyClosing_Kitchen.xaml.cs">
+      <DependentUpon>ucDailyClosing_Kitchen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucDailyClosing_RestoBar.xaml.cs">
+      <DependentUpon>ucDailyClosing_RestoBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucDailyClosing_RestoBarAdv.xaml.cs">
+      <DependentUpon>ucDailyClosing_RestoBarAdv.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucDailyClosing_SalesHistory.xaml.cs">
+      <DependentUpon>ucDailyClosing_SalesHistory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucDailyClosing_ServiceFee.xaml.cs">
+      <DependentUpon>ucDailyClosing_ServiceFee.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucDailyClosing_ServiceFeeByWho.xaml.cs">
+      <DependentUpon>ucDailyClosing_ServiceFeeByWho.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucNotes.xaml.cs">
+      <DependentUpon>ucNotes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucQuickOrder.xaml.cs">
+      <DependentUpon>ucQuickOrder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucTablesMaintenance2.xaml.cs">
+      <DependentUpon>ucTablesMaintenance2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucTickets.xaml.cs">
+      <DependentUpon>ucTickets.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucTicketsMaintenance.xaml.cs">
+      <DependentUpon>ucTicketsMaintenance.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucUsersMaintenance.xaml.cs">
+      <DependentUpon>ucUsersMaintenance.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Threads.cs" />
+    <Compile Include="Waitrest\ucOpenAccounts.xaml.cs">
+      <DependentUpon>ucOpenAccounts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Waitrest\ucTicketDashboard.xaml.cs">
+      <DependentUpon>ucTicketDashboard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WeatherCaller.cs" />
+    <Compile Include="WeatherService.cs" />
+    <Compile Include="Web References\cr.fi.bccr.gee\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="WinRegistry.cs" />
+    <Compile Include="wpfAbortReason.xaml.cs">
+      <DependentUpon>wpfAbortReason.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfAWCSplashScreen.xaml.cs">
+      <DependentUpon>wpfAWCSplashScreen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfBartenderOrdersMonitor.xaml.cs">
+      <DependentUpon>wpfBartenderOrdersMonitor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfBlindDailyClosing.xaml.cs">
+      <DependentUpon>wpfBlindDailyClosing.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfBucketContent.xaml.cs">
+      <DependentUpon>wpfBucketContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfCashBack.xaml.cs">
+      <DependentUpon>wpfCashBack.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfCashDistribution.xaml.cs">
+      <DependentUpon>wpfCashDistribution.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfCashOnDrawer.xaml.cs">
+      <DependentUpon>wpfCashOnDrawer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfCashRegisterOpen.xaml.cs">
+      <DependentUpon>wpfCashRegisterOpen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfChangeCustName.xaml.cs">
+      <DependentUpon>wpfChangeCustName.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfChartExample.xaml.cs">
+      <DependentUpon>wpfChartExample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfCocktailRecipes.xaml.cs">
+      <DependentUpon>wpfCocktailRecipes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfConfirmOrder.xaml.cs">
+      <DependentUpon>wpfConfirmOrder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfDailyCloseSummary.xaml.cs">
+      <DependentUpon>wpfDailyCloseSummary.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfDriveBackup.xaml.cs">
+      <DependentUpon>wpfDriveBackup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfElectronicInvoice.xaml.cs">
+      <DependentUpon>wpfElectronicInvoice.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfFrequentItems.xaml.cs">
+      <DependentUpon>wpfFrequentItems.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfCustFreqItems.xaml.cs">
+      <DependentUpon>wpfCustFreqItems.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfCustomerBirthDay.xaml.cs">
+      <DependentUpon>wpfCustomerBirthDay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfCustomerList.xaml.cs">
+      <DependentUpon>wpfCustomerList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfCustomerOpenTicks2.xaml.cs">
+      <DependentUpon>wpfCustomerOpenTicks2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfCustomerOpenTicks.xaml.cs">
+      <DependentUpon>wpfCustomerOpenTicks.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PieDataPoint.cs" />
+    <Compile Include="PieSeries.cs" />
+    <Compile Include="ReportsRepository.cs" />
+    <Compile Include="Traductor.cs" />
+    <Compile Include="Controls\ucInventoryStatus.xaml.cs">
+      <DependentUpon>ucInventoryStatus.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucInvoices.xaml.cs">
+      <DependentUpon>ucInvoices.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucItemType7.xaml.cs">
+      <DependentUpon>ucItemType7.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucItemType6.xaml.cs">
+      <DependentUpon>ucItemType6.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucItemType5.xaml.cs">
+      <DependentUpon>ucItemType5.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucItemType4.xaml.cs">
+      <DependentUpon>ucItemType4.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucItemType3.xaml.cs">
+      <DependentUpon>ucItemType3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucItemType2.xaml.cs">
+      <DependentUpon>ucItemType2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucItemType1.xaml.cs">
+      <DependentUpon>ucItemType1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucProviders.xaml.cs">
+      <DependentUpon>ucProviders.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucQueries.xaml.cs">
+      <DependentUpon>ucQueries.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucReportsInventoryMgmt.xaml.cs">
+      <DependentUpon>ucReportsInventoryMgmt.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucTablesMaintenance.xaml.cs">
+      <DependentUpon>ucTablesMaintenance.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfAlphaKeyboard.xaml.cs">
+      <DependentUpon>wpfAlphaKeyboard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DB.cs" />
+    <Compile Include="Helper.cs" />
+    <Compile Include="Logger.cs" />
+    <Compile Include="tblUser.cs" />
+    <Compile Include="Controls\ucCloseTicket.xaml.cs">
+      <DependentUpon>ucCloseTicket.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucExpensesReport.xaml.cs">
+      <DependentUpon>ucExpensesReport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucNewTicket.xaml.cs">
+      <DependentUpon>ucNewTicket.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucNewTicketDetail.xaml.cs">
+      <DependentUpon>ucNewTicketDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucOldTickets.xaml.cs">
+      <DependentUpon>ucOldTickets.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucTodaySales.xaml.cs">
+      <DependentUpon>ucTodaySales.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucUpdateTicket.xaml.cs">
+      <DependentUpon>ucUpdateTicket.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfBasicCalculator.xaml.cs">
+      <DependentUpon>wpfBasicCalculator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfDailyClosing.xaml.cs">
+      <DependentUpon>wpfDailyClosing.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfDelinquency.xaml.cs">
+      <DependentUpon>wpfDelinquency.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfEnterAmount.xaml.cs">
+      <DependentUpon>wpfEnterAmount.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfFastTrack.xaml.cs">
+      <DependentUpon>wpfFastTrack.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfFixItemInventory.xaml.cs">
+      <DependentUpon>wpfFixItemInventory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfIncomeCash.xaml.cs">
+      <DependentUpon>wpfIncomeCash.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfInventoryWindow.xaml.cs">
+      <DependentUpon>wpfInventoryWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfItemesDeleted.xaml.cs">
+      <DependentUpon>wpfItemesDeleted.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfItemesDeletedFromSystem.xaml.cs">
+      <DependentUpon>wpfItemesDeletedFromSystem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfItemsPriceList.xaml.cs">
+      <DependentUpon>wpfItemsPriceList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfIVAQuery.xaml.cs">
+      <DependentUpon>wpfIVAQuery.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfMailAddress.xaml.cs">
+      <DependentUpon>wpfMailAddress.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfMainWindow.xaml.cs">
+      <DependentUpon>wpfMainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfMainWindow2.xaml.cs">
+      <DependentUpon>wpfMainWindow2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfMealNote.xaml.cs">
+      <DependentUpon>wpfMealNote.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfMessageBox.xaml.cs">
+      <DependentUpon>wpfMessageBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfNewTicket.xaml.cs">
+      <DependentUpon>wpfNewTicket.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfNewTicketStep1.xaml.cs">
+      <DependentUpon>wpfNewTicketStep1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfNumericKeyboard.xaml.cs">
+      <DependentUpon>wpfNumericKeyboard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfOnePayMethodSelection.xaml.cs">
+      <DependentUpon>wpfOnePayMethodSelection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfPayMethod2.xaml.cs">
+      <DependentUpon>wpfPayMethod2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfProviders.xaml.cs">
+      <DependentUpon>wpfProviders.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfQryKitchenClose.xaml.cs">
+      <DependentUpon>wpfQryKitchenClose.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfQryConsumption.xaml.cs">
+      <DependentUpon>wpfQryConsumption.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfQryCustomersID.xaml.cs">
+      <DependentUpon>wpfQryCustomersID.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfQryDailyClose.xaml.cs">
+      <DependentUpon>wpfQryDailyClose.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfQryGraphics.xaml.cs">
+      <DependentUpon>wpfQryGraphics.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfQryTicketByNumber.xaml.cs">
+      <DependentUpon>wpfQryTicketByNumber.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfQryTicketsByCustomerID.xaml.cs">
+      <DependentUpon>wpfQryTicketsByCustomerID.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfQryTicketsSummary.xaml.cs">
+      <DependentUpon>wpfQryTicketsSummary.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfQuickOrder.xaml.cs">
+      <DependentUpon>wpfQuickOrder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfRenameCustomerAKA.xaml.cs">
+      <DependentUpon>wpfRenameCustomerAKA.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfRequestPIN.xaml.cs">
+      <DependentUpon>wpfRequestPIN.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfSalesDashboard.xaml.cs">
+      <DependentUpon>wpfSalesDashboard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfSalesHistory.xaml.cs">
+      <DependentUpon>wpfSalesHistory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfSelectBucketContent.xaml.cs">
+      <DependentUpon>wpfSelectBucketContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfSelectCustomer.xaml.cs">
+      <DependentUpon>wpfSelectCustomer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfSelectProducts.xaml.cs">
+      <DependentUpon>wpfSelectProducts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfSelectTarget.xaml.cs">
+      <DependentUpon>wpfSelectTarget.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfSendReportByEMail.xaml.cs">
+      <DependentUpon>wpfSendReportByEMail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfServiceFeeSummary.xaml.cs">
+      <DependentUpon>wpfServiceFeeSummary.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfSmallPayments.xaml.cs">
+      <DependentUpon>wpfSmallPayments.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfSpecialItems.xaml.cs">
+      <DependentUpon>wpfSpecialItems.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfSplashWindow.xaml.cs">
+      <DependentUpon>wpfSplashWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfSplitTicket.xaml.cs">
+      <DependentUpon>wpfSplitTicket.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfSplitTicket2.xaml.cs">
+      <DependentUpon>wpfSplitTicket2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfSplitTicketCustomerSelection.xaml.cs">
+      <DependentUpon>wpfSplitTicketCustomerSelection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfSQLQuery.xaml.cs">
+      <DependentUpon>wpfSQLQuery.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfTester.xaml.cs">
+      <DependentUpon>wpfTester.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfTheFiveMostRequested.xaml.cs">
+      <DependentUpon>wpfTheFiveMostRequested.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfTicketsAborted.xaml.cs">
+      <DependentUpon>wpfTicketsAborted.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfTicketsInherited.xaml.cs">
+      <DependentUpon>wpfTicketsInherited.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfTicketsLost.xaml.cs">
+      <DependentUpon>wpfTicketsLost.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfTicketsModified.xaml.cs">
+      <DependentUpon>wpfTicketsModified.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfTicketsReassigned.xaml.cs">
+      <DependentUpon>wpfTicketsReassigned.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfToastNotification.xaml.cs">
+      <DependentUpon>wpfToastNotification.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfUseNickName.xaml.cs">
+      <DependentUpon>wpfUseNickName.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfWaitrestMain.xaml.cs">
+      <DependentUpon>wpfWaitrestMain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfWaitrestPage.xaml.cs">
+      <DependentUpon>wpfWaitrestPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wpfWorkLog.xaml.cs">
+      <DependentUpon>wpfWorkLog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WPFwpfDailyCloseOperator.xaml.cs">
+      <DependentUpon>WPFwpfDailyCloseOperator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xPrinter\xPrintBusinessCard.cs" />
+    <Compile Include="xPrinter\xPrinterConsumption.cs" />
+    <Compile Include="xPrinter\xPrinterCreditCardPayments.cs" />
+    <Compile Include="xPrinter\xPrinterDailyClose.cs" />
+    <Compile Include="xPrinter\xPrinterDailyCloseSummary.cs" />
+    <Compile Include="xPrinter\xPrinterDelincuenciesList.cs" />
+    <Compile Include="xPrinter\xPrinterInvoicesSummaryByDate.cs" />
+    <Compile Include="xPrinter\xPrinterItemsInventoryByParts.cs" />
+    <Compile Include="xPrinter\xPrinterItemsInventory.cs" />
+    <Compile Include="xPrinter\xPrinterItemsBelowMinimum.cs" />
+    <Compile Include="xPrinter\xPrinterItemsPriceList.cs" />
+    <Compile Include="xPrinter\xPrinterBeveragesOrder.cs" />
+    <Compile Include="xPrinter\xPrinterVoucher.cs" />
+    <Compile Include="xPrinter\xPrintInternalOrder.cs" />
+    <Compile Include="xPrinter\xPrinterMealOrder.cs" />
+    <Compile Include="xPrinter\xPrinterBeveragesSummary.cs" />
+    <Compile Include="xPrinter\xPrinterMealsSummary.cs" />
+    <Compile Include="xPrinter\xPrinterOpenCashbox.cs" />
+    <Compile Include="xPrinter\xPrinterOrder.cs" />
+    <Compile Include="xPrinter\xPrinterSalesHistory.cs" />
+    <Compile Include="xPrinter\xPrinterSmallPayment.cs" />
+    <Compile Include="xPrinter\xPrinterTicket.cs" />
+    <Compile Include="xPrinter\xPrinterVoucherForEMail.cs" />
+    <Compile Include="xPrinter\xPrinterTicketForEMail.cs" />
+    <Compile Include="xPrinter\xPrinterTicketOrig.cs" />
+    <Compile Include="xPrinter\xPrinterTicketsPerCustomer.cs" />
+    <Compile Include="xPrinter\xPrintFoodServiceVoucher.cs" />
+    <Compile Include="xPrinter\xPrintServiceFeeByWho.cs" />
+    <Compile Include="xPrinter\xPrintServiceFeeVoucher.cs" />
+    <Compile Include="xPrinter\xPrintSINPEVoucher.cs" />
+    <Compile Include="xPrinter\xPrintSplitedItems.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Database\truncate_tbl_BartenderOrder.bat" />
+    <None Include="Documentation\One Touch for Windows SDK .NET Developer Guide.pdf" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\cr.fi.bccr.gee\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\cr.fi.bccr.gee\wsindicadoreseconomicos.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Controls\ucCategories.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ucCocktails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ucDailyClosing_AllProducts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ucDailyClosing_Beverages.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ucDailyClosing_ItemsByUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ucDailyClosing_Liquors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ucDamagedProducts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ucHelp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ucIncomeCash.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ucInternalOrders.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ucLoyaltyRewards.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ucRetentionAndPurge.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ucSpecials.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ucUsersMaintenance2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ucVouchers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ucCalculator.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\ucDailyClose.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ucDailyClosing_AccountsReceivable.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ucDailyClosing_Comsuption.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ucDailyClosing_Graphics.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ucDailyClosing_Kitchen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ucDailyClosing_RestoBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ucDailyClosing_RestoBarAdv.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ucDailyClosing_SalesHistory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ucDailyClosing_ServiceFee.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ucDailyClosing_ServiceFeeByWho.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ucNotes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ucQuickOrder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ucTablesMaintenance2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ucTickets.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ucTicketsMaintenance.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ucUsersMaintenance.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Waitrest\ucOpenAccounts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Waitrest\ucTicketDashboard.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="wpfAbortReason.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfAWCSplashScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfBartenderOrdersMonitor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfBlindDailyClosing.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfBucketContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfCashBack.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfCashDistribution.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfCashOnDrawer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfCashRegisterOpen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfChangeCustName.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfChartExample.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfCocktailRecipes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfConfirmOrder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfDailyCloseSummary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfDriveBackup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfElectronicInvoice.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfFrequentItems.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="wpfCustFreqItems.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfCustomerBirthDay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfCustomerList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfCustomerOpenTicks2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="wpfCustomerOpenTicks.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ucInventoryStatus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ucInvoices.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ucItemType7.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\ucItemType6.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\ucItemType5.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\ucItemType4.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\ucItemType3.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\ucItemType2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\ucItemType1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ucProviders.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ucQueries.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ucReportsInventoryMgmt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ucTablesMaintenance.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfAlphaKeyboard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ucCloseTicket.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ucExpensesReport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ucNewTicket.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ucNewTicketDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ucOldTickets.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ucTodaySales.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ucUpdateTicket.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfBasicCalculator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfDailyClosing.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfDelinquency.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfEnterAmount.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfFastTrack.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfFixItemInventory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfIncomeCash.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfInventoryWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfItemesDeleted.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfItemesDeletedFromSystem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfItemsPriceList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfIVAQuery.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfMailAddress.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfMainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfMainWindow2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfMealNote.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfMessageBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfNewTicket.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfNewTicketStep1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfNumericKeyboard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfOnePayMethodSelection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfPayMethod2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfProviders.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfQryKitchenClose.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="wpfQryConsumption.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfQryCustomersID.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfQryDailyClose.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfQryGraphics.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfQryTicketByNumber.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfQryTicketsByCustomerID.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfQryTicketsSummary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfQuickOrder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfRenameCustomerAKA.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfRequestPIN.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfSalesDashboard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfSalesHistory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfSelectBucketContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfSelectCustomer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfSelectProducts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfSelectTarget.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfSendReportByEMail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfServiceFeeSummary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfSmallPayments.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfSpecialItems.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfSplashWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfSplitTicket.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfSplitTicket2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfSplitTicketCustomerSelection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfSQLQuery.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfTester.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfTheFiveMostRequested.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfTicketsAborted.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfTicketsInherited.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfTicketsLost.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfTicketsModified.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfTicketsReassigned.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfToastNotification.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfUseNickName.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfWaitrestMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfWaitrestPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="wpfWorkLog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WPFwpfDailyCloseOperator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Documentation\Images\Error.png" />
+    <Resource Include="Documentation\Images\Information.png" />
+    <Resource Include="Documentation\Images\Question.png" />
+    <Resource Include="Documentation\Images\Warning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Documentation\Images\Information.ico" />
+    <Resource Include="Documentation\Images\Question.ico" />
+    <Resource Include="Documentation\Images\Warning.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Documentation\Images\Beers.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Documentation\Images\InventoriesMgmt.png" />
+    <Resource Include="Documentation\Images\13.ico" />
+    <Resource Include="Documentation\Images\14.ico" />
+    <Resource Include="Documentation\Images\33.ico" />
+    <Resource Include="Documentation\Images\38.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Documentation\Images\AdmTmpl_4.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Documentation\Images\alert.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Documentation\Images\20.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Documentation\Images\Error.ico" />
+    <Resource Include="Documentation\Images\birthday.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Documentation\Images\Minus_sign.png" />
+    <Resource Include="Documentation\Images\Plus_sign.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Documentation\Images\delete_sign.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Documentation\Images\disabled_sign.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Documentation\Images\printer_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Documentation\Images\arrow_up_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Documentation\Images\arrow_down_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\shell32_16814.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Documentation\Images\xpworld.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Documentation\Images\people.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Documentation\Images\activeUser.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Documentation\Images\copy_paste.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Documentation\Images\img19_1920x1200.jpg" />
+    <Resource Include="Documentation\Images\circled-left.png" />
+    <Resource Include="Documentation\Images\circled-right.png" />
+    <Resource Include="Documentation\Images\parent.ico" />
+    <Resource Include="Documentation\Images\products.ico" />
+    <Resource Include="Documentation\Images\front_g3.png" />
+    <Resource Include="Documentation\Images\kitchen.ico" />
+    <Resource Include="Documentation\Images\skull.ico" />
+    <Resource Include="Documentation\Images\Money.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Documentation\Images\19.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Documentation\Images\G3_Logo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Documentation\Images\KS Logo Trans.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Documentation\Images\food-service.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Documentation\Images\Background_Purple.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="https://gee.bccr.fi.cr/Indicadores/Suscripciones/WS/wsindicadoreseconomicos.asmx%3fWSDL">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\cr.fi.bccr.gee\</RelPath>
+      <UpdateFromURL>https://gee.bccr.fi.cr/Indicadores/Suscripciones/WS/wsindicadoreseconomicos.asmx%3fWSDL</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>BCCRWebService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\13.ico" />
+    <Resource Include="Images\14.ico" />
+    <Resource Include="Images\19.png" />
+    <Resource Include="Images\20.ico" />
+    <Resource Include="Images\33.ico" />
+    <Resource Include="Images\38.ico" />
+    <Resource Include="Images\activeUser.ico" />
+    <Resource Include="Images\AdmTmpl_4.ico" />
+    <Resource Include="Images\alert.ico" />
+    <Resource Include="Images\arrow_down_icon.png" />
+    <Resource Include="Images\arrow_up_icon.png" />
+    <Resource Include="Images\Background_Purple.jpg" />
+    <Resource Include="Images\Beers.bmp" />
+    <Resource Include="Images\birthday.png" />
+    <Resource Include="Images\circled-left.png" />
+    <Resource Include="Images\circled-right.png" />
+    <Resource Include="Images\copy_paste.png" />
+    <Resource Include="Images\delete_sign.png" />
+    <Resource Include="Images\disabled_sign.png" />
+    <Resource Include="Images\Error.ico" />
+    <Resource Include="Images\Error.png" />
+    <Resource Include="Images\food-service.png" />
+    <Resource Include="Images\front_g3.png" />
+    <Resource Include="Images\G3_Logo.ico" />
+    <Resource Include="Images\img19_1920x1200.jpg" />
+    <Resource Include="Images\Information.ico" />
+    <Resource Include="Images\Information.png" />
+    <Resource Include="Images\InventoriesMgmt.png" />
+    <Resource Include="Images\kitchen.ico" />
+    <Resource Include="Images\Minus_sign.png" />
+    <Resource Include="Images\Money.ico" />
+    <Resource Include="Images\parent.ico" />
+    <Resource Include="Images\people.ico" />
+    <Resource Include="Images\Plus_sign.png" />
+    <Resource Include="Images\printer_icon.png" />
+    <Resource Include="Images\products.ico" />
+    <Resource Include="Images\Question.ico" />
+    <Resource Include="Images\Question.png" />
+    <Resource Include="Images\skull.ico" />
+    <Resource Include="Images\TicketsControllerSplash.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Warning.ico" />
+    <Resource Include="Images\Warning.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\xpworld.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\liquors.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\dinner.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Bucket.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\warning_shield.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Usually.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\chatgpt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\cash_icon.png" />
+    <Resource Include="Images\creditcard_icon.png" />
+    <Resource Include="Images\sinpe_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SmallCloudWithArrows.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\discount.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\money_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\waitress.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\closedoor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\close_icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\shiftchange.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\clean.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\email.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\split.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\a2p.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\loyalty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\append-clip.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\null-symbol.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\storage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\accounts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\inventory.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\cashdrawer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\providers.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\invoice.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\excel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\initiative.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\beer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\expenses.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\food-service2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\restaurant.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\salesHistory.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\graphics.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\tables.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\GreenCheck.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\GreenCheck1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\NoPayment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\IRS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\IRS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\PriceList.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\charts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\cocktails.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\sqlserver.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\StatisticsRT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\promotions.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\damage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\report.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\wiretransfer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Images\cash_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Images\creditcard_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Images\sinpe_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Images\wiretransfer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Images\waitress.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Images\money_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Images\expenses.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Images\a2p.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\sales.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Images\sales.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\calendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Images\calendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Images\people.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="G3_Logo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-tarjeta-de-regalo-94.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-tarjeta-de-membresia-94.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\rename.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\move.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\paste.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\changeprice.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\seedetails.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\cashier.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\todaysales.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\a2p2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\quickSale.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Images\a2p2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\star.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Controls\Images\star.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\beer-bottle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\openFolder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Background_Blue.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+<<<<<<< HEAD
+    <Resource Include="Images\Wallpaper_Light_2560x1600.jpg">
+=======
+    <Resource Include="Images\allProducts.png">
+>>>>>>> 278222075a29f9c54bd737b91f3dd98bdab8bd59
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\trash.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <SplashScreen Include="Images\TicketsController2025.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </SplashScreen>
+    <Resource Include="Images\LogoMH.png" />
+    <Resource Include="Images\voucher-94.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\cash-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\validate.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Background_Multi.jpg" />
+    <Resource Include="Images\equalParts.png" />
+    <Resource Include="Images\otherTrans.png" />
+    <Resource Include="Cocktails\Aperol Spritz.txt" />
+    <Resource Include="Cocktails\Bahama Mama.txt" />
+    <Resource Include="Cocktails\Black Russian.txt" />
+    <Resource Include="Cocktails\Bloody Mary.txt" />
+    <Resource Include="Cocktails\Blue Lagoon.txt" />
+    <Resource Include="Cocktails\Caipirinha.txt" />
+    <Resource Include="Cocktails\Cosmopolitan .txt" />
+    <Resource Include="Cocktails\Cuba Libre.txt" />
+    <Resource Include="Cocktails\Daiquiri Fresa.txt" />
+    <Resource Include="Cocktails\Dry Martini.txt" />
+    <Resource Include="Cocktails\Frozen Strawberry Daiquiri.txt" />
+    <Resource Include="Cocktails\Gin Tonic.txt" />
+    <Resource Include="Cocktails\Huracán.txt" />
+    <Resource Include="Cocktails\Long Island Iced Tea.txt" />
+    <Resource Include="Cocktails\Luisa.txt" />
+    <Resource Include="Cocktails\Mai Tai.txt" />
+    <Resource Include="Cocktails\Mango Piña Mojito.txt" />
+    <Resource Include="Cocktails\Margarita Frozen.txt" />
+    <Resource Include="Cocktails\Marmalade Vodka.txt" />
+    <Resource Include="Cocktails\Melocotón Sureño.txt" />
+    <Resource Include="Cocktails\Mojito.txt" />
+    <Resource Include="Cocktails\Mula Maracuyá.txt" />
+    <Resource Include="Cocktails\Negroni.txt" />
+    <Resource Include="Cocktails\Pisco Sour.txt" />
+    <Resource Include="Cocktails\Piña Colada.txt" />
+    <Resource Include="Cocktails\Ponche Tropical.txt" />
+    <Resource Include="Cocktails\Rum Punch.txt" />
+    <Resource Include="Cocktails\Sangría.txt" />
+    <Resource Include="Cocktails\Semáforo.txt" />
+    <Resource Include="Cocktails\Sex on the Beach.txt" />
+    <Resource Include="Cocktails\Tequila Sunrise.txt" />
+    <Resource Include="Cocktails\Whisky HighBall.txt" />
+    <Resource Include="Cocktails\Whisky Sour.txt" />
+    <Content Include="Database\ADD_INTERNAL_RECORDS.sql" />
+    <Content Include="Database\CREATE_EMPTY_SCHEMA_AWCDigitalCommerce.sql" />
+    <Content Include="Database\FixtblDailyClosing.sql" />
+    <Content Include="Database\RebuildAllIndexes.sql" />
+    <Content Include="Database\TABLES_LIST_AWCDigitalCommerce.sql" />
+    <Content Include="Database\TRUNCATE_TABLES.sql" />
+    <Content Include="Documentation\FixtblDailyClosing.sql" />
+    <Content Include="Documentation\RebuildAllIndexes.sql" />
+    <Content Include="Documentation\TRUNCATE_TABLES.sql" />
+    <Resource Include="Images\help.png" />
+    <Resource Include="Images\conotrafico.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\MaterialDesignThemes.5.1.1-ci675\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.5.1.1-ci675\build\MaterialDesignThemes.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\MaterialDesignThemes.5.1.1-ci675\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MaterialDesignThemes.5.1.1-ci675\build\MaterialDesignThemes.targets'))" />
+  </Target>
+</Project>

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AWC.DigitalCommerce.API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260316162017_Added Tickets entity")]
-    partial class AddedTicketsentity
+    [Migration("20260316194001_Rename column Type with Class in Seats entity")]
+    partial class RenamecolumnTypewithClassinSeatsentity
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -40,7 +40,7 @@ namespace AWC.DigitalCommerce.API.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("Cost")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(10,2)");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
@@ -70,17 +70,17 @@ namespace AWC.DigitalCommerce.API.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<bool>("Availale")
+                    b.Property<bool>("Available")
                         .HasColumnType("bit");
 
                     b.Property<int>("Capacity")
                         .HasColumnType("int");
 
+                    b.Property<int>("Class")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Type")
-                        .HasColumnType("int");
 
                     b.Property<string>("Zone")
                         .HasColumnType("nvarchar(max)");

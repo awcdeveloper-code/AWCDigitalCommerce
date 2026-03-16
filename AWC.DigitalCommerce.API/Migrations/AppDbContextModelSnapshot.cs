@@ -67,17 +67,17 @@ namespace AWC.DigitalCommerce.API.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<bool>("Availale")
+                    b.Property<bool>("Available")
                         .HasColumnType("bit");
 
                     b.Property<int>("Capacity")
                         .HasColumnType("int");
 
+                    b.Property<int>("Class")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Type")
-                        .HasColumnType("int");
 
                     b.Property<string>("Zone")
                         .HasColumnType("nvarchar(max)");

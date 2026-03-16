@@ -8,9 +8,9 @@ namespace AWC.DigitalCommerce.API
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
-        DbSet<Seat> Seats { get; set; }
-        DbSet<Product> Products { get; set; }
-        DbSet<Ticket> Tickets { get; set; }
+        public DbSet<Seat> Seats { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Ticket> Tickets { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
