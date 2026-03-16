@@ -12,7 +12,7 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.14.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "18.4.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -539,15 +539,6 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
         public bool StartAlarmsThread {
             get {
                 return ((bool)(this["StartAlarmsThread"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Server=DESKTOP-EBOTL6M;Database=AWCDigitalCommerce;User Id=sa;Password=sa;")]
-        public string TicketsControllerDbConn {
-            get {
-                return ((string)(this["TicketsControllerDbConn"]));
             }
         }
         
@@ -1086,6 +1077,15 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
         public string SMTPPassword {
             get {
                 return ((string)(this["SMTPPassword"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Server=LAPTOP-43PDJ2Q9;Database=AWCDigitalCommerce;User Id=sa;Password=sa;")]
+        public string TicketsControllerDbConn {
+            get {
+                return ((string)(this["TicketsControllerDbConn"]));
             }
         }
     }

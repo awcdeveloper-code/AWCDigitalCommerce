@@ -167,9 +167,6 @@
     <Setting Name="StartAlarmsThread" Type="System.Boolean" Scope="Application">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="TicketsControllerDbConn" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">Server=DESKTOP-EBOTL6M;Database=AWCDigitalCommerce;User Id=sa;Password=sa;</Value>
-    </Setting>
     <Setting Name="BartenderPrinter" Type="System.String" Scope="Application">
       <Value Profile="(Default)" />
     </Setting>
@@ -343,6 +340,9 @@
     </Setting>
     <Setting Name="SMTPPassword" Type="System.String" Scope="Application">
       <Value Profile="(Default)">surbwzssxdmnvvvk</Value>
+    </Setting>
+    <Setting Name="TicketsControllerDbConn" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Server=LAPTOP-43PDJ2Q9;Database=AWCDigitalCommerce;User Id=sa;Password=sa;</Value>
     </Setting>
   </Settings>
 </SettingsFile>

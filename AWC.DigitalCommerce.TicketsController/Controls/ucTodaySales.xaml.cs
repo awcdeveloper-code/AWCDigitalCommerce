@@ -443,5 +443,10 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
 
             return mailAddress;
         }
+
+        private void btn_ChangePaymentMethod(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -59,7 +59,7 @@
                   Foreground="Cyan"
                   Header="CUENTAS DEL DIA">
                 <DataGrid Name="TodayTickets"
-                          Height="725" Width="1060"
+                          Height="730" Width="1060"
                           Margin="5"
                           RowHeight="25"
                           IsReadOnly="True"
@@ -157,6 +157,8 @@
                     </DataGrid.Columns>
                 </DataGrid>
             </GroupBox>
+            
+            <!-- 1st row -->
             <Button Grid.Row="4" Grid.Column="1"
                     Name="Print"
                     Click="btn_EmergencyPrint"

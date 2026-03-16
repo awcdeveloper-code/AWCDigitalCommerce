@@ -50,7 +50,7 @@
                       AlternatingRowBackground="LightCyan"
                       AutoGenerateColumns="True"
                       BorderBrush="DarkBlue"
-                      SelectionMode="Single" />
+                      SelectionMode="Extended" />
             <Button Grid.Row="4" Grid.Column="1"
                     Click="btn_Close"
                     FontSize="15"
