@@ -296,5 +296,13 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
             dcs.ShowDialog();
             mw.Opacity = 1;
         }
+
+        private void btn_DailyCloseOperator(object sender, RoutedEventArgs e)
+        {
+            mw.Opacity = 0.5;
+            WPFwpfDailyCloseOperator dco = new WPFwpfDailyCloseOperator();
+            dco.ShowDialog();
+            mw.Opacity = 1;
+        }
     }
 }

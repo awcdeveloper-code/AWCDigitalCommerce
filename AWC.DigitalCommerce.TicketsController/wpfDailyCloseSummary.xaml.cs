@@ -83,7 +83,7 @@ namespace AWC.DigitalCommerce.TicketsController
             {
                 if (SendReportByEmail.IsChecked == true && Settings.Default.eMailDistributionList.Length > 0)
                 {
-                    SMTP.SendDailyReport(dcReport, businessDate, itemsList);
+                    SMTP.SendDailyReport(dcReport, businessDate, itemsList, Convert.ToInt32(txtShift.Text));
                     Helper.ShowToastNotification($"Cierre del {DB.ConverTicketDate(businessDate)} Turno {txtShift.Text} fue enviado exitosamente.");
                 }
             }

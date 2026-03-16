@@ -20,7 +20,6 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
     {
         private string lang = string.Empty;
         private List<clsItemDetailForDatagrid> itemsList = new List<clsItemDetailForDatagrid>();
-        private string workDay = string.Empty;
         public ucDailyClosing_Beverages(string _lang)
         {
             lang = _lang;
@@ -38,28 +37,6 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
         private void btn_MealsSummary(object sender, RoutedEventArgs e)
         {
             Helper.PrintTicket(itemsList, 3, null, null);
-        }
-        private void SelectedDay_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
-        {
-            workDay = SelectedDay.SelectedDate.ToString();
-
-            if (workDay.Length == 0) return;
-
-            string year = workDay.Split('/')[2].Substring(0, 4);
-            string month = workDay.Split('/')[1].PadLeft(2, '0');
-            string day = workDay.Split('/')[0].PadLeft(2, '0');
-
-            workDay = year + month + day;
-
-            itemsList = DB.GetBeveragesItemsByDate(workDay);
-
-            TicketDetail.ItemsSource = itemsList;
-
-            int totalPrice = itemsList.Sum(x => x.TotalCost);
-            lblTotalSale.Content = totalPrice.ToString("N0").PadLeft(7);
-
-            if (itemsList.Count > 0)
-                MealsSummary.IsEnabled = true;
         }
     }
 }

@@ -40,8 +40,6 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
 
             Traductor.ApplyTranslation(this, lang);
 
-            SelectedDay.Text = DB.ConverTicketDate(Settings.Default.BusinessDate).Replace(".", "/");
-
             LoadTodaySales(Settings.Default.BusinessDate);
         }
         private void LoadTodaySales(string businessDate)
@@ -64,20 +62,7 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
                 Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, ex, Logger.Severity.ERROR);
             }
         }
-        private void SelectedDay_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
-        {
-            workDay = SelectedDay.SelectedDate.ToString();
 
-            if (workDay.Length == 0) return;
-
-            string year = workDay.Split('/')[2].Substring(0, 4);
-            string month = workDay.Split('/')[1].PadLeft(2, '0');
-            string day = workDay.Split('/')[0].PadLeft(2, '0');
-
-            workDay = year + month + day;
-
-            LoadTodaySales(workDay);
-        }
         private void btn_EmergencyPrint(object sender, RoutedEventArgs e)
         {
             foreach (clsTicketsForDataGrid item in TodayTickets.Items)
@@ -115,11 +100,11 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
         }
         private void InitializeButtons()
         {
-            //Print.IsEnabled = false;
-            PrintClosed.IsEnabled = false;
-            PrintFoodService.IsEnabled = false;
-            AbortTicket.IsEnabled = false;
-            ChangeName.IsEnabled = false;
+            Print.IsEnabled = true;
+            PrintClosed.IsEnabled = true;
+            PrintFoodService.IsEnabled = true;
+            AbortTicket.IsEnabled = true;
+            ChangeName.IsEnabled = true;
             ElectronicInvoice.IsEnabled = false;
         }
         private void btn_PrintFoodService(object sender, RoutedEventArgs e)

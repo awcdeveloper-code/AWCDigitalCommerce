@@ -35,7 +35,7 @@ namespace AWC.DigitalCommerce.TicketsController
             try
             {
                 List<clsItem> itemsList = DB.GetMealRelationships(itemID);
-                
+
                 foreach (clsItem item in itemsList)
                 {
                     item.ItemSold = qty * Convert.ToInt32(item.ItemAvailable);
@@ -84,7 +84,7 @@ namespace AWC.DigitalCommerce.TicketsController
                 {
                     clsTicketsForDataGrid ic = new clsTicketsForDataGrid();
 
-                    
+
 
                     itemsConverted.Add(ic);
                 }
@@ -1056,7 +1056,7 @@ namespace AWC.DigitalCommerce.TicketsController
         {
             try
             {
-                switch(action)
+                switch (action)
                 {
                     case 0:
                         xPrinterDailyClose xPrintDayClose = new xPrinterDailyClose(workDay, ticketsList);
@@ -1079,7 +1079,7 @@ namespace AWC.DigitalCommerce.TicketsController
         {
             try
             {
-                switch(opt)
+                switch (opt)
                 {
                     case 1:
                         xPrinterMealsSummary xPrintMealSumm = new xPrinterMealsSummary(itemList);
@@ -1288,7 +1288,7 @@ namespace AWC.DigitalCommerce.TicketsController
         {
             try
             {
-                xPrinterVoucher xPrintVou= new xPrinterVoucher(voucher);
+                xPrinterVoucher xPrintVou = new xPrinterVoucher(voucher);
                 xPrintVou.print();
             }
             catch (Exception ex)
@@ -1597,5 +1597,36 @@ namespace AWC.DigitalCommerce.TicketsController
             }
         }
         #endregion
+
+        public static bool IsPowerAdmin(string PIN)
+        {
+            try
+            {
+                clsUser userProf = new clsUser();
+
+                wpfRequestPIN wpfPIN = new wpfRequestPIN();
+                wpfPIN.ShowDialog();
+
+                if (wpfPIN.numKeyed == "0")
+                {
+                    return false;
+                }
+
+                userProf = Helper.CheckUserProfile(wpfPIN.numKeyed);
+
+                if (userProf.userSecurityProfile.Substring(51, 1) == "0")
+                {
+                    wpfMessageBox.Show("Tickets Controller", "ATENCIÓN: EL PIN INGRESADO NO TIENE PERMISO PARA ANULAR CUENTAS.", MessageBoxButton.OK, wpfMessageBox.MessageBoxImage.Warning, null);
+                    return false;
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, ex.Message, Logger.Severity.ERROR);
+                ShowMessage("IsPowerAdmin ERROR: " + ex.Message, System.Windows.Forms.MessageBoxIcon.Error);
+                return false;
+            }
+        }
     }
 }

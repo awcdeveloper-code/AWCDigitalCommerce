@@ -75,7 +75,7 @@
       <Value Profile="(Default)">C:\AWC.DigitalCommerce\Images\SINPEsml.png</Value>
     </Setting>
     <Setting Name="KitchenLeasingService" Type="System.Boolean" Scope="Application">
-      <Value Profile="(Default)">True</Value>
+      <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="QuickOrderCustID" Type="System.Int32" Scope="Application">
       <Value Profile="(Default)">1004</Value>
@@ -167,6 +167,12 @@
     <Setting Name="StartAlarmsThread" Type="System.Boolean" Scope="Application">
       <Value Profile="(Default)">True</Value>
     </Setting>
+<<<<<<< HEAD
+=======
+    <Setting Name="TicketsControllerDbConn" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Server=DESKTOP-R3LB5K0;Database=AWCDigitalCommerce;User Id=sa;Password=sa;</Value>
+    </Setting>
+>>>>>>> 278222075a29f9c54bd737b91f3dd98bdab8bd59
     <Setting Name="BartenderPrinter" Type="System.String" Scope="Application">
       <Value Profile="(Default)" />
     </Setting>
@@ -324,7 +330,7 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="DetailOfMealOrderInVertical" Type="System.Boolean" Scope="Application">
-      <Value Profile="(Default)">True</Value>
+      <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="TicketsControllerCredentials" Type="System.String" Scope="Application">
       <Value Profile="(Default)">C:\AWC.DigitalCommerce\AWC.DigitalCommerce.TicketsControllerCredentials.json</Value>

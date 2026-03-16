@@ -350,6 +350,7 @@
     <Compile Include="Classes\clsPayMethodChange.cs" />
     <Compile Include="Classes\clsPrintTicketRemotely.cs" />
     <Compile Include="Classes\clsProvider.cs" />
+    <Compile Include="Classes\clsRomanYearConverter.cs" />
     <Compile Include="Classes\clsSalaryAdvance.cs" />
     <Compile Include="Classes\clsSalesHistory.cs" />
     <Compile Include="Classes\clsServiceFeeByWho.cs" />
@@ -378,6 +379,9 @@
     </Compile>
     <Compile Include="Controls\ucCocktails.xaml.cs">
       <DependentUpon>ucCocktails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucDailyClosing_AllProducts.xaml.cs">
+      <DependentUpon>ucDailyClosing_AllProducts.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\ucDailyClosing_Beverages.xaml.cs">
       <DependentUpon>ucDailyClosing_Beverages.xaml</DependentUpon>
@@ -809,6 +813,9 @@
     <Compile Include="wpfWorkLog.xaml.cs">
       <DependentUpon>wpfWorkLog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WPFwpfDailyCloseOperator.xaml.cs">
+      <DependentUpon>WPFwpfDailyCloseOperator.xaml</DependentUpon>
+    </Compile>
     <Compile Include="xPrinter\xPrintBusinessCard.cs" />
     <Compile Include="xPrinter\xPrinterConsumption.cs" />
     <Compile Include="xPrinter\xPrinterCreditCardPayments.cs" />
@@ -881,6 +888,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\ucCocktails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ucDailyClosing_AllProducts.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -1424,6 +1435,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="WPFwpfDailyCloseOperator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Documentation\Images\Error.png" />
@@ -1874,7 +1889,11 @@
     <Resource Include="Images\Background_Blue.jpg" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Resource Include="Images\Wallpaper_Light_2560x1600.jpg">
+=======
+    <Resource Include="Images\allProducts.png">
+>>>>>>> 278222075a29f9c54bd737b91f3dd98bdab8bd59
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\trash.png">

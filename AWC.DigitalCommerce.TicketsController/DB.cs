@@ -3102,7 +3102,7 @@ namespace AWC.DigitalCommerce.TicketsController
                         sqlQry = "SELECT tbl_Items.ItemDescription AS 'ItemDesc', SUM(Qty) AS 'Qty', tbl_TicketsDetail.UnitPrice, SUM(tbl_TicketsDetail.TotalPrice) AS 'TotalPrice', tbl_Items.ItemAvailable AS 'ItemAvail', tbl_Items.ItemType AS 'ItemType' FROM tbl_TicketsDetail " +
                                 $"INNER JOIN tbl_Items ON tbl_TicketsDetail.ItemID = tbl_Items.ID " +
                                 $"INNER JOIN tbl_Tickets ON tbl_Tickets.GUID = tbl_TicketsDetail.GUID " +
-                                $"WHERE tbl_Tickets.Shift = {Settings.Default.ShiftForQuery} AND tbl_Items.ItemType <> 9 AND (tbl_TicketsDetail.CreatedAt >= '{startDate}' AND tbl_TicketsDetail.CreatedAt <= '{finishDate}') " +
+                                $"WHERE tbl_Items.ItemType <> 9 AND (tbl_TicketsDetail.CreatedAt >= '{startDate}' AND tbl_TicketsDetail.CreatedAt <= '{finishDate}') " +
                                 "GROUP BY tbl_Items.ItemDescription, tbl_Items.ItemType, tbl_TicketsDetail.UnitPrice, tbl_Items.ItemAvailable ORDER BY tbl_Items.ItemDescription";
                         break;
                 }
@@ -6568,6 +6568,40 @@ namespace AWC.DigitalCommerce.TicketsController
                 return false;
             }
         }
+
+        public static bool UpdateTicketTotalPriceUsingItems(int ticketID, int totAmount)
+        {
+            try
+            {
+                bool result = false;
+
+                string sqlQry = $"UPDATE tbl_Tickets SET TotalPrice = {totAmount} WHERE ID = " + ticketID;
+
+                using (sqlConn = new SqlConnection(Settings.Default.TicketsControllerDbConn))
+                {
+                    sqlConn.Open();
+                    SqlCommand sqlCmd = new SqlCommand(sqlQry, sqlConn);
+                    sqlCmd.ExecuteNonQuery();
+                    result = true;
+                }
+
+                if (Settings.Default.DebugTrace)
+                    Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, sqlQry, Logger.Severity.DEBUG);
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                sqlConn.Close();
+                Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, ex, Logger.Severity.ERROR);
+                Helper.ShowMessage("ERROR: " + ex, System.Windows.Forms.MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+
+
+
         public static void UpdateTicketStatus(int ID, int status, int totalPrice, int serviceFeed, int cash, int creditCard, int transfer, int voucher, int whoClosed, string customerAKA)
         {
             try

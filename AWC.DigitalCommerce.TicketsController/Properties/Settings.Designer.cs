@@ -259,7 +259,7 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool KitchenLeasingService {
             get {
                 return ((bool)(this["KitchenLeasingService"]));
@@ -544,6 +544,18 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+<<<<<<< HEAD
+=======
+        [global::System.Configuration.DefaultSettingValueAttribute("Server=DESKTOP-R3LB5K0;Database=AWCDigitalCommerce;User Id=sa;Password=sa;")]
+        public string TicketsControllerDbConn {
+            get {
+                return ((string)(this["TicketsControllerDbConn"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+>>>>>>> 278222075a29f9c54bd737b91f3dd98bdab8bd59
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string BartenderPrinter {
             get {
@@ -1028,7 +1040,7 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool DetailOfMealOrderInVertical {
             get {
                 return ((bool)(this["DetailOfMealOrderInVertical"]));
