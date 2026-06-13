@@ -6,6 +6,8 @@ using System.Windows.Input;
 using Microsoft.Office.Interop.Excel;
 using AWC.DigitalCommerce.TicketsController.Properties;
 using SwiftExcel;
+using System.Windows;
+using Application = Microsoft.Office.Interop.Excel.Application;
 
 namespace AWC.DigitalCommerce.TicketsController
 {
@@ -355,5 +357,55 @@ namespace AWC.DigitalCommerce.TicketsController
             }
         }
 
+        public static void InventoryStatusSwiftExcel(string workDay, List<clsTicketsForDataGrid> itemsdg)
+        {
+            string excelFileName = string.Empty;
+
+            try
+            {
+                Mouse.OverrideCursor = Cursors.Wait;
+
+                excelFileName = Path.Combine(GetReportsRepository(), DateTime.Now.ToString("dd.MM.yyyy_HH.mm") + "-SalesSummary.xlsx");
+
+                using (ExcelWriter ew = new ExcelWriter(excelFileName))
+                {
+                    // header
+                    ew.Write("FECHA", 1, 1);
+                    ew.Write("TURNO", 2, 1);
+                    ew.Write("CUENTA", 3, 1);
+                    ew.Write("NOMBRE DEL CLIENTE", 4, 1);
+                    ew.Write("ESTADO", 5, 1);
+                    ew.Write("PAGO", 6, 1);
+                    ew.Write("TOTAL", 7, 1);
+
+                    // generate the content
+                    int row = 2;
+
+                    foreach (clsTicketsForDataGrid item in itemsdg)
+                    {
+                        ew.Write(item.TicketDate, 1, row);
+                        ew.Write(item.Shift.ToString(), 2, row);
+                        ew.Write(item.ID.ToString(), 3, row);
+                        ew.Write(item.CustomerID, 4, row);
+                        ew.Write(item.StatusAlpha, 5, row);
+                        ew.Write(item.PayMethodAlpha, 6, row);
+                        ew.Write(item.TotalPrice.ToString(), 7, row);
+
+                        row++;
+                    }
+                }
+                Mouse.OverrideCursor = null;
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteToLog("InventoriesManagement", ex, Logger.Severity.ERROR);
+
+                MessageBox.Show($"InventoryStatusSwiftExcel ERROR: {ex.Message}{ex.StackTrace}");
+            }
+            finally
+            {
+                Mouse.OverrideCursor = null;
+            }
+        }
     }
 }

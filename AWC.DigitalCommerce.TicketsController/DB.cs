@@ -272,7 +272,7 @@ namespace AWC.DigitalCommerce.TicketsController
 
                 string sqlQuery = string.Empty;
 
-                switch(itemType)
+                switch (itemType)
                 {
                     case 0:
                         sqlQuery = "SELECT * FROM tbl_Items WHERE ItemType <> 9 AND ItemSubType <> 3 ORDER BY ItemDescription ASC";
@@ -603,7 +603,7 @@ namespace AWC.DigitalCommerce.TicketsController
 
                 List<clsTicketsForDataGrid> Tickets = new List<clsTicketsForDataGrid>();
 
-                switch(option)
+                switch (option)
                 {
                     case 0:
                         // search all open tickets
@@ -674,42 +674,155 @@ namespace AWC.DigitalCommerce.TicketsController
                                 ticket.PayMethodAlpha = "EFECT";
                             }
                             else
-                            if (ticket.Cash == 0 && ticket.CreditCard > 0 && ticket.Transfer == 0 && ticket.Voucher == 0)
-                            {
-                                ticket.PayMethodAlpha = "TCRED";
-                            }
-                            else
-                            if (ticket.Cash == 0 && ticket.CreditCard == 0 && ticket.Transfer > 0)
-                            {
-                                ticket.PayMethodAlpha = "SINPE";
-                            }
-                            else
-                            if (ticket.Cash > 0 || ticket.CreditCard > 0 || ticket.Transfer > 0 && ticket.Voucher > 0)
-                            {
-                                ticket.PayMethodAlpha = "MIXTO";
-                            }
-                            else
-                            {
-                                if (ticket.PayMethod == 0)
+                                if (ticket.Cash == 0 && ticket.CreditCard > 0 && ticket.Transfer == 0 && ticket.Voucher == 0)
                                 {
-                                    ticket.PayMethodAlpha = "PEND";
-                                }
-                                if (ticket.PayMethod > 1)
-                                {
-                                    ticket.PayMethodAlpha = ticket.StatusAlpha;
+                                    ticket.PayMethodAlpha = "TCRED";
                                 }
                                 else
-                                {
-                                    if (ticket.StatusAlpha == "ABIE")
+                                    if (ticket.Cash == 0 && ticket.CreditCard == 0 && ticket.Transfer > 0)
                                     {
-                                        ticket.PayMethodAlpha = "PEND";
+                                        ticket.PayMethodAlpha = "SINPE";
                                     }
                                     else
-                                    {
-                                        ticket.PayMethodAlpha = "MIXTO";
-                                    }
-                                }
+                                        if (ticket.Cash > 0 || ticket.CreditCard > 0 || ticket.Transfer > 0 && ticket.Voucher > 0)
+                                        {
+                                            ticket.PayMethodAlpha = "MIXTO";
+                                        }
+                                        else
+                                        {
+                                            if (ticket.PayMethod == 0)
+                                            {
+                                                ticket.PayMethodAlpha = "PEND";
+                                            }
+                                            if (ticket.PayMethod > 1)
+                                            {
+                                                ticket.PayMethodAlpha = ticket.StatusAlpha;
+                                            }
+                                            else
+                                            {
+                                                if (ticket.StatusAlpha == "ABIE")
+                                                {
+                                                    ticket.PayMethodAlpha = "PEND";
+                                                }
+                                                else
+                                                {
+                                                    ticket.PayMethodAlpha = "MIXTO";
+                                                }
+                                            }
+                                        }
+
+                            ticket.CustomerAKA = sdr["CustomerAKA"].ToString();
+
+                            if (ticket.CustomerAKA.Equals("ND"))
+                                ticket.CustomerID = GetCustomerIDByID(Convert.ToInt32(sdr["CustomerID"]));
+                            else
+                                ticket.CustomerID = ticket.CustomerAKA;
+
+                            Tickets.Add(ticket);
+                        }
+                    }
+                }
+                return Tickets;
+            }
+            catch (Exception ex)
+            {
+                sqlConn.Close();
+                Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, ex, Logger.Severity.ERROR);
+                Helper.ShowMessage("ERROR: " + ex, System.Windows.Forms.MessageBoxIcon.Error);
+                return null;
+            }
+        }
+        public static List<clsTicketsForDataGrid> DataBinding_tbl_TicketsTwoDates(string sd, string ed)
+        {
+            try
+            {
+                string sqlQry = $"SELECT * FROM tbl_Tickets WHERE TicketDate BETWEEN '{sd}' AND '{ed}' ORDER BY ID ASC";
+
+                List<clsTicketsForDataGrid> Tickets = new List<clsTicketsForDataGrid>();
+
+                using (sqlConn = new SqlConnection(Settings.Default.TicketsControllerDbConn))
+                {
+                    sqlConn.Open();
+                    sqlCmd = new SqlCommand(sqlQry, sqlConn);
+                    SqlDataReader sdr = sqlCmd.ExecuteReader();
+
+                    if (sdr.HasRows)
+                    {
+                        while (sdr.Read())
+                        {
+                            clsTicketsForDataGrid ticket = new clsTicketsForDataGrid();
+
+                            ticket.TicketDate = ConverTicketDate(sdr["TicketDate"].ToString());
+                            ticket.ID = Convert.ToInt32(sdr["ID"]);
+                            ticket.Status = Convert.ToBoolean(sdr["Status"]);
+                            ticket.Cash = Convert.ToInt32(sdr["Cash"]);
+                            ticket.CreditCard = Convert.ToInt32(sdr["CreditCard"]);
+                            ticket.Transfer = Convert.ToInt32(sdr["Transfer"]);
+                            ticket.Voucher = Convert.ToInt32(sdr["Voucher"]);
+                            ticket.PayMethod = Convert.ToInt32(sdr["PayMethod"]);
+                            ticket.ServiceFee = Convert.ToInt32(sdr["ServiceFee"]);
+                            ticket.TotalPrice = Convert.ToInt32(sdr["TotalPrice"]);
+                            ticket.ApplyServiceFee = Convert.ToBoolean(sdr["ApplyServiceFee"]);
+                            ticket.Splited = Convert.ToInt32(sdr["Splited"]);
+                            ticket.Shift = Convert.ToInt32(sdr["Shift"]);
+
+                            switch (ticket.PayMethod)
+                            {
+                                case 0:
+                                    ticket.StatusAlpha = "ABIE";
+                                    break;
+                                case 1:
+                                    ticket.StatusAlpha = "CANC";
+                                    break;
+                                case 2:
+                                    ticket.StatusAlpha = "ANUL";
+                                    break;
+                                case 3:
+                                    ticket.StatusAlpha = "HERE";
+                                    break;
                             }
+
+                            if (ticket.Cash > 0 && ticket.CreditCard == 0 && ticket.Transfer == 0 && ticket.Voucher == 0)
+                            {
+                                ticket.PayMethodAlpha = "EFECT";
+                            }
+                            else
+                                if (ticket.Cash == 0 && ticket.CreditCard > 0 && ticket.Transfer == 0 && ticket.Voucher == 0)
+                                {
+                                    ticket.PayMethodAlpha = "TCRED";
+                                }
+                                else
+                                    if (ticket.Cash == 0 && ticket.CreditCard == 0 && ticket.Transfer > 0)
+                                    {
+                                        ticket.PayMethodAlpha = "SINPE";
+                                    }
+                                    else
+                                        if (ticket.Cash > 0 || ticket.CreditCard > 0 || ticket.Transfer > 0 && ticket.Voucher > 0)
+                                        {
+                                            ticket.PayMethodAlpha = "MIXTO";
+                                        }
+                                        else
+                                        {
+                                            if (ticket.PayMethod == 0)
+                                            {
+                                                ticket.PayMethodAlpha = "PEND";
+                                            }
+                                            if (ticket.PayMethod > 1)
+                                            {
+                                                ticket.PayMethodAlpha = ticket.StatusAlpha;
+                                            }
+                                            else
+                                            {
+                                                if (ticket.StatusAlpha == "ABIE")
+                                                {
+                                                    ticket.PayMethodAlpha = "PEND";
+                                                }
+                                                else
+                                                {
+                                                    ticket.PayMethodAlpha = "MIXTO";
+                                                }
+                                            }
+                                        }
 
                             ticket.CustomerAKA = sdr["CustomerAKA"].ToString();
 
@@ -797,7 +910,7 @@ namespace AWC.DigitalCommerce.TicketsController
 
                 string sqlQry = string.Empty;
 
-                switch(option)
+                switch (option)
                 {
                     case 1:
                         sqlQry = $"SELECT * FROM tbl_Tickets WHERE CustomerID = {custID} AND Status = {option} ORDER BY TicketDate, ID";
@@ -966,7 +1079,7 @@ namespace AWC.DigitalCommerce.TicketsController
                         while (sdr.Read())
                         {
                             clsTicketsForDataGrid ticket = new clsTicketsForDataGrid();
-                                
+
                             ticket.ID = Convert.ToInt32(sdr["ID"]);
                             ticket.CustomerID = GetCustomerIDByID(Convert.ToInt32(sdr["CustomerID"]));
                             ticket.TotalPrice = Convert.ToInt32(sdr["TotalPrice"]);
@@ -998,42 +1111,42 @@ namespace AWC.DigitalCommerce.TicketsController
                                 ticket.PayMethodAlpha = "EFECT";
                             }
                             else
-                            if (ticket.Cash == 0 && ticket.CreditCard > 0 && ticket.Transfer == 0 && ticket.Voucher == 0)
-                            {
-                                ticket.PayMethodAlpha = "TCRED";
-                            }
-                            else
-                            if (ticket.Cash == 0 && ticket.CreditCard == 0 && ticket.Transfer > 0 && ticket.Voucher == 0)
-                            {
-                                ticket.PayMethodAlpha = "SINPE";
-                            }
-                            else
-                            if (ticket.Cash > 0 || ticket.CreditCard > 0 || ticket.Transfer > 0 && ticket.Voucher > 0)
-                            {
-                                ticket.PayMethodAlpha = "MIXTO";
-                            }
-                            else
-                            {
-                                if (ticket.PayMethod == 0)
+                                if (ticket.Cash == 0 && ticket.CreditCard > 0 && ticket.Transfer == 0 && ticket.Voucher == 0)
                                 {
-                                    ticket.PayMethodAlpha = "PEND";
-                                }
-                                if (ticket.PayMethod > 1)
-                                {
-                                    ticket.PayMethodAlpha = ticket.StatusAlpha;
+                                    ticket.PayMethodAlpha = "TCRED";
                                 }
                                 else
-                                {
-                                    if (ticket.StatusAlpha == "ABIE")
+                                    if (ticket.Cash == 0 && ticket.CreditCard == 0 && ticket.Transfer > 0 && ticket.Voucher == 0)
                                     {
-                                        ticket.PayMethodAlpha = "PEND";
+                                        ticket.PayMethodAlpha = "SINPE";
                                     }
                                     else
-                                    {
-                                        ticket.PayMethodAlpha = "MIXTO";
-                                    }
-                                }
-                            }
+                                        if (ticket.Cash > 0 || ticket.CreditCard > 0 || ticket.Transfer > 0 && ticket.Voucher > 0)
+                                        {
+                                            ticket.PayMethodAlpha = "MIXTO";
+                                        }
+                                        else
+                                        {
+                                            if (ticket.PayMethod == 0)
+                                            {
+                                                ticket.PayMethodAlpha = "PEND";
+                                            }
+                                            if (ticket.PayMethod > 1)
+                                            {
+                                                ticket.PayMethodAlpha = ticket.StatusAlpha;
+                                            }
+                                            else
+                                            {
+                                                if (ticket.StatusAlpha == "ABIE")
+                                                {
+                                                    ticket.PayMethodAlpha = "PEND";
+                                                }
+                                                else
+                                                {
+                                                    ticket.PayMethodAlpha = "MIXTO";
+                                                }
+                                            }
+                                        }
 
                             Tickets.Add(ticket);
                         }
@@ -1195,7 +1308,7 @@ namespace AWC.DigitalCommerce.TicketsController
             try
             {
                 string sqlQuery = string.Empty;
-                List <clsItemType> itemTypeList = new List<clsItemType>();
+                List<clsItemType> itemTypeList = new List<clsItemType>();
 
                 switch (qry)
                 {
@@ -1609,13 +1722,13 @@ namespace AWC.DigitalCommerce.TicketsController
                         userProfile.userPIN = sdr["userPIN"].ToString();
                         userProfile.userPW = sdr["userPW"].ToString();
                         userProfile.userName = sdr["userName"].ToString().ToUpper();
-                        userProfile.userAccessLevel= sdr["userAccessLevel"].ToString();
+                        userProfile.userAccessLevel = sdr["userAccessLevel"].ToString();
                         userProfile.userActive = Convert.ToBoolean(sdr["userActive"]);
                         userProfile.userSecurityProfile = sdr["userSecurityProfile"].ToString();
                         userProfile.userPowerAdmin = Convert.ToBoolean(sdr["userPowerAdmin"]);
                     }
                 }
-                
+
                 if (Settings.Default.DebugTrace)
                     Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, sqlQry, Logger.Severity.DEBUG);
 
@@ -2339,6 +2452,46 @@ namespace AWC.DigitalCommerce.TicketsController
                 return 0;
             }
         }
+        public static clsItem GetItemByID(int itemID)
+        {
+            try
+            {
+                clsItem item = new clsItem();
+
+                string sqlQry = $"SELECT * FROM tbl_Items WHERE ID = {itemID}";
+
+                using (sqlConn = new SqlConnection(Settings.Default.TicketsControllerDbConn))
+                {
+                    sqlConn.Open();
+                    sqlCmd = new SqlCommand(sqlQry, sqlConn);
+                    SqlDataReader sdr = sqlCmd.ExecuteReader();
+
+                    if (sdr.HasRows)
+                    {
+                        sdr.Read();
+
+                        item.ID = Convert.ToInt32(sdr["ID"]);
+                        item.ItemType = Convert.ToInt32(sdr["ItemType"]);
+                        item.ItemSubType = Convert.ToInt32(sdr["ItemSubType"]);
+                        item.ItemDescription = sdr["ItemDescription"].ToString();
+                        item.UnitPrice = Convert.ToInt32(sdr["UnitPrice"]);
+                        item.UnitCost = Convert.ToInt32(sdr["UnitCost"]);
+                    }
+                }
+
+                if (Settings.Default.DebugTrace)
+                    Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, sqlQry, Logger.Severity.DEBUG);
+
+                return item;
+            }
+            catch (Exception ex)
+            {
+                sqlConn.Close();
+                Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, ex, Logger.Severity.ERROR);
+                Helper.ShowMessage("ERROR: " + ex, System.Windows.Forms.MessageBoxIcon.Error);
+                return null;
+            }
+        }
         public static bool IsMealItemType(string itemDesc)
         {
             try
@@ -2899,12 +3052,10 @@ namespace AWC.DigitalCommerce.TicketsController
                 List<clsItemDetailForDatagrid> TicketItems = new List<clsItemDetailForDatagrid>();
 
                 if (bSummary)
-                    //sqlQry = "SELECT 9999 AS 'ID', ItemType, ItemID, SUM(Qty) AS 'Qty', UnitCost, SUM(TotalCost) AS 'TotalCost', UnitPrice, SUM(TotalPrice) AS 'TotalPrice' FROM tbl_TicketsDetail " +
-                    //         "WHERE GUID = '" + GUID + "' GROUP BY ItemType, ItemID, UnitCost, UnitPrice";
                     sqlQry = "SELECT 9999 AS 'ID', ItemType, ItemID, SUM(Qty) AS 'Qty', MAX(UnitCost) AS 'UnitCost', SUM(TotalCost) AS 'TotalCost', MAX(UnitPrice) AS 'UnitPrice', SUM(TotalPrice) AS 'TotalPrice' FROM tbl_TicketsDetail " +
                              "WHERE GUID = '" + GUID + "' GROUP BY ItemType, ItemID";
                 else
-                            sqlQry = "SELECT ID, ItemType, ItemID, Qty, UnitCost, TotalCost, UnitPrice, TotalPrice FROM tbl_TicketsDetail WHERE GUID = '" + GUID + "' ORDER BY ID ASC";
+                    sqlQry = "SELECT ID, ItemType, ItemID, Qty, UnitCost, TotalCost, UnitPrice, TotalPrice FROM tbl_TicketsDetail WHERE GUID = '" + GUID + "' ORDER BY ID ASC";
 
                 using (sqlConn = new SqlConnection(Settings.Default.TicketsControllerDbConn))
                 {
@@ -2914,7 +3065,7 @@ namespace AWC.DigitalCommerce.TicketsController
 
                     if (sdr.HasRows)
                     {
-                        while(sdr.Read())
+                        while (sdr.Read())
                         {
                             clsItemDetailForDatagrid detailItem = new clsItemDetailForDatagrid();
 
@@ -2922,7 +3073,7 @@ namespace AWC.DigitalCommerce.TicketsController
                             detailItem.ItemID = Convert.ToInt32(sdr["ItemID"]);
 
                             if (detailItem.ItemID > 100000)
-                            {                                
+                            {
                                 detailItem.ItemDesc = "CUENTA " + (detailItem.ItemID - 100000).ToString("000000"); ;
                                 detailItem.ImagePath = @"C:\AWC.DigitalCommerce\Images\a2p.png";
                             }
@@ -3087,7 +3238,7 @@ namespace AWC.DigitalCommerce.TicketsController
 
                 string sqlQry = String.Empty;
 
-                switch(itemType)
+                switch (itemType)
                 {
                     case 1:
                     case 2:
@@ -3469,8 +3620,8 @@ namespace AWC.DigitalCommerce.TicketsController
 
                             string tickDate = sdr["TicketDate"].ToString();
 
-                            DateTime date1 = new DateTime(Convert.ToInt32(tickDate.Substring(0,4)),
-                                                          Convert.ToInt32(tickDate.Substring(4,2)),
+                            DateTime date1 = new DateTime(Convert.ToInt32(tickDate.Substring(0, 4)),
+                                                          Convert.ToInt32(tickDate.Substring(4, 2)),
                                                           Convert.ToInt32(tickDate.Substring(6, 2)), 0, 0, 0);
                             DateTime date2 = DateTime.Now;
 
@@ -3632,7 +3783,7 @@ namespace AWC.DigitalCommerce.TicketsController
                 string sqlQry = string.Empty;
 
                 List<clsServiceFeeByWho> serviceFeeByWhoList = new List<clsServiceFeeByWho>();
-                
+
                 if (onlyMeals)
                 {
                     sqlQry = "SELECT tbl_Users.userName AS 'UserName', SUM(ServiceFee) AS 'TotalServiceFee' FROM tbl_Tickets " +
@@ -3926,14 +4077,14 @@ namespace AWC.DigitalCommerce.TicketsController
 
                     if (sdr.HasRows)
                     {
-                       while (sdr.Read())
+                        while (sdr.Read())
                         {
                             clsTicket tck = new clsTicket();
                             tck.ID = Convert.ToInt32(sdr["ID"]);
                             tck.TicketDate = ConverTicketDate(sdr["TicketDate"].ToString());
                             tck.CustomerAKA = sdr["customerAKA"].ToString();
 
-                            switch(option)
+                            switch (option)
                             {
                                 // Cash
                                 case 0:
@@ -4028,22 +4179,22 @@ namespace AWC.DigitalCommerce.TicketsController
                         while (sdr.Read())
                         {
                             clsDailyClosing dcs = new clsDailyClosing();
-                            dcs.BusinessDate            = ConverTicketDate(sdr["BusinessDate"].ToString());
-                            dcs.InitialCash             = Convert.ToInt32(sdr["InitialCash"]);
-                            dcs.Cash                    = Convert.ToInt32(sdr["Cash"]);
-                            dcs.CashByOperator          = Convert.ToInt32(sdr["CashByOperator"]);
-                            dcs.CreditCard              = Convert.ToInt32(sdr["CreditCard"]);
-                            dcs.CreditCardByOperator    = Convert.ToInt32(sdr["CreditCardByOperator"]);
-                            dcs.Transfer                = Convert.ToInt32(sdr["Transfer"]);
-                            dcs.TransferByOperator      = Convert.ToInt32(sdr["TransferByOperator"]);
-                            dcs.AccountsReceivable      = Convert.ToInt32(sdr["AccountsReceivable"]);
-                            dcs.ServiceFee              = Convert.ToInt32(sdr["ServiceFee"]);
-                            dcs.GrossSale               = Convert.ToInt32(sdr["GrossSale"]);
-                            dcs.NetSale                 = Convert.ToInt32(sdr["NetSale"]);
-                            dcs.TotalCashInDrawer       = Convert.ToInt32(sdr["TotalCashInDrawer"]);
-                            dcs.DailyClosingMatch       = Convert.ToBoolean(sdr["DailyClosingMatch"]);
-                            dcs.WhoDidIt                = sdr["WhoDidIt"].ToString();
-                            dcs.CreatedAt               = Convert.ToDateTime(sdr["CreatedAt"]);
+                            dcs.BusinessDate = ConverTicketDate(sdr["BusinessDate"].ToString());
+                            dcs.InitialCash = Convert.ToInt32(sdr["InitialCash"]);
+                            dcs.Cash = Convert.ToInt32(sdr["Cash"]);
+                            dcs.CashByOperator = Convert.ToInt32(sdr["CashByOperator"]);
+                            dcs.CreditCard = Convert.ToInt32(sdr["CreditCard"]);
+                            dcs.CreditCardByOperator = Convert.ToInt32(sdr["CreditCardByOperator"]);
+                            dcs.Transfer = Convert.ToInt32(sdr["Transfer"]);
+                            dcs.TransferByOperator = Convert.ToInt32(sdr["TransferByOperator"]);
+                            dcs.AccountsReceivable = Convert.ToInt32(sdr["AccountsReceivable"]);
+                            dcs.ServiceFee = Convert.ToInt32(sdr["ServiceFee"]);
+                            dcs.GrossSale = Convert.ToInt32(sdr["GrossSale"]);
+                            dcs.NetSale = Convert.ToInt32(sdr["NetSale"]);
+                            dcs.TotalCashInDrawer = Convert.ToInt32(sdr["TotalCashInDrawer"]);
+                            dcs.DailyClosingMatch = Convert.ToBoolean(sdr["DailyClosingMatch"]);
+                            dcs.WhoDidIt = sdr["WhoDidIt"].ToString();
+                            dcs.CreatedAt = Convert.ToDateTime(sdr["CreatedAt"]);
                             dcsList.Add(dcs);
                         }
                     }
@@ -4209,7 +4360,7 @@ namespace AWC.DigitalCommerce.TicketsController
                             ATVTicket.consecutivo = sdr["ATVConsecutive"].ToString();
                             ATVTicket.clave = sdr["ATVKey"].ToString();
                             ATVTicket.estado = sdr["ATVStateMsj"].ToString();
-                            
+
                             ATVTicketsList.Add(ATVTicket);
                         }
                     }
@@ -4815,39 +4966,77 @@ namespace AWC.DigitalCommerce.TicketsController
         {
             try
             {
-                int tnum = 0;
                 int applyServiceFee = newTicket.ApplyServiceFee ? 1 : 0;
 
-                string sqlQry = "INSERT INTO tbl_Tickets(TicketDate, GUID, CustomerID, TotalPrice, PayMethod, Status, WhoOpened, WhoClosed, Splited, ApplyServiceFee, CustomerAKA, Shift) OUTPUT INSERTED.ID " +
-                               $"VALUES ('{newTicket.TicketDate}', '{newTicket.GUID}', {newTicket.CustID}, {newTicket.TotalPrice}, 0, 1, {whoOpened}, 0, 0, {applyServiceFee}, '{newTicket.CustomerAKA}', {newTicket.Shift})";
+                string sqlQry = @"
+                INSERT INTO tbl_Tickets
+                (
+                    TicketDate,
+                    GUID,
+                    CustomerID,
+                    TotalPrice,
+                    PayMethod,
+                    Status,
+                    WhoOpened,
+                    WhoClosed,
+                    Splited,
+                    ApplyServiceFee,
+                    CustomerAKA,
+                    Shift
+                )
+                OUTPUT INSERTED.ID
+                VALUES
+                (
+                    @TicketDate,
+                    @GUID,
+                    @CustomerID,
+                    @TotalPrice,
+                    0,
+                    1,
+                    @WhoOpened,
+                    0,
+                    0,
+                    @ApplyServiceFee,
+                    @CustomerAKA,
+                    @Shift
+                )";
 
-                using (sqlConn = new SqlConnection(Settings.Default.TicketsControllerDbConn))
+                using (SqlConnection conn = new SqlConnection(Settings.Default.TicketsControllerDbConn))
                 {
-                    sqlConn.Open();
-                    sqlCmd = new SqlCommand(sqlQry, sqlConn);
-                    SqlDataReader sdr = sqlCmd.ExecuteReader();
-
-                    if (sdr.HasRows)
+                    using (SqlCommand cmd = new SqlCommand(sqlQry, conn))
                     {
-                        sdr.Read();
-                        tnum = Convert.ToInt32(sdr["ID"]);
+                        cmd.Parameters.AddWithValue("@TicketDate", newTicket.TicketDate);
+                        cmd.Parameters.AddWithValue("@GUID", newTicket.GUID);
+                        cmd.Parameters.AddWithValue("@CustomerID", newTicket.CustID);
+                        cmd.Parameters.AddWithValue("@TotalPrice", newTicket.TotalPrice);
+                        cmd.Parameters.AddWithValue("@WhoOpened", whoOpened);
+                        cmd.Parameters.AddWithValue("@ApplyServiceFee", applyServiceFee);
+                        cmd.Parameters.AddWithValue("@CustomerAKA", newTicket.CustomerAKA);
+                        cmd.Parameters.AddWithValue("@Shift", newTicket.Shift);
+
+                        conn.Open();
+
+                        int insertedID = Convert.ToInt32(cmd.ExecuteScalar());
+
+                        if (Settings.Default.DebugTrace)
+                            Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, sqlQry, Logger.Severity.DEBUG);
+
+                        UpdateCustomerStatus(newTicket.CustID, 1);
+
+                        return insertedID;
                     }
                 }
-
-                if (Settings.Default.DebugTrace)
-                    Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, sqlQry, Logger.Severity.DEBUG);
-
-                UpdateCustomerStatus(newTicket.CustID, 1);
-                return tnum;
             }
             catch (Exception ex)
             {
-                sqlConn.Close();
                 Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, ex, Logger.Severity.ERROR);
-                Helper.ShowMessage("ERROR: " + ex, System.Windows.Forms.MessageBoxIcon.Error);
+
+                Helper.ShowMessage("ERROR: " + ex.Message, System.Windows.Forms.MessageBoxIcon.Error);
+
                 return 0;
             }
         }
+
         public static bool InsertNewTicketAborted(int ticketAborted)
         {
             try
@@ -5172,7 +5361,7 @@ namespace AWC.DigitalCommerce.TicketsController
         {
             try
             {
-                string sqlQry = "INSERT INTO tbl_Lunches (LunchDate, GUID, EmployeeName, Qty, MealID) " + 
+                string sqlQry = "INSERT INTO tbl_Lunches (LunchDate, GUID, EmployeeName, Qty, MealID) " +
                                 "VALUES ('" + lunch.LunchDate + "', '" + lunch.GUID + "', '" + lunch.EmployeeName + "', " + lunch.Qty + ", " + lunch.MealID + ")";
 
                 using (sqlConn = new SqlConnection(Settings.Default.TicketsControllerDbConn))
@@ -5591,7 +5780,7 @@ namespace AWC.DigitalCommerce.TicketsController
 
                 if (Settings.Default.DebugTrace)
                     Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, sqlQry, Logger.Severity.DEBUG);
-                
+
                 return true;
             }
             catch (Exception ex)
@@ -5639,7 +5828,7 @@ namespace AWC.DigitalCommerce.TicketsController
 
                 if (Settings.Default.DebugTrace)
                     Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, sqlQry, Logger.Severity.DEBUG);
-                
+
                 return true;
             }
             catch (Exception ex)
@@ -6598,10 +6787,6 @@ namespace AWC.DigitalCommerce.TicketsController
                 return false;
             }
         }
-
-
-
-
         public static void UpdateTicketStatus(int ID, int status, int totalPrice, int serviceFeed, int cash, int creditCard, int transfer, int voucher, int whoClosed, string customerAKA)
         {
             try
@@ -6673,7 +6858,7 @@ namespace AWC.DigitalCommerce.TicketsController
                 Helper.ShowMessage("ERROR: " + ex, System.Windows.Forms.MessageBoxIcon.Error);
             }
         }
-        public static bool UpdateTicket (clsTicket tck)
+        public static bool UpdateTicket(clsTicket tck)
         {
             try
             {
@@ -6792,7 +6977,7 @@ namespace AWC.DigitalCommerce.TicketsController
             try
             {
                 string sqlQry = string.Empty;
-                
+
                 if (ID == 0)
                     sqlQry = $"UPDATE tbl_TicketsDetail SET GUID = '{toGUID}' WHERE GUID = '{fromGUID}'";
                 else
@@ -6861,7 +7046,7 @@ namespace AWC.DigitalCommerce.TicketsController
                 Helper.ShowMessage("ERROR: " + ex, System.Windows.Forms.MessageBoxIcon.Error);
             }
         }
-        public static bool UpdateCustomerProfile (int ID, int status, int applyService, int freeOfCharge, int creditLimit)
+        public static bool UpdateCustomerProfile(int ID, int status, int applyService, int freeOfCharge, int creditLimit)
         {
             try
             {
@@ -7561,7 +7746,7 @@ namespace AWC.DigitalCommerce.TicketsController
                 List<clsSmallPayment> smlPayList = new List<clsSmallPayment>();
 
                 string sqlQry = string.Empty;
-                
+
                 if (dt.Length > 0)
                     sqlQry = $"SELECT * FROM tbl_Payments WHERE Shift = {Settings.Default.ShiftForQuery} AND PaymentDate = '{dt}' ORDER BY TicketID";
                 else
@@ -7924,7 +8109,7 @@ namespace AWC.DigitalCommerce.TicketsController
         #endregion
 
         #region INVOICES MGMT
-        public static int  CheckProviderAndInvoice(int providerID, int invoiceNumber)
+        public static int CheckProviderAndInvoice(int providerID, int invoiceNumber)
         {
             try
             {
@@ -8152,7 +8337,7 @@ namespace AWC.DigitalCommerce.TicketsController
                         break;
                     case "INI":
                         sqlQry = "UPDATE tbl_Items SET ItemAvailable = " + Item.ItemAvailable +
-                                 ", ItemSold = " + Item.ItemSold  +
+                                 ", ItemSold = " + Item.ItemSold +
                                  ", ItemDefective = " + Item.ItemDefective +
                                  ", ItemSubtype = " + Item.ItemSubType +
                                  ", ItemParent = " + Item.ItemParent +
@@ -8328,7 +8513,7 @@ namespace AWC.DigitalCommerce.TicketsController
                             clsInvoiceItem invoiceItem = new clsInvoiceItem();
 
                             invoiceItem.ItemID = Convert.ToInt32(sdr["ItemID"]);
-                            invoiceItem.ItemDescription= sdr["ItemDescription"].ToString();
+                            invoiceItem.ItemDescription = sdr["ItemDescription"].ToString();
                             invoiceItem.ItemQty = Convert.ToInt32(sdr["ItemQty"]);
 
                             invoiceItemsList.Add(invoiceItem);
@@ -9008,7 +9193,7 @@ namespace AWC.DigitalCommerce.TicketsController
         {
             try
             {
-                List <clsBartenderOrder> ordersList = new List<clsBartenderOrder>();
+                List<clsBartenderOrder> ordersList = new List<clsBartenderOrder>();
 
                 string sqlQry = $"SELECT TOP 2 * FROM tbl_BartenderOrder";
 
@@ -9027,7 +9212,7 @@ namespace AWC.DigitalCommerce.TicketsController
                             order.GUID = sdr["GUID"].ToString();
                             order.CustomerID = sdr["CustomerID"].ToString();
                             order.BeveragesList = sdr["BeveragesList"].ToString();
-                            
+
                             ordersList.Add(order);
                         }
                     }
@@ -9206,7 +9391,7 @@ namespace AWC.DigitalCommerce.TicketsController
                         }
                     }
                 }
-    
+
                 if (Settings.Default.DebugTrace)
                     Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, sqlQry, Logger.Severity.DEBUG);
 
@@ -9614,7 +9799,6 @@ namespace AWC.DigitalCommerce.TicketsController
                 return false;
             }
         }
-
         public static clsDailyAccountantReport GetDailyAccountantReport(string bussinessDate)
         {
             try
@@ -9660,5 +9844,272 @@ namespace AWC.DigitalCommerce.TicketsController
             }
         }
         #endregion
+
+        #region WEB TRANSACTIONS
+        public static List<clsCustomerVIP> GetWebCustomers()
+        {
+            try
+            {
+                List<clsCustomerVIP> webCustomers = new List<clsCustomerVIP>();
+
+                string sqlQry = "SELECT * FROM tbl_WebCustomers";
+
+                using (sqlConn = new SqlConnection(Settings.Default.TicketsControllerDbConn))
+                {
+                    sqlConn.Open();
+                    sqlCmd = new SqlCommand(sqlQry, sqlConn);
+                    SqlDataReader sdr = sqlCmd.ExecuteReader();
+
+                    if (sdr.HasRows)
+                    {
+                        while (sdr.Read())
+                        {
+                            clsCustomerVIP cust = GetCustomerProfile(sdr["CustomerID"].ToString());
+
+                            cust.MailAddress = sdr["GUID"].ToString();
+                            cust.ImagePath = sdr["Command"].ToString();
+                            webCustomers.Add(cust);
+                        }
+                    }
+                }
+
+                if (Settings.Default.DebugTrace)
+                    Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, sqlQry, Logger.Severity.DEBUG);
+
+                return webCustomers;
+            }
+            catch (Exception ex)
+            {
+                sqlConn.Close();
+                Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, ex, Logger.Severity.ERROR);
+                return null;
+            }
+        }
+
+        public static List<clsTicketDetail> GetWebDetailOrders(string guid)
+        {
+            try
+            {
+                List<clsTicketDetail> webDetailOrders = new List<clsTicketDetail>();
+
+                string sqlQry = $"SELECT * FROM tbl_WebDetailOrders WHERE GUID = '{guid}'";
+
+                using (sqlConn = new SqlConnection(Settings.Default.TicketsControllerDbConn))
+                {
+                    sqlConn.Open();
+                    sqlCmd = new SqlCommand(sqlQry, sqlConn);
+                    SqlDataReader sdr = sqlCmd.ExecuteReader();
+
+                    if (sdr.HasRows)
+                    {
+                        while (sdr.Read())
+                        {
+                            // first, lets retrieve the product
+                            clsItem item = GetItemByID(Convert.ToInt32(sdr["ProductId"]));
+
+                            // then, we create the clsTicketDetail object to be added to the list
+                            clsTicketDetail wdo = new clsTicketDetail();
+
+                            wdo.GUID = guid;
+                            wdo.Qty = Convert.ToInt32(sdr["Qty"]);
+                            wdo.ItemType = item.ItemType;
+                            wdo.ItemID  = item.ID;
+                            wdo.ItemDesc = item.ItemDescription;
+                            wdo.UnitPrice = item.UnitPrice;
+                            wdo.UnitCost = item.UnitCost;
+                            wdo.TotalPrice = item.UnitPrice * wdo.Qty;
+                            wdo.TotalCost = item.UnitCost * wdo.Qty;
+
+                            webDetailOrders.Add(wdo);
+                        }
+                    }
+                }
+
+                if (Settings.Default.DebugTrace)
+                    Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, sqlQry, Logger.Severity.DEBUG);
+
+                return webDetailOrders;
+            }
+            catch (Exception ex)
+            {
+                sqlConn.Close();
+                Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, ex, Logger.Severity.ERROR);
+                return null;
+            }
+        }
+
+        public static bool DeleteWebCustomer(string cusId)
+        {
+            try
+            {
+                bool result = false;
+
+                string sqlQry = $"DELETE FROM tbl_WebCustomers WHERE CustomerID = '{cusId}'";
+
+                using (sqlConn = new SqlConnection(Settings.Default.TicketsControllerDbConn))
+                {
+                    sqlConn.Open();
+                    SqlCommand sqlCmd = new SqlCommand(sqlQry, sqlConn);
+                    sqlCmd.ExecuteNonQuery();
+                    result = true;
+                }
+
+                if (Settings.Default.DebugTrace)
+                    Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, sqlQry, Logger.Severity.DEBUG);
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                sqlConn.Close();
+                Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, ex, Logger.Severity.ERROR);
+                Helper.ShowMessage("ERROR: " + ex, System.Windows.Forms.MessageBoxIcon.Error);
+                return false; ;
+            }
+        }
+
+        public static bool DeleteWebDetailOrders(string guid)
+        {
+            try
+            {
+                bool result = false;
+
+                string sqlQry = $"DELETE FROM tbl_WebDetailOrders WHERE GUID = '{guid}'";
+
+                using (sqlConn = new SqlConnection(Settings.Default.TicketsControllerDbConn))
+                {
+                    sqlConn.Open();
+                    SqlCommand sqlCmd = new SqlCommand(sqlQry, sqlConn);
+                    sqlCmd.ExecuteNonQuery();
+                    result = true;
+                }
+
+                if (Settings.Default.DebugTrace)
+                    Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, sqlQry, Logger.Severity.DEBUG);
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                sqlConn.Close();
+                Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, ex, Logger.Severity.ERROR);
+                Helper.ShowMessage("ERROR: " + ex, System.Windows.Forms.MessageBoxIcon.Error);
+                return false; ;
+            }
+        }
+
+        public static string GetWebTicketGIUD(string ticketDate, int custId)
+        {
+            try
+            {
+                string guid = string.Empty;
+
+                string sqlQry = $"SELECT * FROM tbl_Tickets WHERE TicketDate = '{ticketDate}' AND CustomerID = {custId} AND Status = 1";
+
+                using (sqlConn = new SqlConnection(Settings.Default.TicketsControllerDbConn))
+                {
+                    sqlConn.Open();
+                    sqlCmd = new SqlCommand(sqlQry, sqlConn);
+                    SqlDataReader sdr = sqlCmd.ExecuteReader();
+
+                    if (sdr.HasRows)
+                    {
+                        sdr.Read();
+                        guid = sdr["GUID"].ToString();
+                    }
+                }
+
+                if (Settings.Default.DebugTrace)
+                    Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, sqlQry, Logger.Severity.DEBUG);
+
+                return guid;
+            }
+            catch (Exception ex)
+            {
+                sqlConn.Close();
+                Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, ex, Logger.Severity.ERROR);
+                return null;
+            }
+        }
+
+        public static List<WebBucketsDetail> GetWebBucketItemsByGUID(string GUID)
+        {
+            try
+            {
+                List<WebBucketsDetail> webBucketsDetail = new List<WebBucketsDetail>();
+
+                string sqlQry = $"SELECT * FROM tbl_WebBucketDetails WHERE GUID = '{GUID}' ORDER BY ID ASC";
+
+                using (sqlConn = new SqlConnection(Settings.Default.TicketsControllerDbConn))
+                {
+                    sqlConn.Open();
+                    sqlCmd = new SqlCommand(sqlQry, sqlConn);
+                    SqlDataReader sdr = sqlCmd.ExecuteReader();
+
+                    if (sdr.HasRows)
+                    {
+                        while (sdr.Read())
+                        {
+                            WebBucketsDetail webBucketItem = new WebBucketsDetail();
+
+                            webBucketItem.Id = Convert.ToInt32(sdr["ID"]);
+                            webBucketItem.GUID = sdr["GUID"].ToString();
+                            webBucketItem.BucketId = Convert.ToInt32(sdr["BucketId"]);
+                            webBucketItem.ProductId = Convert.ToInt32(sdr["ProductId"]);
+                            webBucketItem.Qty = Convert.ToInt32(sdr["Qty"]);
+                            webBucketItem.Price = Convert.ToInt32(sdr["Price"]);
+
+                            webBucketsDetail.Add(webBucketItem);
+                        }
+                    }
+                }
+
+                if (Settings.Default.DebugTrace)
+                    Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, sqlQry, Logger.Severity.DEBUG);
+
+                return webBucketsDetail;
+            }
+            catch (Exception ex)
+            {
+                sqlConn.Close();
+                Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, ex, Logger.Severity.ERROR);
+                Helper.ShowMessage("ERROR: " + ex, System.Windows.Forms.MessageBoxIcon.Error);
+                return null;
+            }
+
+        }
+
+        public static bool DeleteWebBucketDetails(string guid)
+        {
+            try
+            {
+                bool result = false;
+
+                string sqlQry = $"DELETE FROM tbl_WebBucketDetails WHERE GUID = '{guid}'";
+
+                using (sqlConn = new SqlConnection(Settings.Default.TicketsControllerDbConn))
+                {
+                    sqlConn.Open();
+                    SqlCommand sqlCmd = new SqlCommand(sqlQry, sqlConn);
+                    sqlCmd.ExecuteNonQuery();
+                    result = true;
+                }
+
+                if (Settings.Default.DebugTrace)
+                    Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, sqlQry, Logger.Severity.DEBUG);
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                sqlConn.Close();
+                Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, ex, Logger.Severity.ERROR);
+                Helper.ShowMessage("ERROR: " + ex, System.Windows.Forms.MessageBoxIcon.Error);
+                return false; ;
+            }
+        }
+
+
+        #endregion WEB TRANSACTIONS
     }
 }

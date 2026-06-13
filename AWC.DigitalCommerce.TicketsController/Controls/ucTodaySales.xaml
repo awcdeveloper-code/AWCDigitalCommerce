@@ -28,27 +28,85 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="10"/>
                 <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="10"/>
                 <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
                 <RowDefinition Height="10"/>
             </Grid.RowDefinitions>
-            <Label Grid.Row="1" Grid.Column="8" Grid.ColumnSpan="2"
+
+            <!-- start date -->
+            <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"
+                   Content="FECHA INICIAL:"
+                   Foreground="Cyan"
+                   VerticalAlignment="Center"
+                   FontSize="25"
+                   FontWeight="DemiBold"/>
+
+            <DatePicker Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2"
+                        Name="StartDatePicker"
+                        SelectedDate="{Binding StartDate, Mode=TwoWay}"
+                        DisplayDateStart="{Binding MinDate, Mode=OneWay}"
+                        DisplayDateEnd="{Binding MaxDate, Mode=OneWay}"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        FontSize="25"
+                        FontWeight="DemiBold"/>
+
+            <!-- end date -->
+            <Label Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"
+                   Content="FECHA FINAL:"
+                    Foreground="Cyan"
+                    VerticalAlignment="Center"
+                    FontSize="25"
+                    FontWeight="DemiBold"/>
+
+            <DatePicker Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="2"
+                        Name="EndDatePicker"
+                        SelectedDate="{Binding EndDate, Mode=TwoWay}"
+                        DisplayDateStart="{Binding MinDate, Mode=OneWay}"
+                        DisplayDateEnd="{Binding MaxDate, Mode=OneWay}"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        FontSize="25"
+                        FontWeight="DemiBold"/>
+            
+            <!-- search button -->
+            <Button Grid.Row="1" Grid.Column="5"
+                    Grid.ColumnSpan="2" Grid.RowSpan="2"
+                    Name="Search"
+                    Click="btn_Search"
+                    Width="150" Height="50"
+                    FontSize="15"
+                    Margin="2"
+                    Cursor="Hand"
+                    FontWeight="DemiBold">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Images/search.png" Width="30" Height="30" Margin="5"/>
+                    <TextBlock Text="BUSCAR" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+
+            <!-- total summary -->
+            <Label Grid.Row="2" Grid.Column="8" Grid.ColumnSpan="2"
                    Name="TotalTodayTickets"
                    Foreground="Cyan"
                    HorizontalAlignment="Right"
                    VerticalAlignment="Center"
                    FontSize="30"
                    FontWeight="DemiBold"/>
+                
             <!--DATAGRID-->
-            <GroupBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="9"
+            <GroupBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="9"
                   Name="GroupBoxDataGrid"
                   Foreground="Cyan"
                   Header="CUENTAS DEL DIA">
                 <DataGrid Name="TodayTickets"
-                          Height="730" Width="1060"
+                          Height="680" Width="1060"
                           Margin="5"
-                          RowHeight="25"
+                          RowHeight="35"
+                          FontSize="25"
                           IsReadOnly="True"
                           HorizontalAlignment="Left"
                           HorizontalScrollBarVisibility="Disabled"
@@ -66,7 +124,7 @@
                           CanUserSortColumns = "False"
                           SelectionChanged="TodayTickets_SelectionChanged"
                           GotFocus="TodayTickets_GotFocus"
-                          SelectionMode="Single">
+                          SelectionMode="Extended">
                     <DataGrid.Resources>
                         <Style TargetType="ScrollBar">
                             <Style.Triggers>
@@ -88,7 +146,7 @@
                             </DataGridTextColumn.ElementStyle>
                         </DataGridTextColumn>
                         <DataGridTextColumn Header="TURNO"
-                                            Width="80"
+                                            Width="100"
                                             Binding="{Binding Path=Shift}"
                                             HeaderStyle="{StaticResource CenterGridHeaderStyle}">
                             <DataGridTextColumn.ElementStyle>
@@ -98,7 +156,7 @@
                             </DataGridTextColumn.ElementStyle>
                         </DataGridTextColumn>
                         <DataGridTextColumn Header="CUENTA"
-                                            Width="90"
+                                            Width="110"
                                             Binding="{Binding Path=ID}"
                                             HeaderStyle="{StaticResource CenterGridHeaderStyle}">
                             <DataGridTextColumn.ElementStyle>
@@ -108,11 +166,11 @@
                             </DataGridTextColumn.ElementStyle>
                         </DataGridTextColumn>
                         <DataGridTextColumn Header="CLIENTE"
-                                                Width="450"
+                                                Width="390"
                                                 Binding="{Binding Path=CustomerID}"
                                                 HeaderStyle="{StaticResource CenterGridHeaderStyle}"/>
                         <DataGridTextColumn Header="ESTADO"
-                                            Width="90"
+                                            Width="100"
                                             Binding="{Binding Path=StatusAlpha}"
                                             HeaderStyle="{StaticResource CenterGridHeaderStyle}">
                             <DataGridTextColumn.ElementStyle>
@@ -122,7 +180,7 @@
                             </DataGridTextColumn.ElementStyle>
                         </DataGridTextColumn>
                         <DataGridTextColumn Header="PAGO"
-                                            Width="75"
+                                            Width="85"
                                             Binding="{Binding Path=PayMethodAlpha}"
                                             HeaderStyle="{StaticResource CenterGridHeaderStyle}">
                             <DataGridTextColumn.ElementStyle>
@@ -145,8 +203,7 @@
                 </DataGrid>
             </GroupBox>
             
-            <!-- 1st row -->
-            <Button Grid.Row="4" Grid.Column="1"
+            <Button Grid.Row="5" Grid.Column="1"
                     Name="Print"
                     Click="btn_EmergencyPrint"
                     FontSize="15"
@@ -158,7 +215,7 @@
                     <TextBlock Text="ABIERTAS" VerticalAlignment="Center"/>
                 </StackPanel>
             </Button>
-            <Button Grid.Row="4" Grid.Column="2"
+            <Button Grid.Row="5" Grid.Column="2"
                     Name="PrintClosed"
                     Click="btn_PrintClosed"
                     IsEnabled="False"
@@ -171,7 +228,7 @@
                     <TextBlock Text="IMPRIMIR" VerticalAlignment="Center"/>
                 </StackPanel>
             </Button>
-            <Button Grid.Row="4" Grid.Column="3"
+            <Button Grid.Row="5" Grid.Column="3"
                     Name="ElectronicInvoice"
                     Click="btn_ElectronicInvoice"
                     IsEnabled="False"
@@ -184,7 +241,7 @@
                     <TextBlock Text="IVA" VerticalAlignment="Center"/>
                 </StackPanel>
             </Button>
-            <Button Grid.Row="4" Grid.Column="4"
+            <Button Grid.Row="5" Grid.Column="4"
                     Name="FakeTicket"
                     Click="btn_FakeTicket"
                     IsEnabled="False"
@@ -197,7 +254,7 @@
                     <TextBlock Text="MONTO" VerticalAlignment="Center"/>
                 </StackPanel>
             </Button>
-            <Button Grid.Row="4" Grid.Column="5"
+            <Button Grid.Row="5" Grid.Column="5"
                     Name="eMailTicket"
                     Click="btn_eMailTicket"
                     IsEnabled="False"
@@ -210,7 +267,7 @@
                     <TextBlock Text="CORREO" VerticalAlignment="Center"/>
                 </StackPanel>
             </Button>
-            <Button Grid.Row="4" Grid.Column="6"
+            <Button Grid.Row="5" Grid.Column="6"
                     Name="AbortTicket"
                     Click="btn_AbortTicket"
                     IsEnabled="False"
@@ -223,7 +280,7 @@
                     <TextBlock Text="ANULAR" VerticalAlignment="Center"/>
                 </StackPanel>
             </Button>
-            <Button Grid.Row="4" Grid.Column="7"
+            <Button Grid.Row="5" Grid.Column="7"
                     Name="ChangeName"
                     Click="btn_ChangeName"
                     IsEnabled="False"
@@ -236,7 +293,7 @@
                     <TextBlock Text="NOMBRE" VerticalAlignment="Center"/>
                 </StackPanel>
             </Button>
-            <Button Grid.Row="4" Grid.Column="8"
+            <Button Grid.Row="5" Grid.Column="8"
                     Name="PrintFoodService"
                     Click="btn_PrintFoodService"
                     IsEnabled="False"
@@ -249,7 +306,7 @@
                     <TextBlock Text="SERVICIO" VerticalAlignment="Center"/>
                 </StackPanel>
             </Button>
-            <Button Grid.Row="4" Grid.Column="9"
+            <Button Grid.Row="5" Grid.Column="9"
                     Name="ChangePayMethod"
                     Click="btn_ChangePayMethod"
                     IsEnabled="False"
@@ -260,6 +317,18 @@
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/Images/Money.ico" Width="30" Height="30" Margin="5"/>
                     <TextBlock Text="PAGO" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <Button Grid.Row="6" Grid.Column="1"
+                    Name="Excel"
+                    Click="btn_ExportToExcel"
+                    FontSize="15"
+                    Margin="2"
+                    Cursor="Hand"
+                    FontWeight="DemiBold">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Images/excel.png" Width="30" Height="30" Margin="5"/>
+                    <TextBlock Text="EXCEL" VerticalAlignment="Center"/>
                 </StackPanel>
             </Button>
         </Grid>

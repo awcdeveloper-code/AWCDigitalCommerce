@@ -40,8 +40,6 @@ namespace AWC.DigitalCommerce.TicketsController
 
                 pd.Document = pdoc;
                 pd.Document.DefaultPageSettings.PaperSize = psize;
-                pdoc.DefaultPageSettings.PaperSize.Width = Settings.Default.TicketWidth;
-                pdoc.DefaultPageSettings.PaperSize.Height = Settings.Default.TicketLength;
                 pdoc.DefaultPageSettings.PrinterSettings.PrinterName = Settings.Default.KitchenPrinter;
 
                 pdoc.PrintPage += new PrintPageEventHandler(pdoc_PrintPage);
@@ -54,6 +52,7 @@ namespace AWC.DigitalCommerce.TicketsController
         void pdoc_PrintPage(object sender, PrintPageEventArgs e)
         {
             Graphics graphics = e.Graphics;
+
             Pen blackPen = new Pen(Color.Black, 4);
 
             int startX = 0;
@@ -76,9 +75,6 @@ namespace AWC.DigitalCommerce.TicketsController
 
             graphics.DrawString(new string(' ', 18 - (custDesc.Length / 2)) + custDesc, new Font("Consolas Bold", 10), new SolidBrush(Color.Black), startX, startY + Offset);
             Offset += 20;
-
-            //e.Graphics.DrawLine(blackPen, 0, Offset, 200, Offset);
-            //Offset += 18;
 
             graphics.DrawString(DateTime.Now.ToString("dd.MM.yyyy hh:mm tt"), new Font("Consolas", 11), new SolidBrush(Color.Black), startX, startY + Offset);
             Offset += 20;

@@ -1,4 +1,10 @@
-﻿using System;
+﻿using AWC.DigitalCommerce.TicketsController.Classes;
+using AWC.DigitalCommerce.TicketsController.Controls;
+using AWC.DigitalCommerce.TicketsController.Properties;
+using AWC.DigitalCommerce.TicketsController.xPrinter;
+using Newtonsoft.Json.Linq;
+using Org.BouncyCastle.Asn1.Ocsp;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
@@ -6,17 +12,15 @@ using System.Globalization;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Speech.Synthesis;
 using System.Text;
+using System.Text.Json;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Forms;
 using System.Xml.Serialization;
-using AWC.DigitalCommerce.TicketsController.Properties;
-using AWC.DigitalCommerce.TicketsController.Controls;
-using Newtonsoft.Json.Linq;
-using System.Net.Http;
-using System.Threading.Tasks;
-using System.Speech.Synthesis;
-using AWC.DigitalCommerce.TicketsController.Classes;
 
 namespace AWC.DigitalCommerce.TicketsController
 {
@@ -49,24 +53,30 @@ namespace AWC.DigitalCommerce.TicketsController
                 return false;
             }
         }
-        public static int GetCurrencyExchange()
+
+        public async static Task<decimal> GetCurrencyExchangeAPI()
         {
             try
             {
-                if (SMTP.CheckInternetConnection())
-                {
-                    string today = DB.ConverTicketDate(Settings.Default.BusinessDate).Replace(".", "/");
+                string date = DateTime.Now.ToString("yyyy/MM/dd");
 
-                    cr.fi.bccr.gee.wsindicadoreseconomicos bccrWS = new cr.fi.bccr.gee.wsindicadoreseconomicos();
+                string urlBuy = $"https://apim.bccr.fi.cr/sdde/api/Bccr.Ge.SDDE.Publico.Indicadores.API/indicadoresEconomicos/317/series?fechaInicio={date}&fechaFin={date}&idioma=es";
 
-                    DataSet ds = bccrWS.ObtenerIndicadoresEconomicos("317", today, today, "Guillermo Grillo", "N", "guillermoegrillo@outlook.com", "EOZMLUIEGI");
+                HttpClient client = new HttpClient();
 
-                    return Convert.ToInt32(ds.Tables[0].Rows[0].ItemArray[2].ToString().Split(',')[0]);
-                }
-                else
-                {
-                    return Settings.Default.USDollarExchangeRate;
-                }
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Settings.Default.BCCRWebService);
+                
+                HttpResponseMessage response = await client.GetAsync(urlBuy);
+
+                response.EnsureSuccessStatusCode();
+
+                string json = await response.Content.ReadAsStringAsync();
+
+                JsonDocument document = JsonDocument.Parse(json);
+
+                Settings.Default.USDollarExchangeRate = document.RootElement.GetProperty("datos")[0].GetProperty("series")[0].GetProperty("valorDatoPorPeriodo").GetDecimal();
+                
+                return Settings.Default.USDollarExchangeRate;
             }
             catch (Exception ex)
             {
@@ -74,6 +84,7 @@ namespace AWC.DigitalCommerce.TicketsController
                 return Settings.Default.USDollarExchangeRate;
             }
         }
+
         public static List<clsTicketsForDataGrid> ConvertTicketDetail2TicketDataGrid(List<clsTicketDetail> itemsList)
         {
             try
@@ -1036,8 +1047,16 @@ namespace AWC.DigitalCommerce.TicketsController
             {
                 if (IsMeal)
                 {
-                    xPrinterMealOrder xPrintMealTck = new xPrinterMealOrder(custName, mealList);
-                    xPrintMealTck.print();
+                    if (Settings.Default.KitchenPrinter80mm)
+                    {
+                        xPrinterMealOrder80mm xPrintMealTck = new xPrinterMealOrder80mm(custName, mealList);
+                        xPrintMealTck.print();
+                    }
+                    else
+                    {
+                        xPrinterMealOrder xPrintMealTck = new xPrinterMealOrder(custName, mealList);
+                        xPrintMealTck.print();
+                    }
                 }
                 else
                 {

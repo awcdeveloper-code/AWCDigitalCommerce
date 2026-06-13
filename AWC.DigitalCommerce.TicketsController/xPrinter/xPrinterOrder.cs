@@ -88,6 +88,7 @@ namespace AWC.DigitalCommerce.TicketsController
                 graphics.DrawString(workVar, new Font("Consolas Bold", 10), new SolidBrush(Color.Black), startX, startY + Offset);
                 Offset += 18;
             }
+
             Offset += 2;
             graphics.DrawString(new string('-', 30), new Font("Consolas", 8), new SolidBrush(Color.Black), startX, startY + Offset);
             Offset += 60;

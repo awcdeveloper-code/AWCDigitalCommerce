@@ -12,7 +12,7 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "18.4.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "18.7.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -377,9 +377,9 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int USDollarExchangeRate {
+        public decimal USDollarExchangeRate {
             get {
-                return ((int)(this["USDollarExchangeRate"]));
+                return ((decimal)(this["USDollarExchangeRate"]));
             }
             set {
                 this["USDollarExchangeRate"] = value;
@@ -454,7 +454,7 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("190,80")]
+        [global::System.Configuration.DefaultSettingValueAttribute("190,190")]
         public string TicketHeaderWH {
             get {
                 return ((string)(this["TicketHeaderWH"]));
@@ -544,18 +544,6 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-<<<<<<< HEAD
-=======
-        [global::System.Configuration.DefaultSettingValueAttribute("Server=DESKTOP-R3LB5K0;Database=AWCDigitalCommerce;User Id=sa;Password=sa;")]
-        public string TicketsControllerDbConn {
-            get {
-                return ((string)(this["TicketsControllerDbConn"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
->>>>>>> 278222075a29f9c54bd737b91f3dd98bdab8bd59
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string BartenderPrinter {
             get {
@@ -610,17 +598,7 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://gee.bccr.fi.cr/Indicadores/Suscripciones/WS/wsindicadoreseconomicos.asmx")]
-        public string BCCRWebService {
-            get {
-                return ((string)(this["BCCRWebService"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\AWC.DigitalCommerce\\Images\\RinconDelRobalo-BW.png")]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\AWC.DigitalCommerce\\Images\\BarLaPlaza.png")]
         public string BusinessLogo {
             get {
                 return ((string)(this["BusinessLogo"]));
@@ -629,7 +607,7 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("RESTOBAR PIMENTÓN")]
+        [global::System.Configuration.DefaultSettingValueAttribute("BAR LA PLAZA DONDE ALE")]
         public string BusinessName {
             get {
                 return ((string)(this["BusinessName"]));
@@ -647,7 +625,7 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("TELÉFONO 2234-5628")]
+        [global::System.Configuration.DefaultSettingValueAttribute("TELÉFONO 1234-5678")]
         public string BusinessPhoneNumber {
             get {
                 return ((string)(this["BusinessPhoneNumber"]));
@@ -656,7 +634,7 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("ZAPOTE")]
+        [global::System.Configuration.DefaultSettingValueAttribute("COSTADO NORTE DE LA PLAZA")]
         public string BusinessAddress1 {
             get {
                 return ((string)(this["BusinessAddress1"]));
@@ -665,7 +643,7 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("FRENTE AL REGISTRO NACIONAL")]
+        [global::System.Configuration.DefaultSettingValueAttribute("SAN MIGUEL, SAN JOSÉ")]
         public string BusinessAddress2 {
             get {
                 return ((string)(this["BusinessAddress2"]));
@@ -704,7 +682,7 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("3")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public int BartenderOrderTickInSeconds {
             get {
                 return ((int)(this["BartenderOrderTickInSeconds"]));
@@ -1098,6 +1076,33 @@ namespace AWC.DigitalCommerce.TicketsController.Properties {
         public string TicketsControllerDbConn {
             get {
                 return ((string)(this["TicketsControllerDbConn"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJCQ0NSLVNEREUiLCJzdWIiOiJhaWRhd2FyZWNvbnN1bHRhbmNpZXNAZ21haWwuY29tIiwiYXVkIjoiU0RERS1TaXRpb0V4dGVybm8iLCJleHAiOjI1MzQwMjMwMDgwMCwibmJmIjoxNzc3MDYwMjUzLCJpYXQiOjE3NzcwNjAyNTMsImp0aSI6IjdiNzczYzc0LTllNDktNGZiMS1hMjE5LWQyNDQ0ZDUzMGRmZCIsImVtYWlsIjoiYWlkYXdhcmVjb25zdWx0YW5jaWVzQGdtYWlsLmNvbSJ9.ZAqVo-FrZHGlLF9otvq7ktoVjmt6ZRhLtqGhxMdZ3z0")]
+        public string BCCRWebService {
+            get {
+                return ((string)(this["BCCRWebService"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool WebUsers {
+            get {
+                return ((bool)(this["WebUsers"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool KitchenPrinter80mm {
+            get {
+                return ((bool)(this["KitchenPrinter80mm"]));
             }
         }
     }

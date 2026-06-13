@@ -1,19 +1,21 @@
-﻿using System;
+﻿using AWC.DigitalCommerce.TicketsController.Classes;
+using AWC.DigitalCommerce.TicketsController.Controls;
+using AWC.DigitalCommerce.TicketsController.Properties;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
+using System.Media;
+using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Threading;
-using AWC.DigitalCommerce.TicketsController.Properties;
-using AWC.DigitalCommerce.TicketsController.Controls;
-using System.Runtime.InteropServices;
-using System.Reflection;
 using System.Windows.Media.Imaging;
-using System.Globalization;
-using AWC.DigitalCommerce.TicketsController.Classes;
+using System.Windows.Threading;
 
 namespace AWC.DigitalCommerce.TicketsController
 {
@@ -29,6 +31,7 @@ namespace AWC.DigitalCommerce.TicketsController
         private TabItem newTab = new TabItem();
         private DispatcherTimer localTimer = new DispatcherTimer();
         private DispatcherTimer bartenderOrder = new DispatcherTimer();
+        private DispatcherTimer WebMonitorTimer = new DispatcherTimer();
         private DispatcherTimer timer = new DispatcherTimer();
         public clsUser userProf = new clsUser();
         private clsCustomerVIP custProf = new clsCustomerVIP();
@@ -134,6 +137,256 @@ namespace AWC.DigitalCommerce.TicketsController
             CurrentDateTime.Content = DateTime.Now.ToString("dd.MM.yyyy hh:mm tt");
             timer.Start();
         }
+        private void WebMonitorTimer_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                WebMonitorTimer.Stop();
+
+                // check if tbl_WebCustomers has records to be processed
+                List<clsCustomerVIP> custList = DB.GetWebCustomers();
+
+                // process records if exist
+                if (custList != null && custList.Count > 0)
+                {
+                    foreach (clsCustomerVIP cust in custList)
+                    {
+                        switch(cust.ImagePath)
+                        {
+                            case "ReceiptOrder":
+                                int tnum = 0;
+
+                                bool alreadyExist = false;
+
+                                string ticketGUID = string.Empty;
+
+                                clsTicket ticket = new clsTicket();
+
+                                // validate if the customer profile already have a ticket
+                                if (cust.Active)
+                                {
+                                    alreadyExist = true;
+
+                                    tnum = cust.ID;
+
+                                    string ticketDate = Settings.Default.BusinessDate;
+
+                                    ticketGUID = DB.GetWebTicketGIUD(ticketDate, cust.ID);
+                                }
+                                else
+                                {
+                                    ticketGUID = cust.MailAddress;
+                                    ticket.TicketDate = Settings.Default.BusinessDate;
+                                    ticket.GUID = cust.MailAddress;
+                                    ticket.CustID = cust.ID;
+                                    ticket.TotalPrice = 0;
+                                    ticket.Status = true;
+                                    ticket.ApplyServiceFee = cust.ApplyServiceFee;
+                                    ticket.CustomerAKA = cust.CustomerID;
+                                    ticket.Shift = 0;
+
+                                    tnum = DB.InsertNewTicket(ticket, Settings.Default.WhoOpen);
+                                }
+
+                                if (tnum > 0)
+                                {
+                                    // get order details
+                                    List<clsTicketDetail> wdo = DB.GetWebDetailOrders(cust.MailAddress);
+
+                                    if (tnum > 0)
+                                    {
+                                        // create the details
+                                        if (DB.InsertTicketDetail(wdo, ticketGUID, Settings.Default.WhoOpen, true))
+                                        {
+                                            DB.DeleteWebDetailOrders(cust.MailAddress);
+
+                                            if (!alreadyExist)
+                                                DB.InsertNewOpenTicket(cust);
+
+                                            Helper.GetMealItemsFromTicket(cust.ID, wdo);
+                                        }
+                                        else
+                                        {
+                                            Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, $"Web Ticket Details failed to save.", Logger.Severity.ERROR);
+                                            return;
+                                        }
+
+                                        // check if the ticket have buckets
+                                        List<WebBucketsDetail> webBucketDet = DB.GetWebBucketItemsByGUID(ticket.GUID);
+
+                                        if (webBucketDet.Count > 0)
+                                        {
+                                            List<string> beverages = new List<string>();
+
+                                            foreach (WebBucketsDetail bi in webBucketDet)
+                                            {
+                                                DB.InsertBucketDetail(tnum, bi.GUID, bi.ProductId, bi.Qty);
+
+                                                clsItem item = DB.GetItem(bi.ProductId);
+
+                                                beverages.Add(bi.Qty.ToString() + "|" + item.ItemDescription);
+                                            }
+
+                                            if (beverages.Count> 0)
+                                            {
+                                                xPrinterBeveragesOrder order = new xPrinterBeveragesOrder(cust.CustomerID, beverages);
+                                                order.print();
+
+                                            }
+
+                                            DB.DeleteWebBucketDetails(ticket.GUID);
+                                        }
+                                    }
+                                    else
+                                    {
+                                        Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, $"Web Ticket failed to save.", Logger.Severity.ERROR);
+                                        return;
+                                    }
+                                }
+
+                                DB.DeleteWebCustomer(cust.CustomerID);
+
+                                Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, "Web Ticket created successfully.", Logger.Severity.INFORMATION);
+
+                                SystemSounds.Beep.Play();
+
+                                break;
+                            case "PrintTicket":
+
+                                TicketViewModel tvm = JsonConvert.DeserializeObject<TicketViewModel>(cust.MailAddress);
+
+                                clsTicket tck = DB.GetTicket(tvm.ID);
+
+                                Helper.PrintTicket(Helper.Convert2TicketsForDataGrid(tck, cust.CustomerID));
+
+                                Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, "Web Ticket printed successfully.", Logger.Severity.INFORMATION);
+
+                                DB.DeleteWebCustomer(tvm.CustomerID);
+
+                                SystemSounds.Beep.Play();
+
+                                break;
+                            case "PayTicket":
+
+                                List<clsItemDetailForDatagrid> itemdg = new List<clsItemDetailForDatagrid>();
+
+                                PaymentTicket pt = JsonConvert.DeserializeObject<PaymentTicket>(cust.MailAddress);
+
+                                clsTicket tckToPay = DB.GetTicket(pt.ID);
+
+                                clsCustomerVIP custProfile = DB.GetCustomerProfile(pt.CustomerID);
+
+                                string targGUID = tckToPay.GUID;
+
+                                itemdg = Settings.Default.AllowTicketSummary ? DB.GetItemsByGUID(targGUID, true) : DB.GetItemsByGUID(targGUID, false);
+
+                                // update inventory
+                                foreach (clsItemDetailForDatagrid idg in itemdg)
+                                {
+                                    if (idg.ItemID > 100000)
+                                    {
+                                        // old ticket added to the current ticket
+                                        DB.UpdateTicketStatus(idg.ItemID - 100000, 0, idg.TotalPrice, 0, idg.TotalPrice, 0, 0, 0, Settings.Default.WhoOpen, pt.CustomerID);
+
+                                        // add ticket to tbl_TicketsOldCancelled
+                                        DB.InsertOldTicketCancelled(Settings.Default.BusinessDate, idg.ItemID - 100000, idg.TotalPrice);
+                                    }
+
+                                    clsItem oItem = DB.GetItem(idg.ItemID);
+
+                                    clsItem item = new clsItem();
+                                    item.ID = idg.ItemID;
+                                    item.ItemSubType = oItem.ItemSubType;
+                                    item.ItemSold = idg.Qty;
+
+                                    DB.UpdateItemInventory("SAL", item);
+
+                                    if (DB.IsMealItemType(idg.ItemDesc))
+                                    {
+                                        Helper.ApplySaleToInvenytory(idg.ItemID, idg.Qty);
+                                    }
+
+                                    clsPromoConfig promo = DB.GetPromotion(idg.ItemID);
+
+                                    if (promo.ID > 0)
+                                    {
+                                        clsItem ni = new clsItem();
+                                        ni.ID = promo.ItemID;
+                                        ni.ItemSold = promo.PromoQty * idg.Qty;
+                                        DB.UpdateItemInventory("SAL", ni);
+                                    }
+                                }
+
+                                // check if the ticket have buckets
+                                List<clsBucketsDetail> haveBuckets = DB.GetBucketsByTicketNumber(tckToPay.ID);
+
+                                if (haveBuckets.Count > 0)
+                                {
+                                    foreach (clsBucketsDetail bi in haveBuckets)
+                                    {
+                                        clsItem item = new clsItem();
+                                        item.ID = bi.ItemID;
+                                        item.ItemSold = bi.Qty;
+                                        DB.UpdateItemInventory("SAL", item);
+                                    }
+                                    DB.DeleteBucketDetailByTicketNumber(tckToPay.ID);
+                                }
+
+                                // update ticket
+                                DB.UpdateTicketStatus(tckToPay.ID, 0, pt.TotalAmount, 0, pt.Cash, pt.CreditCard, pt.Transfer, pt.Voucher, Settings.Default.WhoOpen, pt.CustomerID);
+
+                                // update customer status
+                                DB.UpdateCustomerStatus(custProfile.ID, 0);
+
+                                // update loyalty points for VIP only
+                                if (custProfile.Type == 1)
+                                {
+                                    DB.UpdateCustomerLoyaltyPoints(custProfile.ID, pt.TotalAmount);
+                                }
+
+                                // delete Customer from OpenTickets
+                                DB.DeleteOpenTickets(custProfile.ID);
+
+                                // print SINPE ticket if transfer was used
+                                if (pt.Transfer > 0)
+                                {
+                                    if (Settings.Default.PrintSINPETicket)
+                                    {
+                                        tckToPay.Transfer = pt.Transfer;
+                                        Helper.PrintTicket(Helper.Convert2TicketsForDataGrid(tckToPay, custProfile.CustomerID), 1);
+                                    }
+                                }
+
+                                // print cancelled ticket
+                                if (Settings.Default.PrintClosedTicket)
+                                {
+                                    tckToPay.Status = false;
+                                    tckToPay.Cash = pt.Cash;
+                                    tckToPay.CreditCard = pt.CreditCard;
+                                    tckToPay.Transfer = pt.Transfer;
+                                    tckToPay.Voucher = pt.Voucher;
+
+                                    Helper.PrintTicket(Helper.Convert2TicketsForDataGrid(tckToPay, custProfile.CustomerID));
+                                }
+
+                                DB.DeleteWebCustomer(pt.CustomerID);
+
+                                SystemSounds.Beep.Play();
+
+                                break;
+                        }
+                    }
+                }
+
+                WebMonitorTimer.Start();
+            }
+            catch (Exception)
+            {
+                Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, $"WebMonitorTimer_Tick failed.", Logger.Severity.ERROR);
+                return;
+            }
+        }
+
         private void MainWindow2_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
@@ -399,6 +652,13 @@ namespace AWC.DigitalCommerce.TicketsController
                 SetUserAccessToResources2();
 
                 Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, "Tickets Controller App initialized successfully.", Logger.Severity.INFORMATION);
+
+                if (Settings.Default.WebUsers)
+                {
+                    WebMonitorTimer.Tick += new EventHandler(WebMonitorTimer_Tick);
+                    WebMonitorTimer.Interval = new TimeSpan(0, 0, 3);
+                    WebMonitorTimer.Start();
+                }
 
                 if (Settings.Default.BartenderOrderTickInSeconds > 0 && Settings.Default.UseBartenderOrdersMonitor)
                 {

@@ -113,7 +113,7 @@
     <Setting Name="KitchenPrinterCopies" Type="System.Int32" Scope="Application">
       <Value Profile="(Default)">1</Value>
     </Setting>
-    <Setting Name="USDollarExchangeRate" Type="System.Int32" Scope="User">
+    <Setting Name="USDollarExchangeRate" Type="System.Decimal" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="AIDAwareBanner" Type="System.String" Scope="Application">
@@ -138,7 +138,7 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="TicketHeaderWH" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">190,80</Value>
+      <Value Profile="(Default)">190,190</Value>
     </Setting>
     <Setting Name="WorkStationType" Type="System.String" Scope="Application">
       <Value Profile="(Default)">MASTER</Value>
@@ -167,12 +167,6 @@
     <Setting Name="StartAlarmsThread" Type="System.Boolean" Scope="Application">
       <Value Profile="(Default)">True</Value>
     </Setting>
-<<<<<<< HEAD
-=======
-    <Setting Name="TicketsControllerDbConn" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">Server=DESKTOP-R3LB5K0;Database=AWCDigitalCommerce;User Id=sa;Password=sa;</Value>
-    </Setting>
->>>>>>> 278222075a29f9c54bd737b91f3dd98bdab8bd59
     <Setting Name="BartenderPrinter" Type="System.String" Scope="Application">
       <Value Profile="(Default)" />
     </Setting>
@@ -191,26 +185,23 @@
     <Setting Name="PrintKitchenOrderHigherThan" Type="System.Int32" Scope="Application">
       <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="BCCRWebService" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">https://gee.bccr.fi.cr/Indicadores/Suscripciones/WS/wsindicadoreseconomicos.asmx</Value>
-    </Setting>
     <Setting Name="BusinessLogo" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">C:\AWC.DigitalCommerce\Images\RinconDelRobalo-BW.png</Value>
+      <Value Profile="(Default)">C:\AWC.DigitalCommerce\Images\BarLaPlaza.png</Value>
     </Setting>
     <Setting Name="BusinessName" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">RESTOBAR PIMENTÓN</Value>
+      <Value Profile="(Default)">BAR LA PLAZA DONDE ALE</Value>
     </Setting>
     <Setting Name="BusinessID" Type="System.String" Scope="Application">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="BusinessPhoneNumber" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">TELÉFONO 2234-5628</Value>
+      <Value Profile="(Default)">TELÉFONO 1234-5678</Value>
     </Setting>
     <Setting Name="BusinessAddress1" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">ZAPOTE</Value>
+      <Value Profile="(Default)">COSTADO NORTE DE LA PLAZA</Value>
     </Setting>
     <Setting Name="BusinessAddress2" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">FRENTE AL REGISTRO NACIONAL</Value>
+      <Value Profile="(Default)">SAN MIGUEL, SAN JOSÉ</Value>
     </Setting>
     <Setting Name="WeeklyBackupSent" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
@@ -222,7 +213,7 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="BartenderOrderTickInSeconds" Type="System.Int32" Scope="Application">
-      <Value Profile="(Default)">3</Value>
+      <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="PrintTicketRemotely" Type="System.Boolean" Scope="Application">
       <Value Profile="(Default)">False</Value>
@@ -349,6 +340,15 @@
     </Setting>
     <Setting Name="TicketsControllerDbConn" Type="System.String" Scope="Application">
       <Value Profile="(Default)">Server=LAPTOP-43PDJ2Q9;Database=AWCDigitalCommerce;User Id=sa;Password=sa;</Value>
+    </Setting>
+    <Setting Name="BCCRWebService" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJCQ0NSLVNEREUiLCJzdWIiOiJhaWRhd2FyZWNvbnN1bHRhbmNpZXNAZ21haWwuY29tIiwiYXVkIjoiU0RERS1TaXRpb0V4dGVybm8iLCJleHAiOjI1MzQwMjMwMDgwMCwibmJmIjoxNzc3MDYwMjUzLCJpYXQiOjE3NzcwNjAyNTMsImp0aSI6IjdiNzczYzc0LTllNDktNGZiMS1hMjE5LWQyNDQ0ZDUzMGRmZCIsImVtYWlsIjoiYWlkYXdhcmVjb25zdWx0YW5jaWVzQGdtYWlsLmNvbSJ9.ZAqVo-FrZHGlLF9otvq7ktoVjmt6ZRhLtqGhxMdZ3z0</Value>
+    </Setting>
+    <Setting Name="WebUsers" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="KitchenPrinter80mm" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -1,6 +1,0 @@
-@AWC.DigitalCommerce.API_HostAddress = http://localhost:5140
-
-GET {{AWC.DigitalCommerce.API_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

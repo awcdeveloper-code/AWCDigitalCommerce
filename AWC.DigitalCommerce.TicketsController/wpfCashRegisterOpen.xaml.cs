@@ -30,14 +30,20 @@ namespace AWC.DigitalCommerce.TicketsController
             Traductor.ApplyTranslation(this, lang);
         }
 
-        private void wpfCashRegisterOpenRendered(object sender, EventArgs e)
+        private async void wpfCashRegisterOpenRendered(object sender, EventArgs e)
         {
             BCCR.Content = "Contactando al BCCR, espere...";
+            
             txtCashRegisterAmount.Text = Settings.Default.CashRegisterOpening.ToString();
-            txtUSDollarExhangeRate.Text = Helper.GetCurrencyExchange().ToString();
+
+            decimal exchangeRate = await Helper.GetCurrencyExchangeAPI();
+            
+            txtUSDollarExhangeRate.Text = exchangeRate.ToString("F2").Replace(",", ".");
+            
             BCCR.Content = "(Tasa de Cambio BCCR)";
 
             txtCashRegisterAmount.IsEnabled = true;
+            
             txtUSDollarExhangeRate.IsEnabled = true;
 
             txtCashRegisterAmount.Focus();
@@ -69,12 +75,12 @@ namespace AWC.DigitalCommerce.TicketsController
 
                 DB.UpdateCashOnHandAtTheBeginning(CashRegisterAmount);
 
-                if (SMTP.CheckInternetConnection() && Settings.Default.GetDailyQuote.Length > 0)
-                {
-                    string dailyQuote = await Helper.GetDailyQuote();
-                    Mouse.OverrideCursor = null;
-                    wpfMessageBox.Show("Tickets Controller", dailyQuote, MessageBoxButton.OK, wpfMessageBox.MessageBoxImage.Information, null);
-                }
+                //if (SMTP.CheckInternetConnection() && Settings.Default.GetDailyQuote.Length > 0)
+                //{
+                //    string dailyQuote = await Helper.GetDailyQuote();
+                //    Mouse.OverrideCursor = null;
+                //    wpfMessageBox.Show("Tickets Controller", dailyQuote, MessageBoxButton.OK, wpfMessageBox.MessageBoxImage.Information, null);
+                //}
 
                 this.Close();
             }

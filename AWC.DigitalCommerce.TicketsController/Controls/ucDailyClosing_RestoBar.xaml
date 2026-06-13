@@ -32,22 +32,23 @@
             <RowDefinition Height="10"/>
             <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
             <RowDefinition Height="20"/>
             <RowDefinition Height="60"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        
         <!--LABELS IMAGES-->
         <Image Source="Images/calendar.png" 
                Grid.Row="1" Grid.Column="1"
@@ -97,7 +98,7 @@
                Foreground="Cyan"
                VerticalAlignment="Center"
                HorizontalAlignment="Right"
-               FontSize="20"
+               FontSize="18"
                FontWeight="DemiBold"/>
         <DatePicker Grid.Row="1" Grid.Column="3"
                     Grid.ColumnSpan="2"
@@ -105,7 +106,7 @@
                     SelectedDateFormat="Short"
                     VerticalAlignment="Center"
                     Margin="5"
-                    FontSize="20"
+                    FontSize="18"
                     FontWeight="DemiBold"
                     IsEnabled="False"
                     SelectedDateChanged="SelectedDay_SelectedDateChanged"/>
@@ -114,12 +115,12 @@
                Foreground="Cyan"
                VerticalAlignment="Center"
                HorizontalAlignment="Right"
-               FontSize="20"
+               FontSize="18"
                FontWeight="DemiBold"/>
         <TextBox Grid.Row="2" Grid.Column="3"
                  Name="txtShift"
                  Width="50"
-                 FontSize="20"
+                 FontSize="18"
                  Margin="5"
                  Background="Cyan"
                  HorizontalAlignment="Left"
@@ -133,14 +134,14 @@
                Foreground="Cyan"
                VerticalAlignment="Center"
                HorizontalAlignment="Right"
-               FontSize="20"
+               FontSize="18"
                FontWeight="DemiBold"/>
         <Label Grid.Row="4" Grid.Column="2"
                Content="INGRESOS CAJA (IC) :"
                Foreground="Cyan"
                VerticalAlignment="Center"
                HorizontalAlignment="Right"
-               FontSize="20"
+               FontSize="18"
                FontWeight="DemiBold"/>
         <Label Grid.Row="4" Grid.Column="3"
                Name="lbl_IncomeCash"
@@ -148,7 +149,7 @@
                Content="0"
                VerticalAlignment="Center"
                HorizontalAlignment="Right"
-               FontSize="25"
+               FontSize="20"
                FontWeight="DemiBold"/>
         <Label Grid.Row="3" Grid.Column="3"
                Name="lbl_InitialCash"
@@ -156,14 +157,14 @@
                Content="0"
                VerticalAlignment="Center"
                HorizontalAlignment="Right"
-               FontSize="25"
+               FontSize="20"
                FontWeight="DemiBold"/>
         <Label Grid.Row="5" Grid.Column="2"
                Content="CUENTAS ABIERTAS :"
                Foreground="Cyan"
                VerticalAlignment="Center"
                HorizontalAlignment="Right"
-               FontSize="20"
+               FontSize="18"
                FontWeight="DemiBold"/>
         <Label Grid.Row="5" Grid.Column="3"
                Name="lbl_OutstandingAmount"
@@ -171,14 +172,14 @@
                Content="0"
                VerticalAlignment="Center"
                HorizontalAlignment="Right"
-               FontSize="25"
+               FontSize="20"
                FontWeight="DemiBold"/>
         <Label Grid.Row="6" Grid.Column="2"
                Content="CI + IC + EFECTIVO - G :"
                Foreground="Cyan"
                VerticalAlignment="Center"
                HorizontalAlignment="Right"
-               FontSize="20"
+               FontSize="18"
                FontWeight="DemiBold"/>
         <Label Grid.Row="6" Grid.Column="3"
                Name="lbl_Cash"
@@ -186,14 +187,14 @@
                Content="0"
                VerticalAlignment="Center"
                HorizontalAlignment="Right"
-               FontSize="25"
+               FontSize="20"
                FontWeight="DemiBold"/>
         <Label Grid.Row="7" Grid.Column="2"
                Content="TARJETA CRÉDITO :"
                Foreground="Cyan"
                VerticalAlignment="Center"
                HorizontalAlignment="Right"
-               FontSize="20"
+               FontSize="18"
                FontWeight="DemiBold"/>
         <Label Grid.Row="7" Grid.Column="3"
                Name="lbl_CreditCard"
@@ -201,14 +202,14 @@
                Content="0"
                VerticalAlignment="Center"
                HorizontalAlignment="Right"
-               FontSize="25"
+               FontSize="20"
                FontWeight="DemiBold"/>
         <Label Grid.Row="8" Grid.Column="2"
                Content="SINPE :"
                Foreground="Cyan"
                VerticalAlignment="Center"
                HorizontalAlignment="Right"
-               FontSize="20"
+               FontSize="18"
                FontWeight="DemiBold"/>
         <Label Grid.Row="8" Grid.Column="3"
                Name="lbl_Transfer"
@@ -216,14 +217,14 @@
                Content="0"
                VerticalAlignment="Center"
                HorizontalAlignment="Right"
-               FontSize="25"
+               FontSize="20"
                FontWeight="DemiBold"/>
         <Label Grid.Row="9" Grid.Column="2"
                Content="VOUCHERS :"
                Foreground="Cyan"
                VerticalAlignment="Center"
                HorizontalAlignment="Right"
-               FontSize="20"
+               FontSize="18"
                FontWeight="DemiBold"/>
         <Label Grid.Row="9" Grid.Column="3"
                Name="lbl_Voucher"
@@ -231,14 +232,14 @@
                Content="0"
                VerticalAlignment="Center"
                HorizontalAlignment="Right"
-               FontSize="25"
+               FontSize="20"
                FontWeight="DemiBold"/>
         <Label Grid.Row="10" Grid.Column="2"
                Content="VENTA BRUTA :"
                Foreground="Cyan"
                VerticalAlignment="Center"
                HorizontalAlignment="Right"
-               FontSize="20"
+               FontSize="18"
                FontWeight="DemiBold"/>
         <Label Grid.Row="10" Grid.Column="3"
                Name="lbl_TotalSale"
@@ -246,14 +247,14 @@
                Content="0"
                VerticalAlignment="Center"
                HorizontalAlignment="Right"
-               FontSize="25"
+               FontSize="20"
                FontWeight="DemiBold"/>
         <Label Grid.Row="11" Grid.Column="2"
                Content="VENTA NETA :"
                Foreground="Cyan"
                VerticalAlignment="Center"
                HorizontalAlignment="Right"
-               FontSize="20"
+               FontSize="18"
                FontWeight="DemiBold"/>
         <Label Grid.Row="11" Grid.Column="3"
                Name="lbl_NetSale"
@@ -261,14 +262,14 @@
                Content="0"
                VerticalAlignment="Center"
                HorizontalAlignment="Right"
-               FontSize="25"
+               FontSize="20"
                FontWeight="DemiBold"/>
         <Label Grid.Row="12" Grid.Column="2"
                Content="10% SERVICIO :"
                VerticalAlignment="Center"
                HorizontalAlignment="Right"
                Foreground="White"
-               FontSize="20"
+               FontSize="18"
                FontWeight="DemiBold"/>
         <Label Grid.Row="12" Grid.Column="3"
                Name="lbl_ServiceFee"
@@ -276,14 +277,14 @@
                VerticalAlignment="Center"
                HorizontalAlignment="Right"
                Foreground="White"
-               FontSize="25"
+               FontSize="20"
                FontWeight="DemiBold"/>
         <Label Grid.Row="13" Grid.Column="2"
                Content="ABONOS + PAGOS CXC :"
                VerticalAlignment="Center"
                HorizontalAlignment="Right"
                Foreground="White"
-               FontSize="20"
+               FontSize="18"
                FontWeight="DemiBold"/>
         <Label Grid.Row="13" Grid.Column="3"
                Name="lbl_OldTicketsPay"
@@ -291,14 +292,14 @@
                VerticalAlignment="Center"
                HorizontalAlignment="Right"
                Foreground="White"
-               FontSize="25"
+               FontSize="20"
                FontWeight="DemiBold"/>
         <Label Grid.Row="14" Grid.Column="2"
                Content="GASTOS + VALES (G):"
                VerticalAlignment="Center"
                HorizontalAlignment="Right"
                Foreground="White"
-               FontSize="20"
+               FontSize="18"
                FontWeight="DemiBold"/>
         <Label Grid.Row="14" Grid.Column="3"
                Name="lbl_Expenses"
@@ -306,7 +307,7 @@
                VerticalAlignment="Center"
                HorizontalAlignment="Right"
                Foreground="White"
-               FontSize="25"
+               FontSize="20"
                FontWeight="DemiBold"/>
         <GroupBox Grid.Row="1" Grid.Column="5"
                   Grid.ColumnSpan="6" Grid.RowSpan="14"

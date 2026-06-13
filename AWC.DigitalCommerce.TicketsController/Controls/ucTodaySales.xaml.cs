@@ -17,6 +17,7 @@ using AWC.DigitalCommerce.TicketsController.Classes;
 using AWC.DigitalCommerce.TicketsController.Properties;
 using iText.Layout.Properties;
 using Newtonsoft.Json;
+using Serilog;
 using static iText.StyledXmlParser.Jsoup.Select.Evaluator;
 
 namespace AWC.DigitalCommerce.TicketsController.Controls
@@ -32,6 +33,7 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
         public string strPrintAllTickets = string.Empty;
         public string strPrintAllClosedTickets = string.Empty;
         List<clsTicketsForDataGrid> itemdg = new List<clsTicketsForDataGrid>();
+
         public ucTodaySales(string _lang)
         {
             lang = _lang;
@@ -41,19 +43,21 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
             Traductor.ApplyTranslation(this, lang);
 
             LoadTodaySales(Settings.Default.BusinessDate);
-        }
+       }
+
         private void LoadTodaySales(string businessDate)
         {
             try
             {
-                itemdg = DB.DataBinding_tbl_Tickets(businessDate, 3);
+                itemdg = DB.DataBinding_tbl_TicketsTwoDates(businessDate, businessDate);
 
                 TodayTickets.ItemsSource = itemdg;
                 TodayTickets.Items.Refresh();
 
                 // get total price
                 int totalPrice = itemdg.Sum(x => x.TotalPrice);
-                TotalTodayTickets.Content = "TOTAL: " + totalPrice.ToString("N0").PadLeft(7);
+
+                TotalTodayTickets.Content = $"TOTAL: {totalPrice.ToString("N0").PadLeft(7)}" ;
 
                 InitializeButtons();
             }
@@ -62,7 +66,6 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
                 Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, ex, Logger.Severity.ERROR);
             }
         }
-
         private void btn_EmergencyPrint(object sender, RoutedEventArgs e)
         {
             foreach (clsTicketsForDataGrid item in TodayTickets.Items)
@@ -71,11 +74,13 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
                     Helper.PrintTicket(item);
             }
         }
+        
         private void btn_PrintClosed(object sender, RoutedEventArgs e)
         {
             foreach (clsTicketsForDataGrid item in TodayTickets.SelectedItems)
                 Helper.PrintTicket(item);
         }
+        
         private void TodayTickets_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             SetUserAccessToResources();
@@ -89,15 +94,17 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
 
             if (tck == null) return;
 
-            if (tck.PayMethod == 2 || tck.Status == false)
-            {
-                AbortTicket.IsEnabled = false;
-            }
+            //if (tck.PayMethod == 2 || tck.Status == false)
+            //{
+            //    AbortTicket.IsEnabled = false;
+            //}
         }
+        
         private void TodayTickets_GotFocus(object sender, RoutedEventArgs e)
         {
             SetUserAccessToResources();
         }
+        
         private void InitializeButtons()
         {
             Print.IsEnabled = true;
@@ -107,11 +114,13 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
             ChangeName.IsEnabled = true;
             ElectronicInvoice.IsEnabled = false;
         }
+        
         private void btn_PrintFoodService(object sender, RoutedEventArgs e)
         {
             foreach (clsTicketsForDataGrid item in TodayTickets.SelectedItems)
                 Helper.PrintTicket(item, 2);
         }
+        
         private void btn_FakeTicket(object sender, RoutedEventArgs e)
         {
             wpfEnterAmount wpfea = new wpfEnterAmount();
@@ -125,6 +134,7 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
                 Helper.PrintTicket(item, 2);
             }
         }
+        
         private void btn_eMailTicket(object sender, RoutedEventArgs e)
         {
             if (!SMTP.CheckInternetConnection())
@@ -144,6 +154,7 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
             swnd.ShowDialog();
 
         }
+        
         private void btn_AbortTicket(object sender, RoutedEventArgs e)
         {
             try
@@ -194,6 +205,7 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
                 Logger.WriteToLog(Constants.Titles.SHORTGAPPTITLE, ex, Logger.Severity.ERROR);
             }
         }
+        
         private void btn_ChangeName(object sender, RoutedEventArgs e)
         {
             wpfChangeCustName chgName = new wpfChangeCustName();
@@ -211,6 +223,7 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
             foreach (clsTicketsForDataGrid item in TodayTickets.SelectedItems)
                 Helper.PrintTicket(item, option, chgName.newName);
         }
+        
         private void btn_ElectronicInvoice(object sender, RoutedEventArgs e)
         {
             foreach (clsTicketsForDataGrid item in TodayTickets.SelectedItems)
@@ -345,6 +358,7 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
                 JSON.ATVSendWebServiceCall(ticket.ID, jsonOutput);
             }
         }
+        
         private void btn_ChangePayMethod(object sender, RoutedEventArgs e)
         {
             DB.GetPayMethodChanges(Settings.Default.BusinessDate);
@@ -384,6 +398,7 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
             sw.ShowDialog();
             this.Opacity = 1;
         }
+        
         private void SetUserAccessToResources()
         {
             try
@@ -405,6 +420,7 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
                 return;
             }
         }
+        
         private string GetFirstMailAddressFromTicketsList()
         {
             string mailAddress = string.Empty;
@@ -428,10 +444,45 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
 
             return mailAddress;
         }
-
-        private void btn_ChangePaymentMethod(object sender, RoutedEventArgs e)
+        
+        private void btn_ExportToExcel(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                ReportsRepository.InventoryStatusSwiftExcel(Settings.Default.BusinessDate, itemdg);
+                wpfSplashWindow sw = new wpfSplashWindow(1, lang);
+                sw.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                Log.Error($"btn_ExportToExcel ERROR: {ex.Message}{ex.StackTrace}");
+            }
+        }
 
+        private void btn_Search(object sender, RoutedEventArgs e)
+        {
+            DateTime startDatePicker = StartDatePicker.SelectedDate ?? DateTime.Now;
+
+            DateTime endDatePicker = EndDatePicker.SelectedDate ?? DateTime.Now;
+
+            if (startDatePicker > endDatePicker)
+            {
+                wpfMessageBox.Show("Tickets Controller", "ATENCIÓN: LA FECHA INICIAL NO PUEDE SER MAYOR A LA FECHA FINAL.", MessageBoxButton.OK, wpfMessageBox.MessageBoxImage.Warning, lang);
+                return;
+            }
+
+            string sd = startDatePicker.ToString("yyyyMMdd");
+            string ed = startDatePicker.ToString("yyyyMMdd");
+
+            itemdg = DB.DataBinding_tbl_TicketsTwoDates(sd, ed);
+
+            TodayTickets.ItemsSource = itemdg;
+            TodayTickets.Items.Refresh();
+
+            // get total price
+            int totalPrice = itemdg.Sum(x => x.TotalPrice);
+
+            TotalTodayTickets.Content = $"TOTAL: {totalPrice.ToString("N0").PadLeft(7)}";
         }
     }
 }

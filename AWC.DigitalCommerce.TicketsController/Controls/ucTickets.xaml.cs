@@ -1596,7 +1596,7 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
             }
         }
 
-        private void btn_PayTicket(object sender, RoutedEventArgs e)
+        private async void btn_PayTicket(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -1892,7 +1892,7 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
 
                         // Serializing JSON
                         string jsonOutput = JsonConvert.SerializeObject(ATV);
-                        JSON.ATVSendWebServiceCall(ticket.ID, jsonOutput);
+                        await JSON.ATVSendWebServiceCall(ticket.ID, jsonOutput);
                     }
                 }
 

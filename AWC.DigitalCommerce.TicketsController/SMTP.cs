@@ -565,7 +565,7 @@ namespace AWC.DigitalCommerce.TicketsController
                 //
                 // EMPLOYEES LOGIN/LOGOUT
                 //
-                List<clsTimeCard> timeCardList = DB.GetTimeCards(Settings.Default.BusinessDate);
+                List<clsTimeCard> timeCardList = DB.GetTimeCards(dateProc);
 
                 if (timeCardList.Count > 0)
                 {

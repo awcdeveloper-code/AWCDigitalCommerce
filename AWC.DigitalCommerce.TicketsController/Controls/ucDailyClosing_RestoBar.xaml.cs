@@ -29,6 +29,7 @@ namespace AWC.DigitalCommerce.TicketsController.Controls
         private int CashRegisterOpening = 0;
         private int CashOnDrawer = 0;
         private int CashWithdrawal = 0;
+
         public ucDailyClosing_RestoBar(string _lang)
         {
             lang = _lang;
